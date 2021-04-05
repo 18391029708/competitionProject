@@ -5,21 +5,31 @@
   </view>
   <!-- 告白墙 失物招领 -->
   <view id='lost_confessionArea'>
-    <view class='lost'> 
-
+    <view>
+      <view class='lost'> 
+      </view>
+      <text>失物招领</text>
     </view>
-    <view class='confession'>
-
+    
+    <view>
+      <view class='confession'>
     </view>
-
+    <text>告白墙</text>
+    </view>
   </view>
   <!-- 搭乘 快递代取 -->
   <view id='vehicle_parcel'>
-    <view class='vehicle'>
-
+    <view>
+      <view class='vehicle'>
     </view>
-    <view class='parcel'>
-
+    <text>电车搭乘</text>
     </view>
+
+    <view>
+      <view class='parcel'>
+    </view>
+    <text>快递代取</text>
+    </view>
+    
   </view>
 </view>
