@@ -1,0 +1,33 @@
+<view style="tab-class">
+  <mp-tabs 
+    tab-class="tab-class"
+    tabs="{{tabs}}" 
+    activeTab="{{activeTab}}" 
+    swiperClass="weui-tabs-swiper"
+    bindtabclick="onTabClick"
+    bindchange="onChange"
+    activeClass="tab-bar-title__selected"
+  >
+  </mp-tabs>
+</view>
+
+<map class='mapstyle' scale='15' markers="{{markers}}"  latitude="{{latitude}}"  longitude="{{longitude}}" >
+  <cover-view class="text">
+    <cover-view>
+      
+    </cover-view>
+      <cover-view class="lev1" bindtap="chooseStartLocation">
+        <!-- <cover-image class="position1" src="../images/origin.png"></cover-image> -->
+        <cover-view class="origin"> "起点:{{position}}" </cover-view>
+      </cover-view>
+
+      <cover-view class="line"></cover-view>
+
+      <cover-view class="lev2" bindtap="chooseLocation">
+        <!-- <cover-image class="position2" src="../images/destination.png"></cover-image> -->
+        <cover-view class="destination">"终点:{{EndPosition}}"</cover-view>
+      </cover-view>
+    <!-- <input value="{{markers[0].position}}"/> -->
+  </cover-view>
+</map>
+ 

@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/homePage/homePage",
     "pages/order/order",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/takeVehicle/takeVehicle"
   ],
   "window":{
     "backgroundTextStyle":"light",

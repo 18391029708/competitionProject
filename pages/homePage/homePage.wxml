@@ -19,7 +19,7 @@
   </view>
   <!-- 搭乘 快递代取 -->
   <view id='vehicle_parcel'>
-    <view>
+    <view bindtap='toTakeVehicle'>
       <view class='vehicle'>
     </view>
     <text>电车搭乘</text>

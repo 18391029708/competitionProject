@@ -1,0 +1,56 @@
+/* pages/takeVehicle/takeVehicle.wxss */
+.mapstyle{
+  height: 100vh;
+  width: 100%;
+}
+.tab-class{
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+}
+.text{
+  width: 90%;
+  height: 200rpx;
+  border-radius: 20rpx;
+  background-color: rgb(255, 105, 180, 0.7);  
+   padding:10px;
+   position: fixed;
+   margin-left: 15rpx;
+   margin-right: 10rpx;
+   bottom:20rpx;
+ }
+ .lev1{
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+}
+.position1{
+ width: 10px;
+ height: 10px;
+ flex: 1;
+}
+.origin{
+ flex:5;
+ color: #888888;
+ font-size: 15px;
+}
+
+.line{
+  border-top: 1px solid #eeeeee73 ;
+}
+
+.lev2{
+  margin-top: 30rpx;
+  display: flex;
+}
+.position2{
+ width: 10px;
+ height: 10px;
+ flex: 1;
+}
+.destination{
+ flex:5;
+ color: #888888;
+ font-size: 15px;
+}

@@ -1,4 +1,7 @@
 /**index.wxss**/
+.container{
+  height: 100vh;
+}
 .userinfo {
   display: flex;
   flex-direction: column;
