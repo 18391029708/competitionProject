@@ -1,1 +1,63 @@
-/* pages/mine/mine.wxss */
+.head{
+  width:100%;
+  height:300rpx;
+  font-size:30rpx;
+}
+
+.headimage{
+position: relative;
+ margin-top: 40rpx;
+ float: left;
+ width: 50%;
+ display: flex;
+}
+
+.frofile_photo{
+  flex:1;
+}
+
+.headimage image{
+  width: 80px;
+  height: 80px;
+  margin-left: 20rpx;
+  background-color: white;
+  border-radius:80px 80px 80px 80px;
+}
+.choose{
+  flex:1;
+  margin-left: 200px;
+  margin-top: 25px;
+}
+.choose text{
+  font-size: 14px;
+}
+
+
+.line{
+  background: #EEEEEE;
+  width: 100%;
+  height: 1px;
+ }
+
+.selection{
+  width:100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  margin-left: 20rpx;
+}
+
+.fontStyle{
+  width:80%;
+  font-size:40rpx;
+  color: #555555;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+/* pages/orderConfirm/orderConfirm.wxss */
+.container{
+  height: 100vh;
+  justify-content: center;
+}
+.confirmOrderInfoArea{
+  width: 95%;
+  background-color: khaki;
+  flex-direction: column;
+  /* display: inline-block; */
+}
+.text{
+  text-align: center;
+}
+.positionArea{
+  width: 20px;
+  height: 20px;
+  /* background-color: lightblue; */
+ 
+}
+.area{
+  display: inline-flex;
+  /* background-color: lavender; */
+  flex-direction: row;
+}

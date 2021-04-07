@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    markers:[],
+    EndPosition: '999',
+    position:'o',
   },
 
   /**
@@ -95,6 +97,52 @@ Page({
     ]
     this.setData({ tabs })
   },
+  // 选择起点
+  chooseStartLocation:function(){
+    var that = this;
+   wx.chooseLocation({
+     success:function(res){
+       console.log(res);
+       that.setData({
+        position:res.name
+       })
+     },     
+   })   
+   console.log(this.data)
+   console.log(that.data)
+  },   
+  // 选择终点
+  chooseLocation:function(){
+    var that = this;
+   wx.chooseLocation({
+     success:function(res){
+       console.log(res);
+       that.setData({
+          EndPosition:res.name
+       })
+      that.changeStyle();
+     },     
+   })   
+   console.log(this.data)
+   console.log(that.data)
+  },   
+// 选择终点后进行页面跳转
+  changeStyle:function(){
+   var that = this;
+    wx.navigateTo({
+      url:'../orderConfirm/orderConfirm',    
+      success: function(res) {
+        // var that = this;
+        // console.log(that.data);
+        console.log(that)
+        console.log(res)
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', { data: that.data})      
+        console.log(that.data)
+      }
+    })
+  },
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成

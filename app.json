@@ -5,6 +5,7 @@
     "pages/homePage/homePage",
     "pages/order/order",
     "pages/mine/mine",
+    "pages/orderConfirm/orderConfirm",
     "pages/takeVehicle/takeVehicle"
   ],
   "window":{

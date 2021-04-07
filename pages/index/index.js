@@ -23,6 +23,10 @@ Page({
     wx.switchTab({
       url: '../homePage/homePage',
     })
+    console.log("用户基本信息：" + this.data.userInfo)
+    console.log(JSON.stringify(this.data.userInfo))
+    // 将用户基本信息存储全局
+    app.globalData.userInfo = this.data.userInfo
   },
   onLoad() {
     if (wx.getUserProfile) {
@@ -37,10 +41,12 @@ Page({
       desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
         console.log(res)
+        console.log("登录用户信息：" + res.userInfo)
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
+     
       }
     })
   },

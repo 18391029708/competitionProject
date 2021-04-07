@@ -19,11 +19,20 @@
   </view>
   <!-- 搭乘 快递代取 -->
   <view id='vehicle_parcel'>
+  <!-- 选择展示搭乘还是接乘 -->
+  <view hidden="{{homePageVehicleArea}}">
     <view bindtap='toTakeVehicle'>
-      <view class='vehicle'>
-    </view>
+      <view class='vehicle'></view>
     <text>电车搭乘</text>
     </view>
+  </view>
+  <view hidden="{{!homePageVehicleArea}}">
+    <view bindtap='toTakeVehicle'>
+      <view class='vehicle'></view>
+    <text>电车接乘</text>
+    </view>
+  </view>
+   
 
     <view>
       <view class='parcel'>

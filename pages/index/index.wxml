@@ -20,4 +20,5 @@
   <view class="usermotto">
     <text bindtap='homePage' class="user-motto">{{motto}}</text>
   </view>
+  <view bindtap="getUserProfile">获取用户信息</view>
 </view>

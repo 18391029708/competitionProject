@@ -1,0 +1,23 @@
+<!--pages/orderConfirm/orderConfirm.wxml-->
+<view class="container">
+  <view class='confirmOrderInfoArea'>
+    <view class="text">确认订单信息</view>
+    <!-- 起点区域 -->
+    <view class="area">
+        <image class="positionArea" src="../../icons/listStantPoint.png"></image>
+        <view>起点：{{position}}</view>
+    </view>
+    <!-- 终点区域 -->
+    <view class="area">
+      <image class="positionArea" src="../../icons/listEndPoint.png"></image>
+      <view>终点：{{EndPosition}}</view>
+    </view>
+    <!-- 金额区域 -->
+    <view class="area">
+      <image class="positionArea" src="../../icons/money.png"></image>
+      <view>金额： 2元 </view>
+    </view> 
+  </view>
+  <!-- 确认按钮 -->
+  <button bindtap='payMent'>确认支付</button>
+</view>
