@@ -6,7 +6,7 @@
       <text class="add-time">{{addTime}}</text>
     </view>
     <view class="task-status">
-    <view class="status">{{taskStatus}}</view>
+      <view class="status">{{taskStatus}}</view>
     </view>
   </view>
   <view class="task-detail">
@@ -33,7 +33,7 @@
       <text class="add-time">{{addTime}}</text>
     </view>
     <view class="task-status">
-    <view class="status">{{taskStatus}}</view>
+      <view class="status">{{taskStatus}}</view>
     </view>
   </view>
   <view class="task-detail">
