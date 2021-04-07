@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
+    motto: '进入首页',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -19,6 +19,7 @@ Page({
   },
   //跳转登录页
   homePage(){
+   
   //跳转tabar页面
     wx.switchTab({
       url: '../homePage/homePage',
@@ -29,11 +30,25 @@ Page({
     app.globalData.userInfo = this.data.userInfo
   },
   onLoad() {
+  
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true
       })
     }
+    // 通过云函数获取用户openid
+    wx.cloud.callFunction({
+      name:"openapi",
+      data:{
+        action:"getOpenData"
+      },
+      success: res =>{
+        console.log("获取到openid:" + res)
+        console.log(JSON.stringify(res))
+        app.globalData.openid = res.result.openid
+      }
+    })
+    
   },
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗

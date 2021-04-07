@@ -1,2 +1,31 @@
 <!--pages/order/order.wxml-->
-<text>pages/order/order.wxml</text>
+<view class="container">
+  <view class="order">订单记录</view>
+  <view class="orderArea">
+    <view class='dingdan' hidden="{{hidden}}">
+      <view wx:for="{{lists}}" data-item="item" data-index='{{index}}' class='orderRecord'>
+        <view class="orderItem">
+          <view class="lev">
+            <text>{{item.orderType}}</text>
+            <text class="title">{{item.orderStatus}}</text>
+          </view>
+          <!-- 根据订单类型展示不同布局类型  电车搭乘类型 -->
+          <view wx:if="{{item.orderType == '电车搭乘'}}">
+            <view class="iconfont icon-qidian">{{item.start_position}}</view>
+            <view class="iconfont icon-zhongdian">{{item.end_position}}</view>
+            <view class="iconfont icon-shijian">{{item.create_time}}</view>
+          </view>
+          <!-- 快递代取类 -->
+          <view wx:if="{{item.orderType == '快递代取'}}">
+            <!-- 代取基本信息 -->
+            <view>
+              <view>{{item.info}}</view>
+            </view>
+          </view>
+        </view>
+
+
+      </view>
+    </view>
+  </view>
+</view>

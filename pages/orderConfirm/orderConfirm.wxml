@@ -15,7 +15,7 @@
     <!-- 金额区域 -->
     <view class="area">
       <image class="positionArea" src="../../icons/money.png"></image>
-      <view>金额： 2元 </view>
+      <view>金额：{{orderMoney/100}}元 </view>
     </view> 
   </view>
   <!-- 确认按钮 -->

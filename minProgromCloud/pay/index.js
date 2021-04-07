@@ -13,7 +13,7 @@ exports.main = async (event, context) => {
     "outTradeNo" : event.outTradeNo,
     "spbillCreateIp" : "127.0.0.1",
     "subMchId" : "1604371057",
-    "totalFee" : 1,
+    "totalFee" : event.money,
     "envId": "data-base-1g3n115z3df553d0",
     "functionName": "pay_cb"
   })
