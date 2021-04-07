@@ -9,7 +9,10 @@ Page({
   data: {
     EndPosition: '999',
     position:'o',
-    confirmData:""
+    confirmData:"",
+    openid:'',
+    orderType:"电车搭乘",
+    orderMoney:1
   },
 
   /**
@@ -29,18 +32,7 @@ Page({
  
     console.log(1)
     console.log(this.data)   //this 可以使用
-    // 通过云函数获取用户openid
-    wx.cloud.callFunction({
-      name:"openapi",
-      data:{
-        action:"getOpenData"
-      },
-      success: res =>{
-        console.log("获取到openid:" + res)
-        console.log(JSON.stringify(res.openid))
-        app.globalData.openid = res.openid
-      }
-    })
+    
   },
   //订单支付,调用云函数
   payMent:function(){
@@ -57,6 +49,7 @@ Page({
     wx.cloud.callFunction({
       name:'pay',
       data: {
+        money:that.data.orderMoney,
         outTradeNo:timestamp+timestamp+timestamp+'abc'
       },
       success: res => {
@@ -66,6 +59,8 @@ Page({
       ...payment,
       success(res) {
         console.log('pay success', res)
+        console.log("支付页用户基本信息：" + app.globalData.openid);
+     
         wx.cloud.callFunction({
           name:'OperateDatabase',
           data:{
@@ -75,11 +70,13 @@ Page({
               create_time: timeutil.formatTime(new Date()),
               update_time: timeutil.formatTime(new Date()),
             //  specifyGender:'',
-              userId: app.globalData.openid,
+            orderType:that.data.orderType,
+              userId:app.globalData.openid,
               end_position: that.data.EndPosition,
-              way_status: '正在进行',
-              scheduling: '等待接单',
-              start_position: that.data.position 
+              // 订单分为等待接单，正在进行，已完成，三个状态
+              orderStatus: '等待接单',
+              start_position: that.data.position ,
+              orderMoney:that.data.orderMoney
             }
           }
         })

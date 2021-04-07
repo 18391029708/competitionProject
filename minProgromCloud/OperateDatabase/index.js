@@ -42,8 +42,7 @@ exports.main = async (event, context) => {
     try {
       return await db.collection(event.tablename).where(event.data).get({
         success: function(res) {
-          // res.data 是包含以上定义的两条记录的数组
-          console.log(res.data)
+          console.log("查询回调成功:"+ res.data)
         }
       })
     } catch (e) {
