@@ -1,11 +1,11 @@
-// pages/homePage/homePage.js
+// pages/takeDelivery.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    homePageVehicleArea:true
+
   },
 
   /**
@@ -13,18 +13,6 @@ Page({
    */
   onLoad: function (options) {
 
-  },
-  toTakeVehicle(){
-    wx.navigateTo({
-      url: '../takeVehicle/takeVehicle',
-    
-    })
-  },
-  toTakeDelivery(){
-    wx.navigateTo({
-      url: '../takeDelivery/takeDelivery',
-    
-    })
   },
 
   /**

@@ -6,39 +6,37 @@
   <!-- 告白墙 失物招领 -->
   <view id='lost_confessionArea'>
     <view>
-      <view class='lost'> 
+      <view class='lost'>
       </view>
       <text>失物招领</text>
     </view>
-    
+
     <view>
       <view class='confession'>
-    </view>
-    <text>告白墙</text>
+      </view>
+      <text>告白墙</text>
     </view>
   </view>
   <!-- 搭乘 快递代取 -->
   <view id='vehicle_parcel'>
-  <!-- 选择展示搭乘还是接乘 -->
-  <view hidden="{{homePageVehicleArea}}">
-    <view bindtap='toTakeVehicle'>
-      <view class='vehicle'></view>
-    <text>电车搭乘</text>
+    <!-- 选择展示搭乘还是接乘 -->
+    <view hidden="{{homePageVehicleArea}}">
+      <view bindtap='toTakeVehicle'>
+        <view class='vehicle'></view>
+        <text>电车搭乘</text>
+      </view>
     </view>
-  </view>
-  <view hidden="{{!homePageVehicleArea}}">
-    <view bindtap='toTakeVehicle'>
-      <view class='vehicle'></view>
-    <text>电车接乘</text>
+    <view hidden="{{!homePageVehicleArea}}">
+      <view bindtap='toTakeVehicle'>
+        <view class='vehicle'></view>
+        <text>电车接乘</text>
+      </view>
     </view>
-  </view>
-   
 
-    <view>
-      <view class='parcel'>
+    <view bindtap="toTakeDelivery">
+      <view class='parcel'></view>
+      <text>快递代取</text>
     </view>
-    <text>快递代取</text>
-    </view>
-    
+
   </view>
 </view>
