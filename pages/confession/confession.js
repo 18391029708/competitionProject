@@ -1,43 +1,24 @@
-// pages/homePage/homePage.js
-const app = getApp();
+// pages/confession.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    homePageVehicleArea:''
+    isLike:false
   },
-
+  // 事件
+  handleLike(e){
+    console.log(e);
+    this.setData({
+      isLike:!this.data.isLike
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
-  },
-  toTakeVehicle(){
-    wx.navigateTo({
-      url: '../takeVehicle/takeVehicle',
-    })
-  },
-
-  toTakeOrder(){
-    wx.navigateTo({
-      url: '../takeOrder/takeOrder',
-    })
-  },
-  
-  toTakeDelivery(){
-    wx.navigateTo({
-      url: '../takeDelivery/takeDelivery',
-    
-    })
-  },
-  toTakeDelivery(){
-    wx.navigateTo({
-      url: '../takeDelivery/takeDelivery',
-    
-    })
   },
 
   /**
@@ -51,11 +32,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // 获取当前用户选择的身份状态
-    this.setData({
-      homePageVehicleArea:app.globalData.selectStatus
-    })
-    
 
   },
 

@@ -14,51 +14,29 @@
     <view>
       <view class='confession'>
       </view>
-      <text>告白墙</text>
+      <navigator url="../confession/confession">告白墙</navigator>
     </view>
   </view>
   <!-- 搭乘 快递代取 -->
   <view id='vehicle_parcel'>
     <!-- 选择展示搭乘还是接乘 -->
     <view hidden="{{homePageVehicleArea}}">
-      <!-- 搭乘 -->
       <view bindtap='toTakeVehicle'>
         <view class='vehicle'></view>
         <text>电车搭乘</text>
       </view>
     </view>
     <view hidden="{{!homePageVehicleArea}}">
-      <!-- 接单 -->
       <view bindtap='toTakeOrder'>
         <view class='vehicle'></view>
         <text>电车接乘</text>
-
-        <!-- 选择展示搭乘还是接乘
-        <view hidden="{{homePageVehicleArea}}">
-          <view bindtap='toTakeVehicle'>
-            <view class='vehicle'></view>
-            <text>电车搭乘</text>
-          </view>
-        </view>
-        <view hidden="{{!homePageVehicleArea}}">
-          <view bindtap='toTakeVehicle'>
-            <view class='vehicle'></view>
-            <text>电车接乘</text>
-          </view>
-
-        </view> -->
-
-
-
       </view>
     </view>
-    <!-- 快递代取 -->
+
     <view bindtap="toTakeDelivery">
       <view class='parcel'></view>
       <text>快递代取</text>
     </view>
+
   </view>
-
-
-
 </view>
