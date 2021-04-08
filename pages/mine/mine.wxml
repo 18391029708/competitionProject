@@ -8,51 +8,24 @@
       </view>
 
       <view class='choose'><text>同意上线</text>
-        <switch checked="{{switch1Checked}}" bindchange="aa"></switch>
+        <switch checked="{{switch1Checked}}" bindchange="selectStatus"></switch>
       </view>
-     
+
     </view>
   </view>
 
   <!-- 功能 -->
-  <view class='middle' style>
+  <view class="listItem">
+    <view wx:for="{{listItemContent}}">
+      <view class="itemContent" bindtap="click" id="{{index}}">
+        <!-- <view>{{index}}</view> -->
+        <image class="imgArea" src="{{item.src}}"></image>
 
-    <view class="line"></view>
-    <view class='selection' bindtap='personal'>
-      <view class='iconfont icon-renzhengtubiao- fontStyle'>校园认证</view>
-      <view class='iconfont icon-dayu'></view>
-    </view>
+        <view class="tiltArea">{{item.title}}</view>
+        <image class="imgArea2" src="{{item.img}}"></image>
+      </view>
 
-    <view class="line"></view>
-    <view class='selection' bindtap='mymoney'>
-      <view class='iconfont icon-huaban fontStyle'>我的钱包</view>
-      <view class='iconfont icon-dayu'></view>
     </view>
-    
-    <view class="line"></view>
-    <view class='selection' bindtap='mymessage'>
-      <view class='iconfont icon-xiaoxizhongxin fontStyle'>消息中心</view>
-      <view class='iconfont icon-dayu'></view>
-    </view>
-    
-    <view class="line"></view>
-    <view class='selection ' bindtap='set'>
-      <view class='iconfont icon-mimashezhi fontStyle'>密码设置</view>
-      <view class='iconfont icon-dayu'></view>
-    </view>
-    
-    <view class="line"></view>
-    <view class='selection ' bindtap='sign'>
-      <view class='iconfont icon-qiandao fontStyle'>签到</view>
-      <view class='iconfont icon-dayu'></view>
-    </view>
-    
-    <view class="line"></view>
-    <view class='selection ' bindtap='service'>
-      <view class='iconfont icon-zixunfankui fontStyle'>咨询反馈</view>
-      <view class='iconfont icon-dayu'></view>
-    </view>
-    <view class="line"></view>
-
   </view>
+
 </view>

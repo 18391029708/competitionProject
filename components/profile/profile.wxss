@@ -1,0 +1,28 @@
+.top {
+  display: flex;
+}
+
+.user-profile {
+  margin-top: 10rpx;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  background-color: aqua;
+}
+
+.user-info {
+  padding-bottom: 15rpx;
+  padding-left: 15rpx;
+  flex: 7;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 30rpx;
+}
+
+.add-time {
+  font-size: 24rpx;
+  color: #A9A9A9;
+}

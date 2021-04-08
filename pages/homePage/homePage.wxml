@@ -27,7 +27,7 @@
       </view>
     </view>
     <view hidden="{{!homePageVehicleArea}}">
-      <view bindtap='toTakeVehicle'>
+      <view bindtap='toTakeOrder'>
         <view class='vehicle'></view>
         <text>电车接乘</text>
       </view>

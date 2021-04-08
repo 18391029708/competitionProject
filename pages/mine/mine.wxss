@@ -1,3 +1,6 @@
+.container{
+  height: 100vh;
+}
 .head{
   width:100%;
   height:300rpx;
@@ -25,7 +28,7 @@ position: relative;
 }
 .choose{
   flex:1;
-  margin-left: 200px;
+  margin-left: 150px;
   margin-top: 25px;
 }
 .choose text{
@@ -38,20 +41,43 @@ position: relative;
   width: 100%;
   height: 1px;
  }
-
-.selection{
-  width:100%;
-  height: 100rpx;
-  line-height: 100rpx;
-  display: flex;
-  margin-left: 20rpx;
+ .listItem{
+   /* background-color: lightcoral; */
+   width: 100%;
+ }
+ .itemContent{
+   background-color: lightblue;
+   width: 100%;
+   margin-left: 0px;
+ }
+.imgArea{
+  width: 30px;
+  height: 30px;
+  float: left;
+  margin-left: 10px;
 }
-
-.fontStyle{
-  width:80%;
-  font-size:40rpx;
-  color: #555555;
+.tiltArea{
+  float: left;
+  margin-left: 30px;
 }
+.imgArea2{
+  width: 30px;
+  height: 30px;
+  float: left;
+  margin-left: 120px;
+}
+ .itemContent{
+  /* background-color: lawngreen; */
+  width: 100%;
+  height: 40px;
+  margin-bottom: 5px;
+  border-bottom-color: lemonchiffon;
+  border-bottom-width: 2px;
+  flex-direction: row;
+  /* display: inline-flex; */
+ }
+
+/*  */
 
 
 

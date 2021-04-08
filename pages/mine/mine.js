@@ -3,6 +3,7 @@ const db = wx.cloud.database()
 var app = getApp();
 Page({
   data: {
+    listItemContent:[{title:"信息认证",src:"../../icons/campusIcon.png",img:"../../icons/enter (2).png"},{title:"我的钱包",src:"../../icons/moneyBall.png",img:"../../icons/enter (2).png"},{title:"发布历史",src:"../../icons/psw.png",img:"../../icons/enter (2).png"}],
     userInfo:'',
     switch1Checked:false,
     chooseBtn:true,
@@ -15,22 +16,39 @@ Page({
     utype:0,
     uphone:''
   },
-  // changeSwitchChecked:function(){
-  //   app.globalData.switchChecked='true';
-  // },
-  // {
-  //   console.log(app.globalData.loginState),
-  //   app.globalData.loginState=true,
-  // },
- 
+  click(e){
+    console.log("点击认证索引："+ JSON.stringify(e))
+    if(e.currentTarget.id == 0){//进入信息认证页
+      wx.navigateTo({
+        url: '../infoAuthentification/infoAuthentification',
+      })
+      console.log("我是0")
+    }else if(e.currentTarget.id == 1){//进入我的钱包页
+      wx.navigateTo({
+        url: '../wallet/wallet',
+      })
+      console.log("我是1")
+    }else if(e.currentTarget.id == 2){//进入密码设置页
+      console.log("我是2")
+    } else if(e.currentTarget.id== 3){
+      console.log("我是3")
+    }
+  },
+  click0(){
+    console.log("这是打印的0值")
+  },
+  click1(){
+    console.log("这是打印的1值")
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  aa:function(event){
+  // 当前状态选择为上线或者下线
+  selectStatus:function(event){
     console.log(event)
-    app.globalData.hidden2=event.detail.value;
-    console.log(app.globalData.hidden2,this.data.switch1Checked);
+    app.globalData.selectStatus = event.detail.value;
+    console.log(app.globalData.selectStatus,this.data.switch1Checked);
     console.log(event)
   },
   onLoad: function (options) {

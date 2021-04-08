@@ -1,0 +1,38 @@
+<!--pages/authentificationDetail/authentificationDetail.wxml-->
+<view class="container">
+  <!-- 学生认证 -->
+  <view class="studentInfo" wx:if="{{studentInfoShow}}">
+    <text>学生基本信息认证</text>
+    <form catchsubmit="formSubmit">
+    <view class="infoInput">
+      <view class="student">
+        <text class="textType">学校: </text>
+        <text class="textType">学号: </text>
+        <text class="textType">姓名: </text>
+        <text class="textType">性别: </text>
+      </view>
+     
+
+     
+      <view class="student">
+        <input name="input" placeholder="school"/>
+        <input name="input" placeholder="number"/>
+        <input name="input" placeholder="name"/>
+        <input name="input" placeholder="sex"/>
+      </view>
+      <!-- <form action=""></form> -->
+    </view>
+    <button type="primmary" form-type="submit">提交</button>
+  </form>
+  </view>
+  <!-- 实名认证 -->
+  <view class="realInfo" wx:if="{{realInfoShow}}">
+    <view class="real">
+      <text>上传身份证</text>
+    </view>
+  </view>
+  <!-- 车手认证 -->
+  <view class="vehicleInfo" wx:if="{{vehicleInfoShow}}">
+    <text class="vehicle">车辆信息</text>
+  </view>
+</view>
