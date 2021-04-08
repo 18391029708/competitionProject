@@ -1,0 +1,6 @@
+<!--pages/takeOrder/takeOrder.wxml-->
+<view class="container">
+  <view>
+    接单
+  </view>
+</view>

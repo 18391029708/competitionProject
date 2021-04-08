@@ -1,32 +1,32 @@
-// pages/homePage/homePage.js
-const app = getApp();
+// pages/authentificationDetail/authentificationDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    homePageVehicleArea:''
+    studentInfoShow:'',
+    realInfoShow:'',
+    vehicleInfoShow:''
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-  toTakeVehicle(){
-    wx.navigateTo({
-      url: '../takeVehicle/takeVehicle',
+    console.log("认证细节页面信息：" + JSON.stringify(options) );
+    this.setData({
+      studentInfoShow:options.studentInfoShow,
+      realInfoShow:options.realInfoShow,
+      vehicleInfoShow:options.vehicleInfoShow
     })
-  },
-  toTakeOrder(){
-    wx.navigateTo({
-      url: '../takeOrder/takeOrder',
-    })
+    
 
   },
-
+  formSubmit(e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -38,11 +38,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // 获取当前用户选择的身份状态
-    this.setData({
-      homePageVehicleArea:app.globalData.selectStatus
-    })
-    
 
   },
 

@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="listItem">
+    <view wx:for="{{listItemContent}}">
+      <view class="itemContent" bindtap="click" id="{{index}}">
+        <!-- <view>{{index}}</view> -->
+        <image class="imgArea" src="{{item.src}}"></image>
+
+        <view  class="tiltArea">{{item.title}}{{item.symbol}}{{item.account}}</view>
+        <image class="imgArea2" src="{{item.img}}"></image>
+      </view>
+    </view>
+  </view>
+</view>

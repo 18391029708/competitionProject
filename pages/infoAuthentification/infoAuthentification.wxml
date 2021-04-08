@@ -1,0 +1,13 @@
+<!--pages/infoAuthentification/infoAuthentification.wxml-->
+<view class="container">
+  <view class="headTitle">为了给您带来更好的体验请您根据需要进行实名认证，实名信息将严格保密</view>
+  <view class="cardArea">
+    <view wx:for="{{cardType}}">
+    <view class="infoCard{{index}}" bindtap="authentification" id="{{index}}">
+      <view>{{item.title}}</view>
+      <view>{{item.tip}}</view>
+      
+    </view>
+  </view>
+  </view>
+</view>

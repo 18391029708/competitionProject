@@ -1,0 +1,28 @@
+/* pages/authentificationDetail/authentificationDetail.wxss */
+.studentInfo{
+  background-color: lightgreen;
+  /* height: 50px; */
+}
+.realInfo{
+  background-color: lightcyan; 
+  height: 50px;
+}
+.vehicleInfo{
+  height: 50px;
+  background-color: lightpink;
+}
+.infoInput{
+  flex-direction: row;
+  display: flex;
+}
+.textType{
+  margin-right: 10px;
+}
+.student{
+  flex-direction: column;
+  margin-top: 10px;
+  align-content: space-around;
+  justify-content: space-around;
+  display: flex;
+
+}

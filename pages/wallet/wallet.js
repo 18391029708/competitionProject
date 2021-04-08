@@ -1,29 +1,17 @@
-// pages/homePage/homePage.js
-const app = getApp();
+// pages/wallet/wallet.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    homePageVehicleArea:''
+    listItemContent:[{title:"账户余额",symbol:" : ", account:"0",src:"../../icons/campusIcon.png",img:"../../icons/enter (2).png"},{title:"银行卡",src:"../../icons/moneyBall.png",img:"../../icons/enter (2).png"},{title:"提现",src:"../../icons/psw.png",img:"../../icons/enter (2).png"}],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-  toTakeVehicle(){
-    wx.navigateTo({
-      url: '../takeVehicle/takeVehicle',
-    })
-  },
-  toTakeOrder(){
-    wx.navigateTo({
-      url: '../takeOrder/takeOrder',
-    })
 
   },
 
@@ -38,11 +26,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // 获取当前用户选择的身份状态
-    this.setData({
-      homePageVehicleArea:app.globalData.selectStatus
-    })
-    
 
   },
 

@@ -1,0 +1,36 @@
+.headTitle{
+  height: 100px;
+  width: 100%;
+  background-color: lightseagreen;
+}
+.cardArea{
+  width: 90%;
+  height: 100vh;
+  justify-content: space-around;
+  /* align-items: center; */
+  display: flex;
+  flex-direction: column;
+  /* align-content: space-around; */
+  background-color: lightgoldenrodyellow;
+}
+.infoCard0{
+  width: 100%;
+  height: 120px;
+  background-color: lightgreen;
+  border-radius: 20px;
+  margin-bottom: 5px;
+}
+.infoCard1{
+  width: 100%;
+  height: 120px;
+  background-color: lightcyan; 
+  border-radius: 20px;
+  margin-bottom: 5px;
+}
+.infoCard2{
+  width: 100%;
+  height: 120px;
+  background-color: lightpink;
+  border-radius: 20px;
+  margin-bottom: 5px;
+}

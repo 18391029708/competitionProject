@@ -6,6 +6,10 @@
     "pages/order/order",
     "pages/mine/mine",
     "pages/orderConfirm/orderConfirm",
+    "pages/infoAuthentification/infoAuthentification",
+    "pages/wallet/wallet",
+    "pages/takeOrder/takeOrder",
+    "pages/authentificationDetail/authentificationDetail",
     "pages/takeVehicle/takeVehicle"
   ],
   "window":{
