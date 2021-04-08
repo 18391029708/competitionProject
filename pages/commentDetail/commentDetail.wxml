@@ -1,0 +1,43 @@
+<!--pages/commentDetail/commentDetail.wxml-->
+<!-- <van-skeleton title avatar row="3" loading="{{isLoading}}"> -->
+  <userHeader userName="jealh" postTime="2020-12-030 13:12:22"></userHeader>
+  <!-- 文本内容 -->
+  <view class="content">
+    Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序员的精心调制，结合了色彩自然变化的规律，我们得出了一套色彩生成工具，当有进一步色彩设计需求时，设计者只需按照一定规则定义完毕主色，便可以自动获得一系列完整的衍生色。
+  </view>
+  <!-- 图片容器 -->
+  <view class="img_container">
+    <image fill="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+    <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
+    <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
+    <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
+    <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
+    <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
+    <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
+    <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
+    <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
+    <image width="100%" height="100" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+  </view>
+  <view>评论</view>
+  <!-- 评论列表 -->
+  <view class="comments_list">
+    <view wx:if="{{comments.length}}">
+      <view wx:for="{{comments}}" wx:key="index" class="comments_item">
+        <userHeader userName="{{item.name}}" postTime="{{item.commentTime}}"></userHeader>
+        <view class="comment_content">{{item.content}}</view>
+        <!-- <view class="reply">查看当前5条回复></view> -->
+        <view class="reply">回复</view>
+      </view>
+    </view>
+    <view wx:else style="text-align:center;color:#8c8c8c">
+      暂无评论
+    </view>
+    
+  </view>
+<!-- </van-skeleton> -->
+
+<!-- 输入框 -->
+<view class="comment_input_box">
+  <input type="text" adjust-position="false" value="{{inputComment}}" placeholder="发表评论" bindinput="handleCommentInput"></input>
+  <button class="weui-btn weui-btn_mini weui-btn_primary" bindtap="handleSentComment">发送</button>
+</view>

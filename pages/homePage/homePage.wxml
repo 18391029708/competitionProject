@@ -14,7 +14,7 @@
     <view>
       <view class='confession'>
       </view>
-      <text>告白墙</text>
+      <navigator url="../confession/confession">告白墙</navigator>
     </view>
   </view>
   <!-- 搭乘 快递代取 -->

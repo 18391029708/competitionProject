@@ -7,7 +7,9 @@
     "pages/mine/mine",
     "pages/orderConfirm/orderConfirm",
     "pages/takeVehicle/takeVehicle",
-    "pages/takeDelivery/takeDelivery"
+    "pages/takeDelivery/takeDelivery",
+    "pages/confession/confession",
+    "pages/commentDetail/commentDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -44,6 +46,5 @@
     "selectedColor": "#FFC0CB",
     "position": "bottom"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
