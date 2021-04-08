@@ -3,6 +3,7 @@ page {
 }
 
 .list {
+  position: relative;
   margin: 20rpx 20rpx 30rpx;
   padding: 30rpx;
   border-radius: 10rpx;
@@ -22,7 +23,7 @@ page {
 
 .user-info {
   padding-left: 15rpx;
-  flex: 5;
+  flex: 7;
   display: flex;
   flex-direction: column;
 }
@@ -37,18 +38,15 @@ page {
 }
 
 .task-status {
-  display: flex;
-  flex: 2;
-  align-items: center;
-  justify-content: center;
-}
-
-.status {
-  text-align: center;
+  top: 20rpx;
+  right: -50rpx;
+  position: absolute;
+  padding-left: 30rpx;
+  padding-top: 15rpx;
   width: 150rpx;
   height: 60rpx;
-  border-radius: 40rpx;
-  font-size: 30rpx;
+  border-radius: 50rpx;
+  font-size: 28rpx;
   background-color: #FF1493;
   color: #ffffff;
 }
@@ -78,4 +76,21 @@ page {
   padding: 15rpx;
   font-size: 30rpx;
   color: red;
+}
+
+.task-demand,.task-description{
+  display: grid;
+  padding-left: 15rpx;
+  grid-template-columns: 1fr 2fr;
+}
+
+.demand-title,.description-title{
+  padding: 15rpx;
+  font-size: 26rpx;
+  color: #A9A9A9;
+}
+
+.demand,.description{
+  padding: 15rpx;
+  font-size: 26rpx;
 }
