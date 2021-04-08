@@ -1,11 +1,30 @@
 // pages/confession.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isLike:false
+    isLike:false,
+    top:'100vh'
+  },
+  cancelWrite(e){
+    this.setData({
+      top:"100vh"
+    })
+  },
+  handleWritePanel(e){
+    console.log(e);
+    if(this.data.top==='0'){
+      this.setData({
+        top:"100vh"
+      })
+    }else{
+      this.setData({
+        top:"0"
+      })
+    }
   },
   // 事件
   handleLike(e){
@@ -18,7 +37,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(app.globalData.userInfo);
   },
 
   /**

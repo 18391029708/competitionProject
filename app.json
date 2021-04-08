@@ -8,18 +8,6 @@
     "pages/orderConfirm/orderConfirm",
     "pages/takeVehicle/takeVehicle",
     "pages/takeDelivery/takeDelivery",
-
-    "pages/infoAuthentification/infoAuthentification",
-    "pages/wallet/wallet",
-    "pages/takeOrder/takeOrder",
-    "pages/authentificationDetail/authentificationDetail",
-    "pages/takeVehicle/takeVehicle",
-
-   
-   
-
-
-    "pages/takeDelivery/takeDelivery",
     "pages/listDetail/listDetail",
     "pages/confession/confession",
     "pages/commentDetail/commentDetail"

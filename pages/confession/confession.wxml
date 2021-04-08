@@ -1,23 +1,24 @@
 <!--pages/confession.wxml-->
-<view class="confe_container">
+<view class="confe_page">
   <view class="confe_item">
     <view class="confe_content">
       <userHeader userName="jealh" postTime="2021-12-30 20:12:33"></userHeader>
       <view class="confe_content_main">
         <!-- 文字内容 -->
         <view class="content_text">
-          Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序员的精心调制，结合了色彩自然变化的规律，我们得出了一套色彩生成工具，当有进一步色彩设计需求时，设计者只需按照一定规则定义完毕主色，便可以自动获得一系列完整的衍生色。
+          Ant Design
+          的色板还具备进一步拓展的能力。经过设计师和程序员的精心调制，结合了色彩自然变化的规律，我们得出了一套色彩生成工具，当有进一步色彩设计需求时，设计者只需按照一定规则定义完毕主色，便可以自动获得一系列完整的衍生色。
         </view>
         <!-- 图片内容 -->
       </view>
     </view>
     <!-- 点赞·评论 -->
-  <view class="confe_toolbar">
-    <view bindtap="handleLike" class="iconfont {{isLike?'icon-liked':'icon-like'}}">{{10}}</view>
-    <view>
-      <navigator url="../commentDetail/commentDetail" class="iconfont icon-pinglun">{{1}}</navigator>
+    <view class="confe_toolbar">
+      <view bindtap="handleLike" class="iconfont {{isLike?'icon-liked':'icon-like'}}">{{10}}</view>
+      <view>
+        <navigator url="../commentDetail/commentDetail" class="iconfont icon-pinglun">{{1}}</navigator>
+      </view>
     </view>
-  </view>
   </view>
   <view class="confe_item">
     <view class="confe_content">
@@ -25,17 +26,35 @@
       <view class="confe_content_main">
         <!-- 文字内容 -->
         <view class="content_text">
-          Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序员的精心调制，结合了色彩自然变化的规律，我们得出了一套色彩生成工具，当有进一步色彩设计需求时，设计者只需按照一定规则定义完毕主色，便可以自动获得一系列完整的衍生色。
+          Ant Design
+          的色板还具备进一步拓展的能力。经过设计师和程序员的精心调制，结合了色彩自然变化的规律，我们得出了一套色彩生成工具，当有进一步色彩设计需求时，设计者只需按照一定规则定义完毕主色，便可以自动获得一系列完整的衍生色。
         </view>
         <!-- 图片内容 -->
       </view>
     </view>
     <!-- 点赞·评论 -->
-  <view class="confe_toolbar">
-    <view bindtap="handleLike" class="iconfont {{isLike?'icon-liked':'icon-like'}}">{{299}}</view>
-    <view>
-      <navigator url="../commentDetail/commentDetail" class="iconfont icon-pinglun">{{13}}</navigator>
+    <view class="confe_toolbar">
+      <view bindtap="handleLike" class="iconfont {{isLike?'icon-liked':'icon-like'}}">{{299}}</view>
+      <view>
+        <navigator url="../commentDetail/commentDetail" class="iconfont icon-pinglun">{{13}}</navigator>
+      </view>
     </view>
   </view>
+
+  <!-- 去告白 -->
+  <view class="doConfess" bindtap="handleWritePanel">
+    <text class="iconfont .icon-liked"></text>
+    我要告白
+  </view>
+
+  <!-- 写文章面板 -->
+  <view class="write_panel" style="top:{{top}}">
+    <view class="write_panel_header">
+      <text bindtap="cancelWrite">取消</text>
+      <text>发布</text>
+    </view>
+    <view class="write_container">
+      <textarea name="" placeholder="请输入你要表白的话" id=""></textarea>
+    </view>
   </view>
 </view>
