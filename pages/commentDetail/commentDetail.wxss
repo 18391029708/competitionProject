@@ -62,8 +62,7 @@ text-align: right;
 .comment_input_box input {
   width: 60%;
   height: 50%;
-  margin: 0.5rem;
-  padding: 0 1rem;
+  padding:0 1rem;
   background-color: #dede;
   border-radius: 1.5rem;
 }

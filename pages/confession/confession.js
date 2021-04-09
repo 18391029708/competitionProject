@@ -1,5 +1,4 @@
 // pages/confession.js
-const app = getApp();
 Page({
 
   /**
@@ -52,17 +51,17 @@ Page({
     })
   },
   // 事件
-  handleLike(e) {
+  handleLike(e){
     console.log(e);
     this.setData({
-      isLike: !this.data.isLike
+      isLike:!this.data.isLike
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.userInfo);
+
   },
 
   /**

@@ -20,7 +20,7 @@ page {
   height: 60rpx;
   border-radius: 50rpx;
   font-size: 28rpx;
-  background-color: #FF1493;
+  background-color: aqua;
   color: #ffffff;
 }
 
@@ -48,7 +48,7 @@ page {
 .task-profit {
   padding: 15rpx;
   font-size: 30rpx;
-  color: red;
+  color: #00FF7F;
 }
 
 .task-demand,.task-description{

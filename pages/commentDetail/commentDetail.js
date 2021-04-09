@@ -1,21 +1,20 @@
 // pages/commentDetail/commentDetail.js
-const app = getApp();
-
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
     isLoading:true,
     comments:[{
-      avaUrl:'',
+      avaUrl:'123',
       name:'MahuaTeng',
       commentTime:'2021-2-11 12:30:01',
       content:'这只猫真不错啊！！！',
       likeCount:99999,
       commentCount:999999999
     },{
-      avaUrl:'',
+      avaUrl:'123',
       name:'MahuaTeng',
       commentTime:'2021-2-11 12:30:01',
       content:'这只猫真不错啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊！！！',
@@ -42,21 +41,12 @@ Page({
       console.log(e);
       const {comments} = this.data;
       let time = new Date();
-      try{
-        const {avatarUrl,nickName} = app.globalData.userInfo;
-        comments.unshift({
-        avaUrl:avatarUrl,
-        name:nickName,
+      comments.unshift({
+        avaUrl:'123',
+        name:e.timeStamp,
         commentTime:time.toLocaleString(),
         content:this.data.inputComment
       })
-      }catch(err){
-        wx.showToast({
-          title: '请登录',
-          icon:'error'
-        })
-      }
-      
       this.setData({
         comments,
         inputComment:''

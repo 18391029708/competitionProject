@@ -22,14 +22,14 @@
       </view>
     </view>
   </view>
-  <view class="doConfess" bindtap="handleWritePanel">
-    <text class="iconfont icon-xiepinglun"></text>
-    我要表白
-  </view>
-  <van-popup show="{{ show }}" position="bottom" custom-style="height: 90%;" round bind:close="cancelWrite">
-    <view class="write_panel_header">
-      <text bindtap="cancelWrite">取消</text>
-      <text>发布</text>
-    </view>
-  </van-popup>
+  <view class="doConfess" bindtap="handleWritePanel"> 
+    <text class="iconfont icon-xiepinglun"></text> 
+    我要表白 
+  </view> 
+  <van-popup show="{{ show }}" position="bottom" custom-style="height: 90%;" round bind:close="cancelWrite"> 
+    <view class="write_panel_header"> 
+      <text bindtap="cancelWrite">取消</text> 
+      <text>发布</text> 
+    </view> 
+  </van-popup> 
 </view>

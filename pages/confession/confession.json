@@ -1,7 +1,6 @@
 {
   "usingComponents": {
-    "userHeader":"../../components/userHeader/userHeader",
-    "van-popup":"../../miniprogram_npm/@vant/weapp/popup"
+    "userHeader":"../../components/userHeader/userHeader"
   },
   "navigationBarTitleText": "告白墙"
 }

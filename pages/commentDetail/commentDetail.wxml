@@ -36,6 +36,7 @@
     <view wx:else style="text-align:center;color:#8c8c8c">
       暂无评论
     </view>
+    
   </view>
 </van-skeleton>
 

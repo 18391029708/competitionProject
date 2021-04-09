@@ -27,7 +27,7 @@ page{
 .user-money {
   padding: 15rpx;
   font-size: 30rpx;
-  color: red;
+  color: #00FF7F;
 }
 
 .task-type,.task-demand,.task-description{
