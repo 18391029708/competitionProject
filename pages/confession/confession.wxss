@@ -6,8 +6,9 @@ page {
 }
 .confe_page {
   position: relative;
+  padding: 0.5rem;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .confe_item {
   display:flex;
@@ -65,7 +66,7 @@ page {
   width: 100vw;
   background-color: #fff;
   position: absolute;
-  top: 100vh;
+  top: 100%;
   transition: all 0.5s;
 }
 .write_panel_header {
