@@ -1,0 +1,69 @@
+page {
+  background-color: #F5F5F5;
+}
+
+.list {
+  position: relative;
+  margin: 20rpx 20rpx 30rpx;
+  padding: 30rpx;
+  border-radius: 10rpx;
+  background-color: #ffffff;
+}
+
+.task-status {
+  top: 20rpx;
+  right: -50rpx;
+  position: absolute;
+  padding-left: 30rpx;
+  padding-top: 15rpx;
+  width: 150rpx;
+  height: 60rpx;
+  border-radius: 50rpx;
+  font-size: 28rpx;
+  background-color: #FF1493;
+  color: #ffffff;
+}
+
+.task-detail {
+  padding: 30rpx;
+  background-color: #F5F5F5;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.task-top {
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #D3D3D3;
+}
+
+.task-type {
+  padding: 15rpx;
+  font-size: 32rpx;
+}
+
+.task-profit {
+  padding: 15rpx;
+  font-size: 30rpx;
+  color: red;
+}
+
+.task-demand,.task-description{
+  display: grid;
+  padding-left: 15rpx;
+  grid-template-columns: 1fr 2fr;
+}
+
+.demand-title,.description-title{
+  padding: 15rpx;
+  font-size: 26rpx;
+  color: #A9A9A9;
+}
+
+.demand,.description{
+  padding: 15rpx;
+  font-size: 26rpx;
+}

@@ -33,18 +33,6 @@ Page({
     
     })
   },
-  toTakeDelivery(){
-    wx.navigateTo({
-      url: '../takeDelivery/takeDelivery',
-    
-    })
-  },
-  toTakeDelivery(){
-    wx.navigateTo({
-      url: '../takeDelivery/takeDelivery',
-    
-    })
-  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

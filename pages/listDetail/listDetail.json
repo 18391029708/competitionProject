@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "profile":"../../components/profile/profile"
+    "profile":"../../components/profile/profile",
+    "van-steps": "@vant/weapp/steps/index",
+    "van-button": "@vant/weapp/button/index"
   }
 }

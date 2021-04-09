@@ -13,7 +13,7 @@
 .user-info {
   padding-bottom: 15rpx;
   padding-left: 15rpx;
-  flex: 7;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }

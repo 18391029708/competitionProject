@@ -60,20 +60,14 @@
       </view>
     </view>
   </view>
-
-  <!-- 去告白 -->
   <view class="doConfess" bindtap="handleWritePanel">
-    <text class="iconfont .icon-xiepinglun"></text>
-    我要告白
+    <text class="iconfont icon-xiepinglun"></text>
+    我要表白
   </view>
-    <!-- 写文章面板 -->
-    <view class="write_panel" style="top:{{top}}">
+  <van-popup show="{{ show }}" position="bottom" custom-style="height: 90%;" round bind:close="cancelWrite">
     <view class="write_panel_header">
       <text bindtap="cancelWrite">取消</text>
       <text>发布</text>
     </view>
-    <view class="write_container">
-      <textarea name="" placeholder="请输入你要表白的话" id=""></textarea>
-    </view>
-  </view>
+  </van-popup>
 </view>

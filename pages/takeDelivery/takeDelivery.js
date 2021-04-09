@@ -8,6 +8,12 @@ Page({
 
   },
 
+  toListDetail(){
+    wx.navigateTo({
+      url: '../listDetail/listDetail',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

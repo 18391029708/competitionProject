@@ -6,31 +6,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isLike:false,
-    top:'100vh'
+    isLike: false,
+    show: false
   },
-  cancelWrite(e){
+  cancelWrite(e) {
     this.setData({
-      top:"100vh"
+      show: false
     })
   },
-  handleWritePanel(e){
-    console.log(e);
-    if(this.data.top==='0'){
-      this.setData({
-        top:"100vh"
-      })
-    }else{
-      this.setData({
-        top:"0"
-      })
-    }
-  },
-  // 事件
-  handleLike(e){
+  handleWritePanel(e) {
     console.log(e);
     this.setData({
-      isLike:!this.data.isLike
+      show: true
+    })
+  },
+  // 事件
+  handleLike(e) {
+    console.log(e);
+    this.setData({
+      isLike: !this.data.isLike
     })
   },
   /**

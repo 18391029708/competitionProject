@@ -6,6 +6,10 @@
     "pages/order/order",
     "pages/mine/mine",
     "pages/orderConfirm/orderConfirm",
+    "pages/infoAuthentification/infoAuthentification",
+    "pages/wallet/wallet",
+    "pages/takeOrder/takeOrder",
+    "pages/authentificationDetail/authentificationDetail",
     "pages/takeVehicle/takeVehicle",
     "pages/takeDelivery/takeDelivery",
     "pages/listDetail/listDetail",
@@ -24,8 +28,7 @@
     }
   },
   "tabBar": {
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/homePage/homePage",
         "text": "首页",
         "iconPath": "icons/index.png",

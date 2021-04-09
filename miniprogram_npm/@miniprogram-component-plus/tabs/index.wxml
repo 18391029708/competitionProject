@@ -12,9 +12,9 @@
       </view>
     </scroll-view>
   </view>
-  <!-- <swiper class="{{swiperClass}}" current="{{activeTab}}" duration="{{duration}}" bindchange="handleSwiperChange">
+  <swiper class="{{swiperClass}}" current="{{activeTab}}" duration="{{duration}}" bindchange="handleSwiperChange">
     <swiper-item wx:for="{{tabs}}" wx:key="title">
       <slot name="tab-content-{{index}}"></slot>
     </swiper-item>
-  </swiper> -->
+  </swiper>
 </view>
