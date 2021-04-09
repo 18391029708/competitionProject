@@ -1,5 +1,5 @@
 <!--pages/commentDetail/commentDetail.wxml-->
-<!-- <van-skeleton title avatar row="3" loading="{{isLoading}}"> -->
+<van-skeleton title avatar row="5" loading="{{isLoading}}">
   <userHeader userName="jealh" postTime="2020-12-030 13:12:22"></userHeader>
   <!-- 文本内容 -->
   <view class="content">
@@ -18,7 +18,7 @@
     <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
     <image width="100%" height="100" src="https://img.yzcdn.cn/vant/cat.jpeg" />
   </view>
-  <view style="font-weight:550;margin:1rem;border-top:1px solid #dedede">评论</view>
+  <view style="font-weight:550;margin:1rem;border-top:1px solid #dedede">评论({{totalComment}})</view>
   <!-- 评论列表 -->
   <view class="comments_list">
     <view wx:if="{{comments.length}}">
@@ -26,14 +26,18 @@
         <userHeader avatarUrl="{{item.avaUrl}}" userName="{{item.name}}" postTime="{{item.commentTime}}"></userHeader>
         <view class="comment_content">{{item.content}}</view>
         <!-- <view class="reply">查看当前5条回复></view> -->
-        <view class="reply">回复</view>
+        <view class="comment_tool">
+          <text class="delete_comment">删除</text>
+          <text class="iconfont icon-pinglun">{{item.commentCount>99?"99+":item.commentCount}}</text>
+          <text class="iconfont icon-tubiaozhizuomoban-1">{{item.likeCount}}</text>
+        </view>
       </view>
     </view>
     <view wx:else style="text-align:center;color:#8c8c8c">
       暂无评论
     </view>
   </view>
-<!-- </van-skeleton> -->
+</van-skeleton>
 
 <!-- 输入框 -->
 <view class="comment_input_box">

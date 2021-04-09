@@ -11,14 +11,19 @@ Page({
       avaUrl:'',
       name:'MahuaTeng',
       commentTime:'2021-2-11 12:30:01',
-      content:'这只猫真不错啊！！！'
+      content:'这只猫真不错啊！！！',
+      likeCount:99999,
+      commentCount:999999999
     },{
       avaUrl:'',
       name:'MahuaTeng',
       commentTime:'2021-2-11 12:30:01',
-      content:'这只猫真不错啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊！！！'
+      content:'这只猫真不错啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊！！！',
+      likeCount:0,
+      commentCount:5
     }],
-    inputComment:""
+    inputComment:"",
+    totalComment:2
   },
   handleCommentInput(e){
     const {value} = e.detail;

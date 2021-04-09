@@ -37,13 +37,15 @@ button {
   overflow: hidden;
   padding: 0 1.5rem;
 }
-.reply  {
-  line-height: 1.5rem;
-  border-radius: 20rpx;
-  font-size: 0.8rem;
-  text-align: right;
-  padding-right: 2rem;
+.comment_tool  {
+text-align: right;
+}
+.comment_tool .delete_comment{
   color: #0094ff;
+  float: left;
+}
+.comment_tool text {
+  margin: 0 0.5rem;
 }
 
 .comment_input_box {
