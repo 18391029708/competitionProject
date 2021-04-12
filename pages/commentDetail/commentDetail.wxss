@@ -49,20 +49,20 @@ text-align: right;
 }
 
 .comment_input_box {
-  width: 100%;
+  width: 100vw;
   height: 10vh;
   position: fixed;
   background-color: #fff;
   bottom: 0;
-  padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
 } 
 .comment_input_box input {
   width: 60%;
-  height: 50%;
+  height: 55%;
   padding:0 1rem;
+  margin: 0.5rem 0;
   background-color: #dede;
   border-radius: 1.5rem;
 }

@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -14,6 +15,18 @@
         {
           "name": "pages/commentDetail/commentDetail",
           "pathName": "pages/commentDetail/commentDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/confession/confession",
+          "pathName": "pages/confession/confession",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/writeComfession/writeComfession",
+          "pathName": "pages/writeComfession/writeComfession",
           "scene": null
         }
       ]

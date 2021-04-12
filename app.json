@@ -14,7 +14,8 @@
     "pages/takeDelivery/takeDelivery",
     "pages/listDetail/listDetail",
     "pages/confession/confession",
-    "pages/commentDetail/commentDetail"
+    "pages/commentDetail/commentDetail",
+    "pages/writeComfession/writeComfession"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -28,7 +29,8 @@
     }
   },
   "tabBar": {
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/homePage/homePage",
         "text": "首页",
         "iconPath": "icons/index.png",

@@ -6,7 +6,6 @@ Page({
    */
   data: {
     isLike: false,
-    show: false,
     confessions:[
       {
         confessionId:0,
@@ -38,17 +37,6 @@ Page({
         likeCount:85,
       }
     ]
-  },
-  cancelWrite(e) {
-    this.setData({
-      show: false
-    })
-  },
-  handleWritePanel(e) {
-    console.log(e);
-    this.setData({
-      show: true
-    })
   },
   // 事件
   handleLike(e){
