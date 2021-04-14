@@ -1,22 +1,38 @@
-// pages/takeDelivery.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    itemTypes: ["学习用品","生活用品","电子产品","其他类型"],
+    typeShow:false,
+    itemType:"",
+    phone:"",
+    profit: 4 
   },
 
-  toListDetail(){
-    wx.navigateTo({
-      url: '../listDetail/listDetail',
+  typeConfirm(event) {
+    this.setData({
+      itemType: event.detail.value,
+      typeShow: false
     })
   },
 
-  toAddTask(){
-    wx.navigateTo({
-      url: '../addTask/addTask',
+  showTypePopup(){
+    this.setData({
+      typeShow: true
+    })
+  },
+
+  closeTypePopup(){
+    this.setData({
+      typeShow: false
+    })
+  },
+  
+  profitChange(event){
+    this.setData({
+      profit: event.detail,
     })
   },
 

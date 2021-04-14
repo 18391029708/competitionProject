@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "van-button":"../../miniprogram_npm/@vant/weapp/button",
-    "van-icon":"../../miniprogram_npm/@vant/weapp/icon",
-    "van-checkbox":"../../miniprogram_npm/@vant/weapp/checkbox"
-  },
-  "navigationBarTitleText": "写告白",
-  "disableScroll": true
-}

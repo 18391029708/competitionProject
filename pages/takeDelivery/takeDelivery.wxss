@@ -1,1 +1,8 @@
-/* pages/takeDelivery.wxss */
+.add-task{
+  width: 100rpx;
+  height: 100rpx;
+  z-index: 100;
+  position: fixed;
+  right: 30rpx;
+  bottom: 150rpx;
+}

@@ -1,0 +1,20 @@
+<view class="task-card">
+  <view class="task-top">
+      <text class="user-phone">{{userPhone}}</text>
+      <text class="user-money">佣金{{userMoney}}元</text>
+    </view>
+    <view class="task-content">
+      <view class="task-type">
+        <text class="type-title">任务类型</text>
+        <text class="type">{{taskType}}</text>
+      </view>
+      <view class="task-demand">
+        <text class="demand-title">性别要求</text>
+        <text class="demand">{{taskDemond}}</text>
+      </view>
+      <view class="task-description">
+        <text class="description-title">任务描述</text>
+        <text class="description">{{description}}</text>
+      </view>
+    </view>
+</view>

@@ -15,7 +15,8 @@
     "pages/listDetail/listDetail",
     "pages/confession/confession",
     "pages/commentDetail/commentDetail",
-    "pages/writeComfession/writeComfession"
+    "pages/writeComfession/writeComfession",
+    "pages/addTask/addTask" 
   ],
   "window": {
     "backgroundTextStyle": "light",

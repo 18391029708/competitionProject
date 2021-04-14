@@ -2,6 +2,10 @@
   "usingComponents": {
     "profile":"../../components/profile/profile",
     "van-steps": "@vant/weapp/steps/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "task-card": "../../components/taskCard/taskCard",
+    "van-field": "@vant/weapp/field/index",
     "van-button": "@vant/weapp/button/index"
   }
 }

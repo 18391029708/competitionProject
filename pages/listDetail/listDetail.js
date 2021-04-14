@@ -10,6 +10,7 @@ Page({
     taskType: "其他任务",
     taskDemond: "不限性别",
     description: "谁有旧的一卡通，东三自习室只能用旧一卡通，就是没换过那种。10元买一张",
+    taskShow: false,
     steps: [
       {
         text: '步骤一',
@@ -28,6 +29,17 @@ Page({
         desc: '描述信息',
       },
     ],
+},
+
+closeTaskPopup(){
+  this.setData({
+    taskShow: false
+  })
+},
+showTaskCard(){
+  this.setData({
+    taskShow: true
+  })
 },
 
 /**

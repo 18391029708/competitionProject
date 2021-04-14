@@ -1,37 +1,41 @@
 <view>
   <profile class="user-profile"></profile>
-  <view class="task-card">
-    <view class="task-top">
-      <text class="user-phone">{{userPhone}}</text>
-      <text class="user-money">佣金{{userMoney}}元</text>
-    </view>
-    <view class="task-content">
-      <view class="task-type">
-        <text class="type-title">任务类型</text>
-        <text class="type">{{taskType}}</text>
-      </view>
-      <view class="task-demand">
-        <text class="demand-title">性别要求</text>
-        <text class="demand">{{taskDemond}}</text>
-      </view>
-      <view class="task-description">
-        <text class="description-title">任务描述</text>
-        <text class="description">{{description}}</text>
-      </view>
-    </view>
-  </view>
+
+  <task-card></task-card>
+
   <view class="task-status">
     <view class="status">任务状态</view>
-    <!-- 引入Vant插件 -->
     <van-steps steps="{{ steps }}" active="{{ active }}" />
   </view>
   <view class="buttom">
     <view class="button1">
-    <van-button round type="info">规则须知</van-button>
+      <van-button round type="info">规则须知</van-button>
     </view>
+
     <view class="button2">
-    <van-button round type="info">我要接单</van-button>
+      <van-button round type="info" bind:click="showTaskCard">我要接单</van-button>
+      <van-popup show="{{ taskShow }}" bind:close="closeTaskPopup" custom-style="height: 42%;width: 80%;" round>
+        <view class="your-info">
+          <view class="title">请填写接单信息</view>
+          <van-field input-align="right" value="{{ yourPhone }}" label="你的电话" placeholder="方便任务主与你联系..."
+            border="{{ true }}" />
+          <view class="is-nike">
+            <view>匿名接单</view>
+            <switch color="aqua"></switch>
+          </view>
+          <view class="your-sex">
+            <view class="sex">你的性别</view>
+            <radio-group class="sex-select">
+              <radio name="1" color="aqua" checked="true">男</radio>
+              <radio name="2" color="aqua">女</radio>
+            </radio-group>
+          </view>
+          <view class="enter">
+            <van-button plain size="large" type="info" color="aqua">取消</van-button>
+            <van-button plain size="large" type="info" color="aqua">确定</van-button>
+          </view>
+        </view>
+      </van-popup>
     </view>
-    <!-- the buttom of all -->
   </view>
 </view>
