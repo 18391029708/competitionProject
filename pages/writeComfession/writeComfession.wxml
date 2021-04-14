@@ -2,6 +2,7 @@
   <editor id="editor" class="ql-container" placeholder="{{placeholder}}" show-img-size="true" show-img-toolbar="true"
     bindstatuschange="onStatusChange" bindready="onEditorReady">
   </editor>
+  <van-checkbox value="{{ anonymous }}" bind:change="handleAnonymous">匿名发布</van-checkbox>
 </view>
 <view class="chooseImg_bar">
   <view class="chooseImg_item" bindtap="handleChooseImg">

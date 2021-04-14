@@ -1,20 +1,24 @@
 @import "./assets/iconfont.wxss";
+page {
+  overflow-y: auto;
+}
 .container_editor {
   position: relative; 
   top: 0; 
   left: 0; 
   width: 100%;
+  margin-bottom: 10rpx;
+  border: 1px solid #ECECEC;
 }
 
 .ql-container {
   box-sizing: border-box;
   width: 100%;
-  height: 100%; 
+  height: 90%; 
   font-size: 16px;
   line-height: 1.5;
   overflow: auto;
   padding: 10px 10px 20px 10px;
-  border: 1px solid #ECECEC;
 }
 
 .ql-active {

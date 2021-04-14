@@ -6,7 +6,8 @@ Page({
     editorHeight: 300,
     keyboardHeight: 0,
     isIOS: false,
-    imgPath:[]
+    imgPath:[],
+    anonymous:false
   },
   readOnlyChange() {
     this.setData({
@@ -130,6 +131,12 @@ Page({
     this.setData(
       {imgPath}
     )
+  },
+  handleAnonymous(e){
+    console.log(e);
+    this.setData({
+      anonymous:e.detail
+    })
   },
   // 发送表白信息
   getContent(){
