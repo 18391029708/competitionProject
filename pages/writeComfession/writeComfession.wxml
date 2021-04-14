@@ -1,4 +1,5 @@
-<view class="container_editor" style="height:{{300}}px;">
+<view class="wrapper">
+  <view class="container_editor" style="height:{{300}}px;">
   <editor id="editor" class="ql-container" placeholder="{{placeholder}}" show-img-size="true" show-img-toolbar="true"
     bindstatuschange="onStatusChange" bindready="onEditorReady">
   </editor>
@@ -15,8 +16,7 @@
     </van-icon>
   </view>
 </view>
-<van-button bindclick="getContent" icon="envelop-o" type="info" size="large" custom-style="margin-top:50rpx">表白
-</van-button>
+<button class="submit_confession" bindtap="getContent"><van-icon name="envelop-o"></van-icon>表白</button>
 
 <view class="toolbar" catchtouchend="format" hidden="{{keyboardHeight > 0 ? false : true}}"
   style="bottom: {{isIOS ? keyboardHeight : 0}}px">
@@ -44,4 +44,5 @@
     data-value="sub"></i>
   <i class="iconfont icon-zitishangbiao {{formats.script === 'super' ? 'ql-active' : ''}}" data-name="script"
     data-value="super"></i>
+</view>
 </view>

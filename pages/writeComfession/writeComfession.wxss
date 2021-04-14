@@ -1,6 +1,7 @@
 @import "./assets/iconfont.wxss";
-page {
-  overflow-y: auto;
+.wrapper {
+  height: 100vh;
+  overflow: auto;
 }
 .container_editor {
   position: relative; 
@@ -79,6 +80,9 @@ page {
   height: 100%;
 }
 
-.complete_write {
-  margin-top: 50rpx;
+.submit_confession {
+  background-color: #0094ff;
+  color: #fff;
+  font-weight: 550;
+  margin: 50rpx;
 }
