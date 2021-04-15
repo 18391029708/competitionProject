@@ -1,68 +1,22 @@
 <view class="list">
   <view>
-    <profile></profile>
+    <profile userName="{{task.userName}}" addTime="{{task.addTime}}"></profile>
     <view class="task-status">
-      <view>{{taskStatus}}</view>
+      <view>{{task.task.taskStatus}}</view>
     </view>
   </view>
   <view class="task-detail">
     <view class="task-top">
-      <text class="task-type">{{taskType}}</text>
-      <text class="task-profit">报酬{{taskProfit}}元</text>
+      <text class="task-type">{{task.task.taskType}}</text>
+      <text class="task-profit">报酬{{task.task.taskProfit}}元</text>
     </view>
     <view class="task-demand">
       <text class="demand-title">性别要求</text>
-      <text class="demand">{{taskDemand}}</text>
+      <text class="demand">{{task.task.taskDemand}}</text>
     </view>
     <view class="task-description">
       <text class="description-title">任务描述</text>
-      <text class="description">{{description}}</text>
-    </view>
-  </view>
-</view>
-
-<view class="list">
-  <view>
-    <profile></profile>
-    <view class="task-status">
-      <view>{{taskStatus}}</view>
-    </view>
-  </view>
-  <view class="task-detail">
-    <view class="task-top">
-      <text class="task-type">{{taskType}}</text>
-      <text class="task-profit">报酬{{taskProfit}}元</text>
-    </view>
-    <view class="task-demand">
-      <text class="demand-title">性别要求</text>
-      <text class="demand">{{taskDemand}}</text>
-    </view>
-    <view class="task-description">
-      <text class="description-title">任务描述</text>
-      <text class="description">{{description}}</text>
-    </view>
-  </view>
-</view>
-
-<view class="list">
-  <view>
-    <profile></profile>
-    <view class="task-status">
-      <view>{{taskStatus}}</view>
-    </view>
-  </view>
-  <view class="task-detail">
-    <view class="task-top">
-      <text class="task-type">{{taskType}}</text>
-      <text class="task-profit">报酬{{taskProfit}}元</text>
-    </view>
-    <view class="task-demand">
-      <text class="demand-title">性别要求</text>
-      <text class="demand">{{taskDemand}}</text>
-    </view>
-    <view class="task-description">
-      <text class="description-title">任务描述</text>
-      <text class="description">{{description}}</text>
+      <text class="description">{{task.task.description}}</text>
     </view>
   </view>
 </view>

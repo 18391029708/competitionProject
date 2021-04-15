@@ -1,20 +1,20 @@
-// pages/takeDelivery.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    task: []
   },
 
-  toListDetail(){
+  toListDetail(event) {
+    var idx = event.currentTarget.dataset.idx;
+
     wx.navigateTo({
-      url: '../listDetail/listDetail',
+      url: '../listDetail/listDetail?' + "task=" + JSON.stringify(this.data.task[idx]),
     })
   },
 
-  toAddTask(){
+  toAddTask() {
     wx.navigateTo({
       url: '../addTask/addTask',
     })
@@ -23,22 +23,32 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
-  },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // 向云服务器请求数据
+    wx.showLoading({
+      title: '加载中',
+    })
+    var that = this;
+    //t_takeDelivery为表名
+    wx.cloud.database().collection('t_takeDelivery').get({
+      success: function (res) {
+        that.setData({
+          task:res.data
+        })
+        console.log(that.data.task[0]._id);
+        wx.hideLoading()
+      }
+    })
   },
 
   /**

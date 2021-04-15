@@ -1,7 +1,26 @@
 <view>
-  <profile class="user-profile"></profile>
+  <profile userName="{{task.userName}}" addTime="{{task.addTime}}"></profile>
 
-  <task-card></task-card>
+  <view class="task-card">
+    <view class="task-top">
+      <text class="user-phone">{{task.userPhone}}</text>
+      <text class="user-money">佣金{{task.task.taskProfit}}元</text>
+    </view>
+    <view class="task-content">
+      <view class="task-type">
+        <text class="type-title">任务类型</text>
+        <text class="type">{{task.task.taskType}}</text>
+      </view>
+      <view class="task-demand">
+        <text class="demand-title">性别要求</text>
+        <text class="demand">{{task.task.taskDemand}}</text>
+      </view>
+      <view class="task-description">
+        <text class="description-title">任务描述</text>
+        <text class="description">{{task.task.description}}</text>
+      </view>
+    </view>
+  </view>
 
   <view class="task-status">
     <view class="status">任务状态</view>
