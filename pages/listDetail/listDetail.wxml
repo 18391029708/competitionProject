@@ -1,5 +1,5 @@
 <view>
-  <profile userName="{{task.userName}}" addTime="{{task.addTime}}"></profile>
+  <profile userName="{{task.userName}}" addTime="{{task.addTime}}" avatarUrl="{{task.avatarUrl}}"></profile>
 
   <view class="task-card">
     <view class="task-top">

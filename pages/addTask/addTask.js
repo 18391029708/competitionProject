@@ -8,12 +8,14 @@ Page({
   data: {
     itemTypes: ["学习用品", "生活用品", "电子产品", "其他类型"],
     typeShow: false,
+    avatarUrl:"cloud://data-base-1g3n115z3df553d0.6461-data-base-1g3n115z3df553d0-1304215882/defult.jpg",
     itemType: "",
     phone: "",
-    sexDemand: "",
+    sexDemand: "男",
     profit: 6,
     description: "",
-    isNike: 0
+    isNike: 0,
+    userName:"宇智波·鼬"
   },
 
   typeConfirm(event) {
@@ -73,32 +75,38 @@ Page({
   },
 
   uploadMessage() {
-    const db = wx.cloud.database()
+    const db = wx.cloud.database();
     var that = this;
     var time = new Date().toLocaleString();
 
-    db.collection('t_takeDelivery').add({
-      data: {
-        task:{
-          "taskType": that.data.itemType,
-          "taskStatus": "新任务",
-          "taskProfit": that.data.profit,
-          "description": that.data.description,
-          "taskDemand": that.data.sexDemand,
-        },
-        userName: app.globalData.userInfo.nickName,
-        userPhone: that.data.phone,
-        isNike: that.data.isNike,
-        addTime: time
-      },
-      success: function (res) {
-        console.log(res)
-        wx.redirectTo({
-          url: '../takeDelivery/takeDelivery',
-        })
-      },
-      fail: console.error
-    })
+    if(that.data.isNike === 0){
+      that.data.userName = app.globalData.userInfo.nickName;
+      that.data.avatarUrl = app.globalData.userInfo.avatarUrl;
+    }
+
+    // db.collection('t_takeDelivery').add({
+    //   data: {
+    //     task:{
+    //       "taskType": that.data.itemType,
+    //       "taskStatus": "新任务",
+    //       "taskProfit": that.data.profit,
+    //       "description": that.data.description,
+    //       "taskDemand": that.data.sexDemand,
+    //     },
+    //     avatarUrl: that.data.avatarUrl,
+    //     userName: that.data.userName,
+    //     userPhone: that.data.phone,
+    //     isNike: that.data.isNike,
+    //     addTime: time
+    //   },
+    //   success: function (res) {
+    //     console.log(res)
+    //     wx.navigateTo({
+    //       url: '../takeDelivery/takeDelivery',
+    //     })
+    //   },
+    //   fail: console.error
+    // })
   },
 
   /**

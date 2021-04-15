@@ -5,7 +5,8 @@ Component({
    */
   properties: {
     userName: String,
-    addTime:String
+    addTime:String,
+    avatarUrl:String
   },
 
   /**

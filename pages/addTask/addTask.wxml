@@ -1,4 +1,4 @@
-<view class="add-info">
+<scroll-view class="add-info">
     <view class="add-type">
       <van-cell title="物品类型" value="{{itemType}}" is-link bind:click="showTypePopup" />
       <van-popup show="{{ typeShow }}" bind:close="closeTypePopup" position="bottom" custom-style="height: 40%" round>
@@ -38,4 +38,4 @@
     </checkbox-group>
 
     <button class="add-btn" bindtap="uploadMessage">发布</button>
-</view>
+</scroll-view>

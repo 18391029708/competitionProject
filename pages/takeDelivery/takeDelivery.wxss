@@ -7,6 +7,6 @@ page{
   height: 100rpx;
   z-index: 100;
   position: fixed;
-  right: 30rpx;
-  bottom: 150rpx;
+  right: 8%;
+  bottom: 20%;
 }

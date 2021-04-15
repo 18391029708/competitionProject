@@ -45,7 +45,6 @@ Page({
         that.setData({
           task:res.data
         })
-        console.log(that.data.task[0]._id);
         wx.hideLoading()
       }
     })
