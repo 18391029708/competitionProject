@@ -7,7 +7,7 @@ Page({
   },
 
   toListDetail(event) {
-    var idx = event.currentTarget.dataset.idx;
+    let idx = event.currentTarget.dataset.idx;
 
     wx.navigateTo({
       url: '../listDetail/listDetail?' + "task=" + JSON.stringify(this.data.task[idx]),
@@ -38,7 +38,7 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    var that = this;
+    let that = this;
     //t_takeDelivery为表名
     wx.cloud.database().collection('t_takeDelivery').get({
       success: function (res) {

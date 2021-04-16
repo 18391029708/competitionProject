@@ -76,8 +76,8 @@ Page({
 
   uploadMessage() {
     const db = wx.cloud.database();
-    var that = this;
-    var time = new Date().toLocaleString();
+    let that = this;
+    let time = new Date().toLocaleString();
 
     if(that.data.isNike === 0){
       that.data.userName = app.globalData.userInfo.nickName;
