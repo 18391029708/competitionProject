@@ -3,7 +3,7 @@
 
   <view class="task-card">
     <view class="task-top">
-      <text class="user-phone">{{task.userPhone}}</text>
+      <text class="user-phone">{{task.nikePhone}}</text>
       <text class="user-money">佣金{{task.task.taskProfit}}元</text>
     </view>
     <view class="task-content">
@@ -26,13 +26,40 @@
     <view class="status">任务状态</view>
     <van-steps steps="{{ steps }}" active="{{ active }}" />
   </view>
+
   <view class="buttom">
     <view class="button1">
-      <van-button round type="info">规则须知</van-button>
+      <van-button round type="info" bind:click="showRulesCard">规则须知</van-button>
+      <van-popup show="{{ rulesShow }}" bind:close="closeRulesPopup" custom-style="height: 80%;width: 80%;">
+          <scroll-view class="rules">
+            <view>
+              1. 仓库原因
+            一些大型电商公司（京东、考拉等），都有自建仓库，商品会根据以往出货量数据在各个不同的仓库进行备货，用户的订单如果包含多个仓库的商品，那么就必须对不同的仓库商品进行拆分。
+            </view>
+            <view>
+              2. 店铺原因
+            一些电商平台（天猫、淘宝、拼多多等），有很多入驻的商家，用户的订单跨店铺结算的情况非常普遍，那么这时候也需要对订单进行拆分，本质上这种情况和仓库有类似之处，每个入驻的商家可以看做一个仓库。
+            </view>
+            <view>
+              3. 跨境商品原因
+            对于跨境商品，由于需要 订单、支付单核运单
+            三单对碰，而且每笔订单不能超过2000元，年度不能2万元，如果用户单笔订单金额超过2000元，则必须对订单进行拆分，拆分的子订单每笔不能超过2000元，且分别每笔子订单都有独立的的订单号和物流单号，确保正常通关。
+            </view>
+            <view>
+              4. 物流原因
+            不同物流公司对单个包裹的重量或体积都有特殊要求，例如有些物流公司（邮政小包）规定单个包裹不能超过20kg，并且还存在一种情况：一个10kg的包裹有可能比两个5kg的包裹收费更高，基于物流成本考虑一般也会将一个订单拆分成两个，例如申通：10罐啤酒寄到辽宁价格为24，同样地点5瓶的价格是6块（与申通的签约价格不是市场价）。
+            </view>
+            <view>
+              5. 商品品类
+            某些商品品类需要特殊处理，例如：易碎品 需要单独发货；大件商品（儿童座椅、冰箱、洗衣机、电视等）需要单独发货；如果一个订单里面包含这些商品，一般也需要对订单进行拆分。
+            </view>
+          </scroll-view>
+          <van-button plain size="large" type="info" color="aqua" bind:click="closeRulesPopup">确定</van-button>
+      </van-popup>
     </view>
 
     <view class="button2">
-      <van-button round type="info" bind:click="showTaskCard">我要接单</van-button>
+      <van-button round type="info" bind:click="showTaskCard" wx:if="{{active===0}}">我要接单</van-button>
       <van-popup show="{{ taskShow }}" bind:close="closeTaskPopup" custom-style="height: 42%;width: 80%;" round>
         <view class="your-info">
           <view class="title">请填写接单信息</view>
@@ -50,8 +77,8 @@
             </radio-group>
           </view>
           <view class="enter">
-            <van-button plain size="large" type="info" color="aqua">取消</van-button>
-            <van-button plain size="large" type="info" color="aqua">确定</van-button>
+            <van-button plain size="large" type="info" color="aqua" bind:click="closeTaskPopup">取消</van-button>
+            <van-button plain size="large" type="info" color="aqua" bind:click="toPay">确定</van-button>
           </view>
         </view>
       </van-popup>

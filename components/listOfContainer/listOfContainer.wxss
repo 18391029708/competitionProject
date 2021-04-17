@@ -16,8 +16,19 @@
   height: 60rpx;
   border-radius: 50rpx;
   font-size: 28rpx;
-  background-color: aqua;
   color: #ffffff;
+}
+
+.new-bcg {
+  background-color: aqua;
+}
+
+.alread-bcg {
+  background-color: #00FF7F;
+}
+
+.finish-bcg{
+  background-color: #A9A9A9;
 }
 
 .task-detail {
@@ -47,19 +58,22 @@
   color: #00FF7F;
 }
 
-.task-demand,.task-description{
+.task-demand,
+.task-description {
   display: grid;
   padding-left: 15rpx;
   grid-template-columns: 1fr 2fr;
 }
 
-.demand-title,.description-title{
+.demand-title,
+.description-title {
   padding: 15rpx;
   font-size: 26rpx;
   color: #A9A9A9;
 }
 
-.demand,.description{
+.demand,
+.description {
   padding: 15rpx;
   font-size: 26rpx;
 }

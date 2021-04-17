@@ -25,12 +25,6 @@ Page({
     })
   },
 
-  typeCancel() {
-    this.setData({
-      typeShow: false
-    })
-  },
-
   showTypePopup() {
     this.setData({
       typeShow: true
@@ -53,7 +47,6 @@ Page({
     this.setData({
       sexDemand: e.detail.value,
     })
-    console.log(this.data.sexDemand);
   },
 
   addDsp(e) {
@@ -84,29 +77,29 @@ Page({
       that.data.avatarUrl = app.globalData.userInfo.avatarUrl;
     }
 
-    // db.collection('t_takeDelivery').add({
-    //   data: {
-    //     task:{
-    //       "taskType": that.data.itemType,
-    //       "taskStatus": "新任务",
-    //       "taskProfit": that.data.profit,
-    //       "description": that.data.description,
-    //       "taskDemand": that.data.sexDemand,
-    //     },
-    //     avatarUrl: that.data.avatarUrl,
-    //     userName: that.data.userName,
-    //     userPhone: that.data.phone,
-    //     isNike: that.data.isNike,
-    //     addTime: time
-    //   },
-    //   success: function (res) {
-    //     console.log(res)
-    //     wx.navigateTo({
-    //       url: '../takeDelivery/takeDelivery',
-    //     })
-    //   },
-    //   fail: console.error
-    // })
+    db.collection('t_takeDelivery').add({
+      data: {
+        task:{
+          "taskType": that.data.itemType,
+          "taskStatus": "新任务",
+          "taskProfit": that.data.profit,
+          "description": that.data.description,
+          "taskDemand": that.data.sexDemand,
+        },
+        avatarUrl: that.data.avatarUrl,
+        userName: that.data.userName,
+        userPhone: that.data.phone,
+        isNike: that.data.isNike,
+        addTime: time
+      },
+      success: function (res) {
+        console.log(res)
+        wx.navigateTo({
+          url: '../takeDelivery/takeDelivery',
+        })
+      },
+      fail: console.error
+    })
   },
 
   /**

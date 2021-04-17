@@ -2,7 +2,7 @@
     <view class="add-type">
       <van-cell title="物品类型" value="{{itemType}}" is-link bind:click="showTypePopup" />
       <van-popup show="{{ typeShow }}" bind:close="closeTypePopup" position="bottom" custom-style="height: 40%" round>
-        <van-picker show-toolbar title="物品种类" columns="{{ itemTypes }}" bind:confirm="typeConfirm" bind:cancel="typeCancel"/>
+        <van-picker show-toolbar title="物品种类" columns="{{ itemTypes }}" bind:confirm="typeConfirm" bind:cancel="closeTypePopup"/>
       </van-popup>
     </view>
 
@@ -30,7 +30,8 @@
 
     <view class="add-dsp">
       <label class="dsp-title" for="description">任务描述内容:</label>
-      <textarea name="description" class="dsp" warp="hard" bindinput="addDsp"></textarea>
+      <textarea name="description" class="dsp" warp="hard" bindinput="addDsp"
+       placeholder="请输入对该任务的描述内容，越详细越好哦..." placeholder-style="font-size:26rpx;"></textarea>
     </view>
 
     <checkbox-group  bindchange="niming">
