@@ -1,14 +1,14 @@
 /* utils/components/userHeader.wxss */
 .user_header {
   width: 96%;
-  height: 2.5rem;
+  height: 3rem;
   display: flex;
   margin: 0.5rem;
 }
 .user_header .user_avatar_box {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 2.5rem;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
   overflow: hidden;
   background-color: pink;
 }
@@ -18,6 +18,7 @@
 }
 .user_header .user_detail {
   width: 85%;
+  height: 100%;
   margin-left: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -25,6 +26,8 @@
 }
 .user_header .user_detail .user_name {
   width: 100%;
+  height: 2.5em;
+  line-height: 1.1rem;
   font-weight: 550;
   word-break: break-all;
   text-overflow: "...";

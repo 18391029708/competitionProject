@@ -16,7 +16,7 @@
     </van-icon>
   </view>
 </view>
-<button class="submit_confession" bindtap="getContent"><van-icon name="envelop-o"></van-icon>表白</button>
+<button class="submit_confession" bindtap="sendConfession"><van-icon name="envelop-o"></van-icon>表白</button>
 
 <view class="toolbar" catchtouchend="format" hidden="{{keyboardHeight > 0 ? false : true}}"
   style="bottom: {{isIOS ? keyboardHeight : 0}}px">
