@@ -5,7 +5,7 @@
   postName: 发帖时间 -->
 <view class="user_header">
   <view class="user_avatar_box">
-      <image wx:if='{{avatarUrl}}' src="{{avatarUrl}}"></image>
+      <image class="avatar" wx:if='{{avatarUrl}}' src="{{avatarUrl}}"></image>
   </view>
   <view class="user_detail">
     <view class="user_name">{{userName}}</view>

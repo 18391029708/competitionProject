@@ -154,7 +154,7 @@ Page({
         confessData.commentCount=0;
       }
     });
-    if (app.globalData.userInfo === null) {
+    if (JSON.stringify(app.globalData.userInfo) === "{}") {
       wx.showModal({
         title: "请登录后再尝试",
       })
