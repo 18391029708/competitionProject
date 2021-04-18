@@ -43,7 +43,7 @@ Page({
       })
     } 
     // 没有登录
-    else if (JSON.stringify(this.data.userInfo) == "{}") {
+    else if (JSON.stringify(this.data.userInfo) == "{}" || JSON.stringify(this.data.userInfo)==="null") {
       const that = this;
       wx.showModal({
         title: '请登录',
