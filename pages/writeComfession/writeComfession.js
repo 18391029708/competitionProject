@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
   data: {
     formats: {},
@@ -6,8 +7,8 @@ Page({
     editorHeight: 300,
     keyboardHeight: 0,
     isIOS: false,
-    imgPath:[],
-    anonymous:false
+    imgPath: [],
+    anonymous: false
   },
   readOnlyChange() {
     this.setData({
@@ -17,7 +18,7 @@ Page({
   onLoad() {
     const platform = wx.getSystemInfoSync().platform
     const isIOS = platform === 'ios'
-    this.setData({ isIOS})
+    this.setData({ isIOS })
     const that = this
     this.updatePosition(0)
     let keyboardHeight = 0
@@ -100,50 +101,125 @@ Page({
     })
   },
   // 预览图片
-  previewImg(e){
-    const {index} = e.currentTarget.dataset;
-    const {imgPath} = this.data;
+  previewImg(e) {
+    const { index } = e.currentTarget.dataset;
+    const { imgPath } = this.data;
     wx.previewImage({
-      current:imgPath[index],
+      current: imgPath[index],
       urls: imgPath,
     })
   },
   // 选择图片
-  handleChooseImg(e){
+  handleChooseImg(e) {
+    console.log(app.globalData);
     wx.chooseImage({
-      sizeType:['original','compressed'],
-      success:(result)=>{
+      sizeType: ['original', 'compressed'],
+      success: (result) => {
         console.log(result);
         this.setData({
           // imgPath:result.tempFilePaths
           // 进行拼接
-          imgPath:[...this.data.imgPath,...result.tempFilePaths]
+          imgPath: [...this.data.imgPath, ...result.tempFilePaths]
         })
       }
     })
   },
   // 删除选取的图片
-  handleDeleteImg(e){
-    const {index} = e.currentTarget.dataset;
-    let {imgPath} = this.data;
+  handleDeleteImg(e) {
+    const { index } = e.currentTarget.dataset;
+    let { imgPath } = this.data;
     // 删除数组的index元素
-    imgPath.splice(index,1);
+    imgPath.splice(index, 1);
     this.setData(
-      {imgPath}
+      { imgPath }
     )
   },
-  handleAnonymous(e){
+  handleAnonymous(e) {
     console.log(e);
     this.setData({
-      anonymous:e.detail
+      anonymous: e.detail
     })
   },
   // 发送表白信息
-  getContent(){
+  sendConfession() {
+    let confessData = {};
     this.editorCtx.getContents({
-      success:(res)=>{
-        console.log("文本：",res,"图片：",this.data.imgPath);
+      success: (res) => {
+        confessData._openid=app.globalData.openid;
+        confessData.content = res.html;
+        confessData.userId = app.globalData.openid;
+        confessData.authorInfo = app.globalData.userInfo;
+        confessData.createTime = new Date().toLocaleString();
+        confessData.likeCount=0;
+        confessData.commentCount=0;
       }
-    })
-  },
+    });
+    if (JSON.stringify(app.globalData.userInfo) === "{}") {
+      wx.showModal({
+        title: "请登录后再尝试",
+      })
+    } else if (confessData.content === "") {
+      wx.showToast({
+        title: '请输入非空文字',
+        icon: "error"
+      })
+    }
+    else {
+      wx.showLoading({
+        title: '上传中',
+      })
+      let promiseArr = [];
+      let pictures = [];
+      for (let i = 0; i < this.data.imgPath.length; i++) {
+        promiseArr.push(new Promise((reslove, reject) => {
+          let item = this.data.imgPath[i];
+          let suffix = /\.\w+$/.exec(item)[0];//正则表达式返回文件的扩展名
+          wx.cloud.uploadFile({
+            cloudPath: new Date().getTime() + suffix, // 上传至云端的路径
+            filePath: item, // 小程序临时文件路径
+            success: res => {
+              console.log("云端图片路径:",res)
+              pictures.push(res.fileID)
+              console.log(res.fileID)//输出上传后图片的返回地址
+              reslove();
+            },
+            fail: res => {
+              wx.showToast({
+                title: "上传失败",
+              })
+              reject();
+            } // fail
+          }) // wx.cloud.uploadFile
+        })); // promiseArr.push
+      } // for
+      Promise.all(promiseArr).then(res => {//等数组都做完后做then方法
+        wx.hideLoading();
+        confessData.pictures = pictures;
+        console.log(confessData);
+        wx.cloud.callFunction({
+          name: "OperateDatabase",
+          data: {
+            opr: 'add',
+            tablename: "t_confession",
+            data: confessData
+          },
+          success: () => {
+            this.clear();//清空文本框
+            this.setData({
+              imgPath: [],
+              anonymous: false
+            })
+            wx.showToast({
+              title: '发布成功',
+              success: () => {
+                wx.navigateTo({
+                  url: '../confession/confession'
+                })
+              }
+            })
+          }
+        }) // wx.cloud.callFunction
+      })  // promise.all
+    } // else
+  },//sendConfess
 })
