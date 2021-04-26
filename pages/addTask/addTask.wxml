@@ -44,7 +44,6 @@
     <label class="dsp-title" for="description">任务描述内容:</label>
     <textarea name="description" class="dsp" warp="hard" bindinput="addDsp"
       placeholder="请输入对该任务内容的描述或者其他的要求..."></textarea>
-
     <checkbox-group bindchange="niming">
       <checkbox class="btn-nick" color="aqua" value="是否匿名">是否匿名发布</checkbox>
     </checkbox-group>

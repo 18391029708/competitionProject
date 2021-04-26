@@ -82,7 +82,6 @@ Page({
         isNick: 0
       })
     }
-    console.log(this.data.isNick);
   },
 
   uploadMessage() {

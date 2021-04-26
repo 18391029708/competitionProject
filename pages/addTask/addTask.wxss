@@ -11,7 +11,7 @@
   margin: 10rpx;
   height: 220rpx;
   width: 85%;
-  padding: 30rpx;
+  padding: 30rpx 40rpx 30rpx;
   background-color: #F5F5F5;
   border-radius: 15rpx;
   font-size:26rpx;
