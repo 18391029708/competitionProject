@@ -3,7 +3,7 @@
 
   <view class="task-card">
     <view class="task-top">
-      <text class="user-phone">{{task.nikePhone}}</text>
+      <text class="user-phone">{{task.nickPhone}}</text>
       <text class="user-money">佣金{{task.task.taskProfit}}元</text>
     </view>
     <view class="task-content">
@@ -65,7 +65,7 @@
           <view class="title">请填写接单信息</view>
           <van-field input-align="right" value="{{ yourPhone }}" label="你的电话" placeholder="方便任务主与你联系..."
             border="{{ true }}" />
-          <view class="is-nike">
+          <view class="is-nick">
             <view>匿名接单</view>
             <switch color="aqua"></switch>
           </view>

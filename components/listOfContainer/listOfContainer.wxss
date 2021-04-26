@@ -1,34 +1,31 @@
 .list {
-  position: relative;
   margin: 20rpx 20rpx 30rpx;
   padding: 30rpx;
   border-radius: 10rpx;
   background-color: #ffffff;
 }
 
+.top{
+  display: flex;
+  justify-content: space-between;
+}
+
 .task-status {
-  top: 20rpx;
-  right: -50rpx;
-  position: absolute;
-  padding-left: 30rpx;
-  padding-top: 15rpx;
-  width: 150rpx;
-  height: 60rpx;
-  border-radius: 50rpx;
-  font-size: 28rpx;
-  color: #ffffff;
+  font-size: 30rpx;
+  font-style: oblique;
+  padding-top: 10rpx;
 }
 
 .new-bcg {
-  background-color: aqua;
+  color: aqua;
 }
 
 .alread-bcg {
-  background-color: #00FF7F;
+  color: #00FF7F;
 }
 
 .finish-bcg{
-  background-color: #A9A9A9;
+  color: #A9A9A9;
 }
 
 .task-detail {
@@ -40,39 +37,31 @@
   width: 90%;
 }
 
-.task-top {
-  margin: 5px;
-  display: flex;
-  justify-content: space-between;
+.task-top-status {
+  padding: 5px;
+  text-align: center;
   border-bottom: 1px solid #D3D3D3;
 }
 
-.task-type {
-  padding: 15rpx;
-  font-size: 32rpx;
-}
-
 .task-profit {
+  text-align: right;
   padding: 15rpx;
   font-size: 30rpx;
   color: #00FF7F;
 }
 
-.task-demand,
 .task-description {
   display: grid;
   padding-left: 15rpx;
   grid-template-columns: 1fr 2fr;
 }
 
-.demand-title,
 .description-title {
   padding: 15rpx;
   font-size: 26rpx;
   color: #A9A9A9;
 }
 
-.demand,
 .description {
   padding: 15rpx;
   font-size: 26rpx;

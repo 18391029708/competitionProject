@@ -54,8 +54,8 @@ toPay(){
  */
 onLoad: function (options) {
   let jsondata = JSON.parse(options.task);
-  let nikePhone = jsondata.userPhone.replace(/^(\d{3})\d{4}/,"$1****");
-  jsondata["nikePhone"] = nikePhone;
+  let nickPhone = jsondata.userPhone.replace(/^(\d{3})\d{4}/,"$1****");
+  jsondata["nickPhone"] = nickPhone;
 
   let status;
   if(jsondata.task.taskStatus === "新任务"){

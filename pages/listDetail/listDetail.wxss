@@ -91,7 +91,7 @@ page {
   flex: 1;
 }
 
-.is-nike,
+.is-nick,
 .sex-select {
   flex: 1;
   padding: 30rpx;
