@@ -17,7 +17,7 @@
 }
 
 .new-bcg {
-  color: aqua;
+  color: #00BFFF;
 }
 
 .alread-bcg {

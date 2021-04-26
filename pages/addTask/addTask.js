@@ -1,4 +1,5 @@
 const app = getApp();
+const util = require("../../utils/util");
 
 Page({
 
@@ -41,9 +42,14 @@ Page({
     })
   },
 
+  formatDate(date) {
+    date = new Date(date);
+    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+  },
+
   timeConfirm(event) {
     this.setData({
-      itemTime: event.detail.value,
+      itemTime: this.formatDate(event.detail),
       timeShow: false
     })
   },
@@ -84,6 +90,54 @@ Page({
     }
   },
 
+  toPay(e){
+    const that = this;
+
+     wx.showLoading({
+      title: '加载中。。。',
+    })
+
+    let timestamp = Date.parse(new Date()) / 1000;
+    
+    wx.cloud.callFunction({
+      name: "pay",
+      data: {
+        // body: body,
+        outTradeNo:timestamp+timestamp+timestamp+'abc',
+        money: 0.01,//支付金额
+      },
+      success(res) {
+        wx.hideLoading({
+          complete: (res) => {},
+        })
+        console.log("提交成功", res.result)
+        //创建自己的未支付订单
+        that.pay(res.result)
+      },
+      fail(res) {
+        wx.hideLoading({
+          complete: (res) => {},
+        })
+        console.log("提交失败", res)
+      }
+    })
+  },
+
+  pay(payData) {
+    const payment = payData.payment;
+    wx.requestPayment({
+      ...payment,
+      success(res) {
+        console.log('pay success', res)
+        //跳转到支付成功页面
+      },
+      fail(res) {
+        console.error('pay fail', res)
+        //跳转到支付失败页面
+      }
+    })
+  },
+
   uploadMessage() {
     const db = wx.cloud.database();
     let that = this;
@@ -114,8 +168,8 @@ Page({
       },
       success: function (res) {
         console.log(res)
-        wx.navigateTo({
-          url: '../takeDelivery/takeDelivery',
+        wx.navigateBack({
+          delta: 1
         })
       },
       fail: console.error

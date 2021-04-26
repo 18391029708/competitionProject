@@ -10,7 +10,7 @@ const db=cloud.database();
 exports.main = async (event, context) => {
   const res = await cloud.cloudPay.unifiedOrder({
     "body" : "电车搭乘",
-    "outTradeNo" : event.outTradeNo,
+    "package" : event.outTradeNo,
     "spbillCreateIp" : "127.0.0.1",
     "subMchId" : "1604371057",
     "totalFee" : event.money,

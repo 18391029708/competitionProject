@@ -24,11 +24,8 @@
   </van-cell-group>
 
   <view class="sex-demand">
-    <van-cell title="时间要求" value="{{itemTime}}" is-link bind:click="showTimePopup" />
-    <van-popup show="{{ timeShow }}" bind:close="closeTimePopup" position="bottom" custom-style="height: 40%" round>
-      <van-picker show-toolbar title="时间要求" columns="{{ itemTimes }}" bind:confirm="timeConfirm"
-        bind:cancel="closeTimePopup" />
-    </van-popup>
+    <van-cell title="时间要求" value="{{ itemTime }}" is-link bind:click="showTimePopup" />
+    <van-calendar show="{{ timeShow }}" bind:close="closeTimePopup" bind:confirm="timeConfirm" color="#00BFFF"/>
   </view>
 
   <view class="place">
@@ -48,6 +45,6 @@
       <checkbox class="btn-nick" color="aqua" value="是否匿名">是否匿名发布</checkbox>
     </checkbox-group>
 
-    <button class="add-btn" bindtap="uploadMessage">发布</button>
+    <button class="add-btn" bindtap="toPay">发布</button>
   </view>
 </scroll-view>

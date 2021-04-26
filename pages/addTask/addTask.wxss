@@ -19,7 +19,7 @@
 
 .add-btn{
   margin: 50rpx 10rpx;
-  background-color: aqua;
+  background-color: #00BFFF;
   width: 95%;
   color: #ffffff;
 }

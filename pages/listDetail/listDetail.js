@@ -45,7 +45,7 @@ showTaskCard(){
   })
 },
 
-toPay(){
+taskType(){
   console.log("跳转付款");
 },
 

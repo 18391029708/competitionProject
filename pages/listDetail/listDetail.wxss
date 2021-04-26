@@ -103,30 +103,19 @@ page {
   border-top: 1px solid #D3D3D3;
 }
 
+.rule{
+  padding: 80rpx 40rpx 0rpx;
+}
+
 .title {
   text-align: center;
   font-weight: bolder;
 }
 
-.your-sex {
-  display: flex;
-}
-
-.sex {
-  padding: 30rpx;
-  flex: 1;
-}
-
-.is-nick,
-.sex-select {
-  flex: 1;
-  padding: 30rpx;
-  display: flex;
-  justify-content: space-between;
-}
-
 .enter {
-  margin-top: 30rpx;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
   display: grid;
   grid-template-columns: 50% 50%;
 }
