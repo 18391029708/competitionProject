@@ -2,16 +2,6 @@ page {
   padding: 15rpx;
 }
 
-.task-status {
-  padding-right: 40rpx;
-}
-
-.status {
-  padding: 15rpx;
-  font-weight: bold;
-  font-size: 30rpx;
-}
-
 .task-card {
   margin-left: 24rpx;
   padding: 20rpx;
@@ -23,18 +13,23 @@ page {
 }
 
 .task-top {
-  margin: 5px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   border-bottom: 1px solid #D3D3D3;
 }
 
 .user-phone {
-  padding: 15rpx;
   font-size: 32rpx;
 }
 
+.phone-title{
+  font-size: 20rpx;
+  color: #A9A9A9;
+}
+
 .user-money {
+  text-align: right;
   padding: 15rpx;
   font-size: 30rpx;
   color: #00FF7F;
@@ -63,6 +58,41 @@ page {
   font-size: 26rpx;
 }
 
+/* .task-place{
+  display: flex;
+  justify-content: space-around;
+} */
+
+.start,
+.end{
+  padding: 10rpx;
+  display: flex;
+}
+
+.start-title,
+.end-title{
+  padding: 8rpx;
+  font-size: 26rpx;
+  color: #A9A9A9;
+}
+
+.start-place,
+.end-place{
+  padding: 8rpx;
+  font-size: 26rpx;
+}
+
+.task-status {
+  padding-right: 40rpx;
+}
+
+.status {
+  padding-top: 30rpx;
+  padding-left: 15rpx;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
 .buttom {
   display: flex;
   justify-content: space-between;
@@ -71,10 +101,6 @@ page {
   padding: 15rpx;
   position: absolute;
   border-top: 1px solid #D3D3D3;
-}
-
-.your-info {
-  width: 100%;
 }
 
 .title {
