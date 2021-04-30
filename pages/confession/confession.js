@@ -1,57 +1,122 @@
 // pages/confession.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    loading:true,
     isLike: false,
-    confessions:[]
+    confessions:[],
+    userInfo:{},
+    userId:"",
+    bottomRefresh:false,
+    totalConfess:4,
+    curConfessCount:0,
+    showBackTop:false
   },
-  // 事件
+  modify(index,data){
+    const db = wx.cloud.database();
+    db.collection('t_confession').doc(this.data.confessions[index]._id).update({
+      data:{
+        likerArr:data
+      },
+      succcess:function(res){
+        console.log("修改点赞成功：",res);
+      }
+    })
+  },
+  // 图片预览
+  previewImg(e){
+    // preindex是confession对应confessions的下标
+    // index是图片对应confessions[preindex].pictures[index]
+    const {index,preindex} = e.currentTarget.dataset;
+    wx.previewImage({
+      current:this.data.confessions[preindex].pictures[index],
+      urls: this.data.confessions[preindex].pictures
+    })
+  },
+  // 点赞事件
   handleLike(e){
     console.log(e);
-    this.setData({
-      isLike:!this.data.isLike
-    })
+    let {index} = e.currentTarget.dataset;
+    if(JSON.stringify(this.data.userInfo) == "{}"||JSON.stringify(this.data.userInfo) === "null"){
+      wx.showToast({
+        icon:"error",
+        title: '登录后可点赞',
+      })
+    }else{
+      let isExist = this.data.confessions[index].likerArr.indexOf(this.data.userId);
+      const {confessions} = this.data;
+      console.log(isExist,confessions);
+      if(isExist===-1){ // 还未点赞
+        confessions[index].likerArr.push(this.data.userId);
+        confessions[index].likeClass="icon-like"; // 红心
+        this.setData({
+          confessions
+        })
+        this.modify(index,confessions[index].likerArr);
+      }else{ // 取消点赞
+        console.log('cancel');
+        confessions[index].likerArr.splice(isExist,1);
+        confessions[index].likeClass = "icon-like1";
+        this.setData({
+          confessions
+        })
+        this.modify(index,confessions[index].likerArr);
+      }
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.cloud.callFunction({
-    //   name:'OperateDatabase', // 云函数名称
-    //   data:{
-    //     opr:'add',
-    //     tablename:"t_confession",
-    //     data:{
-    //       content:"测试",
-    //       userId:"shasigei",
-    //       createTime:"2220/20/20"
-    //     }
-    //   },
-    //   complete:res=>{
-    //     console.log("云函数启用成功",res);
-    //   }
-    // })
     wx.cloud.callFunction({
       name:"OperateDatabase",
       data:{
         opr:'query',
         tablename:"t_confession",
-        data:{
-
-        }
+        data:{}
       },
       complete:(res)=>{
-        console.log("confessions:",res);
+        let confessions = res.result.data;
+        let userId = app.globalData.openid;
+        // 处理当前用户是否喜爱当前表白
+        confessions.map((item,index)=>{
+          if(item.likerArr.indexOf(userId)!==-1){
+            return item.likeClass = "icon-like";
+          }
+        })
         this.setData({
-          confessions:res.result.data
+          confessions,
+          loading:false,
+          userInfo:app.globalData.userInfo,
+          userId,
+          curConfessCount:confessions.length
         })
       }
     })
   },
-
+  // 返回顶部
+  handleBackTop(){
+    wx.pageScrollTo({
+      scrollTop:0,
+      duration: 300
+    })
+  },
+  // 显示返回顶部按钮
+  onPageScroll(e){
+    if(e.scrollTop>250){
+      this.setData({
+        showBackTop:true
+      })
+    }else{
+      this.setData({
+        showBackTop:false
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -91,7 +156,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log("chudi");
+    this.setData({
+      bottomRefresh:true
+    })
   },
 
   /**

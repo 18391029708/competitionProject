@@ -12,7 +12,7 @@
   </view>
   <view class="chooseImg_item" wx:for="{{imgPath}}" wx:key="index">
     <image bindtap="previewImg" data-index="{{index}}" src="{{item}}"></image>
-    <van-icon name="clear" bindclick="handleDeleteImg" color="red" class="deleteImg" data-index="{{index}}" size="36px">
+    <van-icon name="clear" bindclick="handleDeleteImg" color="black" class="deleteImg" data-index="{{index}}" size="36px">
     </van-icon>
   </view>
 </view>

@@ -1,5 +1,6 @@
 // pages/commentDetail/commentDetail.js
 const app = getApp();
+const db = wx.cloud.database();
 Page({
   /**
    * 页面的初始数据
@@ -43,56 +44,32 @@ Page({
       })
     } 
     // 没有登录
-    else if (JSON.stringify(this.data.userInfo) == "{}") {
+    else if (JSON.stringify(this.data.userInfo) == "{}"||JSON.stringify(this.data.userInfo) === "null") {
       const that = this;
       wx.showModal({
-        title: '请登录',
-        confirmText: "立即登录",
-        success(res) {
-          if (res.confirm) {
-            wx.getUserProfile({
-              desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-              success: (resu) => {
-                app.globalData.userInfo = resu.userInfo;
-                that.setData({
-                  userInfo: resu.userInfo
-                })
-                wx.showToast({
-                  title: '登录成功',
-                })
-              }
-            })
-          }
-        }
+        title: '请登录后再进行评论',
+        confirmText: "确定",
       })
     } else {
-      let comments = this.data.confessionDetail.comments;
-      const { confessionDetail } = this.data;
+      let comments = this.data.comments;
+      let { confessionDetail } = this.data;
+      confessionDetail.commentCount+=1;
+      // 表白信息的评论
       let confessionComment = {
         _openid: this.data.userId,
-        commentorArr: [],
+        commentCount: 0,
         likerArr: [],
         confessionId: this.data.confessionId,
         reviewContent: this.data.inputComment,
         reviewTime: new Date().toLocaleString(),
         reviewerInfo: app.globalData.userInfo,
       }
-      let commentCount = confessionDetail.commentCount += 1;
-      comments.unshift(confessionComment); // 前插--让最新的评论显示在最前面
-      confessionDetail.commentCount = commentCount; // 表白信息评论数量
-      this.setData({
-        comments,
-        confessionDetail,
-        inputComment: '',
-      })
-      // 更改当前表白评论数
-      const db = wx.cloud.database();
-      db.collection("t_confession").doc(this.data.confessionId).update({
-        data:{
-          commentCount:comments.length
-        }
-      })
-
+      comments.unshift(confessionComment); // 前插--让最新的评论显示在最前面， 也表示当前评论数 加1
+      // this.setData({
+      //   comments,
+      //   confessionDetail,
+      //   inputComment: '',
+      // })
       // t_confession_comment表  新增一条评论
       wx.cloud.callFunction({
         name: "OperateDatabase",
@@ -104,7 +81,70 @@ Page({
           }
         }
       })
+      // 更新confession   
+      db.collection('t_confession').doc(confessionDetail._id).update({
+        data:{
+          commentCount:confessionDetail.commentCount
+        },
+        success:()=>{
+          console.log("commentCount更改成功");
+          this.updateCommentList();
+        },
+        complete:(res)=>{
+          console.log(res,{...confessionDetail});
+        }
+      })
     }
+  },
+  // 删除评论
+  handleDelCom(e){
+    const db = wx.cloud.database();
+    let { confessionDetail } = this.data;
+    wx.showModal({
+      title:"是否删除当前评论",
+      success:()=>{
+        db.collection('t_confession_comment').doc(`${e.currentTarget.dataset.id}`).remove({
+          success:()=>{
+            // 评论数减一
+            db.collection('t_confession').doc(confessionDetail._id).update({
+              data:{
+                commentCount:confessionDetail.commentCount-1
+              },
+              success:()=>{
+                wx.showToast({
+              title: '删除成功',
+               })
+               this.updateCommentList();
+              },
+              failed:()=>{
+                wx.showToast({
+                  title: '删除失败',
+                })
+              }
+            })
+          },
+        })
+      }
+    })
+  },
+  // 初始化界面
+  updateCommentList() {
+    // 根据confessionId查询当前的评论
+    wx.cloud.callFunction({
+      name: "OperateDatabase",
+      data: {
+        opr: "query",
+        tablename: "t_confession_comment",
+        data: {
+          confessionId: this.data.confessionId
+        }
+      },
+      success: (res) => {
+        this.setData({
+          comments: res.result.data,
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -122,14 +162,11 @@ Page({
         }
       },
       success: (res) => {
-        console.log(res);
         const { userInfo } = app.globalData;
         this.setData({
           comments: res.result.data,
           userInfo,
           confessionId,
-          isLoading: false,
-          userId:app.globalData.openid
         })
       }
     })
@@ -145,24 +182,31 @@ Page({
       },
       success:(res)=>{
         this.setData({
-          confessionDetail:res.result.data[0]
+          confessionDetail:res.result.data[0],
+          userId:app.globalData.openid,
+          isLoading: false,
         })
       }
     })
   },
-
+  // 图片预览
+  handlePreviewImg(e){
+    const {index} = e.currentTarget.dataset
+    wx.previewImage({
+      current:this.data.confessionDetail.pictures[index],
+      urls: this.data.confessionDetail.pictures,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
 
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**
@@ -190,7 +234,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log("触底");
   },
 
   /**

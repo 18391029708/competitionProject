@@ -142,84 +142,93 @@ Page({
   },
   // 发送表白信息
   sendConfession() {
-    let confessData = {};
-    this.editorCtx.getContents({
-      success: (res) => {
-        confessData._openid=app.globalData.openid;
-        confessData.content = res.html;
-        confessData.userId = app.globalData.openid;
-        confessData.authorInfo = app.globalData.userInfo;
-        confessData.createTime = new Date().toLocaleString();
-        confessData.likeCount=0;
-        confessData.commentCount=0;
-      }
-    });
-    if (JSON.stringify(app.globalData.userInfo) === "{}") {
-      wx.showModal({
-        title: "请登录后再尝试",
-      })
-    } else if (confessData.content === "") {
-      wx.showToast({
-        title: '请输入非空文字',
-        icon: "error"
-      })
-    }
-    else {
-      wx.showLoading({
-        title: '上传中',
-      })
-      let promiseArr = [];
-      let pictures = [];
-      for (let i = 0; i < this.data.imgPath.length; i++) {
-        promiseArr.push(new Promise((reslove, reject) => {
-          let item = this.data.imgPath[i];
-          let suffix = /\.\w+$/.exec(item)[0];//正则表达式返回文件的扩展名
-          wx.cloud.uploadFile({
-            cloudPath: new Date().getTime() + suffix, // 上传至云端的路径
-            filePath: item, // 小程序临时文件路径
-            success: res => {
-              console.log("云端图片路径:",res)
-              pictures.push(res.fileID)
-              console.log(res.fileID)//输出上传后图片的返回地址
-              reslove();
-            },
-            fail: res => {
-              wx.showToast({
-                title: "上传失败",
-              })
-              reject();
-            } // fail
-          }) // wx.cloud.uploadFile
-        })); // promiseArr.push
-      } // for
-      Promise.all(promiseArr).then(res => {//等数组都做完后做then方法
-        wx.hideLoading();
-        confessData.pictures = pictures;
-        console.log(confessData);
-        wx.cloud.callFunction({
-          name: "OperateDatabase",
-          data: {
-            opr: 'add',
-            tablename: "t_confession",
-            data: confessData
-          },
-          success: () => {
-            this.clear();//清空文本框
-            this.setData({
-              imgPath: [],
-              anonymous: false
-            })
-            wx.showToast({
-              title: '发布成功',
-              success: () => {
-                wx.navigateTo({
-                  url: '../confession/confession'
-                })
-              }
-            })
+    let confessData;
+    new Promise((resolve, rej) => {
+      this.editorCtx.getContents({
+        success: (res) => {
+          confessData = {
+            _openid: app.globalData.openid,
+            content: res.html,
+            userId: app.globalData.openid,
+            authorInfo: app.globalData.userInfo,
+            createTime: new Date().toLocaleString(),
+            likerArr: [],
+            commentCount: 0,
+            likeClass:"icon-like1"
           }
-        }) // wx.cloud.callFunction
-      })  // promise.all
-    } // else
+          resolve();
+        }
+      });
+    }).then(()=>{
+      if (JSON.stringify(app.globalData.userInfo) === "{}" || JSON.stringify(app.globalData.userInfo) === "null") {
+        wx.showModal({
+          title: "请登录后再尝试",
+        })
+      } else if (confessData.content === "") {
+        wx.showToast({
+          title: '请输入非空文字',
+          icon: "error"
+        })
+      }
+      else {
+        wx.showLoading({
+          title: '上传中',
+        })
+        let promiseArr = [];
+        let pictures = [];
+        for (let i = 0; i < this.data.imgPath.length; i++) {
+          promiseArr.push(new Promise((reslove, reject) => {
+            let item = this.data.imgPath[i];
+            let suffix = /\.\w+$/.exec(item)[0];//正则表达式返回文件的扩展名
+            wx.cloud.uploadFile({
+              cloudPath: new Date().getTime() + suffix, // 上传至云端的路径
+              filePath: item, // 小程序临时文件路径
+              success: res => {
+                console.log("云端图片路径:", res)
+                pictures.push(res.fileID)
+                console.log(res.fileID)//输出上传后图片的返回地址
+                reslove();
+              },
+              fail: res => {
+                wx.showToast({
+                  title: "上传失败",
+                })
+                reject();
+              } // fail
+            }) // wx.cloud.uploadFile
+          })); // promiseArr.push
+        } // for
+        Promise.all(promiseArr).then(res => {//等数组都做完后做then方法
+          wx.hideLoading();
+          confessData["pictures"] = pictures;
+          wx.cloud.callFunction({
+            name: "OperateDatabase",
+            data: {
+              opr: 'add',
+              tablename: "t_confession",
+              data: confessData
+            },
+            success: () => {
+              console.log("condata:", confessData);
+              this.clear();//清空文本框
+              this.setData({
+                imgPath: [],
+                anonymous: false
+              })
+              wx.showToast({
+                title: '发布成功',
+                success: () => {
+                  wx.navigateBack({
+                    delta: 1,
+                  })
+                }
+              })
+            }
+          }) // wx.cloud.callFunction
+        })  // promise.all
+      } // else
+    })
+
+
   },//sendConfess
 })

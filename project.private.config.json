@@ -13,12 +13,6 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/commentDetail/commentDetail",
-          "pathName": "pages/commentDetail/commentDetail",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "pages/confession/confession",
           "pathName": "pages/confession/confession",
           "query": "",
@@ -27,6 +21,7 @@
         {
           "name": "pages/writeComfession/writeComfession",
           "pathName": "pages/writeComfession/writeComfession",
+          "query": "",
           "scene": null
         }
       ]

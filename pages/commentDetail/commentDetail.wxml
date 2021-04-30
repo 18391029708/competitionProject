@@ -7,9 +7,9 @@
   </view>
   <!-- 图片容器 -->
   <view class="img_container">
-    <image wx:for="{{confessionDetail.pictures}}" wx:key="index" src="{{item}}" />
+    <image bindtap="handlePreviewImg" wx:for="{{confessionDetail.pictures}}" data-index="{{index}}" wx:key="index" src="{{item}}" />
   </view>
-  <view style="font-weight:550;margin:1rem;border-top:1px solid #dedede">评论({{confessionDetail.commentCount}})</view>
+  <view style="font-weight:550;margin:1rem;border-top:1px solid #dedede">评论({{comments.length}})</view>
   <!-- 评论列表 -->
   <view class="comments_list">
     <view wx:if="{{comments.length}}">
@@ -18,8 +18,8 @@
         <view class="comment_content">{{item.reviewContent}}</view>
         <!-- <view class="reply">查看当前5条回复></view> -->
         <view class="comment_tool">
-          <text class="delete_comment" wx:if="{{item._openid===userId}}">删除</text>
-          <text class="iconfont icon-pinglun" bindtap="showCommentlist">{{item.commentorArr.length>99?"99+":item.commentorArr.length}}</text>
+          <text class="delete_comment" wx:if="{{item._openid==userId}}" data-id="{{item._id}}" data-index="{{index}}" bindtap="handleDelCom">删除</text>
+          <text class="iconfont icon-pinglun" bindtap="showCommentlist">{{item.commentCount>99?"99+":item.commentCount}}</text>
           <text class="iconfont icon-tubiaozhizuomoban-1">{{item.likerArr.length}}</text>
         </view>
       </view>
@@ -27,6 +27,7 @@
     <view wx:else style="text-align:center;color:#8c8c8c">
       暂无评论
     </view>
+    <view wx:if="{{comments.length}}" class="bottom_prompt_text">已加载所有评论</view>
   </view>
 </van-skeleton>
 
@@ -37,4 +38,6 @@
 </view>
 
 <!-- 用户评论详情 -->
-<van-popup show="{{showComment}}" position="bottom" round closeable close-icon="close" custom-style="height:90%" bind:close="closeCommentList"></van-popup>
+<van-popup show="{{showComment}}" position="bottom" round custom-style="height:90%" bind:close="closeCommentList">
+  <van-nav-bar title="{{'标题'}}" left-text="返回" left-arrow bind:click-left="closeCommentList" custom-style="padding-top:0"></van-nav-bar>
+</van-popup>
