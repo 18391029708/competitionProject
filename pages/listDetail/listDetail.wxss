@@ -2,12 +2,93 @@ page {
   padding: 15rpx;
 }
 
+.task-card {
+  margin-left: 24rpx;
+  padding: 20rpx;
+  background-color: #F5F5F5;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+}
+
+.task-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #D3D3D3;
+}
+
+.user-phone {
+  font-size: 32rpx;
+}
+
+.phone-title{
+  font-size: 20rpx;
+  color: #A9A9A9;
+}
+
+.user-money {
+  text-align: right;
+  padding: 15rpx;
+  font-size: 30rpx;
+  color: #00FF7F;
+}
+
+.task-type,
+.task-demand,
+.task-description {
+  display: grid;
+  padding-left: 15rpx;
+  grid-template-columns: 1fr 2fr;
+}
+
+.type-title,
+.demand-title,
+.description-title {
+  padding: 15rpx;
+  font-size: 26rpx;
+  color: #A9A9A9;
+}
+
+.type,
+.demand,
+.description {
+  padding: 15rpx;
+  font-size: 26rpx;
+}
+
+/* .task-place{
+  display: flex;
+  justify-content: space-around;
+} */
+
+.start,
+.end{
+  padding: 10rpx;
+  display: flex;
+}
+
+.start-title,
+.end-title{
+  padding: 8rpx;
+  font-size: 26rpx;
+  color: #A9A9A9;
+}
+
+.start-place,
+.end-place{
+  padding: 8rpx;
+  font-size: 26rpx;
+}
+
 .task-status {
   padding-right: 40rpx;
 }
 
 .status {
-  padding: 15rpx;
+  padding-top: 30rpx;
+  padding-left: 15rpx;
   font-weight: bold;
   font-size: 30rpx;
 }
@@ -22,32 +103,29 @@ page {
   border-top: 1px solid #D3D3D3;
 }
 
-.your-info {
-  width: 100%;
-}
-
 .title {
   text-align: center;
   font-weight: bolder;
 }
 
-.your-sex{
+.your-sex {
   display: flex;
 }
 
-.sex{
+.sex {
   padding: 30rpx;
   flex: 1;
 }
 
-.is-nike, .sex-select{
+.is-nick,
+.sex-select {
   flex: 1;
   padding: 30rpx;
   display: flex;
   justify-content: space-between;
 }
 
-.enter{
+.enter {
   margin-top: 30rpx;
   display: grid;
   grid-template-columns: 50% 50%;

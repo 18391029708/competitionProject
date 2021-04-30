@@ -1,4 +1,6 @@
-<view>
+<scroll-view>
   <image src="../../icons/addTask.png" class="add-task" bindtap="toAddTask"></image>
-  <listOfContainer bindtap="toListDetail"></listOfContainer>
-</view>
+  <block wx:for="{{task}}" wx:key="index">
+    <listOfContainer data-idx="{{index}}" bindtap="toListDetail" task="{{item}}"></listOfContainer>
+  </block>
+</scroll-view>

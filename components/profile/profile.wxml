@@ -1,5 +1,5 @@
 <view class="top">
-  <view class="user-profile"></view>
+  <image class="user-profile" src="{{avatarUrl}}"></image>
     <view class="user-info">
       <text class="user-name">{{userName}}</text>
       <text class="add-time">{{addTime}}</text>

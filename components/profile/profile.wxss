@@ -7,7 +7,6 @@
   width: 70rpx;
   height: 70rpx;
   border-radius: 35rpx;
-  background-color: aqua;
 }
 
 .user-info {

@@ -1,26 +1,20 @@
-.bcg-img{
-  width: 100%;
-}
-
-.add-info{
-  padding-left: 15rpx;
-}
-
-.add-dsp{
-  margin-top: 160rpx;
+.bottom{
+  padding: 15rpx;
 }
 
 .dsp-title{
   font-size: 28rpx;
+  padding-left: 6rpx;
 }
 
 .dsp{
-  margin: 6rpx 6rpx;
+  margin: 10rpx;
   height: 220rpx;
-  width: 90%;
+  width: 85%;
   padding: 30rpx;
   background-color: #F5F5F5;
   border-radius: 15rpx;
+  font-size:26rpx;
 }
 
 .add-btn{
@@ -30,23 +24,8 @@
   color: #ffffff;
 }
 
-.btn-nike{
+.btn-nick{
   font-size: 26rpx;
-}
-
-.sex-demand{
-  display: flex;
-  margin: 24rpx;
-}
-
-.sex-title{
-  flex:1;
-}
-
-.sex-select{
-  flex: 2;
-  display: flex;
-  justify-content: space-between;
 }
 
 .profit{
