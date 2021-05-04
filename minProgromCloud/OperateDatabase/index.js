@@ -4,7 +4,7 @@ const cloud = require('wx-server-sdk')
 cloud.init({
   env:"data-base-1g3n115z3df553d0"
 });
-const db=cloud.database();
+const db = cloud.database();
 
 // 云函数入口函数
 exports.main = async (event, context) => {
@@ -27,7 +27,9 @@ exports.main = async (event, context) => {
     //console.log(event.belongs)
     console.log(event.id)
     try {
-      return await db.collection(event.tablename).doc(event.id).remove()
+      // return await db.collection(event.tablename).doc(event.id).remove()
+      // data = {_id?:xxxxx;commentId?:xxxxxx}
+      return await db.collection(event.tablename).where(event.data).remove();
     } catch (e) {
       console.error(e)
     }

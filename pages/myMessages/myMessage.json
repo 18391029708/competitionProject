@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-tabs":"../../miniprogram_npm/@vant/weapp/tabs",
+    "van-tab":"../../miniprogram_npm/@vant/weapp/tab",
+    "van-empty":"../../miniprogram_npm/@vant/weapp/empty",
+    "userHeader":"../../components/userHeader/userHeader"
+  },
+  "navigationBarTitleText": "我的消息"
+}

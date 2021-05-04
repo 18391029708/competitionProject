@@ -16,6 +16,8 @@ Page({
     curConfessCount:0,
     showBackTop:false
   },
+  // 发送评论或者点赞信息
+  // 修改点赞列表
   modify(index,data){
     const db = wx.cloud.database();
     db.collection('t_confession').doc(this.data.confessions[index]._id).update({
@@ -41,6 +43,7 @@ Page({
   handleLike(e){
     console.log(e);
     let {index} = e.currentTarget.dataset;
+    // 没未登录
     if(JSON.stringify(this.data.userInfo) == "{}"||JSON.stringify(this.data.userInfo) === "null"){
       wx.showToast({
         icon:"error",
@@ -53,25 +56,25 @@ Page({
       if(isExist===-1){ // 还未点赞
         confessions[index].likerArr.push(this.data.userId);
         confessions[index].likeClass="icon-like"; // 红心
-        this.setData({
-          confessions
-        })
-        this.modify(index,confessions[index].likerArr);
       }else{ // 取消点赞
         console.log('cancel');
         confessions[index].likerArr.splice(isExist,1);
         confessions[index].likeClass = "icon-like1";
-        this.setData({
-          confessions
-        })
-        this.modify(index,confessions[index].likerArr);
       }
+      this.setData({
+        confessions
+      })
+      this.modify(index,confessions[index].likerArr);
     }
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  // 跳转
+  handleNavigate(e){
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url,
+    })
+  },
+  // 更新表白墙列表 
+  uploadConfession(){
     wx.cloud.callFunction({
       name:"OperateDatabase",
       data:{
@@ -82,6 +85,7 @@ Page({
       complete:(res)=>{
         let confessions = res.result.data;
         let userId = app.globalData.openid;
+        // 根据openId来确定 点赞列表 是否含有该用户
         // 处理当前用户是否喜爱当前表白
         confessions.map((item,index)=>{
           if(item.likerArr.indexOf(userId)!==-1){
@@ -97,6 +101,12 @@ Page({
         })
       }
     })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    
   },
   // 返回顶部
   handleBackTop(){
@@ -128,7 +138,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.uploadConfession();
   },
 
   /**

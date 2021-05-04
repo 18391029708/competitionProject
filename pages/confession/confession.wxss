@@ -12,7 +12,7 @@ page {
 }
 
 .banner {
-  height: 25vh;
+  height: 30vh;
   position: relative;
   text-align: center;
   overflow: hidden;
@@ -27,7 +27,7 @@ page {
 .banner .user_name {
   font-weight: 600;
   color: #fff;
-  top: 18vh;
+  top: 23vh;
 }
 .banner .background_img {
   width: 100%;
@@ -92,8 +92,6 @@ page {
   grid-template-columns: repeat(3,1fr);
   grid-gap: 10rpx;
   padding: 0.5rem;
-  /* flex-wrap: wrap;
-  padding-bottom: 1rem; */
 }
 .img_container image {
   width: 95%;

@@ -1,0 +1,31 @@
+<!--pages/myConfession/myConfession.wxml-->
+<van-empty wx:if="{{!confessions.length}}" description="暂无表白信息"></van-empty>
+<view class="confe_item" wx:for="{{confessions}}" wx:key="_id">
+  <view class="confe_content">
+    <userHeader userName="{{item.authorInfo.nickName}}" avatarUrl="{{item.authorInfo.avatarUrl}}"
+      postTime="{{item.createTime}}"></userHeader>
+    <view class="confe_content_main">
+      <!-- 文字内容 -->
+      <navigator url="../commentDetail/commentDetail?confessionId={{item._id}}" class="content_text">
+        <rich-text nodes="{{item.content}}">
+        </rich-text>
+      </navigator>
+      <!-- 图片内容 -->
+      <view wx:if="{{item.pictures.length!=0}}" class="img_container">
+        <image wx:for="{{item.pictures}}" wx:for-item="imgItem" wx:for-index="imgIndex" bindtap="previewImg"
+          data-preIndex="{{index}}" data-index="{{imgIndex}}" wx:key="imgIndex" src="{{imgItem}}"
+          wx:if="{{imgIndex<3}}" />
+      </view>
+    </view>
+  </view>
+  <!-- 点赞·评论 -->
+  <view class="confe_toolbar">
+    <view bindtap="handleLike" data-index="{{index}}" data-confessionId="{{item._id}}"
+      class="iconfont {{item.likeClass}}">{{item.likerArr.length}}
+    </view>
+    <view>
+      <navigator url="../commentDetail/commentDetail?confessionId={{item._id}}" class="iconfont icon-pinglun">
+        {{item.commentCount}}</navigator>
+    </view>
+  </view>
+</view>

@@ -11,4 +11,5 @@
     <view class="user_name">{{userName}}</view>
     <view class="post_time">{{postTime}}</view>
   </view>
+  <slot></slot>
 </view>

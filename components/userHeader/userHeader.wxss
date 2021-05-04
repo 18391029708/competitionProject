@@ -18,7 +18,7 @@
   height: 100%;
 }
 .user_header .user_detail {
-  width: 85%;
+  width: 70%;
   height: 100%;
   margin-left: 0.5rem;
   display: flex;
