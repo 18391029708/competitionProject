@@ -17,11 +17,7 @@
 }
 
 .new-bcg {
-<<<<<<< HEAD
   color: #00BFFF;
-=======
-  color: aqua;
->>>>>>> master
 }
 
 .alread-bcg {
