@@ -1,34 +1,71 @@
 <!--pages/confession.wxml-->
-<view class="confe_page">
+<loading wx:if="{{loading}}"></loading>
+
+<view wx:else class="confe_page">
+  <view class="banner">
+    <image src="{{userInfo.avatarUrl}}" class="background_img"></image>
+    <van-image round width="4rem" height="4rem" class="avatar_wrapper" src="{{userInfo.avatarUrl}}"></van-image>
+    <text class="user_name">{{userInfo.nickName}}</text>
+  </view>
+  <!-- banner工具栏 -->
+  <view class="banner_toolbar">
+    <view>
+      <navigator url="../writeComfession/writeComfession">
+        <van-icon size="1.5em" name="edit" />我要表白
+      </navigator>
+    </view>
+    <view>
+      <navigator url="../../pages/myConfession/myConfession?authorid={{userId}}">
+        <van-icon size="1.5em" name="newspaper-o" />我的告白
+      </navigator>
+    </view>
+    <view>
+      <navigator url="../myMessages/myMessage">
+        <van-icon size="1.5em" name="envelop-o" info="99+" />我的消息
+      </navigator>
+    </view>
+  </view>
+  <!-- 空提示 -->
   <van-empty wx:if="{{!confessions.length}}" description="暂无表白信息"></van-empty>
+  <!-- 表白卡片列表 -->
   <view wx:else>
     <view class="confe_item" wx:for="{{confessions}}" wx:key="_id">
-    <view class="confe_content">
-      <userHeader userName="{{item.authorInfo.nickName}}" avatarUrl="{{item.authorInfo.avatarUrl}}" postTime="{{item.createTime}}"></userHeader>
-      <view class="confe_content_main">
-        <!-- 文字内容 -->
-        <navigator url="../commentDetail/commentDetail?confessionId={{item._id}}" class="content_text">
-        <rich-text nodes="{{item.content}}">
-        </rich-text> 
-        </navigator>
-        <!-- 图片内容 -->
-        <view wx:if="{{item.pictures.length!=0}}" class="img_container">
-          <image wx:for="{{item.pictures}}" wx:key="index" src="{{item}}" wx:if="{{index<3}}" />
+      <view class="confe_content">
+        <userHeader userName="{{item.authorInfo.nickName}}" avatarUrl="{{item.authorInfo.avatarUrl}}"
+          postTime="{{item.createTime}}"></userHeader>
+        <view class="confe_content_main" data-url="../commentDetail/commentDetail?confessionId={{item._id}}" catchtap="handleNavigate">
+          <!-- 文字内容 -->
+          <view class="content_text">
+            <rich-text nodes="{{item.content}}">
+            </rich-text>
+          </view>
+          <!-- 图片内容 -->
+          <view wx:if="{{item.pictures.length!=0}}" class="img_container">
+            <image wx:for="{{item.pictures}}" wx:for-item="imgItem" wx:for-index="imgIndex" catchtap="previewImg"
+              data-preIndex="{{index}}" data-index="{{imgIndex}}" wx:key="imgIndex" src="{{imgItem}}"
+              wx:if="{{imgIndex<3}}" />
+          </view>
+        </view>
+      </view>
+      <!-- 点赞·评论 -->
+      <view class="confe_toolbar">
+        <view bindtap="handleLike" data-index="{{index}}" data-confessionId="{{item._id}}"
+          class="iconfont {{item.likeClass}}">{{item.likerArr.length}}
+        </view>
+        <view>
+          <navigator url="../commentDetail/commentDetail?confessionId={{item._id}}" class="iconfont icon-pinglun">
+            {{item.commentCount}}</navigator>
         </view>
       </view>
     </view>
-    <!-- 点赞·评论 -->
-    <view class="confe_toolbar">
-      <view bindtap="handleLike" class="iconfont {{isLike?'icon-like':'icon-like1'}}">{{item.likeCount}}</view>
-      <view>
-        <navigator url="../commentDetail/commentDetail" class="iconfont icon-pinglun">{{item.commentCount}}</navigator>
-      </view>
-    </view>
   </view>
+  <view wx:if="{{bottomRefresh}}" class="bottom_prompt_text">
+    <van-loading wx:if="{{curConfessCount!==totalConfess}}" type="spinner" size="18px">加载中...</van-loading>
+    <text wx:else>已加载全部信息</text>
   </view>
-
-  <navigator class="doConfess" url="../writeComfession/writeComfession">
-    <text class="iconfont icon-xiepinglun"></text>
-    我要表白
-  </navigator>
+  <!-- 返回顶部按钮 -->
+  <view wx:if="{{showBackTop}}" class="backTop" bindtap="handleBackTop">
+    <van-icon name="back-top" size="4em"></van-icon>
+    <!-- 我要表白 -->
+  </view>
 </view>

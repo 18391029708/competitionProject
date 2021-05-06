@@ -1,0 +1,30 @@
+<!--pages/myMessages/myMessage.wxml-->
+<van-tabs swipeable animated>
+  <van-tab title="全部">
+    <van-empty wx:if="{{!messageList.length}}" description="暂无消息"></van-empty>
+    <view class="message_item">
+      <userHeader  userName="小明" avatarUrl="https://img.yzcdn.cn/vant/cat.jpeg" postTime="2021-5-2 20:33:44"></userHeader>
+      <view>
+        点赞了你发表的内容
+        <view class="target_obj">
+        </view>
+      </view>
+    </view>
+    <view class="message_item">
+      <userHeader  userName="小明" avatarUrl="https://img.yzcdn.cn/vant/cat.jpeg" postTime="2021-5-2 20:33:44"></userHeader>
+      <view>
+        评论了你
+        <view class="target_obj">
+        </view>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="点赞">
+    <van-empty wx:if="{{!likeList.length}}" description="暂无消息"></van-empty>
+
+    <button bindtap="handleDelete">删除</button>
+  </van-tab>
+  <van-tab title="评论">
+    <van-empty wx:if="{{!commnetList.length}}" description="暂无消息"></van-empty>
+  </van-tab>
+</van-tabs>

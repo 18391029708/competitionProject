@@ -1,0 +1,10 @@
+/* pages/myMessages/myMessage.wxss */
+.message_item{
+  color: #8c8c8c;
+  margin: 2em 1em;
+}
+.target_obj {
+  height: 10vh;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+}

@@ -10,14 +10,15 @@
   height: 80rpx;
   border-radius: 40rpx;
   overflow: hidden;
-  background-color: pink;
+  background-color: #f0f0f0;
 }
 .user_avatar_box .avatar {
+  border-radius: 40rpx;
   width: 100%;
   height: 100%;
 }
 .user_header .user_detail {
-  width: 85%;
+  width: 70%;
   height: 100%;
   margin-left: 0.5rem;
   display: flex;
