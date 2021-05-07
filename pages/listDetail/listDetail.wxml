@@ -1,3 +1,75 @@
 <view>
-  <profile></profile>
+  <profile userName="{{task.userName}}" addTime="{{task.addTime}}" avatarUrl="{{task.avatarUrl}}"></profile>
+
+  <view class="task-card">
+    <view class="task-top">
+      <text class="user-phone">{{task.nickPhone}}</text>
+      <text class="phone-title">发布用户手机号</text>
+    </view>
+    <view class="task-content">
+      <view class="user-money">报酬{{task.task.taskProfit}}元</view>
+      <view class="task-type">
+        <text class="type-title">快递类型</text>
+        <text class="type">{{task.task.taskType}}</text>
+      </view>
+      <view class="task-demand">
+        <text class="demand-title">快递要求</text>
+        <text class="demand">{{task.task.taskDemand}}</text>
+      </view>
+      <view class="task-description">
+        <text class="description-title">任务描述</text>
+        <text class="description">{{task.task.description}}</text>
+      </view>
+      <view class="task-place">
+        <view class="start">
+          <image style="height: 50rpx;width: 50rpx;" src="../../icons/start.png"></image>
+          <text class="start-title">任务地点: </text>
+          <text class="start-place">{{task.task.taskPlace}}</text>
+        </view>
+        <view class="end">
+          <image style="height: 50rpx;width: 50rpx;" src="../../icons/end.png"></image>
+          <text class="end-title">送往地址: </text>
+          <text class="end-place">{{task.task.userPlace}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="task-status">
+    <view class="status">任务状态</view>
+    <van-steps steps="{{ steps }}" active="{{ active }}" />
+  </view>
+
+  <view class="buttom">
+    <view class="button1">
+      <van-button round type="info" bind:click="showRulesCard">规则须知</van-button>
+      <van-popup closeable close-icon="close" show="{{ rulesShow }}" bind:close="closeRulesPopup" round
+        custom-style="height: 70%;width: 80%;">
+        <scroll-view>
+          <view class="rule">
+            1. 仓库原因
+            一些大型电商公司（京东、考拉等），都有自建仓库，商品会根据以往出货量数据在各个不同的仓库进行备货，用户的订单如果包含多个仓库的商品，那么就必须对不同的仓库商品进行拆分。
+          </view>
+          <view class="rule">
+            2. 店铺原因
+            一些电商平台（天猫、淘宝、拼多多等），有很多入驻的商家，用户的订单跨店铺结算的情况非常普遍，那么这时候也需要对订单进行拆分，本质上这种情况和仓库有类似之处，每个入驻的商家可以看做一个仓库。
+          </view>
+        </scroll-view>
+      </van-popup>
+    </view>
+
+    <view class="button2">
+      <van-button round type="info" bind:click="showTaskCard" wx:if="{{active===0}}">我要接单</van-button>
+      <van-popup show="{{ taskShow }}" bind:close="closeTaskPopup" custom-style="height: 40%;width: 80%;" round>
+        <view class="your-info">
+          <view class="title">请填写接单信息</view>
+          <van-field input-align="right" value="{{ yourPhone }}" label="你的电话" placeholder="方便发布人与你联系..." />
+          <view class="enter">
+            <van-button plain size="large" type="info" color="aqua" bind:click="closeTaskPopup">取消</van-button>
+            <van-button plain size="large" type="info" color="aqua" bind:click="takeTask">确定</van-button>
+          </view>
+        </view>
+      </van-popup>
+    </view>
+  </view>
 </view>

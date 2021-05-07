@@ -8,24 +8,28 @@
     "pages/webview/webview",
     "pages/takeOrder/takeOrder",
     "pages/takeOrderDetail/takeOrderDetail",
-    "pages/authentificationDetail/authentificationDetail",
     "pages/orderConfirm/orderConfirm",
     "pages/logs/logs",
     "pages/order/order",
-    "pages/infoAuthentification/infoAuthentification",
     "pages/wallet/wallet",
+    "pages/infoAuthentification/infoAuthentification",
+    "pages/authentificationDetail/authentificationDetail",
     "pages/takeVehicle/takeVehicle",
     "pages/takeDelivery/takeDelivery",
     "pages/listDetail/listDetail",
     "pages/confession/confession",
     "pages/commentDetail/commentDetail",
-    "components/travelOrder"
+    "pages/writeComfession/writeComfession",
+    "pages/addTask/addTask",
+    "pages/myMessages/myMessage",
+    "pages/myConfession/myConfession"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   },
   "permission": {
     "scope.userLocation": {

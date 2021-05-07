@@ -1,0 +1,7 @@
+<view class="loading">
+  <view></view>
+  <view></view>
+  <view></view>
+  <view></view>
+</view>
+<view class="text">加载中...</view>

@@ -1,23 +1,41 @@
 /* utils/components/userHeader.wxss */
 .user_header {
-  height: 2.5rem;
+  width: 96%;
+  height: 3rem;
   display: flex;
-  padding: 0.5rem;
+  margin: 0.5rem;
 }
 .user_header .user_avatar_box {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 2.5rem;
-  background-color: pink;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+.user_avatar_box .avatar {
+  border-radius: 40rpx;
+  width: 100%;
+  height: 100%;
 }
 .user_header .user_detail {
+  width: 70%;
+  height: 100%;
   margin-left: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .user_header .user_detail .user_name {
+  width: 100%;
+  height: 2.5em;
+  line-height: 1.1rem;
   font-weight: 550;
+  word-break: break-all;
+  text-overflow: "...";
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 .user_header .user_detail .post_time {
   font-size: 0.8rem;

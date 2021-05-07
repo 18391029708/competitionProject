@@ -1,9 +1,15 @@
 /* pages/commentDetail/commentDetail.wxss */
 page {
-  padding-bottom:14vh;
+  overflow: hidden;
 }
 button {
   margin: 0 !important;
+}
+.loading_reply {
+  text-align: center;
+}
+.main_panel {
+  height: 90vh;
 }
 .content {
   padding: 0.5rem;
@@ -25,42 +31,100 @@ button {
 }
 .comments_item {
   margin: 1rem 2rem;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5em;
   border-bottom: 1px solid #d9d9d9;
 }
 .comment_content {
   /* height: 3rem; */
   font-weight: 550;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
   padding: 0 1.5rem;
 }
-.reply  {
-  line-height: 1.5rem;
-  border-radius: 20rpx;
-  font-size: 0.8rem;
-  text-align: right;
-  padding-right: 2rem;
+.comment_tool  {
+text-align: right;
+}
+.comment_tool .delete_comment{
   color: #0094ff;
+  float: left;
+}
+.comment_tool text {
+  margin: 0 0.5rem;
 }
 
 .comment_input_box {
-  width: 100%;
+  width: 100vw;
   height: 10vh;
   position: fixed;
+  z-index: 999;
   background-color: #fff;
   bottom: 0;
-  padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
 } 
 .comment_input_box input {
   width: 60%;
-  height: 50%;
+  height: 55%;
   padding:0 1rem;
+  margin: 0.5rem 0;
   background-color: #dede;
   border-radius: 1.5rem;
+}
+.bottom_prompt_text {
+  box-sizing: border-box;
+  padding-left: 10vw;
+  color: #8c8c8c;
+}
+
+/* 回复列表 */
+.louzhu {
+  margin-top: 50px;
+}
+.reply_list {
+  margin: 0 2rem;
+}
+.reply_item {
+  margin-bottom: 1.5em;
+}
+.reply_header {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+}
+.reply_header .replier_name {
+  font-weight: 600;
+  margin-left: 0.5em;
+}
+van-image {
+  vertical-align:middle;
+}
+.like_reply {
+  height: 36px;
+  font-size: 0.9em;
+  position: absolute;
+  right: 2em;
+}
+.like_reply van-icon {
+  margin-left: 0.5em;
+  vertical-align: middle;
+}
+/* 评论内容 */
+.reply_content,.reply_foot {
+  padding-left: 2.5em;
+}
+.reply_foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #bfbfbf;
+}
+.reply_content .pre_reply {
+  padding-left: 0.5em;
+  margin-top: 0.5em;
+  border-radius: 5px;
+  word-wrap:break-word;
+  background-color: #f0f0f0;
+}
+.main_reply_content {
+  margin: 0.5em 0;
 }

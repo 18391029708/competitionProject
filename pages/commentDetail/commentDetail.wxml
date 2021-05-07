@@ -1,43 +1,109 @@
-<!--pages/commentDetail/commentDetail.wxml-->
-<!-- <van-skeleton title avatar row="3" loading="{{isLoading}}"> -->
-  <userHeader userName="jealh" postTime="2020-12-030 13:12:22"></userHeader>
-  <!-- 文本内容 -->
-  <view class="content">
-    Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序员的精心调制，结合了色彩自然变化的规律，我们得出了一套色彩生成工具，当有进一步色彩设计需求时，设计者只需按照一定规则定义完毕主色，便可以自动获得一系列完整的衍生色。
-  </view>
-  <!-- 图片容器 -->
-  <view class="img_container">
-    <image fill="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
-    <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
-    <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
-    <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
-    <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
-    <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
-    <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
-    <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
-    <image src="https://img.yzcdn.cn/vant/cat.jpeg" />
-    <image width="100%" height="100" src="https://img.yzcdn.cn/vant/cat.jpeg" />
-  </view>
-  <view>评论</view>
-  <!-- 评论列表 -->
-  <view class="comments_list">
-    <view wx:if="{{comments.length}}">
-      <view wx:for="{{comments}}" wx:key="index" class="comments_item">
-        <userHeader userName="{{item.name}}" postTime="{{item.commentTime}}"></userHeader>
-        <view class="comment_content">{{item.content}}</view>
-        <!-- <view class="reply">查看当前5条回复></view> -->
-        <view class="reply">回复</view>
+<!-- 表白信息与评论 -->
+<scroll-view scroll-y="true" class="main_panel">
+  <van-skeleton title avatar row="5" loading="{{isLoading}}">
+    <!-- 当前表白信息 -->
+    <userHeader avatarUrl="{{confessionDetail.authorInfo.avatarUrl}}"
+      userName="{{confessionDetail.authorInfo.nickName}}" postTime="{{confessionDetail.createTime}}"></userHeader>
+    <!-- 文本内容 -->
+    <view class="content">
+      <rich-text nodes="{{confessionDetail.content}}"></rich-text>
+    </view>
+    <!-- 图片容器 -->
+    <view class="img_container">
+      <image bindtap="handlePreviewImg" wx:for="{{confessionDetail.pictures}}" data-index="{{index}}" wx:key="index"
+        src="{{item}}" />
+    </view>
+    <view style="font-weight:550;margin:1rem;border-top:1px solid #dedede">评论({{comments.length}})</view>
+    <!-- 评论列表 -->
+    <view class="comments_list">
+      <view wx:if="{{comments.length}}">
+        <view wx:for="{{comments}}" wx:key="index" class="comments_item">
+          <userHeader avatarUrl="{{item.reviewerInfo.avatarUrl}}" userName="{{item.reviewerInfo.nickName}}"
+            postTime="{{item.reviewTime}}"></userHeader>
+          <view data-index="{{index}}" catchtap="showCommentlist" class="comment_content">{{item.reviewContent}}</view>
+          <!-- 删除  评论  点赞 -->
+          <view class="comment_tool">
+            <text class="delete_comment" wx:if="{{item._openid==userId}}" data-id="{{item._id}}" data-index="{{index}}"
+              bindtap="handleDelCom">删除</text>
+            <text class="iconfont icon-pinglun" data-index="{{index}}"
+              bindtap="showCommentlist">{{item.commentCount>99?"99+":item.commentCount}}</text>
+            <text class="iconfont icon-tubiaozhizuomoban-1">{{item.likerArr.length}}</text>
+          </view>
+        </view>
       </view>
+      <view wx:else style="text-align:center;color:#8c8c8c">
+        暂无评论
+      </view>
+      <view wx:if="{{comments.length}}" class="bottom_prompt_text">已加载所有评论</view>
     </view>
-    <view wx:else style="text-align:center;color:#8c8c8c">
-      暂无评论
-    </view>
-    
-  </view>
-<!-- </van-skeleton> -->
+  </van-skeleton>
+</scroll-view>
+
+<!-- 用户评论详情 -->
+<!-- 防止滚动穿透 -->
+<view catchtouchmove="catchtouchmove">
+  <van-popup round show="{{showComment}}" position="bottom" custom-style="height:80%; padding-bottom:10vh"
+    overlay-style="height:100vh;overflow:hidden" bind:close="updateCommentList">
+    <!-- 弹出层标题栏 -->
+    <van-nav-bar title="他的回复" left-text="返回" left-arrow bind:click-left="updateCommentList" custom-style="padding:0">
+    </van-nav-bar>
+    <scroll-view scroll-y="true" style="height:62vh">
+      <!-- 楼主评论 -->
+      <view class="comments_item louzhu">
+        <userHeader avatarUrl="{{curComment.reviewerInfo.avatarUrl}}" userName="{{curComment.reviewerInfo.nickName}}"
+          postTime="{{curComment.reviewTime}}">
+          <van-tag plain type="primary">楼主</van-tag>
+        </userHeader>
+        <view class="comment_content">{{curComment.reviewContent}}</view>
+        <!-- 删除  评论  点赞 -->
+        <view class="comment_tool">
+          <text class="iconfont icon-tubiaozhizuomoban-1">{{curComment.likerArr.length}}</text>
+        </view>
+      </view>
+      <!-- 暂无|全部 评论提示语 -->
+      <view wx:if="{{!curComment.commentCount}}" style="margin:0 2em">
+        {{curComment.commentCount?"全部评论(curComment.commentCount)":"暂无评论"}}
+      </view>
+      <!-- 回复数不为零并且curReplyList还没有查到数据。则显示加载中 -->
+      <view class="loading_reply" wx:elif="{{curComment.commentCount&&!curReplyList.length}}">
+        <van-loading type="spinner" color="#1989fa"></van-loading>
+      </view>
+      <!-- 回复列表 -->
+      <view wx:else class="reply_list">
+        <view wx:for="{{curReplyList}}" wx:key="index" class="reply_item">
+          <!-- reply表头 -->
+          <view class="reply_header">
+            <van-image width="36px" height="36px" round src="{{item.replierInfo.avatarUrl}}"></van-image>
+            <text class="replier_name">{{item.replierInfo.nickName}}</text><van-tag
+                wx:if="{{item.replierInfo.userId===curComment._openid}}" type="primary">楼主</van-tag>
+            <view class="like_reply">赞<van-icon name="good-job-o"></van-icon>
+            </view>
+          </view>
+          <view class="reply_content">
+            <!-- 如果评论的是一个reply -->
+            <view wx:if="{{item.repliedInfo._id}}" class="pre_reply">
+              回复：{{item.repliedInfo.replierInfo.nickName}}<van-tag
+                wx:if="{{item.repliedInfo.replierInfo.userId===curComment._openid}}" type="primary">楼主</van-tag>
+              ：{{item.repliedInfo.content}}
+            </view>
+            <view class="main_reply_content">
+              {{item.content}}
+            </view>
+          </view>
+          <view class="reply_foot">
+            {{item.createTime}}
+            <van-button data-current="{{item}}" bind:click="handleReplyBtn" size="mini" type="info" plain round>回复
+            </van-button>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </van-popup>
+</view>
 
 <!-- 输入框 -->
 <view class="comment_input_box">
-  <input type="text" adjust-position="false" value="{{inputComment}}" placeholder="发表评论" bindinput="handleCommentInput"></input>
+  <input bindblur="handleBlur" type="text" adjust-position="false" value="{{inputComment}}" focus="{{isFocus}}"
+    placeholder="{{curPlaceHolder}}" bindinput="handleCommentInput"></input>
   <button class="weui-btn weui-btn_mini weui-btn_primary" bindtap="handleSentComment">发送</button>
 </view>

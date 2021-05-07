@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -12,8 +13,33 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/confession/confession",
+          "pathName": "pages/confession/confession",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/writeComfession/writeComfession",
+          "pathName": "pages/writeComfession/writeComfession",
+          "query": "",
+          "scene": null
+        },
+        {
           "name": "pages/commentDetail/commentDetail",
           "pathName": "pages/commentDetail/commentDetail",
+          "query": "confessionId=cbddf0af607c49d902382bb3308546bd",
+          "scene": null
+        },
+        {
+          "name": "pages/commentDetail/commentDetail",
+          "pathName": "pages/commentDetail/commentDetail",
+          "query": "confessionId=b00064a7607ea04b0fcb16d460b49922",
+          "scene": null
+        },
+        {
+          "name": "pages/myMessages/myMessage",
+          "pathName": "pages/myMessages/myMessage",
+          "query": "",
           "scene": null
         }
       ]

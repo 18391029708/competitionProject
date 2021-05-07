@@ -1,0 +1,87 @@
+.loading {
+  margin: 15vh auto 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  flex-wrap: wrap;
+  animation: xuanzhuan 1s linear infinite;
+}
+.loading view {
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+}
+.text {
+  color: #9f9f9f;
+  margin-top: 20px;
+  text-align: center;
+}
+.loading view:nth-child(1) {
+  background-color: #d3f261;
+  animation: yidong1 2s linear infinite;
+}
+.loading view:nth-child(2) {
+  background-color: #fa541c;
+  animation: yidong2 2s linear infinite;
+}
+.loading view:nth-child(3) {
+  background-color: #d46b08;
+  animation: yidong3 2s linear infinite;
+}
+.loading view:nth-child(4) {
+  background-color: #f0f5ff;
+  animation: yidong4 2s linear infinite;
+}
+@keyframes yidong1 {
+  0% {
+    transform: translateY(0);
+    transform: translatex(0);
+  }
+ 50% {
+    transform: translateY(-8px) translateX(-8px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+@keyframes yidong2 {
+  0% {
+    transform: translateY(0) translatex(0);
+  }
+ 50% {
+    transform: translateY(-8px) translateX(8px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+@keyframes yidong3 {
+  0% {
+    transform: translateY(0) translatex(0);
+  }
+ 50% {
+    transform: translateY(8px) translateX(-8px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+@keyframes yidong4 {
+  0% {
+    transform: translateY(0) translatex(0);
+  }
+ 50% {
+    transform: translateY(8px) translateX(8px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+@keyframes xuanzhuan {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,6 +1,14 @@
 {
   "usingComponents": {
-    "userHeader":"../../components/userHeader/userHeader"
+    "userHeader":"../../components/userHeader/userHeader",
+    "van-popup":"../../miniprogram_npm/@vant/weapp/popup",
+    "van-empty":"../../miniprogram_npm/@vant/weapp/empty",
+    "loading":"../../components/loading/loading",
+    "van-loading":"../../miniprogram_npm/@vant/weapp/loading",
+    "van-image":"../../miniprogram_npm/@vant/weapp/image",
+    "van-icon":"../../miniprogram_npm/@vant/weapp/icon"
+
   },
-  "navigationBarTitleText": "告白墙"
+  "navigationBarTitleText": "告白墙",
+  "backgroundColor": "#f0f0f0"
 }
