@@ -20,6 +20,7 @@ App({
   globalData: {
     userInfo: null,
     openid:null,
-    selectStatus:null
+    selectStatus:null,
+    id:null
   }
 })

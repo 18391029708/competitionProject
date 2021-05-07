@@ -1,6 +1,32 @@
-<!--pages/takeOrder/takeOrder.wxml-->
+<!--接单列表-->
 <view class="container">
   <view>
     接单
   </view>
+  <view class="takeorder_cotainer">
+    <view wx:for="{{takeOrderLists}}">
+      <view class="takeorder" bindtap="confirmTakeOredr" id="{{index}}">
+        <view>
+          <text>订单类型</text>
+        </view>
+        <view>
+          <text>{{item.start_position}}</text>
+        </view>
+        <view>
+          <text>{{item.end_position}}</text>
+        </view>
+        <view class="confirmBtn">
+          <view>
+          <text>联系人：{{}}</text>
+        </view>
+        <view style="width:50%;">
+          <button ><text style="font-size:10px;align-items:center;justity-content:center;margin-top:10px"> 确认接单</text></button>
+        </view>
+        </view>
+     
+      </view>
+    </view>
+
+  </view>
+
 </view>

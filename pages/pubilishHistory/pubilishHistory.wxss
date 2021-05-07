@@ -1,0 +1,30 @@
+/* pages/pubilishHistory/pubilishHistory.wxss */
+
+.typesContainer{
+  display: flex;
+  margin: 3px 0px;
+  width: 100%;
+}
+.type{
+  background-color: #ffffff;
+  flex: 1;
+  border-right: 2px solid #eee;
+  box-shadow: 2px 2px 5px #888888;
+}
+.typesContainer view:last-child{
+  border-right: none;
+}
+.typeText{
+  color: #222;
+  font-size: 17px;
+  font-weight: 200;
+  text-align: center;
+  width: 98%;
+  height: 50px;
+  line-height: 50px;
+  border-right: 1px solid #eee;
+}
+.chosenType{
+  color:#fff;
+  font-weight: bolder;
+}

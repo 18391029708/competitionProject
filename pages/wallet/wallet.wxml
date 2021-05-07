@@ -1,13 +1,18 @@
 <view class="container">
-  <view class="listItem">
-    <view wx:for="{{listItemContent}}">
-      <view class="itemContent" bindtap="click" id="{{index}}">
-        <!-- <view>{{index}}</view> -->
-        <image class="imgArea" src="{{item.src}}"></image>
+  <view class="listItem" wx:for="{{payList}}">
+    <!-- <view > -->
+      <view class="itemList" >
+        <view class="typeMonye">
+          <text>电车搭乘</text>   
+          <text>{{item.expense ? "- ": "+"}}{{item.orderMoney/100}}元</text>
+        </view>
+        <view><text style="font-size:10px">订单编号：{{item._id}}</text></view>
+        <view><text style="font-size:12px">时间：{{item.orderTime}}</text></view>
 
-        <view  class="tiltArea">{{item.title}}{{item.symbol}}{{item.account}}</view>
-        <image class="imgArea2" src="{{item.img}}"></image>
+
       </view>
-    </view>
+
+
+    <!-- </view> -->
   </view>
 </view>

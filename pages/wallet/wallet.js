@@ -1,17 +1,46 @@
 // pages/wallet/wallet.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    listItemContent:[{title:"账户余额",symbol:" : ", account:"0",src:"../../icons/campusIcon.png",img:"../../icons/enter (2).png"},{title:"银行卡",src:"../../icons/moneyBall.png",img:"../../icons/enter (2).png"},{title:"提现",src:"../../icons/psw.png",img:"../../icons/enter (2).png"}],
+    listItemContent:'',
+    payList:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    wx.cloud.callFunction({
+      name:"OperateDatabase",
+      data:{
+        opr:'query',
+        tablename:'t_pay_record',
+        data:{
+          userId:app.globalData.openid
+        }
+      }
+      // success:(res =>{
+      //   this.setData({
+      //     payList:res.result.data
+      //   })
+      //   console.log(that.data.payList)
+      // })
+      // console.log(this.data.payList)
+
+    })
+    .then(res =>{
+      console.log(res)
+      that.setData({
+        payList:res.result.data
+      })
+      console.log(that.data.payList)
+    })
+  
 
   },
 

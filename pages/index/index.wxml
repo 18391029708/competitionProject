@@ -18,7 +18,8 @@
     </block>
   </view>
   <view class="usermotto">
-    <text bindtap='homePage' class="user-motto">{{motto}}</text>
+    <view bindtap="getUserProfile"><button >进入首页</button></view>
   </view>
-  <view bindtap="getUserProfile">获取用户信息</view>
+ 
+  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" type="primary" >获取用户手机号</button>
 </view>

@@ -1,26 +1,25 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/homePage/homePage",
-    "pages/order/order",
+    "pages/baseInfo/baseInfo",
+    "pages/pubilishHistory/pubilishHistory",
     "pages/mine/mine",
+    "pages/homePage/homePage",
+    "pages/webview/webview",
+    "pages/takeOrder/takeOrder",
+    "pages/takeOrderDetail/takeOrderDetail",
+    "pages/authentificationDetail/authentificationDetail",
     "pages/orderConfirm/orderConfirm",
-
+    "pages/logs/logs",
+    "pages/order/order",
     "pages/infoAuthentification/infoAuthentification",
     "pages/wallet/wallet",
-    "pages/takeOrder/takeOrder",
-    "pages/authentificationDetail/authentificationDetail",
     "pages/takeVehicle/takeVehicle",
-
-   
-   
-
-
     "pages/takeDelivery/takeDelivery",
     "pages/listDetail/listDetail",
     "pages/confession/confession",
-    "pages/commentDetail/commentDetail"
+    "pages/commentDetail/commentDetail",
+    "components/travelOrder"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -56,6 +55,12 @@
     ],
     "selectedColor": "#FFC0CB",
     "position": "bottom"
+  },
+  "plugins": {
+    "ocr-plugin": {
+      "version": "3.0.6",
+      "provider": "wx4418e3e031e551be"
+    }
   },
   "sitemapLocation": "sitemap.json"
 }

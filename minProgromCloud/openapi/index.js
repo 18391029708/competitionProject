@@ -1,10 +1,8 @@
 const cloud = require('wx-server-sdk')
 
 cloud.init({
-  env: 'cloudbase-3grpy11vf179fdac'
+  env: 'data-base-1g3n115z3df553d0'
 })
-
-
 // 云函数入口函数
 exports.main = async (event, context) => {
   // console.log(event)

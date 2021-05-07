@@ -13,7 +13,7 @@
   width: 90%;
   height: 200rpx;
   border-radius: 20rpx;
-  background-color: rgb(255, 105, 180, 0.7);  
+  background-color:#ffffff;  
    padding:10px;
    position: fixed;
    margin-left: 15rpx;

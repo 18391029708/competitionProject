@@ -7,6 +7,7 @@ Page({
    */
   data: {
     lists:'',
+    takeOrderLists:'',
     orderType:'',
   },
 
@@ -22,9 +23,11 @@ Page({
         opr:'query',
         tablename:'t_order',
         data:{
-            userId:app.globalData.openid
+            userId:app.globalData.openid,
+            orderStatus:'正在进行'
         }
       },
+      // 查询已接单列表
       success:res =>{
         console.log(res)
         console.log("返回查询订单数据：" + res.result)
@@ -37,12 +40,27 @@ Page({
           console.log("订单列表：" + this.data.lists[i]);
           console.log(JSON.stringify(this.data.lists[i]));
         }
-      
-
       }
     })
-    
     console.log("查询结束")
+    wx.cloud.callFunction({
+      name:"OperateDatabase",
+      data:{
+        opr:'query',
+        tablename:'t_user_info',
+        data:{
+          takeOrderUserId:app.globalData.openid,
+          orderStatus:'正在进行'
+        }
+      },
+      success: res =>{
+        console.log("返回查询司机接单数据：" + res.result)
+        console.log(JSON.stringify(res.result))
+        this.setData({
+          takeOrderLists:res.result.data
+        })
+      }
+    })
 
   },
 

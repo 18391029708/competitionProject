@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="orderItem">
+  <view class="lev">
+    <text>{{orderType}}</text>
+    <text class="title">{{orderStatus}}</text>
+  </view>
+  <!-- 根据订单类型展示不同布局类型  电车搭乘类型 -->
+  <view>
+    <view class="iconfont icon-qidian">{{start_position}}</view>
+    <view class="iconfont icon-zhongdian">{{end_position}}</view>
+    <view class="iconfont icon-shijian">{{create_time}}</view>
+  </view> 
+</view>
+</view>

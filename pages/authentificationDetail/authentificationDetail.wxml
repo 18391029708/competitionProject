@@ -1,38 +1,158 @@
 <!--pages/authentificationDetail/authentificationDetail.wxml-->
 <view class="container">
   <!-- 学生认证 -->
+  <!-- wx:if="{{studentInfoShow}}" -->
   <view class="studentInfo" wx:if="{{studentInfoShow}}">
-    <text>学生基本信息认证</text>
-    <form catchsubmit="formSubmit">
-    <view class="infoInput">
-      <view class="student">
-        <text class="textType">学校: </text>
-        <text class="textType">学号: </text>
-        <text class="textType">姓名: </text>
-        <text class="textType">性别: </text>
+    <!--信息认证 -->
+    <view wx:if="{{!studentAuthentificationStatus}}">
+      <view class="studentText">
+        <text>学生基本信息认证</text>
       </view>
-     
 
-     
-      <view class="student">
-        <input name="input" placeholder="school"/>
-        <input name="input" placeholder="number"/>
-        <input name="input" placeholder="name"/>
-        <input name="input" placeholder="sex"/>
-      </view>
-      <!-- <form action=""></form> -->
+      <form catchsubmit="formSubmit">
+        <view class="infoInput">
+          <view class="student">
+            <text class="textType">学校: </text>
+            <view class="select">
+              <input id="1" name="school" placeholder="school" />
+            </view>
+            <!-- <text class="textType">学号: </text>
+        <text class="textType">姓名: </text>
+        <text class="textType">性别: </text> -->
+          </view>
+          <view class="student">
+            <text class="textType">学号: </text>
+            <view class="select">
+              <input id="2" name="number" placeholder="number" />
+            </view>
+          </view>
+          <view class="student">
+            <text class="textType">姓名: </text>
+            <view class="select">
+              <input id="3" name="name" placeholder="name" />
+            </view>
+
+          </view>
+          <view class="student">
+            <text class="textType">性别: </text>
+            <view class="select">
+              <radio-group name="sex">
+                <radio value="男">男</radio>
+                <radio value="女">女</radio>
+              </radio-group>
+            </view>
+
+          </view>
+
+          <view class="student">
+
+            <button type="primmary" style="width:100% ;background-color:#00BFFF;" form-type="submit">提交</button>
+          </view>
+
+        </view>
+
+      </form>
+
     </view>
-    <button type="primmary" form-type="submit">提交</button>
-  </form>
+    <!-- 认证成功 -->
+    <view class="authentification" wx:if="{{studentAuthentificationStatus}}">
+      <view>
+
+      </view>
+      <view class="authentificationSuccess">
+        <view class="authentificationImage">
+          <image style="width:50px;height:50px" src="../../icons/confirm.png"></image>
+        </view>
+       
+        <text>学生信息认证成功</text>
+      </view>
+    </view>
   </view>
+
   <!-- 实名认证 -->
   <view class="realInfo" wx:if="{{realInfoShow}}">
-    <view class="real">
-      <text>上传身份证</text>
+    <!-- 信息认证 -->
+    <view wx:if="{{!realNameAuthentificationStatus}}">
+      <view class="idCarInfo">
+      <view>
+        <text class="idCardText">姓名</text>
+        <text>{{name}}</text>
+      </view>
+      <view style="flex-direction:row;display:flex">
+        <view>
+          <text class="idCardText">性别</text>
+          <text>sex</text>
+        </view>
+        <view style="margin-left:20px">
+          <text class="idCardText">民族</text>
+          <text>汉</text>
+        </view>
+      </view>
+      <view>
+        <text class="idCardText">身份证号</text>
+        <text>{{idNum}}</text>
+      </view>
+      <view>
+        <text class="idCardText">有效日期</text>
+        <text>validTime</text>
+      </view>
+
+
+
     </view>
+    <view class="real">
+      <ocr-navigator bind:onSuccess="idcardsuccess" certificateType="idCard" opposite="{{false}}">
+        <view class="idCard">
+          <image style="width:60%; height:130px;margin:10px" src="../../icons/idcard1.png"></image>
+          <button class="btn">身份证正面识别</button>
+        </view>
+      </ocr-navigator>
+      <ocr-navigator bind:onSuccess="Success" certificateType="idCard" opposite="{{true}}">
+        <view class="idCard">
+          <image style="width:60%; height:130px;margin:10px" src="../../icons/idcard0.png"></image>
+          <button class="btn">身份证反面识别</button>
+        </view>
+
+      </ocr-navigator>
+    </view>
+  
+    </view>
+      <!-- 认证成功 -->
+      <view class="authentification" wx:if="{{realNameAuthentificationStatus}}">
+      <view>
+
+      </view>
+      <view class="authentificationSuccess">
+        <view class="authentificationImage">
+          <image style="width:50px;height:50px" src="../../icons/confirm.png"></image>
+        </view>
+       
+        <text>实名认证成功</text>
+      </view>
+    </view>
+  
   </view>
   <!-- 车手认证 -->
   <view class="vehicleInfo" wx:if="{{vehicleInfoShow}}">
-    <text class="vehicle">车辆信息</text>
+
+    <view class="vehicle">
+      <text style="text-align:center">车辆信息</text>
+    </view>
+    <view class="carInfo">
+      <view class="carInfoInput">
+        <text>型号</text>
+        <input style="margin-left:10px" placeholder="xinghao" />
+      </view>
+      <view class="carInfoInput">
+        <text>颜色</text>
+        <input style="margin-left:10px" placeholder="yanse" />
+      </view>
+      <view class="carInfoInput">
+        <text>车龄</text>
+        <input style="margin-left:10px" placeholder="nianling" />
+      </view>
+      <button style="background-color:#00bfff;width:100%">提交</button>
+    </view>
+
   </view>
 </view>

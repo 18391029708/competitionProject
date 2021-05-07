@@ -1,11 +1,15 @@
 // pages/homePage/homePage.js
 const app = getApp();
+
+const db = wx.cloud.database()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    background:['../../icons/1.jpg','../../icons/2.jpg','../../icons/3.jpg'],
+    // backgrounc:['../../icons/3.jpg'],
     homePageVehicleArea:''
   },
 
@@ -13,11 +17,37 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("登录页用户信息openid：" + app.globalData.openid)
+    // db.collection('t_user_info').doc('cbddf0af6075a896014caa445d944008').update({
+    //   data:{
+    //     aaa:"woshi"
+    //   }
+    // }).then(res=> {
+    //   console.log("我是首页数据：" ,res)
+      
+    
+    // })
 
+  },
+  web1(){
+    wx.navigateTo({
+      url: '../webview/webview?url='+'https://www.bilibili.com/',
+    })
+  },
+
+  web2(){
+    wx.navigateTo({
+      url: '../webview/webview?url='+'http://www.swust.edu.cn/48/list.htm',
+    })
+  },
+  web3(){
+    wx.navigateTo({
+      url: '../webview/webview?url='+'http://www.swust.edu.cn/496/list.htm',
+    })
   },
   toTakeVehicle(){
     wx.navigateTo({
-      url: '../takeVehicle/takeVehicle',
+      url: '../takeVehicle/takeVehicle?url='+'http://www.swust.edu.cn/89/list.htm',
     })
   },
 

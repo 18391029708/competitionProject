@@ -1,7 +1,17 @@
 <!--pages/orderConfirm/orderConfirm.wxml-->
 <view class="container">
+  <view class="text">确认订单信息</view>
+  <view class="driverSex">
+    <text>选择车手性别</text>
+  </view>
+  <view class="contact">
+   
+      <text>联系电话：</text>
+      <text>联系人:</text>
+   
+  </view>
   <view class='confirmOrderInfoArea'>
-    <view class="text">确认订单信息</view>
+  
     <!-- 起点区域 -->
     <view class="area">
         <image class="positionArea" src="../../icons/listStantPoint.png"></image>
@@ -19,5 +29,5 @@
     </view> 
   </view>
   <!-- 确认按钮 -->
-  <button bindtap='payMent'>确认支付</button>
+  <button class="btn" bindtap='payMent'>确认支付</button>
 </view>

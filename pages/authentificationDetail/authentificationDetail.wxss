@@ -1,28 +1,122 @@
 /* pages/authentificationDetail/authentificationDetail.wxss */
+.container{
+  display: flex;
+  background-color: #F5f5f5f5;
+  padding: 20px;
+  height: 100vh;
+
+}
+.idCard{
+  width: 100%;
+  height: 150px;
+  background-color: #ffffff;
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.btn{
+  width: 100%;
+}
 .studentInfo{
-  background-color: lightgreen;
+  justify-content: space-around;
+  /* background-color: lightgreen; */
+  width: 100%;
+  height: 100%;
   /* height: 50px; */
 }
 .realInfo{
-  background-color: lightcyan; 
-  height: 50px;
+  /* background-color: lightcyan;  */
+  width: 100%;
 }
-.vehicleInfo{
-  height: 50px;
-  background-color: lightpink;
-}
-.infoInput{
-  flex-direction: row;
+.idCarInfo{
+  /* width: 95%; */
   display: flex;
+  justify-content: center;
+  height: 100px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: space-around;
+  background-color:	#B0C4DE ;
+  box-shadow: 5px 5px 5px #888888;
+  /* background-image:url(https://iknow-pic.cdn.bcebos.com/c8177f3e6709c93d5e31b4969e3df8dcd000548b); */
+ /* margin: 10px; */
+}
+.idCardText{
+  font-size: 12px;
+  font-weight: 800;
+  margin-right: 10px;
+  color:	#1E90FF ;
+}
+
+.infoInput{
+  flex-direction: column;
+  /* flex-direction: row; */
+  display: flex;
+  /* background-color: blueviolet; */
+  height: 80%;
+  justify-content: space-around;
 }
 .textType{
-  margin-right: 10px;
+  margin-left: 10px;
+  /* background-color: bisque; */
 }
 .student{
-  flex-direction: column;
+
   margin-top: 10px;
   align-content: space-around;
   justify-content: space-around;
   display: flex;
+  background-color: #ffffff;
+  width: 100%;
+  height: 40px;
+  align-items: center;
 
+}
+.studentText{
+  text-align: center;
+  justify-content: center;
+}
+.select{
+  width: 60%;
+}
+.vehicleInfo{
+  height: 100%;
+  width: 100%;
+  
+  /* background-color: lightpink; */
+}
+.carInfo{
+  height:70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.vehicle{
+  text-align: center;
+  justify-content: center;
+}
+.carInfoInput{
+  display: flex;
+  flex-direction: row;
+ 
+}
+.authentification{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  /* background-color: aquamarine; */
+}
+.authentificationImage{
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.authentificationSuccess{
+  display: flex;
+  flex-direction: column;
 }
