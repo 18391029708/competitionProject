@@ -5,10 +5,6 @@
   <view class="task-content">
     <view class="task-top-code">{{task.task.taskCode}}</view>
     <text class="task-profit">报酬{{task.task.taskProfit}}元</text>
-    <view class="task-demand">
-      <text class="demand-title">快递要求</text>
-      <text class="demand">{{task.task.taskDemand}}</text>
-    </view>
     <view class="task-place">
       <view class="start">
         <image style="height: 50rpx;width: 50rpx;" src="../../icons/start.png"></image>
@@ -22,7 +18,10 @@
       </view>
     </view>
     <view class="task-bottom">
-      <text class="user-name">task.task.userPhone</text>
+      <view class="user">
+        <image style="height: 50rpx;width: 50rpx; border-radius:50%;" src="{{task.avatarUrl}}"></image>
+        <text class="user-name">{{task.task.userName}}:</text>
+      </view>
       <text class="user-phone">{{task.task.userPhone}}</text>
     </view>
   </view>

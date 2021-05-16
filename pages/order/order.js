@@ -83,11 +83,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
     // 向云服务器请求数据
-    // wx.showLoading({
-    //   title: '加载中',
-    // })
+    wx.showLoading({
+      title: '加载中',
+    })
     const that = this;
 
     db.collection('t_delivery_order').where({
@@ -97,6 +96,7 @@ Page({
       that.setData({
         deliveryOrder:res.data
       })
+      wx.hideLoading();
     }).catch(err => {
       console.log(err);
     })

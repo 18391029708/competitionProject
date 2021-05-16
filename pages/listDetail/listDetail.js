@@ -93,7 +93,7 @@ Page({
   toReal() {
     // 跳转实名认证界面
     wx.navigateTo({
-      url: '../listDetail/listDetail',
+      url: '../authentificationDetail/authentificationDetail',
     })
   },
 

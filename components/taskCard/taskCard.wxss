@@ -5,15 +5,11 @@
   background-color: #ffffff;
 }
 
-.top{
-  display: flex;
-  justify-content: space-between;
-}
-
 .task-status {
   font-size: 30rpx;
   font-style: oblique;
   padding-top: 10rpx;
+  text-align: right;
 }
 
 .new-bcg {
@@ -28,19 +24,18 @@
   color: #A9A9A9;
 }
 
-.task-detail {
+.task-content {
   padding: 30rpx;
-  background-color: #F5F5F5;
   border-radius: 10rpx;
   display: flex;
   flex-direction: column;
   width: 90%;
 }
 
-.task-top-status {
-  padding: 5px;
+.task-top-code{
+  font-size: 40rpx;
+  font-weight: bolder;
   text-align: center;
-  border-bottom: 1px solid #D3D3D3;
 }
 
 .task-profit {
@@ -48,21 +43,32 @@
   padding: 15rpx;
   font-size: 30rpx;
   color: #00FF7F;
+  border-bottom: 1px solid #F5F5F5;
 }
 
-.task-description {
-  display: grid;
-  padding-left: 15rpx;
-  grid-template-columns: 1fr 2fr;
-}
-
-.description-title {
-  padding: 15rpx;
+.start,
+.end{
+  padding: 8rpx;
   font-size: 26rpx;
-  color: #A9A9A9;
+  display: flex;
+  justify-content: center;
 }
 
-.description {
-  padding: 15rpx;
+.task-bottom{
+  padding: 8rpx;
   font-size: 26rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.user-name{
+  padding-left: 8rpx;
+}
+
+.user{
+  flex: 1;
+  padding-left: 8px;
+  display: flex;
+  align-items: center;
 }
