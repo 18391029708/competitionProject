@@ -1,50 +1,28 @@
-// pages/order/order.js
+const db = wx.cloud.database()
 const app = getApp();
-Page({
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-    lists:'',
-    orderType:'',
+    deliveryOrder: [],
+    carOrder: [],
+    active: 0,
+  },
+
+  toListDetail(event) {
+    let idx = event.currentTarget.dataset.idx;
+
+    wx.navigateTo({
+      url: '../listDetail/listDetail?' + "task=" + JSON.stringify(this.data.deliveryOrder[idx]),
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log(app.globalData)
-    console.log("订单页加载的用户openid;" + app.globalData.openid)
-    wx.cloud.callFunction({
-      name:'OperateDatabase',
-      data:{
-        opr:'query',
-        tablename:'t_order',
-        data:{
-            userId:app.globalData.openid
-        }
-      },
-      success:res =>{
-        console.log(res)
-        console.log("返回查询订单数据：" + res.result)
-        console.log(JSON.stringify(res.result.data))
-        this.setData({
-          lists:res.result.data
-        })
-        console.log("这是订单列表lists:" + this.data.lists)
-        for(let i = 0;i<this.data.lists.length;i++){
-          console.log("订单列表：" + this.data.lists[i]);
-          console.log(JSON.stringify(this.data.lists[i]));
-        }
-      
-
-      }
-    })
-    
-    console.log("查询结束")
-
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -57,12 +35,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-        // 获取当前用户选择的身份状态,确定展现车手接单页还是普通订单页
-        this.setData({
-          orderType:app.globalData.selectStatus
-        })
-        
 
+    // 向云服务器请求数据
+    // wx.showLoading({
+    //   title: '加载中',
+    // })
+    const that = this;
+
+    db.collection('t_delivery_order').where({
+      _openid: app.globalData.openid
+    }).get().then(res => {
+      // console.log(res.data);
+      that.setData({
+        deliveryOrder:res.data
+      })
+    }).catch(err => {
+      console.log(err);
+    })
   },
 
   /**

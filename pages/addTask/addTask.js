@@ -7,20 +7,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatarUrl:"cloud://data-base-1g3n115z3df553d0.6461-data-base-1g3n115z3df553d0-1304215882/defult.jpg",
-    itemTypes: ["菜鸟驿站", "圆通快递", "顺丰快递", "中通快递","百世快递","其他快递"],
+    avatarUrl: "cloud://data-base-1g3n115z3df553d0.6461-data-base-1g3n115z3df553d0-1304215882/defult.jpg",
+    itemTypes: ["菜鸟驿站", "圆通快递", "顺丰快递", "中通快递", "百世快递", "其他快递"],
     typeShow: false,
     itemType: "",
-    itemTimes: ["2021-12-11", "2021-12-12", "2021-12-13", "2021-12-14","2021-12-15","2021-12-16"],
+    itemTimes: ["2021-12-11", "2021-12-12", "2021-12-13", "2021-12-14", "2021-12-15", "2021-12-16"],
     timeShow: false,
     itemTime: "",
     phone: "",
-    taskCode:"",
-    startPlace:"",
-    userPlace:"",
+    taskCode: "",
+    startPlace: "",
+    userPlace: "",
     profit: 6,
     isNick: 0,
-    userName:"匿名"
+    userName: "匿名"
   },
 
   typeConfirm(event) {
@@ -90,21 +90,21 @@ Page({
     }
   },
 
-  toPay(e){
+  toPay(e) {
     const that = this;
 
-     wx.showLoading({
+    wx.showLoading({
       title: '加载中。。。',
     })
 
     let timestamp = Date.parse(new Date()) / 1000;
-    
+
     wx.cloud.callFunction({
       name: "pay",
       data: {
         // body: body,
-        outTradeNo:timestamp+timestamp+timestamp+'abc',
-        money: 0.01,//支付金额
+        outTradeNo: timestamp + timestamp + timestamp + 'abc',
+        money: 0.01, //支付金额
       },
       success(res) {
         wx.hideLoading({
@@ -140,39 +140,39 @@ Page({
 
   uploadMessage() {
     const db = wx.cloud.database();
-    let that = this;
+    const that = this;
     let time = new Date().toLocaleString();
 
-    if(that.data.isNick === 0){
+    if (that.data.isNick === 0) {
       that.data.userName = app.globalData.userInfo.nickName;
       that.data.avatarUrl = app.globalData.userInfo.avatarUrl;
     }
 
-    db.collection('t_takeDelivery').add({
+    db.collection('t_take_delivery').add({
       data: {
-        task:{
+        task: {
           "taskType": that.data.itemType,
-          "taskStatus": "新任务",
           "taskProfit": that.data.profit,
           "description": that.data.description,
           "taskDemand": that.data.itemTime,
           "taskPlace": that.data.taskPlace,
           "taskCode": that.data.taskCode,
-          "userPlace":  that.data.userPlace
+          "userPlace": that.data.userPlace,
+          "userName": that.data.userName,
+          "userPhone": that.data.phone,
         },
+        taskStatus: "新任务",
         avatarUrl: that.data.avatarUrl,
-        userName: that.data.userName,
-        userPhone: that.data.phone,
         isNick: that.data.isNick,
         addTime: time
       },
-      success: function (res) {
-        console.log(res)
-        wx.navigateBack({
-          delta: 1
-        })
-      },
-      fail: console.error
+    }).then(res => {
+      console.log(res)
+      wx.navigateBack({
+        delta: 1
+      })
+    }).catch(err => {
+      console.log(err);
     })
   },
 

@@ -1,64 +1,22 @@
-<!--pages/order/order.wxml-->
 <view class="container">
   <!-- 普通用户订单记录 -->
-  <view wx:if="{{!orderType}}">
-    <view class="order">订单记录</view>
-  <view class="orderArea">
-    <view class='dingdan' hidden="{{hidden}}">
-      <view wx:for="{{lists}}" data-item="item" data-index='{{index}}' class='orderRecord'>
-        <view class="orderItem">
-          <view class="lev">
-            <text>{{item.orderType}}</text>
-            <text class="title">{{item.orderStatus}}</text>
-          </view>
-          <!-- 根据订单类型展示不同布局类型  电车搭乘类型 -->
-          <view wx:if="{{item.orderType == '电车搭乘'}}">
-            <view class="iconfont icon-qidian">{{item.start_position}}</view>
-            <view class="iconfont icon-zhongdian">{{item.end_position}}</view>
-            <view class="iconfont icon-shijian">{{item.create_time}}</view>
-          </view>
-          <!-- 快递代取类 -->
-          <view wx:if="{{item.orderType == '快递代取'}}">
-            <!-- 代取基本信息 -->
-            <view>
-              <view>{{item.info}}</view>
-            </view>
-          </view>
-        </view>
+  <view wx:if="{{!orderType}}" class="order-area">
+    <!-- 根据订单类型展示不同布局类型  电车搭乘类型 -->
+    <van-tabs active="{{ active }}">
+      <van-tab title="电车搭乘">内容 1</van-tab>
+      <van-tab title="快递代取">
+        <block wx:for="{{deliveryOrder}}" wx:key="index">
+          <taskCard data-idx="{{index}}" bindtap="toListDetail" task="{{item}}"></taskCard>
+        </block>
+      </van-tab>
+    </van-tabs>
+  </view>
 
-
-      </view>
-    </view>
+  <view wx:if="{{orderType}}" class="order-area">
+    <!-- 根据订单类型展示不同布局类型  电车搭乘类型 -->
+    <van-tabs active="{{ active }}" bind:change="onChange">
+      <van-tab title="电车搭乘">内容 1</van-tab>
+      <van-tab title="快递代取">内容 2</van-tab>
+    </van-tabs>
   </view>
-  </view>
-  <!-- 车用用户订单记录 -->
-  <view wx:if="{{orderType}}">
-    <view class="order">接单记录</view>
-  <view class="orderArea">
-    <view class='dingdan' hidden="{{hidden}}">
-      <view wx:for="{{lists}}" data-item="item" data-index='{{index}}' class='orderRecord'>
-        <view class="orderItem">
-          <view class="lev">
-            <text>{{item.orderType}}</text>
-            <text class="title">{{item.orderStatus}}</text>
-          </view>
-          <!-- 根据订单类型展示不同布局类型  电车搭乘类型 -->
-          <view wx:if="{{item.orderType == '电车搭乘'}}">
-            <view class="iconfont icon-qidian">{{item.start_position}}</view>
-            <view class="iconfont icon-zhongdian">{{item.end_position}}</view>
-            <view class="iconfont icon-shijian">{{item.create_time}}</view>
-          </view>
-          <!-- 快递代取类 -->
-          <view wx:if="{{item.orderType == '快递代取'}}">
-            <!-- 代取基本信息 -->
-            <view>
-              <view>{{item.info}}</view>
-            </view>
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
-  </view>
- 
 </view>

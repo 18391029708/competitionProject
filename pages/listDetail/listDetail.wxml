@@ -1,5 +1,5 @@
 <view>
-  <profile userName="{{task.userName}}" addTime="{{task.addTime}}" avatarUrl="{{task.avatarUrl}}"></profile>
+  <profile userName="{{task.task.userName}}" addTime="{{task.addTime}}" avatarUrl="{{task.avatarUrl}}"></profile>
 
   <view class="task-card">
     <view class="task-top">
@@ -59,16 +59,13 @@
     </view>
 
     <view class="button2">
-      <van-button round type="info" bind:click="showTaskCard" wx:if="{{active===0}}">我要接单</van-button>
-      <van-popup show="{{ taskShow }}" bind:close="closeTaskPopup" custom-style="height: 40%;width: 80%;" round>
-        <view class="your-info">
-          <view class="title">请填写接单信息</view>
-          <van-field input-align="right" value="{{ yourPhone }}" label="你的电话" placeholder="方便发布人与你联系..." />
+      <van-button round type="info" bind:click="takeTask" wx:if="{{active===0}}">我要接单</van-button>
+      <van-popup show="{{ taskShow }}" bind:close="closeTaskPopup" custom-style="height: 30%;width: 80%;" round>
+          <view class="title">您还没有完成实名认证哟，请先完成实名认证！点击确定前往实名认证</view>
           <view class="enter">
             <van-button plain size="large" type="info" color="aqua" bind:click="closeTaskPopup">取消</van-button>
-            <van-button plain size="large" type="info" color="aqua" bind:click="takeTask">确定</van-button>
+            <van-button plain size="large" type="info" color="aqua" bind:click="toReal">确定</van-button>
           </view>
-        </view>
       </van-popup>
     </view>
   </view>
