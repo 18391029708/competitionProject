@@ -2,20 +2,45 @@
 <view class="container">
   <view class='head'>
     <view class='headimage'>
-
-      <view class='frofile_photo'>
-        <image src='{{userInfo.avatarUrl}}'></image>
+        <view class='frofile_photo'>
+          <image src='{{userInfo.avatarUrl}}'></image>
+        </view>
+    </view>
+    <view class='choose' bindtap="switchValue">
+      <!-- <block > -->
+        <view class="normalUser" wx:if="{{switch1Checked}}">
+          <text   wx:if="{{switch1Checked}}">车手用户</text>
+         
+        </view>
+        <view class="driverUser" wx:else>
+          <text>普通用户</text>
+        </view>
+      <!-- </block> -->
+      <!-- <block > -->
+      
+      <!-- </block> -->
+        <!-- <switch checked="{{switch1Checked}}" bindchange="selectStatus"></switch> -->
       </view>
-
-      <view class='choose'><text>同意上线</text>
-        <switch checked="{{switch1Checked}}" bindchange="selectStatus"></switch>
+  </view>
+  <view class="authInfo">
+    <view bindtap="studentAuthentication">
+      <view class="blockInfo">
       </view>
-
+      <text>学生认证</text>
+    </view>
+    <view bindtap="realNameAutentication">
+      <view class="blockInfo"></view>
+      <text>实名认证</text>
+    </view>
+    <view bindtap="driverAuthentication">
+      <view class="blockInfo"></view>
+      <text>车辆认证</text>
     </view>
   </view>
 
   <!-- 功能 -->
   <view class="listItem">
+    <!-- <view class="authInfo"></view> -->
     <view wx:for="{{listItemContent}}">
       <view class="itemContent" bindtap="click" id="{{index}}">
         <!-- <view>{{index}}</view> -->

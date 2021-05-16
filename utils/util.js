@@ -22,7 +22,19 @@ function TimeCodeYmd(){
   return [year, month, day].map(formatNumber).join('-');
 }
 
+var sub = function(val){
+  if(val.length == 0 || val == undefined){
+    return;
+  }
+  if(val.length > 10){
+    return val.substring(0,8)+"";
+  }else{
+    return val;
+  }
+}
+
 module.exports = {
   formatTime,
-  TimeCodeYmd
+  TimeCodeYmd,
+  sub
 }

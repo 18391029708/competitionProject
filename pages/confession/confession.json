@@ -6,7 +6,9 @@
     "loading":"../../components/loading/loading",
     "van-loading":"../../miniprogram_npm/@vant/weapp/loading",
     "van-image":"../../miniprogram_npm/@vant/weapp/image",
-    "van-icon":"../../miniprogram_npm/@vant/weapp/icon"
+    "van-icon":"../../miniprogram_npm/@vant/weapp/icon",
+    "van-grid":"../../miniprogram_npm/@vant/weapp/grid",
+    "van-frid-item":"../../miniprogram_npm/@vant/weapp/grid-item"
 
   },
   "navigationBarTitleText": "告白墙",

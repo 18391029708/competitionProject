@@ -3,7 +3,7 @@ const db = wx.cloud.database()
 var app = getApp();
 Page({
   data: {
-    listItemContent:[{title:"信息认证",src:"../../icons/campusIcon.png",img:"../../icons/enter (2).png"},{title:"我的钱包",src:"../../icons/moneyBall.png",img:"../../icons/enter (2).png"},{title:"发布历史",src:"../../icons/psw.png",img:"../../icons/enter (2).png"}],
+    listItemContent:[{title:"我的账单",src:"../../icons/moneyBall.png",img:"../../icons/enter (2).png"},{title:"发布历史",src:"../../icons/psw.png",img:"../../icons/enter (2).png"},{title:"基本信息",src:"../../baseInfo",img:"../../icons/enter (2).png"}],
     userInfo:'',
     switch1Checked:false,
     chooseBtn:true,
@@ -16,23 +16,48 @@ Page({
     utype:0,
     uphone:''
   },
+  // 身份切换
+  switchValue(){
+    this.setData({
+      switch1Checked:!this.data.switch1Checked,
+    })
+    app.globalData.selectStatus = this.data.switch1Checked
+
+  },
   click(e){
     console.log("点击认证索引："+ JSON.stringify(e))
-    if(e.currentTarget.id == 0){//进入信息认证页
-      wx.navigateTo({
-        url: '../infoAuthentification/infoAuthentification',
-      })
-      console.log("我是0")
-    }else if(e.currentTarget.id == 1){//进入我的钱包页
+     if(e.currentTarget.id == 0){//进入我的钱包页
       wx.navigateTo({
         url: '../wallet/wallet',
       })
       console.log("我是1")
-    }else if(e.currentTarget.id == 2){//进入密码设置页
-      console.log("我是2")
-    } else if(e.currentTarget.id== 3){
-      console.log("我是3")
+    }else if(e.currentTarget.id == 1 ){//进入发布历史
+      wx.navigateTo({
+        url: '../pubilishHistory/pubilishHistory',
+      })
+      console.log("我是1")
+    } else if(e.currentTarget.id== 2){
+      wx.navigateTo({
+        url: '../baseInfo/baseInfo',
+      })
+      console.log("我是w")
     }
+  },
+  studentAuthentication(){
+    wx.navigateTo({
+      url: '../authentificationDetail/authentificationDetail?studentInfoShow='+true,
+    })
+
+  },
+  realNameAutentication(){
+    wx.navigateTo({
+      url: '../authentificationDetail/authentificationDetail?realInfoShow='+true,
+    })
+  },
+  driverAuthentication(){
+    wx.navigateTo({
+      url: '../authentificationDetail/authentificationDetail?vehicleInfoShow='+true,   
+    })
   },
   click0(){
     console.log("这是打印的0值")

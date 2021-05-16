@@ -1,0 +1,51 @@
+<!--确认接单页-->
+<view class="container">
+  <!-- 起点终点 -->
+  <view class="address">
+    <view class="orderTitle">
+      <text style="font-size:20px;font-weight:800">订单奖励</text>
+      <text>2元</text>
+    </view>
+    <view class="orderssAdderss">
+
+      <text>起点</text>
+      <text class="orderAddressDetail">{{orderInfo.start_position}}</text>
+    </view>
+    <view class="orderssAdderss">
+      <text>终点</text>
+      <text class="orderAddressDetail">{{orderInfo.end_position}}</text>
+    </view>
+  </view>
+  <!-- 备注信息 -->
+  <view class="note">
+    <text style="font-size:20px;font-weight:800">备注信息 </text>
+    <view class="noteInfo">
+      <view style="width:70%;font-size:15px">
+        <text>到了联手动阀手动阀说法第十分士大夫系我</text>
+      </view>
+     
+    </view>
+    
+
+  </view>
+  <!-- 定单信息 -->
+  <view class="orderInfo">
+    <text class="orderInfoText">订单信息</text>
+    
+    <view class="orderDetail">
+      <view class="numTime">
+        <text style="font-weight:200;font-size:15px">订单号码</text>
+        <text style="font-size:10px">{{orderInfo._id}}</text>
+      </view>
+      <view class="numTime">
+        <text style="font-weight:200;font-size:15px">下单时间</text>
+        <text style="font-size:12px">{{orderInfo.create_time}}</text>
+      </view>
+    </view>
+    <!-- 接单 -->
+    <view style="margin-top:10px">
+      <button style=" background-color: #00BFFF;" bindtap="takeOrder">接单</button>
+    </view>
+
+  </view>
+</view>

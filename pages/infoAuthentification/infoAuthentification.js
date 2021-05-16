@@ -1,10 +1,16 @@
 // pages/infoAuthentification/infoAuthentification.js
+const app = getApp();
+wx.cloud.init({
+  env: 'data-base-1g3n115z3df553d0'
+});
+const db = wx.cloud.database('data-base-1g3n115z3df553d0')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    authentificationStatus:'',
     cardType:[{title:"学生认证",tip:"未完善"},{title:"实名认证",tip:"未完善"},{title:"车手认证",tip:"未完善"}]
 
   },
@@ -32,6 +38,64 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // console.log("加载信息认证页")
+    // wx.cloud.callFunction({
+    //   name:'OperateDatabase',
+    //   data:{
+    //     opr:'query',
+    //     tablename:'t_user_info',
+    //     data:{
+    //       userId:app.globalData.openid,
+    //       studentAuthentificationStatus:true
+    //     }
+    //   }
+    // }).then(res =>{
+    //   console.log("信息认证状态；" + res)
+    //   const key = 0;
+    //   const state = "cardType[" + key +"].tip"
+    //   this.setData({
+    //     [state]:"已实名"
+    //   })
+    // })
+    wx.cloud.callFunction({
+      name:'OperateDatabase',
+      data:{
+        opr:'query',
+        tablename:'t_user_info',
+        data:{
+            userId:app.globalData.openid
+        }
+      },
+      success:res =>{
+        console.log(res)
+        console.log("返回查询订单数据：" + res.result)
+        console.log(JSON.stringify(res.result.data[0]._id))
+        let id = res.result.data[0]._id;
+        console.log("查询结束")
+        // db.collection('')
+        console.log("数据id：", id)
+        db.collection('t_user_info').doc(id).get().then(res =>{
+          console.log("身份证实名信息：" + JSON.stringify(res) )
+          // 获取用户信息后判断用户实名结果
+          if(studentAuthentificationStatus){
+            const key = 0;
+            const state = "cardType[" + key +"].tip"
+            this.setData({
+              [state]:"已实名"
+            })
+          }else if(userAuthentificationStatus){
+            const key = 1;
+            const state2 = "cardType[" + key +"].tip"
+            this.setData({
+              [state2]:"已实名"
+            })
+          }
+     
+        })
+      }
+    })
+
+    
 
   },
 
@@ -46,6 +110,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    
+    if(this.data.authentificationStatus){
+      const key = 0;
+      const state = "cardType[" + key +"].tip"
+      this.setData({
+        [state]:"已实名"
+      })
+    }
+    console.log("我是tip值："+ this.data.cardType[0].tip)
 
   },
 

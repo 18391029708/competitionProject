@@ -1,0 +1,71 @@
+<!--pages/baseInfo/baseInfo.wxml-->
+<view class="container">
+  <view class="container" wx:if="{{show}}">
+    <view class="baseInfoText">
+      <text style="text-align:center">基本信息</text>
+      <text bindtap="change">修改</text>
+    </view>
+    <view class="InfoDisplay">
+      <view class="itemInfo">
+        <text>手机号:</text>
+        <text style="margin-left:10px">{{phoneNum}}</text>
+      </view>
+      <view class="itemInfo">
+        <text>昵称:</text>
+        <text style="margin-left:10px">{{nickName}}</text>
+      </view>
+      <view class="itemInfo">
+        <text>学校:</text>
+        <text style="margin-left:10px">{{school}}</text>
+      </view>
+      <view class="itemInfo">
+        <text>学号:</text>
+        <text style="margin-left:10px">{{schoolNo}}</text>
+      </view>
+      <view class="itemInfo">
+        <text>真实姓名:</text>
+        <text style="margin-left:10px">{{realName}}</text>
+      </view>
+      <view class="itemInfo">
+        <text>车辆编号:</text>
+        <text style="margin-left:10px">{{carNum}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 基本信息修改页面 -->
+  <view class="container" wx:if="{{!show}}">
+
+    <form catchsubmit="formSubmit">
+      <view class="InfoDisplay">
+        <view class="itemInfoChange">
+          <text>手机号:</text>
+          <input id="1"  name="phoneNum" placeholder="phoneNum" style="margin-left:10px" />
+        </view>
+        <view class="itemInfoChange">
+          <text>昵称:</text>
+          <input id="2" name="nickName" placeholder="nickname" style="margin-left:10px" />
+        </view>
+        <view class="itemInfoChange">
+          <text>学校:</text>
+          <input id="3" name="school" placeholder="school" style="margin-left:10px" />
+        </view>
+        <view class="itemInfoChange">
+          <text>学号:</text>
+          <input id="4" name="studentNumber" placeholder="studentNumber" style="margin-left:10px;" />
+        </view>
+        <!-- 暂不支持真实姓名和车辆编号的手动改写,需要在实名认证里边进行修改 -->
+        <!-- <view class="itemInfoChange">
+          <text>真实姓名:</text>
+          <input id="5" name="realName" placeholder="realname" style="margin-left:10px" />
+        </view>
+        <view class="itemInfoChange">
+          <text>车辆编号:</text>
+          <input id="6" name="carid" placeholder="carid" style="margin-left:10px;" />
+        </view> -->
+      </view>
+      <button style="background-color:#00bfff;width:80%" type="primary" form-type="submit">确认修改</button>
+    </form>
+
+  </view>
+
+</view>

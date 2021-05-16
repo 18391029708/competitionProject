@@ -1,1 +1,22 @@
 /* pages/takeOrder/takeOrder.wxss */
+.container{
+  width: 100%;
+  height: 100%;
+}
+.takeorder_cotainer{
+  width: 95%;
+  height: 100%;
+}
+.takeorder{
+  width: 95%;
+  /* height: 100px; */
+  margin: 10px;
+  background-color: darkorange;
+  padding: 5px;
+}
+.confirmBtn{
+  display: flex;
+  flex-direction: row;
+  /* height: 30px; */
+  justify-content: space-between;
+}

@@ -1,0 +1,23 @@
+<!--pages/pubilishHistory/pubilishHistory.wxml-->
+<view class="container">
+   <!-- 分类导航栏 -->
+   <view class="typesContainer">
+    <view class="type" wx:for="{{types}}" wx:for-index="index" wx:key="index">
+      <view bindtap="showLostRecoeds" data-index="{{index}}" class="typeText {{lostType === types[index] ? 'chosenType' : ''}}">{{item}}</view>
+    </view>
+  </view>
+  <!-- 告白墙信息 -->
+  <!-- 默认状态为false,点击相应按钮后将区域设置为可见 -->
+<view wx:if="{{confession}}">
+  <text>请填写告白墙信息</text>
+</view>
+<!-- 失物招领信息 -->
+<view wx:for="{{lostFound}}">
+  <text>请填写失物招领信息</text>
+</view>
+<!-- 电车搭乘信息 -->
+<view wx:if="{{driver}}"><text>请填写电车搭乘信息</text></view>
+<!-- 快递代取信息 -->
+<view wx:if="{{parcel}}"><text>请填写快递代取信息</text></view>
+
+</view>

@@ -12,7 +12,8 @@ Page({
     confirmData:"",
     openid:'',
     orderType:"电车搭乘",
-    orderMoney:1
+    orderMoney:1,
+    id:''
   },
 
   /**
@@ -60,7 +61,7 @@ Page({
       success(res) {
         console.log('pay success', res)
         console.log("支付页用户基本信息：" + app.globalData.openid);
-     
+    //  添加订单
         wx.cloud.callFunction({
           name:'OperateDatabase',
           data:{
@@ -69,6 +70,7 @@ Page({
             data:{
               create_time: timeutil.formatTime(new Date()),
               update_time: timeutil.formatTime(new Date()),
+              _openid:app.globalData.openid,
             //  specifyGender:'',
             orderType:that.data.orderType,
               userId:app.globalData.openid,
@@ -78,8 +80,42 @@ Page({
               start_position: that.data.position ,
               orderMoney:that.data.orderMoney
             }
+          },
+          // 订单添加成功后返回订单id,带着订单id然后添加账单,
+          success :res =>{
+            console.log("添加订单成功:",res)
+            console.log("添加订单成功:",JSON.stringify(res) );
+            that.setData({
+              id:res.result._id
+            })
+        //添加订单成功后添加账单 添加账单,
+          console.log(res)
+          wx.cloud.callFunction({
+            name:"OperateDatabase",
+            data:{
+              opr:'add',
+              tablename:'t_pay_record',
+              data:{
+                _openid:app.globalData.openid,
+                userId:app.globalData.openid,
+                orderNo:that.data.id,
+                orderMoney:that.data.orderMoney,
+                orderTime:timeutil.formatTime(new Date()),
+                orderType:'电车搭乘',
+                // 判断为支出或者收入，true为支出，false为收入
+                expense:true
+
+              }
+            }
+          })
+
+ 
+        
+      
           }
         })
+        console.log(that.data.id)    
+
         wx.showToast({
           title: "你最帅",
           icon: 'loading',

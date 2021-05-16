@@ -10,5 +10,6 @@
   /* justify-content: space-between; */
   margin: 0;
   box-sizing: border-box;
-  background: linear-gradient(#FFBFFF ,#E1FFFF);
+  background-color: #F5F5F5;
+  /* background: linear-gradient(#FFBFFF ,#E1FFFF); */
 } 
