@@ -57,7 +57,6 @@ Page({
             console.log( result.data.result.address)     
             that.locations = result.data.result.address   
             that.setData({position:result.data.result.address})
-           
           }
         })
        function setdata( ary,ard){

@@ -22,6 +22,7 @@ Page({
       switch1Checked:!this.data.switch1Checked,
     })
     app.globalData.selectStatus = this.data.switch1Checked
+    console.log('全局变量：',app.globalData.selectStatus)
 
   },
   click(e){

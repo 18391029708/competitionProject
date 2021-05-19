@@ -8,15 +8,15 @@
     <!-- <view class="orderCss"> -->
       <view class="orderCss">  
           <image class="image" src="../../icons/start.png"></image>
-        <view class="iconfont icon-qidian">{{start_position}}</view>
+        <view class="iconfont icon-qidian">{{task.start_position}}</view>
       </view>
       <view class="orderCss"> 
           <image class="image" src="../../icons/end.png"></image>
-        <view class="iconfont icon-zhongdian">{{end_position}}</view>
+        <view class="iconfont icon-zhongdian">{{task.end_position}}</view>
       </view>
       <view class="orderCss">
           <image class="image" style="../../icons/listTime.png"></image>
-        <view class="iconfont icon-shijian">{{create_time}}</view>
+        <view class="iconfont icon-shijian">{{task.create_time}}</view>
       </view>
     </view>
   <!-- </view> -->
