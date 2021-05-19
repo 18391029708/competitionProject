@@ -50,8 +50,9 @@ Page({
     db.collection('t_user_info').where({
       _openid: app.globalData.openid
     }).get().then(res => {
+      // console.log(res.data);
       let userData = res.data[res.data.length - 1];
-      if (userData && "studentAuthentificationStatus" in userData) {
+      if ( userData && "realNameAuthentificationStatus" in userData ) {
         // 用户已经实名认证，增加用户接单信息,
         db.collection('t_delivery_order').add({
           data: {
@@ -64,9 +65,9 @@ Page({
           }
         }).then(res => {
           // console.log(res)
-
+          
           // 更改该订单状态，根据是否成功完成以上操作提示用户
-          db.collection('t_take_delivery').doc('todo-identifiant-aleatoire').update({
+          db.collection('t_take_delivery').doc(that.data.task._id).update({
             data: {
               taskStatus: "已接单"
             },
@@ -92,9 +93,13 @@ Page({
 
   toReal() {
     // 跳转实名认证界面
+    this.setData({
+      taskShow: false
+    });
+
     wx.navigateTo({
-      url: '../authentificationDetail/authentificationDetail',
-    })
+      url: '../authentificationDetail/authentificationDetail?realInfoShow='+true,
+    });
   },
 
   /**
