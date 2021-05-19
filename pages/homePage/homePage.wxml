@@ -36,11 +36,11 @@
       <text>失物招领</text>
     </view>
 
-    <view>
+    <view style="text-align:center" bindtap="toConfess">
       <view class='confession'>
         <image class='confession' src="../../icons/confession.png"></image>
       </view>
-      <navigator url="../confession/confession">告白墙</navigator>
+      <text>告白墙</text>
     </view>
   </view>
   <!-- 搭乘 快递代取 -->

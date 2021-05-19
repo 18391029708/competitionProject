@@ -17,10 +17,13 @@
 
 .icon-tubiaozhizuomoban-:before {
   content: "\e602";
+  color: "#FF5D47";
+  font-size: 20px;
 }
 
 .icon-tubiaozhizuomoban-1:before {
   content: "\e604";
+  font-size: 20px;
 }
 
 .icon-xiepinglun:before {

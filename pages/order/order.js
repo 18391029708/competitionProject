@@ -1,14 +1,22 @@
-// pages/order/order.js
+const db = wx.cloud.database()
 const app = getApp();
-Page({
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-    lists:'',
-    takeOrderLists:'',
-    orderType:'',
+    deliveryOrder: [],
+    carOrder: [],
+    active: 0,
+  },
+
+  toListDetail(event) {
+    let idx = event.currentTarget.dataset.idx;
+
+    wx.navigateTo({
+      url: '../listDetail/listDetail?' + "task=" + JSON.stringify(this.data.deliveryOrder[idx]),
+    })
   },
 
   /**
@@ -75,12 +83,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-        // 获取当前用户选择的身份状态,确定展现车手接单页还是普通订单页
-        this.setData({
-          orderType:app.globalData.selectStatus
-        })
-        
+    // 向云服务器请求数据
+    wx.showLoading({
+      title: '加载中',
+    })
+    const that = this;
 
+    db.collection('t_delivery_order').where({
+      _openid: app.globalData.openid
+    }).get().then(res => {
+      // console.log(res.data);
+      that.setData({
+        deliveryOrder:res.data
+      })
+      wx.hideLoading();
+    }).catch(err => {
+      console.log(err);
+    })
   },
 
   /**

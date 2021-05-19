@@ -1,11 +1,3 @@
-/* pages/order/order.wxss */
-.container{
-  height: 100vh;
-}
-.orderArea{
-
-}
-.orderItem{
-  background-color: lawngreen;
-  margin-bottom: 10px;
+.order-area{
+  width: 100%;
 }
