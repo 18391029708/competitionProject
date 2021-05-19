@@ -1,5 +1,5 @@
 .container{
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   /* background-color: aquamarine; */
 }
@@ -8,9 +8,21 @@
   justify-content: space-between;
 }
 .orderItem{
-  background-color: lawngreen;
+  background-color:#ffffff;
   margin-bottom: 10px;
-  padding: 10px;
-  width: 300px;
+  /* padding: 10px; */
+  width: 95%;
+  padding: 10px 10px 10px 10px;
+  margin: 10px 10px;
 
+}
+.orderCss{
+/* background-color: aqua; */
+display: flex;
+flex-direction: row;
+}
+.image{
+  width: 30px;
+  height: 30px;
+  /* background-color: bisque; */
 }
