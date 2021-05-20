@@ -63,12 +63,6 @@ Page({
     
     })
   },
-  toTakeDelivery(){
-    wx.navigateTo({
-      url: '../takeDelivery/takeDelivery',
-    
-    })
-  },
 
   //跳转到失物招领页面
   jumpToLostFound(){
@@ -77,6 +71,11 @@ Page({
     })
   },
 
+  toConfess(){
+    wx.navigateTo({
+      url: '../confession/confession',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

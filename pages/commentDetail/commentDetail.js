@@ -23,8 +23,8 @@ Page({
     authorInfo: {}, // 回复评论作者----信息
     repliedInfo: {} // 当前回复的reply
   },
+  // 获取数据库的二级评论
   getCommentReply() {
-    // 获取数据库的二级评论
     wx.cloud.callFunction({
       name: "OperateDatabase",
       data: {
@@ -35,11 +35,24 @@ Page({
         }
       },
       success: (res) => {
-        this.setData({
-          curReplyList: res.result.data,
-          curPlaceHolder: "回复:" + this.data.curComment.reviewerInfo.nickName,
-          authorInfo: this.data.curComment.reviewerInfo, // 当前评论的作者信息
-          inputComment: ''
+        let data = res.result.data;
+        new Promise((resolve, reject) => {
+          data.map((item, index) => {
+            let isLike = item.likerArr.indexOf(this.data.userId);
+            if (isLike === -1) { // 没点赞
+              return item.likeClass = "icon-tubiaozhizuomoban-1";
+            } else {
+              return item.likeClass = "icon-tubiaozhizuomoban-";
+            }
+          });
+          resolve();
+        }).then((res) => {
+          this.setData({
+            curReplyList: data,
+            curPlaceHolder: "回复:" + this.data.curComment.reviewerInfo.nickName,
+            authorInfo: this.data.curComment.reviewerInfo, // 当前评论的作者信息
+            inputComment: ''
+          })
         })
       }
     })
@@ -48,6 +61,7 @@ Page({
   showCommentlist(e) {
     const { index } = e.currentTarget.dataset;
     let curComment = this.data.comments[index];
+    curComment.index = index;
     this.setData({
       showComment: true,
       curComment
@@ -108,6 +122,8 @@ Page({
       replierInfo: { ...this.data.userInfo, userId: this.data.userId },
       authorInfo: this.data.authorInfo,
       content: this.data.inputComment,
+      likerArr:[],
+      confesisonId: this.data.curComment.confessionId
       // _openid:this.data.userId
     }
     // 添加回复信息
@@ -122,10 +138,13 @@ Page({
       },
       success: (res) => {
         this.setData({
-          curComment:{...this.data.curComment,commentCount:this.data.curComment.commentCount+1},
-        })
-        // 更新cuComment的commentCount
-        this.updateDataBase({ tablename: 't_confession_comment', keyword: this.data.curComment._id }, { commentCount: this.data.curComment.commentCount}, this.getCommentReply())
+          curComment: { ...this.data.curComment, commentCount: this.data.curComment.commentCount + 1 },
+        },
+          () => {
+            console.log("更新后的评论数：",this.data.curComment);
+            // 更新cuComment的commentCount
+            this.updateDataBase({ tablename: 't_confession_comment', keyword: this.data.curComment._id }, { commentCount: this.data.curComment.commentCount }, this.getCommentReply())
+          })
       }
     })
   },
@@ -162,7 +181,7 @@ Page({
     }
     setTimeout(function () {
       wx.hideLoading()
-    },500)
+    }, 500)
   },
   // 删除评论
   handleDelCom(e) {
@@ -185,10 +204,10 @@ Page({
             data: {
               opr: "del",
               tablename: "t_comment_reply",
-              data:{commentId: this.data.comments[index]._id}
+              data: { commentId: this.data.comments[index]._id }
             },
-            success:(res)=>{
-              console.log('子评论删除：',res);
+            success: (res) => {
+              console.log('子评论删除：', res);
             }
           })
           // 删除数据库的评论
@@ -203,7 +222,7 @@ Page({
                 title: '删除失败',
               })
             },
-            complete:()=>{
+            complete: () => {
               this.updateCommentList();
             }
           })
@@ -211,7 +230,7 @@ Page({
       }
     })
   },
-  // 初始化界面
+  // 初始化表白评论界面
   updateCommentList() {
     // 根据confessionId查询当前的评论
     wx.cloud.callFunction({
@@ -224,12 +243,26 @@ Page({
         }
       },
       success: (res) => {
-        this.setData({
-          comments: res.result.data,
-          inputComment: '',
-          curReplyList:[],
-          showComment: false,
-          curPlaceHolder: "发表评论"
+        let data = res.result.data;
+        new Promise((resolve, reject) => {
+          data.map((item, index) => {
+            let isLike = item.likerArr.indexOf(this.data.userId);
+            if (isLike === -1) { // 没点赞
+              return item.likeClass = "icon-tubiaozhizuomoban-1";
+            } else {
+              return item.likeClass = "icon-tubiaozhizuomoban-";
+            }
+          });
+          resolve();
+        }).then((res) => {
+          this.setData({
+            comments: data,
+            inputComment: '',
+            curReplyList: [],
+            repliedInfo:{},
+            showComment: false,
+            curPlaceHolder: "发表评论"
+          })
         })
       }
     })
@@ -256,10 +289,106 @@ Page({
       curPlaceHolder: "回复:" + current.replierInfo.nickName
     })
   },
+  // 输入框失去焦点
   handleBlur(e) {
     this.setData({
       curPlaceHolder: "发表评论"
     })
+  },
+  // 点赞处理
+  handleLike(e) {
+    console.log(e);
+    if (this.data.userId==null) {
+      wx.showToast({
+        icon:"error",
+        title: '登录后可以点赞',
+      })
+    } else {
+      const { index } = e.currentTarget.dataset;
+      // 点赞回复
+      if (!this.data.showComment) {
+        let { comments } = this.data;
+        console.log(comments[index].likerArr);
+        let isLike = comments[index].likerArr.indexOf(this.data.userId);
+        if(isLike===-1){ //  没点赞
+          comments[index].likerArr.push(this.data.userId);
+          comments[index].likeClass = "icon-tubiaozhizuomoban-";
+        }else{
+          comments[index].likerArr.splice(isLike,1);
+          comments[index].likeClass = "icon-tubiaozhizuomoban-1";
+        }
+        this.setData({
+          comments
+        })
+        db.collection("t_confession_comment").doc(comments[index]._id).update({
+          data: {
+            likerArr:comments[index].likerArr
+          },
+          success: (err) => {
+            console.log("点赞成功！");
+          }
+        })
+      } else { // 点赞表白墙评论
+        let { curReplyList } = this.data;
+        let isLike = curReplyList[index].likerArr.indexOf(this.data.userId);
+        if(isLike===-1){ //  没点赞
+          curReplyList[index].likerArr.push(this.data.userId);
+          curReplyList[index].likeClass = "icon-tubiaozhizuomoban-";
+        }else{
+          curReplyList[index].likerArr.splice(isLike,1);
+          curReplyList[index].likeClass = "icon-tubiaozhizuomoban-1";
+        }
+        this.setData({
+          curReplyList
+        });
+        db.collection("t_comment_reply").doc(curReplyList[index]._id).update({
+          data: {
+            likerArr:curReplyList[index].likerArr
+          },
+          success: (err) => {
+            console.log(err);
+            console.log("点赞成功！");
+          }
+        })
+      }
+    }
+  },
+  // 点赞楼主
+  handleLouzhu(e){
+    if (this.data.userId==null) {
+      wx.showToast({
+        icon:"error",
+        title: '登录后可以点赞',
+      })
+    }else{
+      console.log(this.data.curComment);
+      let {curComment,comments} = this.data;
+      let {index} = curComment;
+      let isLike = curComment.likerArr.indexOf(this.data.userId);
+      if(isLike===-1){ // 没有点赞
+        curComment.likerArr.push(this.data.userId);
+        curComment.likeClass = "icon-tubiaozhizuomoban-";
+        comments[index].likerArr.push(this.data.userId)
+        comments[index].likeClass = "icon-tubiaozhizuomoban-";
+      }else{
+        curComment.likerArr.splice(isLike,1);
+        curComment.likeClass = "icon-tubiaozhizuomoban-1";
+        comments[index].likerArr.splice(isLike,1);
+        comments[index].likeClass = "icon-tubiaozhizuomoban-1";
+      }
+      db.collection("t_confession_comment").doc(comments[index]._id).update({
+        data: {
+          likerArr:comments[index].likerArr
+        },
+        success: (err) => {
+          console.log("点赞成功！");
+        }
+      })
+      this.setData({
+        curComment,
+        comments
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -278,6 +407,15 @@ Page({
       },
       success: (res) => {
         const { userInfo } = app.globalData;
+        // 处理点赞样式
+        res.result.data.map((item, index) => {
+          let isLike = item.likerArr.indexOf(this.data.userId);
+          if (isLike === -1) { // 没点赞
+            return item.likeClass = "icon-tubiaozhizuomoban-1";
+          } else {
+            return item.likeClass = "icon-tubiaozhizuomoban-";
+          }
+        })
         this.setData({
           comments: res.result.data,
           userInfo,

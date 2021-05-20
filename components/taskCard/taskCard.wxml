@@ -1,0 +1,28 @@
+<view class="list">
+  <view class="top">
+    <view class="task-status">{{task.taskStatusTake}}</view>
+  </view>
+  <view class="task-content">
+    <view class="task-top-code">{{task.task.taskCode}}</view>
+    <text class="task-profit">报酬{{task.task.taskProfit}}元</text>
+    <view class="task-place">
+      <view class="start">
+        <image style="height: 50rpx;width: 50rpx;" src="../../icons/start.png"></image>
+        <text class="start-title">任务地点: </text>
+        <text class="start-place">{{task.task.taskPlace}}</text>
+      </view>
+      <view class="end">
+        <image style="height: 50rpx;width: 50rpx;" src="../../icons/end.png"></image>
+        <text class="end-title">送往地址: </text>
+        <text class="end-place">{{task.task.userPlace}}</text>
+      </view>
+    </view>
+    <view class="task-bottom">
+      <view class="user">
+        <image style="height: 50rpx;width: 50rpx; border-radius:50%;" src="{{task.avatarUrl}}"></image>
+        <text class="user-name">{{task.task.userName}}:</text>
+      </view>
+      <text class="user-phone">{{task.task.userPhone}}</text>
+    </view>
+  </view>
+</view>

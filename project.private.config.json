@@ -41,6 +41,12 @@
           "pathName": "pages/myMessages/myMessage",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/myConfession/myConfession",
+          "pathName": "pages/myConfession/myConfession",
+          "query": "authorid=o75dQ5d3jyoXi0vGdlfpIntIu1CY",
+          "scene": null
         }
       ]
     }
