@@ -40,9 +40,9 @@ Page({
     })
     let that = this;
     //t_takeDelivery为表名
-    wx.cloud.database().collection('t_take_delivery').where({taskStatus:'已接单'}).get({
+    wx.cloud.database().collection('t_take_delivery').get({
       success: function (res) {
-        console.log(JSON.stringify(res))
+        // console.log(JSON.stringify(res))
         that.setData({
           task:res.data
         })
