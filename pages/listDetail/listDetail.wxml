@@ -1,6 +1,6 @@
 <view>
   <profile userName="{{task.task.userName}}" addTime="{{task.addTime}}" avatarUrl="{{task.avatarUrl}}"></profile>
-
+  
   <view class="task-card">
     <view class="task-top">
       <text class="user-phone">{{task.nickPhone}}</text>
