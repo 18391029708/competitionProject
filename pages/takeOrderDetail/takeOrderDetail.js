@@ -30,7 +30,7 @@ this.setData({
   takeOrder(){
     // 更新数据库状态为已接单
     console.log(this.data.orderInfo._id)
-    db.collection('t_order').doc(this.data.orderInfo._id).get()
+    // db.collection('t_order').doc(this.data.orderInfo._id).get()
     db.collection('t_order').doc(this.data.orderInfo._id).update({
       data:{
         orderStatus:"正在进行",

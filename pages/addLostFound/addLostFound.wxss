@@ -1,0 +1,71 @@
+.user{
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+.desc{
+  margin-top: 5px;
+  width: 95%;
+}
+
+.descItem{
+  display: flex;
+  height: 50px;
+}
+.radioCt{
+  display: flex;
+}
+.radio{
+  margin: 0rpx 20rpx;
+}
+.descItem text{
+  color: #222;
+  font-size: 15px;
+}
+.descItem input{
+  border: 1px solid #eee;
+  height: 30px;
+  width: 170px;
+  padding-left: 5px;
+}
+.input-placeholder {
+  color: #bbb;
+  font-size: 12px;
+}
+.descArea{
+  width: 170px;
+  height: 80px;
+  border: 1px solid #eee;
+  padding-left: 5px;
+}
+.pickerTime{
+  width: 170px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #eee;
+  padding-left: 5px;
+}
+.btn{
+  width: 95%;
+  display: flex;
+  margin-top: 55px;
+}
+#commit{
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #CCFF99;
+}
+#cancel{
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  background-color:#bbb ;
+}

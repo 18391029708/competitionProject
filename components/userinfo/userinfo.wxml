@@ -1,0 +1,10 @@
+<!-- 用户头像 -->
+<view class="container">
+  <view class="profile">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <!-- 用户昵称和当前时间 -->
+  <view class="userInfo">
+    <open-data type="userNickName" class="username" lang="zh_CN"></open-data>
+  </view>
+</view>

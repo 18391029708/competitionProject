@@ -28,7 +28,7 @@
   </view>
   <!-- 告白墙 失物招领 -->
   <view id='lost_confessionArea'>
-    <view>
+    <view bindtap="jumpToLostFound">
       <view class='lost'>
         <image class='lost' src="../../icons/byCar.png"></image>
       </view>

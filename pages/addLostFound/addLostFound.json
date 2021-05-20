@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "userinfo":"../../components/userinfo/userinfo",
+    "date-time-picker":"../../components/date-time-picker/date-time-picker",
+    "select":"../../components/select/select"
+  }
+}
