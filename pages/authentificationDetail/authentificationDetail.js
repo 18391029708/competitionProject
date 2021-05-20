@@ -16,6 +16,7 @@ Page({
     vehicleInfoShow:false,
     studentAuthentificationStatus:'',
     carAuthentificationStatus:'',
+    realNameAuthentificationStatus:'',
     realNameAuthentificationStatus:false,
     id:'',
     school:'',
@@ -52,6 +53,7 @@ Page({
       this.setData({
         studentAuthentificationStatus:res.result.data[0].studentAuthentificationStatus,
         carAuthentificationStatus:res.result.data[0].carAuthentificationStatus,
+        realNameAuthentificationStatus:res.result.data[0].realNameAuthentificationStatus,
       })
     })
 
@@ -228,7 +230,7 @@ Page({
           data:{
            'userInfo.realName':e.detail.name.text,
            'userInfo.idNum':e.detail.id.text,
-           realNameAuthentificationStatus:true
+          //  realNameAuthentificationStatus:true
 
           },
           success:res=>{
@@ -240,6 +242,47 @@ Page({
 
     
 // 数据存储数据库
+
+  },
+  // 身份证反面认证
+  reverseSuccess: function (e) {
+    console.log(e)
+    this.setData({
+       valid_date:e.detail.valid_date.text
+    })
+    wx.cloud.callFunction({
+      name:'OperateDatabase',
+      data:{
+        opr:'query',
+        tablename:'t_user_info',
+        data:{
+            userId:app.globalData.openid
+        }
+      },
+      success:res =>{
+        console.log(res)
+      //  this.setData({
+      //    validDate:e.detail.valid_date.text
+       
+      //  })
+        console.log("返回有效日期：" + res.result)
+        console.log(JSON.stringify(res.result.data[0]._id))
+        let id = res.result.data[0]._id;
+        console.log("查询结束")
+        // db.collection('')
+        console.log("数据id：", id)
+        db.collection('t_user_info').doc(id).update({
+          data:{
+            validDate:e.detail.valid_date.text,
+           realNameAuthentificationStatus:true
+
+          },
+          success:res=>{
+            console.log("添加身份证数据成功")
+          }
+        })
+      }
+    })
 
   },
   /**
