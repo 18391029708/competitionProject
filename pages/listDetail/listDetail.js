@@ -1,5 +1,6 @@
 const db = wx.cloud.database()
 const app = getApp();
+import Notify from '../../miniprogram_npm/@vant/weapp/notify/notify';
 
 Page({
   /**
@@ -72,15 +73,32 @@ Page({
               taskStatus: "已接单"
             },
           }).then(res => {
+            // 提示用户接单成功
+            // Notify({ type: 'primary', message: '接单成功' });
+            
             // 返回至主界面
             wx.navigateBack({
               delta: 1
-            })
+            });
           }).catch(err => {
-            console.log(err);
+            // 提示用户接单失败
+            // Notify({ type: 'primary', message: '接单失败' });
+            
+            // 返回至主界面
+            wx.navigateBack({
+              delta: 1
+            });
           })
         }).catch(err => {
-          console.log(err);
+          // console.log(err);
+
+          // 提示用户接单失败
+          // Notify({ type: 'primary', message: '接单失败' });
+            
+          // 返回至主界面
+          wx.navigateBack({
+            delta: 1
+          });
         })
       } else {
         // 用户未实名认证，提示用户先实名认证，跳转实名认证界面

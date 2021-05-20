@@ -102,23 +102,20 @@ Page({
     wx.cloud.callFunction({
       name: "pay",
       data: {
-        // body: body,
+        body: "快递代取",
         outTradeNo: timestamp + timestamp + timestamp + 'abc',
         money: 0.01, //支付金额
       },
       success(res) {
-        wx.hideLoading({
-          complete: (res) => {},
-        })
-        console.log("提交成功", res.result)
+        wx.hideLoading();
+        // console.log("提交成功", res.result)
+        
         //创建自己的未支付订单
         that.pay(res.result)
       },
       fail(res) {
-        wx.hideLoading({
-          complete: (res) => {},
-        })
-        console.log("提交失败", res)
+        wx.hideLoading();
+        // console.log("提交失败", res)
       }
     })
   },
@@ -128,12 +125,24 @@ Page({
     wx.requestPayment({
       ...payment,
       success(res) {
-        console.log('pay success', res)
-        //跳转到支付成功页面
+        // console.log('pay success', res)
+
+        // 上传数据
+        uploadMessage();
+
+        // 跳转回主页面
+        wx.navigateBack({
+          delta: 1
+        });
       },
       fail(res) {
         console.error('pay fail', res)
-        //跳转到支付失败页面
+        // 提示用户支付失败
+
+        // 跳转回主页面
+        wx.navigateBack({
+          delta: 1
+        });
       }
     })
   },
@@ -167,68 +176,9 @@ Page({
         addTime: time
       },
     }).then(res => {
-      console.log(res)
-      wx.navigateBack({
-        delta: 1
-      })
+      // 提示用户下单成功
     }).catch(err => {
-      console.log(err);
+       // 提示用户下单失败
     })
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

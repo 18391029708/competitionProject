@@ -22,6 +22,5 @@ App({
     openid:null,
     selectStatus:null,
     id:null
-
   }
 })

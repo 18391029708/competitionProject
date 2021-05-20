@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "listOfContainer":"../../components/listOfContainer/listOfContainer"
+    "listOfContainer":"../../components/listOfContainer/listOfContainer",
+    "van-notify": "@vant/weapp/notify/index"
   }
 }
