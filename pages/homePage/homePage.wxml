@@ -63,7 +63,11 @@
     </view>
 
     <view bindtap="toTakeDelivery">
-      <view class='parcel'></view>
+      <view class='parcel'>
+      
+          <image class='vehicle' src="../../icons/package.png"></image>
+     
+      </view>
       <text>快递代取</text>
     </view>
 

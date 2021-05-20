@@ -7,6 +7,7 @@ Page({
    */
   data: {
     deliveryOrder: [],
+    takeCarOrder:[],
     carOrder: [],
     active: 0,
   },
@@ -24,6 +25,7 @@ Page({
    */
   onLoad: function (options) {
     console.log(app.globalData)
+    console.log(app.globalData.selectStatus)
     console.log("订单页加载的用户openid;" + app.globalData.openid)
     wx.cloud.callFunction({
       name:'OperateDatabase',
@@ -83,6 +85,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log("订单类型："+this.orderType)
+    console.log(app.globalData.selectStatus)
+    this.setData({
+      orderType:app.globalData.selectStatus
+    })
     // 向云服务器请求数据
     wx.showLoading({
       title: '加载中',
@@ -92,9 +99,22 @@ Page({
     db.collection('t_delivery_order').where({
       _openid: app.globalData.openid
     }).get().then(res => {
-      // console.log(res.data);
+      console.log(res.data);
       that.setData({
         deliveryOrder:res.data
+      })
+      wx.hideLoading();
+    }).catch(err => {
+      console.log(err);
+    })
+
+    // 电车订单查询
+    db.collection('t_order').where({
+      _openid: app.globalData.openid
+    }).get().then(res => {
+      console.log(res.data);
+      that.setData({
+        takeCarOrder:res.data
       })
       wx.hideLoading();
     }).catch(err => {
