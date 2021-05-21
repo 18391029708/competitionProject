@@ -45,7 +45,8 @@ page {
   justify-content: space-around;
   align-items: center;
   position: sticky;
-  top: 0;
+  z-index: 999;
+  top: -1px;
   left: 0;
 }
 .banner_toolbar view navigator {

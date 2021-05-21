@@ -1,48 +1,52 @@
 <view class="wrapper">
   <view class="container_editor" style="height:{{300}}px;">
-  <editor id="editor" class="ql-container" placeholder="{{placeholder}}" show-img-size="true" show-img-toolbar="true"
-    bindstatuschange="onStatusChange" bindready="onEditorReady">
-  </editor>
-  <van-checkbox value="{{ anonymous }}" bind:change="handleAnonymous">匿名发布</van-checkbox>
-</view>
-<view class="chooseImg_bar">
-  <view class="chooseImg_item" bindtap="handleChooseImg">
-    <van-icon name="photo" color="#dedede" size="36px" />
-    选择图片
+    <editor id="editor" class="ql-container" placeholder="{{placeholder}}" show-img-size="true" show-img-toolbar="true"
+      bindstatuschange="onStatusChange" bindready="onEditorReady">
+    </editor>
+    <van-checkbox value="{{ anonymous }}" bind:change="handleAnonymous">匿名发布(敬请期待)</van-checkbox>
   </view>
-  <view class="chooseImg_item" wx:for="{{imgPath}}" wx:key="index">
-    <image bindtap="previewImg" data-index="{{index}}" src="{{item}}"></image>
-    <van-icon name="clear" bindclick="handleDeleteImg" color="black" class="deleteImg" data-index="{{index}}" size="36px">
-    </van-icon>
+  <view class="chooseImg_bar">
+    <view class="chooseImg_item" bindtap="handleChooseImg">
+      <van-icon name="photo" color="#dedede" size="36px" />
+      选择图片
+    </view>
+    <view class="chooseImg_item" wx:for="{{imgPath}}" wx:key="index">
+      <image bindtap="previewImg" data-index="{{index}}" src="{{item}}"></image>
+      <van-icon name="clear" bindclick="handleDeleteImg" color="black" class="deleteImg" data-index="{{index}}"
+        size="36px">
+      </van-icon>
+    </view>
   </view>
-</view>
-<button class="submit_confession" bindtap="sendConfession"><van-icon name="envelop-o"></van-icon>表白</button>
+  <button class="submit_confession" bindtap="sendConfession">
+    <van-icon name="envelop-o"></van-icon>表白
+  </button>
 
-<view class="toolbar" catchtouchend="format" hidden="{{keyboardHeight > 0 ? false : true}}"
-  style="bottom: {{isIOS ? keyboardHeight : 0}}px">
-  <i class="iconfont icon-shanchu" bindtap="clear"></i>
-  <i class="iconfont icon-format-header-1 {{formats.header === 1 ? 'ql-active' : ''}}" data-name="header"
-    data-value="{{1}}"></i>
-  <i class="iconfont icon-format-header-2 {{formats.header === 2 ? 'ql-active' : ''}}" data-name="header"
-    data-value="{{2}}"></i>
-  <i class="iconfont icon-format-header-3 {{formats.header === 3 ? 'ql-active' : ''}}" data-name="header"
-    data-value="{{3}}"></i>
-  <i class="iconfont icon-format-header-4 {{formats.header === 4 ? 'ql-active' : ''}}" data-name="header"
-    data-value="{{4}}"></i>
-  <i class="iconfont icon-zitijiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
-  <i class="iconfont icon-zitixieti {{formats.italic ? 'ql-active' : ''}}" data-name="italic"></i>
-  <i class="iconfont icon-undo" bindtap="undo"></i>
-  <i class="iconfont icon-redo" bindtap="redo"></i>
-  <i class="iconfont icon-fengexian" bindtap="insertDivider"></i>
-  <i class="iconfont icon-zitixiahuaxian {{formats.underline ? 'ql-active' : ''}}" data-name="underline"></i>
-  <i class="iconfont icon-date" bindtap="insertDate"></i>
-  <i class="iconfont icon-youxupailie {{formats.list === 'ordered' ? 'ql-active' : ''}}" data-name="list"
-    data-value="ordered"></i>
-  <i class="iconfont icon-wuxupailie {{formats.list === 'bullet' ? 'ql-active' : ''}}" data-name="list"
-    data-value="bullet"></i>
-  <i class="iconfont icon-zitixiabiao {{formats.script === 'sub' ? 'ql-active' : ''}}" data-name="script"
-    data-value="sub"></i>
-  <i class="iconfont icon-zitishangbiao {{formats.script === 'super' ? 'ql-active' : ''}}" data-name="script"
-    data-value="super"></i>
-</view>
+  <!-- 微信富文本编辑器 -->
+  <view class="toolbar" catchtouchend="format" hidden="{{keyboardHeight > 0 ? false : true}}"
+    style="bottom: {{isIOS ? keyboardHeight : 0}}px">
+    <i class="iconfont icon-shanchu" bindtap="clear"></i>
+    <i class="iconfont icon-format-header-1 {{formats.header === 1 ? 'ql-active' : ''}}" data-name="header"
+      data-value="{{1}}"></i>
+    <i class="iconfont icon-format-header-2 {{formats.header === 2 ? 'ql-active' : ''}}" data-name="header"
+      data-value="{{2}}"></i>
+    <i class="iconfont icon-format-header-3 {{formats.header === 3 ? 'ql-active' : ''}}" data-name="header"
+      data-value="{{3}}"></i>
+    <i class="iconfont icon-format-header-4 {{formats.header === 4 ? 'ql-active' : ''}}" data-name="header"
+      data-value="{{4}}"></i>
+    <i class="iconfont icon-zitijiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
+    <i class="iconfont icon-zitixieti {{formats.italic ? 'ql-active' : ''}}" data-name="italic"></i>
+    <i class="iconfont icon-undo" bindtap="undo"></i>
+    <i class="iconfont icon-redo" bindtap="redo"></i>
+    <i class="iconfont icon-fengexian" bindtap="insertDivider"></i>
+    <i class="iconfont icon-zitixiahuaxian {{formats.underline ? 'ql-active' : ''}}" data-name="underline"></i>
+    <i class="iconfont icon-date" bindtap="insertDate"></i>
+    <i class="iconfont icon-youxupailie {{formats.list === 'ordered' ? 'ql-active' : ''}}" data-name="list"
+      data-value="ordered"></i>
+    <i class="iconfont icon-wuxupailie {{formats.list === 'bullet' ? 'ql-active' : ''}}" data-name="list"
+      data-value="bullet"></i>
+    <i class="iconfont icon-zitixiabiao {{formats.script === 'sub' ? 'ql-active' : ''}}" data-name="script"
+      data-value="sub"></i>
+    <i class="iconfont icon-zitishangbiao {{formats.script === 'super' ? 'ql-active' : ''}}" data-name="script"
+      data-value="super"></i>
+  </view>
 </view>

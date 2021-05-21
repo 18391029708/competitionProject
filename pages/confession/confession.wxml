@@ -71,8 +71,8 @@
     </view>
   </view>
   <view wx:if="{{bottomRefresh}}" class="bottom_prompt_text">
-    <van-loading wx:if="{{curConfessCount!==totalConfess}}" type="spinner" size="18px">加载中...</van-loading>
-    <text wx:else>已加载全部信息</text>
+    <!-- <van-loading wx:if="{{curConfessCount!==totalConfess}}" type="spinner" size="18px">加载中...</van-loading> -->
+    <text>已加载全部信息</text>
   </view>
   <!-- 返回顶部按钮 -->
   <view wx:if="{{showBackTop}}" class="backTop" bindtap="handleBackTop">

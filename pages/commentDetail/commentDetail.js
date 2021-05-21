@@ -48,7 +48,7 @@ Page({
           resolve();
         }).then((res) => {
           this.setData({
-            curReplyList: data,
+            curReplyList: data.reverse(),
             curPlaceHolder: "回复:" + this.data.curComment.reviewerInfo.nickName,
             authorInfo: this.data.curComment.reviewerInfo, // 当前评论的作者信息
             inputComment: ''
@@ -318,7 +318,7 @@ Page({
           comments[index].likeClass = "icon-tubiaozhizuomoban-1";
         }
         this.setData({
-          comments
+          comments:comments.reverse()
         })
         db.collection("t_confession_comment").doc(comments[index]._id).update({
           data: {
@@ -339,7 +339,7 @@ Page({
           curReplyList[index].likeClass = "icon-tubiaozhizuomoban-1";
         }
         this.setData({
-          curReplyList
+          curReplyList:curReplyList.reverse()
         });
         db.collection("t_comment_reply").doc(curReplyList[index]._id).update({
           data: {
@@ -386,7 +386,7 @@ Page({
       })
       this.setData({
         curComment,
-        comments
+        comments:comments.reverse()
       })
     }
   },
@@ -417,7 +417,7 @@ Page({
           }
         })
         this.setData({
-          comments: res.result.data,
+          comments: res.result.data.reverse(),
           userInfo,
           confessionId,
         })
