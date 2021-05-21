@@ -63,12 +63,14 @@ Page({
     
     })
   },
-  toTakeDelivery(){
+
+  //跳转到失物招领页面
+  jumpToLostFound(){
     wx.navigateTo({
-      url: '../takeDelivery/takeDelivery',
-    
+      url: '../lostFound/lostFound',
     })
   },
+
   toConfess(){
     wx.navigateTo({
       url: '../confession/confession',

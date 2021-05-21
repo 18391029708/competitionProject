@@ -107,7 +107,7 @@
             <button class="btn">身份证正面识别</button>
           </view>
         </ocr-navigator>
-        <ocr-navigator bind:onSuccess="Success" certificateType="idCard" opposite="{{true}}">
+        <ocr-navigator bind:onSuccess="reverseSuccess" certificateType="idCard" opposite="{{true}}">
           <view class="idCard">
             <image style="width:60%; height:130px;margin:10px" src="../../icons/idcard0.png"></image>
             <button class="btn">身份证反面识别</button>

@@ -1,0 +1,39 @@
+<view class="lostFound">
+  <!-- 类型 -->
+  <view class='typesContainer'>
+    <view class='type' wx:for="{{typeArr}}" wx:key="index" data-index='{{index}}' bindtap="chickGoods">
+      <view class="{{typeArr[index] == lostType ? 'checkedCircle':'circle'}}">
+        <image src="{{typeImgs[index]}}" class="img-circle"></image>
+      </view>
+      <view class="title">{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 展示物品 -->
+  <view class="lostLists">
+    <view class="lostItem" wx:for="{{goodsList}}" wx:key="index">
+      <view class="user">
+        <view class="profile">
+          <image src="{{item.avatarUrl}}"></image>
+        </view>
+        <view class="nickname">{{item.nickName}}</view>
+        <view class="lostOrFound">{{item.lostOrFound}}</view>
+        <view class="state">未完成</view>
+      </view>
+
+      <view class="lostDesc">
+        <view><text>物品名称：{{item.goodsName}}</text></view>
+        <view><text>事发时间：{{item.goodsTime}}</text></view>
+        <view><text>事发地点: {{item.goodsLocation}}</text></view>
+        <view><text>联系方式: {{item.contactWay}}</text></view>
+        <view><text>物品描述：{{item.goodsDescription}}</text></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部发布失物招领的按钮 -->
+  <view class="addLostFound" catchtap="addLostFound">
+    <image src='../../icons/addTask.png'></image>
+  </view>
+</view>
+

@@ -50,6 +50,7 @@ Page({
     wx.cloud.callFunction({
       name:'pay',
       data: {
+        body:"电车搭乘",
         money:that.data.orderMoney,
         outTradeNo:timestamp+timestamp+timestamp+'abc'
       },
