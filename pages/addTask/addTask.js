@@ -7,20 +7,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatarUrl:"cloud://data-base-1g3n115z3df553d0.6461-data-base-1g3n115z3df553d0-1304215882/defult.jpg",
-    itemTypes: ["菜鸟驿站", "圆通快递", "顺丰快递", "中通快递","百世快递","其他快递"],
+    avatarUrl: "cloud://data-base-1g3n115z3df553d0.6461-data-base-1g3n115z3df553d0-1304215882/defult.jpg",
+    itemTypes: ["菜鸟驿站", "圆通快递", "顺丰快递", "中通快递", "百世快递", "其他快递"],
     typeShow: false,
     itemType: "",
-    itemTimes: ["2021-12-11", "2021-12-12", "2021-12-13", "2021-12-14","2021-12-15","2021-12-16"],
+    itemTimes: ["2021-12-11", "2021-12-12", "2021-12-13", "2021-12-14", "2021-12-15", "2021-12-16"],
     timeShow: false,
     itemTime: "",
     phone: "",
-    taskCode:"",
-    startPlace:"",
-    userPlace:"",
+    taskCode: "",
+    startPlace: "",
+    userPlace: "",
     profit: 6,
     isNick: 0,
-    userName:"匿名"
+    userName: "匿名"
   },
 
   typeConfirm(event) {
@@ -90,35 +90,32 @@ Page({
     }
   },
 
-  toPay(e){
+  toPay(e) {
     const that = this;
 
-     wx.showLoading({
+    wx.showLoading({
       title: '加载中。。。',
     })
 
     let timestamp = Date.parse(new Date()) / 1000;
-    
+
     wx.cloud.callFunction({
       name: "pay",
       data: {
-        // body: body,
-        outTradeNo:timestamp+timestamp+timestamp+'abc',
-        money: 0.01,//支付金额
+        body: "快递代取",
+        outTradeNo: timestamp + timestamp + timestamp + 'abc',
+        money: 0.01, //支付金额
       },
       success(res) {
-        wx.hideLoading({
-          complete: (res) => {},
-        })
-        console.log("提交成功", res.result)
+        wx.hideLoading();
+        // console.log("提交成功", res.result)
+        
         //创建自己的未支付订单
         that.pay(res.result)
       },
       fail(res) {
-        wx.hideLoading({
-          complete: (res) => {},
-        })
-        console.log("提交失败", res)
+        wx.hideLoading();
+        // console.log("提交失败", res)
       }
     })
   },
@@ -128,107 +125,60 @@ Page({
     wx.requestPayment({
       ...payment,
       success(res) {
-        console.log('pay success', res)
-        //跳转到支付成功页面
+        // console.log('pay success', res)
+
+        // 上传数据
+        uploadMessage();
+
+        // 跳转回主页面
+        wx.navigateBack({
+          delta: 1
+        });
       },
       fail(res) {
         console.error('pay fail', res)
-        //跳转到支付失败页面
+        // 提示用户支付失败
+
+        // 跳转回主页面
+        wx.navigateBack({
+          delta: 1
+        });
       }
     })
   },
 
   uploadMessage() {
     const db = wx.cloud.database();
-    let that = this;
+    const that = this;
     let time = new Date().toLocaleString();
 
-    if(that.data.isNick === 0){
+    if (that.data.isNick === 0) {
       that.data.userName = app.globalData.userInfo.nickName;
       that.data.avatarUrl = app.globalData.userInfo.avatarUrl;
     }
 
-    db.collection('t_takeDelivery').add({
+    db.collection('t_take_delivery').add({
       data: {
-        task:{
+        task: {
           "taskType": that.data.itemType,
-          "taskStatus": "新任务",
           "taskProfit": that.data.profit,
           "description": that.data.description,
           "taskDemand": that.data.itemTime,
           "taskPlace": that.data.taskPlace,
           "taskCode": that.data.taskCode,
-          "userPlace":  that.data.userPlace
+          "userPlace": that.data.userPlace,
+          "userName": that.data.userName,
+          "userPhone": that.data.phone,
         },
+        taskStatus: "新任务",
         avatarUrl: that.data.avatarUrl,
-        userName: that.data.userName,
-        userPhone: that.data.phone,
         isNick: that.data.isNick,
         addTime: time
       },
-      success: function (res) {
-        console.log(res)
-        wx.navigateBack({
-          delta: 1
-        })
-      },
-      fail: console.error
+    }).then(res => {
+      // 提示用户下单成功
+    }).catch(err => {
+       // 提示用户下单失败
     })
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

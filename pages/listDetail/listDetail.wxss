@@ -109,7 +109,8 @@ page {
 
 .title {
   text-align: center;
-  font-weight: bolder;
+  padding: 30rpx;
+  /* font-weight: bolder; */
 }
 
 .enter {

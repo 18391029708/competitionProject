@@ -1,0 +1,53 @@
+<view class="container">
+   <!-- 用户信息 -->
+   <view class="user">
+       <userinfo></userinfo>
+   </view>
+
+    <!-- 失物详细信息 -->
+    <view class="desc">
+      <form bindsubmit="formSubmit" bindreset="formReset">
+          <view class="descItem">
+            <text>发布类型：</text>
+            <radio-group bindchange="radioChange" name="lostOrFound">
+              <view class="radioCt">
+                <view class="radio" wx:for="{{lostOrFounds}}" wx:key="index"> 
+                  <radio value="{{item.value}}" checked="{{item.checked}}"/>
+                  <text>{{item.name}}</text>
+                </view>
+              </view>
+            </radio-group>
+          </view>
+          <view class="descItem">
+            <text>物品类型：</text>
+            <select types="{{types}}" bind:myget='getDate' name="type"></select>
+          </view>
+          <view class="descItem">
+            <text>物品名称：</text>
+            <input type="text" placeholder="请填写失物名称：" name="goodsName"></input>
+          </view>
+          <view class="descItem">
+            <text>事发时间：</text>
+            <date-time-picker class="pickerTime" value="{{goodsTime}}" bind:change="handleChange" name="goodsTime">{{goodsTime}}</date-time-picker>
+          </view>
+          <view class="descItem">
+            <text>事发地点：</text>
+            <input type="text" placeholder="请填写失物地点：" placeholder-class="input-placeholder" name="goodsLocation"></input>
+          </view>
+          <view class="descItem">
+            <text>联系方式：</text>
+            <input type="text" placeholder="请填写电话号码：" placeholder-class="input-placeholder" name="contactWay"></input>
+          </view>
+          <view class="descItem">
+            <text>物品描述：</text>
+            <textarea class="descArea" placeholder="请填写失物描述：（100字以内）" placeholder-class="input-placeholder" maxlength="80" name="goodsDescription"></textarea>
+          </view>
+          <!-- 操作按钮 -->
+          <view class="btn">
+            <button id="commit" formType="submit">发布</button>
+            <button id="cancel" formType="reset">取消</button>
+          </view>
+      </form>
+    </view>
+  
+</view>

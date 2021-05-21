@@ -9,7 +9,7 @@ const db=cloud.database();
 // 云函数入口函数
 exports.main = async (event, context) => {
   const res = await cloud.cloudPay.unifiedOrder({
-    "body" : "电车搭乘",
+    "body" : event.body,
     "package" : event.outTradeNo,
     "spbillCreateIp" : "127.0.0.1",
     "subMchId" : "1604371057",

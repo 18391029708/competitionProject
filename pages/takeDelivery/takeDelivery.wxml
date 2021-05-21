@@ -1,4 +1,6 @@
 <scroll-view>
+  <!-- <van-notify id="van-notify" /> -->
+  
   <image src="../../icons/addTask.png" class="add-task" bindtap="toAddTask"></image>
   <block wx:for="{{task}}" wx:key="index">
     <listOfContainer data-idx="{{index}}" bindtap="toListDetail" task="{{item}}"></listOfContainer>

@@ -22,7 +22,9 @@
     "pages/writeComfession/writeComfession",
     "pages/addTask/addTask",
     "pages/myMessages/myMessage",
-    "pages/myConfession/myConfession"
+    "pages/myConfession/myConfession",
+    "pages/lostFound/lostFound",
+    "pages/addLostFound/addLostFound"
   ],
   "window": {
     "backgroundTextStyle": "light",
