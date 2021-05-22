@@ -122,7 +122,7 @@ Page({
       replierInfo: { ...this.data.userInfo, userId: this.data.userId },
       authorInfo: this.data.authorInfo,
       content: this.data.inputComment,
-      likerArr:[],
+      likerArr: [],
       confesisonId: this.data.curComment.confessionId
       // _openid:this.data.userId
     }
@@ -141,7 +141,7 @@ Page({
           curComment: { ...this.data.curComment, commentCount: this.data.curComment.commentCount + 1 },
         },
           () => {
-            console.log("更新后的评论数：",this.data.curComment);
+            console.log("更新后的评论数：", this.data.curComment);
             // 更新cuComment的commentCount
             this.updateDataBase({ tablename: 't_confession_comment', keyword: this.data.curComment._id }, { commentCount: this.data.curComment.commentCount }, this.getCommentReply())
           })
@@ -256,10 +256,10 @@ Page({
           resolve();
         }).then((res) => {
           this.setData({
-            comments: data,
+            comments: data.reverse(),
             inputComment: '',
             curReplyList: [],
-            repliedInfo:{},
+            repliedInfo: {},
             showComment: false,
             curPlaceHolder: "发表评论"
           })
@@ -298,9 +298,9 @@ Page({
   // 点赞处理
   handleLike(e) {
     console.log(e);
-    if (this.data.userId==null) {
+    if (this.data.userId == null) {
       wx.showToast({
-        icon:"error",
+        icon: "error",
         title: '登录后可以点赞',
       })
     } else {
@@ -310,19 +310,19 @@ Page({
         let { comments } = this.data;
         console.log(comments[index].likerArr);
         let isLike = comments[index].likerArr.indexOf(this.data.userId);
-        if(isLike===-1){ //  没点赞
+        if (isLike === -1) { //  没点赞
           comments[index].likerArr.push(this.data.userId);
           comments[index].likeClass = "icon-tubiaozhizuomoban-";
-        }else{
-          comments[index].likerArr.splice(isLike,1);
+        } else {
+          comments[index].likerArr.splice(isLike, 1);
           comments[index].likeClass = "icon-tubiaozhizuomoban-1";
         }
         this.setData({
-          comments:comments.reverse()
+          comments
         })
         db.collection("t_confession_comment").doc(comments[index]._id).update({
           data: {
-            likerArr:comments[index].likerArr
+            likerArr: comments[index].likerArr
           },
           success: (err) => {
             console.log("点赞成功！");
@@ -331,19 +331,19 @@ Page({
       } else { // 点赞表白墙评论
         let { curReplyList } = this.data;
         let isLike = curReplyList[index].likerArr.indexOf(this.data.userId);
-        if(isLike===-1){ //  没点赞
+        if (isLike === -1) { //  没点赞
           curReplyList[index].likerArr.push(this.data.userId);
           curReplyList[index].likeClass = "icon-tubiaozhizuomoban-";
-        }else{
-          curReplyList[index].likerArr.splice(isLike,1);
+        } else {
+          curReplyList[index].likerArr.splice(isLike, 1);
           curReplyList[index].likeClass = "icon-tubiaozhizuomoban-1";
         }
         this.setData({
-          curReplyList:curReplyList.reverse()
+          curReplyList
         });
         db.collection("t_comment_reply").doc(curReplyList[index]._id).update({
           data: {
-            likerArr:curReplyList[index].likerArr
+            likerArr: curReplyList[index].likerArr
           },
           success: (err) => {
             console.log(err);
@@ -354,40 +354,37 @@ Page({
     }
   },
   // 点赞楼主
-  handleLouzhu(e){
-    if (this.data.userId==null) {
+  handleLouzhu(e) {
+    if (this.data.userId == null) {
       wx.showToast({
-        icon:"error",
+        icon: "error",
         title: '登录后可以点赞',
       })
-    }else{
-      console.log(this.data.curComment);
-      let {curComment,comments} = this.data;
-      let {index} = curComment;
+    } else {
+      let { curComment, comments } = this.data;
+      let { index } = curComment;//楼主
       let isLike = curComment.likerArr.indexOf(this.data.userId);
-      if(isLike===-1){ // 没有点赞
+      if (isLike === -1) { // 没有点赞
         curComment.likerArr.push(this.data.userId);
         curComment.likeClass = "icon-tubiaozhizuomoban-";
-        comments[index].likerArr.push(this.data.userId)
-        comments[index].likeClass = "icon-tubiaozhizuomoban-";
-      }else{
-        curComment.likerArr.splice(isLike,1);
+      } else {
+        curComment.likerArr.splice(isLike, 1);
         curComment.likeClass = "icon-tubiaozhizuomoban-1";
-        comments[index].likerArr.splice(isLike,1);
-        comments[index].likeClass = "icon-tubiaozhizuomoban-1";
       }
+      console.log(curComment);
       db.collection("t_confession_comment").doc(comments[index]._id).update({
         data: {
-          likerArr:comments[index].likerArr
+          likerArr: comments[index].likerArr
         },
         success: (err) => {
-          console.log("点赞成功！");
+          // console.log("点赞成功!");
+          this.setData({
+            curComment,
+            comments
+          })
         }
       })
-      this.setData({
-        curComment,
-        comments:comments.reverse()
-      })
+
     }
   },
   /**

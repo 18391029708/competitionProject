@@ -62,7 +62,7 @@ Page({
         confessions[index].likeClass = "icon-like1";
       }
       this.setData({
-        confessions:confessions.reverse()
+        confessions
       })
       this.modify(index,confessions[index].likerArr);
     }

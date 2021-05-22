@@ -46,7 +46,7 @@ page {
   align-items: center;
   position: sticky;
   z-index: 999;
-  top: -1px;
+  top: -1rpx;
   left: 0;
 }
 .banner_toolbar view navigator {
@@ -62,13 +62,12 @@ page {
   display:flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 22vh;
+  /* min-height: 22vh; */
   margin: 0.5rem 0;
   background-color: #fff;
   border-radius: 15rpx;
   box-shadow: 0 8px 12px #ebedf0;
 }
-
 .confe_content_main {
   width: 100%;
   display: flex;
@@ -86,33 +85,55 @@ page {
   overflow:hidden;
   padding: 0.5rem 0;
 }
-
+/* 更多图片 */
+.more_image {
+  position: relative;
+  width: 95%;
+  height: 235rpx;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.more_image_number {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 20px;
+  position: absolute;
+  font-size: 2.5em;
+  top: 0;
+  z-index:100;
+  color: #fff;
+}
 .img_container {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(3,1fr);
-  grid-gap: 10rpx;
   padding: 0.5rem;
 }
 .img_container image {
   width: 95%;
-  height: 200rpx;
+  object-fit: cover;
+  height: 230rpx;
   margin: 0.2rem;
 }
 .confe_toolbar {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: space-around;
+  align-items: center; */
+  /* padding-left: 0.5em; */
   height: 2.5rem;
 }
-.confe_toolbar view {
-  flex: 1;
-  height: 2rem;
+.confe_toolbar text {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  float: right;
+  margin-right: 1em;
   line-height: 2rem;
   text-align: center;
-}
-.confe_toolbar view:nth-child(1){
-  border-right: 1px solid #8c8c8c;
 }
 .backTop { 
   width: 3.8rem; 
