@@ -1,147 +1,138 @@
-.container{
-  height: 100vh;
+.head {
+  width: 90%;
+  padding: 30rpx;
+  margin: 15rpx;
+  border-radius: 10rpx;
+  position: relative;
 }
-.head{
+
+.user-info{
   display: flex;
-  width:100%;
-  height:30%;
   align-items: center;
-  font-size:30rpx;
-  justify-content: space-around;
-  background-color: 	#F0FFFF;
-  width: 95%;
-  border-radius: 10px;
-}
-.blance{
-  margin: 10px;
+  height: 240rpx;
 }
 
-.headimage{
-position: relative;
-margin: 10px;
- float: left;
- width: 50%;
- display: flex;
- /* background-color: darkblue; */
+.user-profile{
+  height: 140rpx;
+  width: 140rpx;
+  border-radius: 50%;
 }
 
-.frofile_photo{
-  flex:1;
+.text-info{
+  display: flex;
+  flex-direction: column;
+  padding-left: 16rpx;
 }
 
-.headimage image{
-  width: 80px;
-  height: 80px;
-  margin-left: 20rpx;
-  background-color: white;
-  border-radius:80px 80px 80px 80px;
+.user-name{
+  font-size: 40rpx;
+  font-weight: bold;
 }
+
+.user-level{
+  font-size: 26rpx;
+}
+
 .choose{
-  /* flex:1; */
-  background-color: cyan;
-  height: 50px;
-  width: 100px;
-  margin-left: 100px;
- 
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
-  /* margin-top: 25px; */
+  position: absolute;
+  right: 0;
+  top: 30rpx;
+  padding: 20rpx;
+  border-bottom-left-radius: 60rpx;
+  border-top-left-radius: 60rpx;
 }
-.choose text{
-  font-size: 14px;
+
+.average-user-head{
+  background-color: #7E8BE8;
 }
-.normalUser{
-  align-items: center;
+
+.average-user-choose{
+  background-color: #AED3FC;
+}
+
+.driver-user-head{
+  background-color: #A385E2;
+}
+
+.driver-user-choose{
+  background-color: #F2A3F2;
+}
+
+.choose text {
+  font-size: 24rpx;
+}
+
+.money-info{
   display: flex;
-
-  width: 100%;
-  height: 100%;
-  background-color: #87CEFA	;
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
+  justify-content: center;
 }
-.driverUser{
-  align-items: center;
+
+.user-balance{
+  flex: 1;
   display: flex;
-
-  width: 100%;
-  height: 100%;
-  background-color:#AFEEEE	;
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30rpx;
 }
 
-.line{
-  background: #EEEEEE;
-  width: 100%;
-  height: 1px;
- }
- .authInfo{
-   width: 95%;
-   height: 100px;
-   justify-content: space-around;
-   flex-direction: row;
-   display: flex;
-   align-items: center;
-   margin-top: 10px;
-   margin-bottom: 5px;
-   background-color: #ffffff;
- }
- .blockInfo{
-   width: 60px;
-   height:60px;
-   background-color: 	#AFEEEE;
- }
- .listItem{
-  width: 95%;
-  /* height: 100px; */
+.user-bill{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 38rpx;
+}
+
+.balance{
+  font-weight: bold;
+}
+
+.auth-info{
+  width: 90%;
+  display: flex;
   justify-content: space-around;
-  /* flex-direction: row; */
-  /* display: flex; */
   align-items: center;
-  /* background-color: crimson; */
- }
- .itemContent{
-   width: 95%;
-   background-color: #ffffff;
-   align-items: center;
-   display: flex;
- }
-.imgArea{
-  width: 30px;
-  height: 30px;
-  float: left;
-  margin-left: 10px;
+  padding: 15rpx;
+  margin-top: 20rpx;
+  margin-bottom: 15rpx;
+  border-radius: 10rpx;
+  background-color: #ffffff;
 }
-.tiltArea{
-  float: left;
-  margin-left: 30px;
-  /* background-color: cyan; */
+
+.auth-info view{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.imgArea2{
-  width: 30px;
-  height: 30px;
-  float: left;
-  margin-left: 120px;
+
+.auth-img{
+  height: 60rpx;
+  width: 60rpx;
 }
- .itemContent{
-  /* background-color: lawngreen; */
+
+.item-container{
+  display: flex;
+  align-items: center;
   width: 100%;
-  height: 40px;
-  margin-bottom: 5px;
-  border-bottom-color: lemonchiffon;
-  border-bottom-width: 2px;
-  flex-direction: row;
-  /* display: inline-flex; */
- }
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+}
 
-/*  */
+.item-img{
+  margin: 10rpx;
+  height: 40rpx;
+  width: 40rpx;
+}
 
+.item-title{
+  padding: 10rpx;
+  line-height: 80rpx;
+  flex: 1;
+}
 
-
-
-
-
-
-
-
+.item-jiantou{
+  height: 40rpx;
+  width: 40rpx;
+}

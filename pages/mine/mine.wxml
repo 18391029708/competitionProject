@@ -1,56 +1,53 @@
 <!--pages/mine/mine.wxml-->
 <view class="container">
-  <view class='head'>
-    <view class='headimage'>
-        <view class='frofile_photo'>
-          <image src='{{userInfo.avatarUrl}}'></image>
-        </view>
+  <view class="[head, {{isDriver ? 'driver-user-head':'average-user-head'}}]">
+    <view class="user-info">
+      <image class="user-profile" src="{{userInfo.avatarUrl}}"></image>
+      <view class="text-info">
+        <text class="user-name">我是大魔王</text>
+        <text class="user-level">等级：1</text>
+      </view>
     </view>
-    <view class='choose' bindtap="switchValue">
-      <!-- <block > -->
-        <view class="normalUser" wx:if="{{switch1Checked}}">
-          <text   wx:if="{{switch1Checked}}">车手用户</text>
-         
-        </view>
-        <view class="driverUser" wx:else>
-          <text>普通用户</text>
-        </view>
-      <!-- </block> -->
-      <!-- <block > -->
-      
-      <!-- </block> -->
-        <!-- <switch checked="{{switch1Checked}}" bindchange="selectStatus"></switch> -->
+
+    <view class="money-info">
+      <view class="user-balance" bindtap="toWallet">
+        <text class="balance">11.00</text>
+        <text>余额</text>
       </view>
+      <view class="user-bill" bindtap="toBill">
+        <text>账单</text>
+      </view>
+    </view>
+
+    <view class="[choose, {{isDriver ? 'driver-user-choose':'average-user-choose'}}]" bindtap="switchValue">
+      <view wx:if="{{isDriver}}">
+        <text>车手用户</text>
+      </view>
+      <view wx:else>
+        <text>普通用户</text>
+      </view>
+    </view>
   </view>
-  <view class="authInfo">
+
+  <view class="auth-info">
     <view bindtap="studentAuthentication">
-      <view class="blockInfo">
-      </view>
+      <image class="auth-img" src="../../icons/student.png"></image>
       <text>学生认证</text>
     </view>
     <view bindtap="realNameAutentication">
-      <view class="blockInfo"></view>
+      <image class="auth-img" src="../../icons/real-name.png"></image>
       <text>实名认证</text>
     </view>
     <view bindtap="driverAuthentication">
-      <view class="blockInfo"></view>
+      <image class="auth-img" src="../../icons/driver.png"></image>
       <text>车辆认证</text>
     </view>
   </view>
 
   <!-- 功能 -->
-  <view class="listItem">
-    <!-- <view class="authInfo"></view> -->
-    <view wx:for="{{listItemContent}}">
-      <view class="itemContent" bindtap="click" id="{{index}}">
-        <!-- <view>{{index}}</view> -->
-        <image class="imgArea" src="{{item.src}}"></image>
-
-        <view class="tiltArea">{{item.title}}</view>
-        <image class="imgArea2" src="{{item.img}}"></image>
-      </view>
-
-    </view>
+  <view wx:for="{{listRouter}}" class="item-container" bindtap="toNextPage" id="{{index}}">
+      <image class="item-img" src="{{item.imageSrc}}"></image>
+      <view class="item-title">{{item.name}}</view>
+      <image class="item-jiantou" src="../../icons/right.png"></image>
   </view>
-
 </view>
