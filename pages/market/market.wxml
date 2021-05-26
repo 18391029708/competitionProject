@@ -1,0 +1,28 @@
+<view class="{{cartFlag == true?'homeChange':'homeContainer'}}">
+  <!-- 花的分类 -->
+  <view class="classifyCt">
+    <view class="classify" wx:for="{{classificationImgList}}" wx:key="index" bindtap="jumpToClassificationDetail" data-type="{{item.name}}">
+      <view>
+        <image src="{{item.imgSrc}}"></image>
+        <view class="title">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 花列表展示 -->
+  <view class="flowerList">
+    <view class="flowerItem" wx:for="{{flowerList}}" wx:key="index" bindtap="jumpToFlowerDetail" data-item="{{item}}"> 
+      <image class="flowerImg" src="{{item.imgSrc}}"></image>
+      <view class="title">{{item.title}}</view>
+      <view class="price">￥{{item.price}}</view>
+      <view class="sales">
+        <view class="amount">已售{{item.salesAmount}}束</view>
+        <image class="iconImg" src="{{item.cartIcon}}" catchtap="showCart" 
+        data-item="{{item}}"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 购物车组件 -->
+<cart wx:if="{{cartFlag}}" class="cartCp" bindcloseCartEvent="closeCart" flowerId="{{flowerId}}"></cart>

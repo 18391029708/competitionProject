@@ -10,7 +10,6 @@
     "pages/takeOrderDetail/takeOrderDetail",
     "pages/orderConfirm/orderConfirm",
     "pages/logs/logs",
-    "pages/order/order",
     "pages/wallet/wallet",
     "pages/infoAuthentification/infoAuthentification",
     "pages/authentificationDetail/authentificationDetail",
@@ -22,7 +21,18 @@
     "pages/writeComfession/writeComfession",
     "pages/addTask/addTask",
     "pages/myMessages/myMessage",
-    "pages/myConfession/myConfession"
+    "pages/myConfession/myConfession",
+    "pages/lostFound/lostFound",
+    "pages/addLostFound/addLostFound",
+    "pages/market/market",
+    "pages/classificationDeatil/classificationDeatil",
+    "pages/flowerDetail/flowerDetail",
+    "pages/account/account",
+    "pages/manageAddress/manageAddress",
+    "pages/address/address",
+    "pages/myMarket/myMarket",
+    "pages/collect/collect",
+    "pages/cart/cart"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -45,10 +55,10 @@
         "selectedIconPath": "icons/_index.png"
       },
       {
-        "pagePath": "pages/order/order",
-        "text": "订单",
-        "iconPath": "icons/order.png",
-        "selectedIconPath": "icons/_order.png"
+        "pagePath": "pages/market/market",
+        "text": "校园商城",
+        "iconPath": "icons/market/market.png",
+        "selectedIconPath": "icons/market/_market.png"
       },
       {
         "pagePath": "pages/mine/mine",

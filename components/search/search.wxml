@@ -1,0 +1,4 @@
+<view class="searchContainer">
+  <input bindinput="searchInput" type="text" placeholder-class="fa fa-search search" placeholder="搜索"></input>
+</view>  
+

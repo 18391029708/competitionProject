@@ -15,6 +15,7 @@
         <view class="driverUser" wx:else>
           <text>普通用户</text>
         </view>
+        
       <!-- </block> -->
       <!-- <block > -->
       
@@ -45,7 +46,6 @@
       <view class="itemContent" bindtap="click" id="{{index}}">
         <!-- <view>{{index}}</view> -->
         <image class="imgArea" src="{{item.src}}"></image>
-
         <view class="tiltArea">{{item.title}}</view>
         <image class="imgArea2" src="{{item.img}}"></image>
       </view>

@@ -3,7 +3,7 @@ const db = wx.cloud.database()
 var app = getApp();
 Page({
   data: {
-    listItemContent:[{title:"我的账单",src:"../../icons/moneyBall.png",img:"../../icons/enter (2).png"},{title:"发布历史",src:"../../icons/psw.png",img:"../../icons/enter (2).png"},{title:"基本信息",src:"../../baseInfo",img:"../../icons/enter (2).png"}],
+    listItemContent:[{title:"我的账单",src:"../../icons/moneyBall.png",img:"../../icons/enter (2).png"},{title:"发布历史",src:"../../icons/psw.png",img:"../../icons/enter (2).png"},{title:"基本信息",src:"../../icons/baseInfo.png",img:"../../icons/enter (2).png"},{title:"我的商城",src:"../../icons/market/myMarket.png",img:"../../icons/enter (2).png"}],
     userInfo:'',
     switch1Checked:false,
     chooseBtn:true,
@@ -41,6 +41,11 @@ Page({
         url: '../baseInfo/baseInfo',
       })
       console.log("我是w")
+    } else if(e.currentTarget.id == 3){ //进入我的商城
+      wx.navigateTo({
+        url: '../myMarket/myMarket',
+      })
+      
     }
   },
   studentAuthentication(){

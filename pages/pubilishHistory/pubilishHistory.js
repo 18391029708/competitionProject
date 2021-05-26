@@ -1,67 +1,117 @@
-// pages/pubilishHistory/pubilishHistory.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    openid:'',
     types:["告白墙","失物招领","电车搭乘","快递代取"],
-
+    confessionFlag:true,
+    lostFlag:false,
+    vehicleFlag:false,
+    expressageFlag:false,
+    type:"告白墙",
+    lostList:[] //失物招领列表
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+    //默认获取告白墙的信息
+    this.getListByType(this.data.type)
 
+    //获取该用户的openid
+    wx.cloud.callFunction({
+      name:'getOpenid'
+    })
+    .then(res => {
+      console.log("获取openid成功",res)
+      this.setData({
+        openid:res.result.openid
+      })
+    })
+    .catch(err => {
+      console.log("获取openid失败",err)
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  //点击 展示某一类型的详情
+  showLostRecoeds(e){
+    this.setData({
+      type:this.data.types[e.currentTarget.dataset.index]
+    })
 
+   this.getListByType(this.data.type)
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  //根据类型("告白墙","失物招领","电车搭乘","快递代取")获取该用户的发布历史
+  getListByType(type){
+    if(type === "告白墙"){
+        this.setData({
+          confessionFlag:true,
+          lostFlag:false,
+          vehicleFlag:false,
+          expressageFlag:false
+        })
+      
+    }else if(type === "失物招领"){
+      //访问云函数
+      wx.cloud.callFunction({
+        name:'getAllLostByOpenid'
+      })
+      .then(res => {
+        console.log("根据openid获取该用户的失物招领成功",res)
+     
+        this.setData({
+          lostList:res.result.data
+        })
+        
+        this.setData({
+          lostFlag:true,
+          confessionFlag:false,
+          vehicleFlag:false,
+          expressageFlag:false
+        })
+      })
+      .catch(err => {
+        console.log("根据openid获取该用户的失物招领失败",err)
+      })
+    }else if(type === "电车搭乘"){
+      
+    }else if(type === "快递代取"){
+      
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+  //改变失物招领的状态 未完成--已完成
+  changeStatus(e){
+    let currentIndex = e.currentTarget.dataset.index
+    let newStatus = `lostList[` + currentIndex + `].status`
+    if(this.data.lostList[currentIndex].status === '未完成'){
+      //将该项的状态改为已经完成
+      this.setData({
+        [newStatus]:"已完成"
+      })
 
-  },
+      wx.showToast({
+        title: '已改变',
+        duration:2000
+      })
+    }else{
+      wx.showToast({
+        title: '不能将状态从【已完成】改为【未完成】',
+        duration:2000
+      })
+    }
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+    //更新t_lost_record状态
+    // wx.cloud.callFunction({
+    //   name:'updateLostFound',
+    //   data:{
+    //     openid:this.data.openid,
+    //     lostList:this.data.lostList
+    //   }
+    // })
+    // .then(res => {
+    //   console.log("更改状态成功",res)
+    // })
+    // .catch(err => {
+    //   console.log("更改状态失败",err)
+    // })
 
   }
 })

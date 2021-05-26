@@ -1,0 +1,171 @@
+.contact{
+  margin: 0rpx auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 95%;
+  height: 140rpx;
+  border: 1rpx solid #eee;
+  border-radius: 10rpx;
+}
+.addressLogo image{
+  margin: 0rpx 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+.middle{
+  color: #333;
+  font-size: 30rpx;
+}
+.phone{
+  color: #bfbfbf;
+  font-size: 26rpx;
+  padding-left: 20rpx;
+}
+.right image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+/* 运输方式 */
+.transport{
+  margin: 5rpx auto;
+  width: 95%;
+  height: 200rpx;
+  border: 1rpx solid #eee;
+  border-radius: 10rpx;
+}
+.title{
+  margin: 20rpx 20rpx;
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bolder;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+.title image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 5rpx;
+}
+.choose{
+  display: flex;
+}
+.chooseItem{
+  width: 200rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50rpx;
+  background-color: #eee;
+  color: #333;
+  font-size: 30rpx;
+  margin: 0rpx 20rpx;
+}
+.choosenItem{
+  width: 200rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50rpx;
+  background-color: #FFCC99;
+  color:#fff;
+  font-size: 30rpx;
+  margin: 0rpx 20rpx;
+}
+
+
+/* 花的基本信息 */
+.flowerItem{
+  width: 95%;
+  margin: 5rpx auto;
+  height: 200rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.flowerItemRows{
+  display: flex;
+  flex-direction: column;
+}
+.flowerItemRow{
+  display: flex;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.left{
+  flex:1;
+}
+.flowerImg{
+  width: 180rpx;
+  height: 180rpx;
+  margin-left: 10rpx;
+}
+.right{
+  flex:4;
+  margin-left: 10rpx;
+}
+.title{
+  color: #333333;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50rpx;
+}
+.price{
+  display: flex;
+  justify-content: center;
+  color:#FFCC99;
+  font-size: 26rpx;
+}
+
+/* 运费 */
+.fee{
+  width: 95%;
+  height: 60rpx;
+  margin: 0rpx auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #eeeeee;
+  margin-bottom: 100rpx;
+}
+.feeTitle{
+  color: #333;
+  font-size: 30rpx;
+}
+.feePrice{
+  color: #FFCC99;
+  font-size: 28rpx;
+}
+
+/* 底部计算总价格 */
+.bottom{
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+}
+.total{
+  margin-left: 20rpx;
+  color: #FFCC99;
+  font-size: 38rpx;
+  display: flex;
+  align-items: center;
+}
+.uploadBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250rpx; 
+  height: 100%;
+  background-color: #ffcc99;
+  color: #fff;
+}

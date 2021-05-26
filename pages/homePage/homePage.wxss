@@ -1,19 +1,36 @@
 /* pages/homePage/homePage.wxss */
 .container{
-  height:100%;
+  height:100vh;
   margin-top: 10px;
   background-color: #f5f5f5;
 
 }
 .turnImageArea{
-  margin-top: 10px;
-  width: 100%;
-  /* height: 100px; */
+  margin-top: 10rpx;
+  width: 95%;
+
+  /* height: 25%; */
   /* background-color: aqua; */
 }
+.ImageItem{
+  border-radius: 30rpx 30rpx;
+  /* border-bottom-left-radius: 5rpx; */
+  /* border-start-end-radius: 5rpx; */
+  /* height: 100%; */
+}
+.cardArea{
+  width: 100%;
+  padding: 10px;
+  margin-top: 20rpx;
+  background-color: #ffffff;
+  justify-content: space-between;
+}
 .web{
+ 
   width: 100%;
   height: 60px;
+  margin-top: 10px;
+
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -22,10 +39,12 @@
 }
 .webText{
   font-size: 10px;
+  
 }
 .web1{
   width: 40px;
   height: 40px;
+  /* margin-top: 10px; */
   background-color: #AFEEEE	;
 
   
@@ -34,14 +53,26 @@
 .web2{
   width:40px;
   height: 40px;
+  /* margin-top: 10px; */
+
   background-color: #AFEEEE	;
 
 }
 .web3{
   width: 40px;
   height: 40px;
+  /* margin-top: 10px; */
+
   background-color: #AFEEEE	;
 
+}
+.news{
+  margin-top: 10rpx;
+  width: 95%;
+  background-color: #ffffff;
+}
+.news_text{
+  font-size: 10px;
 }
 #lost_confessionArea{
   margin: 20px;

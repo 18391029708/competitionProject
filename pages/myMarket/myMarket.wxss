@@ -1,0 +1,62 @@
+/* 顶部 */
+.top{
+  width:100%;
+  height: 140rpx;
+  display: flex;
+  text-align: center;
+}
+.item{
+  margin-left: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rpx;
+  flex: 1;
+  height: 140rpx;
+  border: 1px solid #eee;
+  border-radius: 15rpx;
+  background: #f4ebde;
+  box-shadow: 2rpx 5rpx 10rpx 5rpx #DBD7D5;
+}
+.title{
+  margin-top: 10rpx;
+  color: #FFCC99;
+}
+
+/* 我的订单 */
+.order{
+  margin: 40rpx 8rpx;
+  width: 97%;
+  height: 200rpx;
+  border: 1rpx solid #eee;
+  border-radius: 10rpx;
+}
+.check{
+  display: flex;
+  height: 80rpx;
+  margin: 10rpx 20rpx;
+  line-height: 80rpx;
+  justify-content: space-between;
+}
+.checkTitle{
+  color: #000;
+  font-size: 34rpx;
+}
+.ckeckAll{
+  color: #888;
+  font-size: 32rpx;
+}
+.orderList{
+  display: flex;
+  justify-content: space-around;
+  margin: 10rpx 20rpx;
+}
+.orderItem{
+  color: #888;
+  font-size: 28rpx;
+  text-align: center;
+}
+.orderItem image{
+  width: 50rpx;
+  height: 50rpx;
+}
