@@ -45,34 +45,33 @@
             <!-- <image wx:for="{{item.pictures}}" wx:for-item="imgItem" wx:for-index="imgIndex" catchtap="previewImg"
               data-preIndex="{{index}}" data-index="{{imgIndex}}" wx:key="imgIndex" src="{{imgItem}}"
               wx:if="{{imgIndex<3}}" /> -->
-            <van-image width="100%" use-loading-slot wx:for="{{item.pictures}}" wx:for-item="imgItem" wx:for-index="imgIndex" catchtap="previewImg"
-              data-preIndex="{{index}}" data-index="{{imgIndex}}" wx:key="imgIndex" src="{{imgItem}}"
-              wx:if="{{imgIndex<3}}">
+            <van-image width="100%" use-loading-slot wx:for="{{item.pictures}}" wx:for-item="imgItem"
+              wx:for-index="imgIndex" catchtap="previewImg" data-preIndex="{{index}}" data-index="{{imgIndex}}" radius="20"
+              wx:key="imgIndex" src="{{imgItem}}" wx:if="{{imgIndex<8}}">
               <van-loading slot="loading" type="spinner" size="20" vertical />
             </van-image>
+            <!-- 大于九张显示数字 -->
+              <view class="more_image" wx:if="{{item.pictures.length>=9}}">
+              <image style="position:relative;top:0" mode="cover" src="{{item.pictures[8]}}">
+              </image>
+                <view wx:if="{{item.pictures.length>9}}" class="more_image_number">+{{item.pictures.length-9}}</view>
+              </view>
           </view>
-          <!-- <van-grid column-num="3">
-            <van-grid-item>
-              
-            </van-grid-item>
-          </van-grid> -->
         </view>
       </view>
       <!-- 点赞·评论 -->
       <view class="confe_toolbar">
-        <view bindtap="handleLike" data-index="{{index}}" data-confessionId="{{item._id}}"
-          class="iconfont {{item.likeClass}}">{{item.likerArr.length}}
-        </view>
-        <view>
-          <navigator url="../commentDetail/commentDetail?confessionId={{item._id}}" class="iconfont icon-pinglun">
-            {{item.commentCount}}</navigator>
-        </view>
+        <text bindtap="handleLike" data-index="{{index}}" data-confessionId="{{item._id}}"
+          class="iconfont {{item.likeClass}}"> {{item.likerArr.length}}
+        </text>
+        <text bindtap="handleNavigate" class="iconfont icon-pinglun" data-url="../commentDetail/commentDetail?confessionId={{item._id}}"> {{item.commentCount}}
+        </text>
       </view>
     </view>
   </view>
   <view wx:if="{{bottomRefresh}}" class="bottom_prompt_text">
-    <van-loading wx:if="{{curConfessCount!==totalConfess}}" type="spinner" size="18px">加载中...</van-loading>
-    <text wx:else>已加载全部信息</text>
+    <!-- <van-loading wx:if="{{curConfessCount!==totalConfess}}" type="spinner" size="18px">加载中...</van-loading> -->
+    <text>已加载全部信息</text>
   </view>
   <!-- 返回顶部按钮 -->
   <view wx:if="{{showBackTop}}" class="backTop" bindtap="handleBackTop">

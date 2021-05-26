@@ -4,7 +4,9 @@
   <view class="confe_content">
     <userHeader userName="{{item.authorInfo.nickName}}" avatarUrl="{{item.authorInfo.avatarUrl}}"
       postTime="{{item.createTime}}">
-        <van-button size="small" plain type="danger" data-index="{{index}}" bind:click="handleDelConfe">删除</van-button>
+        <van-tag size="medium" color="white" text-color="#f5222d" data-index="{{index}}" bind:click="handleDelConfe">
+       <van-icon size="16px" name="delete-o" />
+        删除</van-tag>
       </userHeader>
     <view class="confe_content_main">
       <!-- 文字内容 -->

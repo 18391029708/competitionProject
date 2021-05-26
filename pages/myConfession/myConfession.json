@@ -2,7 +2,9 @@
   "usingComponents": {
     "van-empty":"../../miniprogram_npm/@vant/weapp/empty",
     "userHeader":"../../components/userHeader/userHeader",
-    "van-button":"../../miniprogram_npm/@vant/weapp/button"
+    "van-button":"../../miniprogram_npm/@vant/weapp/button",
+    "van-tag":"../../miniprogram_npm/@vant/weapp/tag",
+    "van-icon":"../../miniprogram_npm/@vant/weapp/icon"
   },
   "navigationBarTitleText": "我的表白"
 }
