@@ -1,0 +1,25 @@
+.hot-topic {
+  color: #fb1414;
+}
+.main-wrapper {
+  height: 95vh;
+  width: 100vw;
+  background-color: #fff;
+}
+.section {
+  height: 30vh;
+  width: 100vw;
+}
+.banner {
+  height: 100%;
+  width: 200vw;
+}
+.section-item {
+  display: inline-block;
+  width: 30vw;
+  height: 90%;
+  margin-left: 0.5em;
+  border-radius: 0.5em;
+  background-color: pink;
+}
+

@@ -1,0 +1,41 @@
+<scroll-view scroll-y="true" class="main-wrapper">
+  <van-cell center title="今日热门" value="查看更多"/>
+  <scroll-view scroll-x="true" class="section">
+    <view class="banner">
+      <view class="section-item">
+    </view>
+    <view class="section-item">
+    </view>
+    <view class="section-item">
+    </view>
+    <view class="section-item">
+    </view>
+    </view>
+  </scroll-view>
+  <van-cell center title="校园趣事" value="查看更多"/>
+  <scroll-view scroll-x="true" class="section">
+    <view class="banner">
+      <view class="section-item">
+    </view>
+    <view class="section-item">
+    </view>
+    <view class="section-item">
+    </view>
+    <view class="section-item">
+    </view>
+    </view>
+  </scroll-view>
+  <van-cell center title="娱乐趣闻" value="查看更多"/>
+  <scroll-view scroll-x="true" class="section">
+    <view class="banner">
+      <view class="section-item">
+    </view>
+    <view class="section-item">
+    </view>
+    <view class="section-item">
+    </view>
+    <view class="section-item">
+    </view>
+    </view>
+  </scroll-view>
+</scroll-view>

@@ -1,14 +1,16 @@
 <!--pages/confession.wxml-->
-<loading wx:if="{{loading}}"></loading>
-
-<view wx:else class="confe_page">
-  <view class="banner">
-    <image src="{{userInfo.avatarUrl}}" class="background_img"></image>
-    <van-image round width="4rem" height="4rem" class="avatar_wrapper" src="{{userInfo.avatarUrl}}"></van-image>
-    <text class="user_name">{{userInfo.nickName}}</text>
-  </view>
-  <!-- banner工具栏 -->
-  <view class="banner_toolbar">
+<van-tabs active="{{ active }}" bind:change="onChange" swipeable animated nav-class="bgc-trans" tab-class="bgc-trans">
+  <van-tab title="告白墙">
+    <loading wx:if="{{loading}}"></loading>
+    <scroll-view scroll-y="true" wx:else class="confe_page" bindscrolltolower="scrollReachBottom"
+      bindscroll="scrolltoupper" scroll-top="{{topNum}}" scroll-with-animation="true">
+      <view class="banner">
+        <!-- <image mode="scaleToFill" src="{{userInfo.avatarUrl}}" class="background_img"></image> -->
+        <van-image radius="20" width="5em" height="5em" class="avatar_wrapper" src="{{userInfo.avatarUrl}}"></van-image>
+        <text class="user_name">{{userInfo.nickName}}</text>
+      </view>
+      <!-- banner工具栏 -->
+      <!-- <view class="banner_toolbar">
     <view>
       <navigator url="../writeComfession/writeComfession">
         <van-icon size="1.5em" name="edit" />我要表白
@@ -24,58 +26,61 @@
         <van-icon size="1.5em" name="envelop-o" info="99+" />我的消息
       </navigator>
     </view>
-  </view>
-  <!-- 空提示 -->
-  <van-empty wx:if="{{!confessions.length}}" description="暂无表白信息"></van-empty>
-  <!-- 表白卡片列表 -->
-  <view wx:else>
-    <view class="confe_item" wx:for="{{confessions}}" wx:key="_id">
-      <view class="confe_content">
-        <userHeader userName="{{item.authorInfo.nickName}}" avatarUrl="{{item.authorInfo.avatarUrl}}"
-          postTime="{{item.createTime}}"></userHeader>
-        <view class="confe_content_main" data-url="../commentDetail/commentDetail?confessionId={{item._id}}"
-          catchtap="handleNavigate">
-          <!-- 文字内容 -->
-          <view class="content_text">
-            <rich-text nodes="{{item.content}}">
-            </rich-text>
-          </view>
-          <!-- 图片内容 -->
-          <view wx:if="{{item.pictures.length!=0}}" class="img_container">
-            <!-- <image wx:for="{{item.pictures}}" wx:for-item="imgItem" wx:for-index="imgIndex" catchtap="previewImg"
-              data-preIndex="{{index}}" data-index="{{imgIndex}}" wx:key="imgIndex" src="{{imgItem}}"
-              wx:if="{{imgIndex<3}}" /> -->
-            <van-image width="100%" use-loading-slot wx:for="{{item.pictures}}" wx:for-item="imgItem"
-              wx:for-index="imgIndex" catchtap="previewImg" data-preIndex="{{index}}" data-index="{{imgIndex}}" radius="20"
-              wx:key="imgIndex" src="{{imgItem}}" wx:if="{{imgIndex<8}}">
-              <van-loading slot="loading" type="spinner" size="20" vertical />
-            </van-image>
-            <!-- 大于九张显示数字 -->
-              <view class="more_image" wx:if="{{item.pictures.length>=9}}">
-              <image style="position:relative;top:0" mode="cover" src="{{item.pictures[8]}}">
-              </image>
-                <view wx:if="{{item.pictures.length>9}}" class="more_image_number">+{{item.pictures.length-9}}</view>
+  </view> -->
+      <!-- 空提示 -->
+      <van-empty wx:if="{{!confessions.length}}" description="暂无表白信息"></van-empty>
+      <!-- 表白卡片列表 -->
+      <view class="conf-list-wrapper" wx:else>
+        <view class="confe_item" wx:for="{{confessions}}" wx:key="_id">
+          <!-- 文字图片内容 -->
+          <view class="confe_content">
+            <userHeader userName="{{item.authorInfo.nickName}}" avatarUrl="{{item.authorInfo.avatarUrl}}"
+              postTime="{{item.createTime}}"></userHeader>
+            <view class="confe_content_main" data-url="../commentDetail/commentDetail?confessionId={{item._id}}"
+              catchtap="handleNavigate">
+              <!-- 文字内容 -->
+              <view class="content_text">
+                <rich-text nodes="{{item.content}}">
+                </rich-text>
               </view>
+              <!-- 图片内容 -->
+              <imgList pictures="{{item.pictures}}"></imgList>
+            </view>
+          </view>
+          <!-- 点赞·评论 -->
+          <view class="confe_toolbar">
+            <!-- 点赞者头像列表 -->
+            <likerlist></likerlist>
+            <text bindtap="handleLike" data-index="{{index}}" data-confessionId="{{item._id}}"
+              class="iconfont {{item.likeClass}} tool-item"> {{item.likerArr.length}}
+            </text>
+            <text bindtap="handleNavigate" class="iconfont icon-pinglun tool-item"
+              data-url="../commentDetail/commentDetail?confessionId={{item._id}}"> {{item.commentCount}}
+            </text>
+          </view>
+          <!-- 热评 -->
+          <view class="hot-comment">
+            莫装逼：退钱啊
           </view>
         </view>
       </view>
-      <!-- 点赞·评论 -->
-      <view class="confe_toolbar">
-        <text bindtap="handleLike" data-index="{{index}}" data-confessionId="{{item._id}}"
-          class="iconfont {{item.likeClass}}"> {{item.likerArr.length}}
-        </text>
-        <text bindtap="handleNavigate" class="iconfont icon-pinglun" data-url="../commentDetail/commentDetail?confessionId={{item._id}}"> {{item.commentCount}}
-        </text>
+      <view wx:if="{{bottomRefresh}}" class="bottom_prompt_text">
+        <!-- <van-loading wx:if="{{curConfessCount!==totalConfess}}" type="spinner" size="18px">加载中...</van-loading> -->
+        <text>已加载全部信息</text>
       </view>
-    </view>
-  </view>
-  <view wx:if="{{bottomRefresh}}" class="bottom_prompt_text">
-    <!-- <van-loading wx:if="{{curConfessCount!==totalConfess}}" type="spinner" size="18px">加载中...</van-loading> -->
-    <text>已加载全部信息</text>
-  </view>
-  <!-- 返回顶部按钮 -->
-  <view wx:if="{{showBackTop}}" class="backTop" bindtap="handleBackTop">
-    <van-icon name="back-top" size="4em"></van-icon>
-    <!-- 我要表白 -->
-  </view>
+      <view wx:if="{{active===0}}" class="write-conf side-tool icon-image-fit"
+        data-url="../writeComfession/writeComfession" bindtap="handleNavigate">
+        <image src="../../icons/xihuan.png"></image>
+      </view>
+    </scroll-view>
+  </van-tab>
+  <van-tab title="话题">
+    <topic></topic>
+  </van-tab>
+  <van-tab title="活动"><activities></activities></van-tab>
+  <van-tab title="文章"><article></article></van-tab>
+</van-tabs>
+<!-- 返回顶部按钮 -->
+<view wx:if="{{showBackTop}}" class="backTop side-tool" bindtap="handleBackTop">
+  <van-icon name="back-top" size="3em"></van-icon>
 </view>

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-card":"../../miniprogram_npm/@vant/weapp/card"
+  }
+}

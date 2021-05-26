@@ -1,0 +1,19 @@
+.activ-item {
+  border-radius: 10px;
+  min-height: 30vh;
+  margin: 0.5em;
+  padding: 0.7em;
+  background-color: #fff;
+}
+.title {
+  padding: 0.5em;
+  font-weight: 600;
+}
+.activ-item image {
+  width: 100%;
+}
+.desc {
+  font-size: 14px;
+  color: #8c8c8c;
+}
+

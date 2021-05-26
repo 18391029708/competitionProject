@@ -19,10 +19,8 @@ button {
 .img_container {
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  grid-gap: 10rpx;
+  grid-gap: 5rpx;
   padding: 0.5rem;
-  /* flex-wrap: wrap;
-  padding-bottom: 1rem; */
 }
 .img_container image {
   width: 100%;
@@ -66,7 +64,7 @@ text-align: right;
   height: 55%;
   padding:0 1rem;
   margin: 0.5rem 0;
-  background-color: #dede;
+  background-color: #dedede;
   border-radius: 1.5rem;
 }
 .bottom_prompt_text {

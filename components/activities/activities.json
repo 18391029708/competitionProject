@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-notice-bar":"../../miniprogram_npm/@vant/weapp/notice-bar",
+    "van-cell":"../../miniprogram_npm/@vant/weapp/cell"
+  }
+}

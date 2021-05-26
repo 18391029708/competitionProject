@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-cell":"../../miniprogram_npm/@vant/weapp/cell"
+  }
+}

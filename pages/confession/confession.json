@@ -8,9 +8,18 @@
     "van-image":"../../miniprogram_npm/@vant/weapp/image",
     "van-icon":"../../miniprogram_npm/@vant/weapp/icon",
     "van-grid":"../../miniprogram_npm/@vant/weapp/grid",
-    "van-frid-item":"../../miniprogram_npm/@vant/weapp/grid-item"
-
+    "van-frid-item":"../../miniprogram_npm/@vant/weapp/grid-item",
+    "van-tabs":"../../miniprogram_npm/@vant/weapp/tabs",
+    "van-tab":"../../miniprogram_npm/@vant/weapp/tab",
+    "imgList":"../../components/imgList/imgList",
+    "likerlist":"../../components/likerlist/likerlist",
+    "van-nav-bar": "../../miniprogram_npm/@vant/weapp/nav-bar",
+    "activities":"../../components/activities/activities",
+    "topic":"../../components/topic/topic",
+    "article":"../../components/article/article"
   },
-  "navigationBarTitleText": "告白墙",
-  "backgroundColor": "#f0f0f0"
+  "navigationBarTitleText": "圈子",
+  "backgroundColor": "#f0f0f0",
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#bae7ff"
 }

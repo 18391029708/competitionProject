@@ -1,0 +1,20 @@
+.main-wrapper {
+  height: 95vh;
+  width: 100vw;
+  background-color: #fff;
+}
+.main-wrapper .van-card {
+  border-radius: 16px;
+}
+.article-item {
+  padding: 0.5em;
+  background-color: #fff;
+  border-radius: 16px;
+}
+.demo {
+  margin: 1em;
+  box-shadow: 0 3px 20px 3px #efefef;
+  border-radius: 16px;
+}
+
+
