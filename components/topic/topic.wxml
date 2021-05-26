@@ -1,4 +1,4 @@
-<scroll-view scroll-y="true" class="main-wrapper">
+<scroll-view scroll-y="true" class="scroll-view-class main-wrapper">
   <van-cell center title="今日热门" value="查看更多"/>
   <scroll-view scroll-x="true" class="section">
     <view class="banner">

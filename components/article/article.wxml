@@ -1,16 +1,16 @@
-<scroll-view class="main-wrapper">
-    <van-card
-  num="2"
-  tag="标签"
-  price="10.00"
-  desc="描述信息"
-  title="商品标题"
-  thumb="https://img01.yzcdn.cn/vant/ipad.jpeg"
-  custom-class="demo"
->
-  <view slot="footer">
-    <van-button size="mini">按钮</van-button>
-    <van-button size="mini">按钮</van-button>
+<scroll-view class="scroll-view-class">
+  <view class="article-labels">
+    <view class="tag-banner-title">文章标签</view>
+    <van-tag custom-class="tag-custom-class" size="medium" type="warning">技术分享</van-tag>
+    <van-tag custom-class="tag-custom-class" size="medium" type="success">校园日记</van-tag>
+    <van-tag custom-class="tag-custom-class" size="medium" type="primary">随手记</van-tag>
   </view>
-</van-card>
+  <van-card tag="技术分享" desc="1.首先在登录的json页面引用组件2.在登录的wxml页面引用组件（一定要设置id）3.在登录页的js页面的生命周期中获取组件（图中的传入的参数就是第2步设置的组件id）" title="微信小程序父组件调用子组件方法" thumb="https://img01.yzcdn.cn/vant/ipad.jpeg"
+    custom-class="article-item">
+    <view slot="footer">
+    查看更多
+      <!-- <van-button size="mini">按钮</van-button>
+      <van-button size="mini">按钮</van-button> -->
+    </view>
+  </van-card>
 </scroll-view>

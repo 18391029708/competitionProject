@@ -6,6 +6,9 @@ Component({
   properties: {
 
   },
+  options:{
+    addGlobalClass:true
+  },
   // 生命周期	参数	描述	最低版本
   // created	无	在组件实例刚刚被创建时执行	1.6.3
   // attached	无	在组件实例进入页面节点树时执行	1.6.3

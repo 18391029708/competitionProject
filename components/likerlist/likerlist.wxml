@@ -3,26 +3,12 @@
   暂无人点赞
 </view>
   <view wx:else class="liker-list">
-      <van-image
+    <van-image wx:for="{{likerAvatar}}" wx:key="index"
   round
   width="2rem"
   height="2rem"
   style="margin:0 0.1em"
-  src="https://img.yzcdn.cn/vant/cat.jpeg"
-/>
-      <van-image
-  round
-  width="2rem"
-  height="2rem"
-  style="margin:0 0.1em"
-  src="https://img.yzcdn.cn/vant/cat.jpeg"
-/>
-      <van-image
-  round
-  width="2rem"
-  height="2rem"
-  style="margin:0 0.1em"
-  src="https://img.yzcdn.cn/vant/cat.jpeg"
+  src="{{item}}"
 />
 <text class="liker-font-style">已有{{likerArr.length}}人点赞</text>
   </view>

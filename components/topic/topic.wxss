@@ -2,8 +2,6 @@
   color: #fb1414;
 }
 .main-wrapper {
-  height: 95vh;
-  width: 100vw;
   background-color: #fff;
 }
 .section {

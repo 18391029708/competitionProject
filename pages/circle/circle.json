@@ -16,10 +16,8 @@
     "van-nav-bar": "../../miniprogram_npm/@vant/weapp/nav-bar",
     "activities":"../../components/activities/activities",
     "topic":"../../components/topic/topic",
-    "article":"../../components/article/article"
+    "article":"../../components/article/article",
+    "confession":"../../components/confession/confession"
   },
-  "navigationBarTitleText": "圈子",
-  "backgroundColor": "#f0f0f0",
-  "enablePullDownRefresh": false,
-  "navigationBarBackgroundColor": "#bae7ff"
+  "navigationStyle": "custom"
 }

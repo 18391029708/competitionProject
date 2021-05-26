@@ -17,14 +17,14 @@
     "pages/takeVehicle/takeVehicle",
     "pages/takeDelivery/takeDelivery",
     "pages/listDetail/listDetail",
-    "pages/confession/confession",
     "pages/commentDetail/commentDetail",
     "pages/writeComfession/writeComfession",
     "pages/addTask/addTask",
     "pages/myMessages/myMessage",
     "pages/myConfession/myConfession",
     "pages/lostFound/lostFound",
-    "pages/addLostFound/addLostFound"
+    "pages/addLostFound/addLostFound",
+    "pages/circle/circle"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -53,7 +53,7 @@
         "selectedIconPath": "icons/shop-active.png"
       },
       {
-        "pagePath": "pages/mine/mine",
+        "pagePath": "pages/circle/circle",
         "text": "圈子",
         "iconPath": "icons/circle.png",
         "selectedIconPath": "icons/circle-active.png"

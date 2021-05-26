@@ -5,7 +5,7 @@
   padding: 0.7em;
   background-color: #fff;
 }
-.title {
+.article-title {
   padding: 0.5em;
   font-weight: 600;
 }

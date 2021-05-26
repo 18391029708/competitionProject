@@ -5,14 +5,11 @@ page {
   background-color: #f0f0f0;
   overflow: hidden;
 }
-.confe_page {
-  position: relative;
-  height: 93vh;
-}
 .banner {
   height: 30vh;
   position: relative;
-  background-image: linear-gradient(to bottom,#bae7ff,#40a9ff);
+  /* background-image: linear-gradient(to bottom,#bae7ff,#40a9ff); */
+  background: linear-gradient(to right,#ffe7ba,#ffc069);
 }
 .banner .avatar_wrapper {
   position: absolute;

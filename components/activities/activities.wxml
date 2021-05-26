@@ -5,8 +5,9 @@ color="#1989fa"
   scrollable="true"
   text="技术是开发它的人的共同灵魂。"
 ></van-notice-bar>
-<view class="activ-item">
-  <view class="title">
+<scroll-view class="scroll-view-class">
+  <view class="activ-item">
+  <view class="article-title">
     计科学院的运动会正在进行中
   </view>
   <image  src="../../icons/1.jpg"></image>
@@ -20,3 +21,4 @@ color="#1989fa"
   url="/pages/dashboard/index"
 />
 </view>
+</scroll-view>

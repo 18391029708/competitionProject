@@ -3,6 +3,12 @@
   width: 100vw;
   background-color: #fff;
 }
+.article-labels {
+  min-height: 15vh;
+  background-color: #fff;
+  box-shadow: 0 2px 10px -5px #bfbfbf;
+  border-radius: 0 0 20px 20px;
+}
 .main-wrapper .van-card {
   border-radius: 16px;
 }
@@ -11,10 +17,17 @@
   background-color: #fff;
   border-radius: 16px;
 }
-.demo {
+.article-item {
   margin: 1em;
   box-shadow: 0 3px 20px 3px #efefef;
   border-radius: 16px;
+}
+.tag-banner-title {
+  padding-left: 1em;
+  color: #f5222d;
+}
+.tag-custom-class {
+  margin: 1em;
 }
 
 

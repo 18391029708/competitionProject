@@ -6,7 +6,9 @@ Component({
   properties: {
 
   },
-
+  options:{
+    addGlobalClass:true
+  },
   /**
    * 组件的初始数据
    */
