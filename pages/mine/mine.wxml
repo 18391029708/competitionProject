@@ -19,7 +19,7 @@
       </view>
     </view>
 
-    <view class="[choose, {{isDriver ? 'driver-user-choose':'average-user-choose'}}]" bindtap="switchValue">
+    <view  class="[choose, {{isDriver ? 'driver-user-choose':'average-user-choose'}}]" bindtap="switchValue">
       <view wx:if="{{isDriver}}">
         <text>车手用户</text>
       </view>
@@ -40,7 +40,7 @@
     </view>
     <view bindtap="driverAuthentication">
       <image class="auth-img" src="../../icons/driver.png"></image>
-      <text>车辆认证</text>
+      <text>车手认证</text>
     </view>
   </view>
 

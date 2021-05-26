@@ -47,11 +47,11 @@ Page({
     chooseBtn:true,
     hidden2:app.globalData.globalData,
   
-    uname:'',
-    usex:'',
-    utx:'',
-    utype:0,
-    uphone:''
+    // uname:'',
+    // usex:'',
+    // utx:'',
+    // utype:0,
+    // uphone:''
   },
 
   // 切换用户身份
@@ -126,7 +126,6 @@ Page({
     // 获取用户车辆认证信息为真则显示按钮
     db.collection('common_userInfo_list').where({_openid:app.globalData.openid,'vehicleInformation.have' :'true'}).get({
       success: function(res) {
-        // console.log(res.data)
 
         for(var i = 0; i < res.data.length; i++){
           if(res.data[i].realName!=undefined && res.data[i].idCardNo!=undefined ){
@@ -152,79 +151,5 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // var userName = app.globalData.
-    // if(this.data.userName!='' && this.data.idNo!=''){
-    //   var pages = getCurrentPages();
-    //   var currPages =pages[pages.length - 1];
-    //   var prevPage = pages[pages.length - 3];
-    //   prevPage.setData({
-    //     chooseBtn:false
-
-    // })
-    // console.log(prevPage.data.chooseBtn)
-    
-  // }
-    // console.log(this.data.chooseBtn)
-    // this.setData({
-    //   chooseBtn:this.data.chooseBtn
-    // })
-    // console.log(this.data.chooseBtn)
-    
-    // app.globalData.hidden2=this.data.hidden2;
-    // console.log(app.globalData.hidden2)
   },
-
-  // share: function () {
-  //   console.log("1")
-  //   wx.showShareMenu();
-  // },
-
-  // 功能
-  // personal:function(){
-  //   wx.navigateTo({
-  //     url: '../showmessage/showmessage'
-  //   })
-  // },
-
-  // indentification:function(){
-  //   wx.navigateTo({
-  //     url: '../indentification/indentification'
-  //   })
-  // },
-  
-  // mymoney: function () {
-  //   wx.navigateTo({
-  //     url: '../mymoney/mymoney'
-  //   })
-  // },
-
-  // set:function(){
-  //   wx.navigateTo({
-  //     url:'../set/set'
-  //   })
-  // },
-
-  // mymessage: function () {
-  //   wx.navigateTo({
-  //     url: '../mymessage/mymessage'
-  //   })
-  // },
-
-  // setto: function () {
-  //   wx.navigateTo({
-  //     url: '../set/set'
-  //   })
-  // },
-
-  // sign:function(){
-  //   wx.navigateTo({
-  //     url: '../sign/sign',
-  //   })
-  // },
-
-  // service: function () {
-  //   wx.navigateTo({
-  //     url: '../service/service'
-  //   })
-  // }
 })
