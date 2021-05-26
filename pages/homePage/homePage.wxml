@@ -1,38 +1,70 @@
 <!--pages/homePage/homePage.wxml-->
 <view class="container">
   <view class="turnImageArea">
-    <swiper  indicator-dots="true" autoplay="true" duration="500" interval="2000">
-      <swiper-item wx:for="{{background}}">
-        <image style="height:120px" src="{{item}}"></image>
+    <swiper indicator-dots="true" autoplay="true" duration="500" interval="2000">
+      <swiper-item class="ImageItem" wx:for="{{background}}">
+        <image style="height:100%" src="{{item}}"></image>
       </swiper-item>
     </swiper>
   </view>
 
   <!-- web-view -->
-  <view class="web" bindtap="toWebview">
-    <view>
-      <view class="web1" bindtap="web1"></view>
-      <text class="webText">校园简介</text>
-    </view>
-    <view>
-      <view class="web2" bindtap="web2"></view>
-      <text class="webText">科学研究</text>
-    </view>
-    <view>
-      <view class="web3" bindtap="web3"></view>
-      <text class="webText">招生就业</text>
-    </view>
-  
- 
+  <view class="cardArea">
+    <view class="web">
+      <view bindtap="jumpToLostFound">
+        <view class="web1">
+          <image class='web1' src="../../icons/byCar.png"></image>
+        </view>
+        <text class="webText">失物招领</text>
+      </view>
+      <view bindtap="toConfess">
+        <view class="web2">
+          <image class='web2' src="../../icons/confession.png"></image>
+        </view>
+        <text class="webText">告白墙</text>
+      </view>
+      <!-- 选择展示搭乘还是接乘 -->
+      <view hidden="{{homePageVehicleArea}}">
+        <view bindtap='toTakeVehicle'>
+          <view class='web3'>
+            <image class='web3' src="../../icons/byCar.png"></image>
+          </view>
+          <text class="webText">电车搭乘</text>
+        </view>
+      </view>
+      <view hidden="{{!homePageVehicleArea}}">
+        <view bindtap='toTakeOrder'>
+          <view class="web3"></view>
+          <text class="webText">电车接乘</text>
+        </view>
+      </view>
 
+    </view>
+    <view class="web">
+      <view bindtap="toTakeDelivery">
+        <view class="web1">
+          <image class='web1' src="../../icons/package.png"></image>
+        </view>
+        <text class="webText">快递代取</text>
+      </view>
+      <view>
+        <view class="web2"></view>
+        <text class="webText">记事本</text>
+      </view>
+      <view>
+        <view class="web3" bindtap="web3"></view>
+        <text class="webText">招生就业</text>
+      </view>
+    </view>
   </view>
+
   <!-- 告白墙 失物招领 -->
   <view id='lost_confessionArea'>
     <view bindtap="jumpToLostFound">
       <view class='lost'>
         <image class='lost' src="../../icons/byCar.png"></image>
       </view>
-   
+
       <text>失物招领</text>
     </view>
 
@@ -51,7 +83,6 @@
         <view class='vehicle'>
           <image class='vehicle' src="../../icons/byCar.png"></image>
         </view>
-     
         <text>电车搭乘</text>
       </view>
     </view>
@@ -64,9 +95,7 @@
 
     <view bindtap="toTakeDelivery">
       <view class='parcel'>
-      
-          <image class='vehicle' src="../../icons/package.png"></image>
-     
+        <image class='vehicle' src="../../icons/package.png"></image>
       </view>
       <text>快递代取</text>
     </view>
