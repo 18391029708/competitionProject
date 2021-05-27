@@ -93,7 +93,7 @@ Page({
           }
         })
         this.setData({
-          confessions,
+          confessions:confessions.reverse(),
           loading:false,
           userInfo:app.globalData.userInfo,
           userId,

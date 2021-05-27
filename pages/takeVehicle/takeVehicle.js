@@ -1,4 +1,5 @@
 const app = getApp()
+const db = wx.cloud.database();
 Page({
 
   /**
@@ -6,8 +7,8 @@ Page({
    */
   data: {
     markers:[],
-    EndPosition: '999',
-    position:'o',
+    EndPosition: '',
+    position:'',
   },
 
   /**
@@ -15,6 +16,31 @@ Page({
    */
   onLoad: function (options) {
     // 获取车手经纬度
+    db.collection('t_user_info').where({'carAuthentificationStatus':true}).get({
+      success: function(res) {
+        // res.data 包含该记录的数据
+        // console.log(res.data)
+     function   setdata( ary,ard){
+          let arr=[]
+          for (const iterator of ary) {
+            console.log(iterator)
+            console.log(ard)
+             arr.push({
+              latitude:iterator.latitude,
+                longitude	:iterator.longitude,
+                iconPath:'../../icons/bike2.png'})
+          }
+          let tmp=arr.concat(ard)
+          return  ard!=undefined? tmp:arr
+        }
+        that.setData({
+          markers:setdata(res.data,that.data.markers)
+        })
+        console.log(that.data.markers)
+
+      }
+    })
+
     var that = this;
     wx.getLocation({
       type:'wgs84',
@@ -31,7 +57,6 @@ Page({
             console.log( result.data.result.address)     
             that.locations = result.data.result.address   
             that.setData({position:result.data.result.address})
-           
           }
         })
        function setdata( ary,ard){
@@ -40,7 +65,7 @@ Page({
              arr.push({
               latitude:iterator.latitude,
                 longitude	:iterator.longitude,
-                iconPath:'../images/01.jpg'})
+                iconPath:'../../icons/position.png'})
           }
           let tmp=arr.concat(ard)
           return  ard!=undefined? tmp:arr
@@ -57,7 +82,7 @@ Page({
       }    
     })    
   
-    this.setData({ tabs })
+    // this.setData({ tabs })
   },
   // 选择起点
   chooseStartLocation:function(){

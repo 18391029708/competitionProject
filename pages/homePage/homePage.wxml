@@ -1,9 +1,9 @@
 <!--pages/homePage/homePage.wxml-->
 <view class="container">
   <view class="turnImageArea">
-    <swiper indicator-dots="true" autoplay="true" duration="500" interval="2000">
-      <swiper-item  class="ImageItem" wx:for="{{background}}">
-        <image style="height:100%" src="{{item}}"></image>
+    <swiper style="height:100%;" indicator-dots="true" autoplay="{{ true }}" duration="500" interval="2000">
+      <swiper-item wx:for="{{background}}">
+        <image src="{{item}}" style="width: 100%; height: 100%; border-radius: 30rpx"></image>
       </swiper-item>
     </swiper>
   </view>
@@ -12,71 +12,106 @@
   <view class="cardArea">
     <view class="web">
       <view bindtap="jumpToLostFound">
-        <view class="web1" >
-          <image class='web1' src="../../icons/byCar.png"></image>
+        <view class="web1">
+          <image class='web1' src="../../icons/lost.png"></image>
         </view>
         <text class="webText">失物招领</text>
       </view>
-      <view bindtap="toConfess">
-        <view class="web2" >
-          <image class='web2' src="../../icons/confession.png"></image>
-        </view>
-        <text class="webText">告白墙</text>
-      </view>
-          <!-- 选择展示搭乘还是接乘 -->
-    <view hidden="{{homePageVehicleArea}}">
-      <view bindtap='toTakeVehicle'>
-        <view class='web3'>
-          <image class='web3' src="../../icons/byCar.png"></image>
-        </view>
-        <text class="webText">电车搭乘</text>
-      </view>
-    </view>
-    <view hidden="{{!homePageVehicleArea}}">
-      <view bindtap='toTakeOrder'>
-        <view class="web3" ></view>
-        <text class="webText">电车接乘</text>
-      </view>
-    </view>
- 
-    </view>
-    <view class="web">
       <view bindtap="toTakeDelivery">
-        <view class="web1" >
-          <image class='web1' src="../../icons/package.png"></image>
+        <view class="web1">
+          <image class='web1' src="../../icons/kuaidi.png"></image>
         </view>
         <text class="webText">快递代取</text>
       </view>
+      
+      <!-- 选择展示搭乘还是接乘 -->
+      <view hidden="{{homePageVehicleArea}}">
+        <view bindtap='toTakeVehicle'>
+          <view class='web3'>
+            <image class='web3' src="../../icons/byCar.png"></image>
+          </view>
+          <text class="webText">电车搭乘</text>
+        </view>
+      </view>
+      <view hidden="{{!homePageVehicleArea}}">
+        <view bindtap='toTakeOrder'>
+          <view class="web3"></view>
+          <text class="webText">电车接乘</text>
+        </view>
+      </view>
+
+    </view>
+    <view class="web">
+      <view bindtap="toDetial">
+        <view class="web2">
+          <image class='web2' src="../../icons/xuexiao.png"></image>
+        </view>
+        <text class="webText">校园详情</text>
+      </view>
       <view>
-        <view class="web2" ></view>
+        <view class="web2">
+          <image class="web2" src="../../icons/rili.png"></image>
+        </view>
         <text class="webText">记事本</text>
       </view>
       <view>
-        <view class="web3" bindtap="web3"></view>
-        <text class="webText">招生就业</text>
+        <view class="web3" bindtap="web3">
+          <image class="web3" src="../../icons/qita.png"></image>
+        </view>
+        <text class="webText">其它</text>
       </view>
     </view>
   </view>
 
   <!-- 校园热点 -->
   <view class="news">
-    <text >校园热点</text>
-    <view>
-      <text class="news_text" bindtap="campusNews">我校在第十六届“挑战杯”四川省大学生课外学术科技作品竞赛中获佳绩</text>
-    </view>
-    <view>
-      <text class="news_text" bindtap="campusNews2">我校接受本科教学工作审核评估整改回访</text>
-    </view>
-    <view>
-      <text class="news_text" bindtap="campusNews3">学校与绵阳京东方光电科技有限公司签署校企实习（实践）基地合作协议</text>
-    </view>
-    <view>
-      <text class="news_text" bindtap="campusNews4">清华大学副校长、教育部工业工程专业教指委主任郑力一行来我校指导专业建设</text>
-    </view>
-    <view>
-      <text class="news_text" bindtap="campusNews5">2021年教育部化学类本科新专业“化学测量学与技术”建设研讨会在我校举行</text>
-    </view>
-    
-  </view>
+    <text>校园热点</text>
+    <scroll-view scroll-y="true">
+      <view class="newsItem">
+        <view class="newsAreaCard">
+          <image></image>
+        </view>
+        <view class="newsItemText">
+          <text class="news_text" bindtap="campusNews">我校在第十六届“挑战杯”四川省大学生课外学术科技作品竞赛中获佳绩</text>
+        </view>
 
+      </view>
+      <view class="newsItem">
+        <view class="newsAreaCard">
+          <image></image>
+        </view>
+        <view class="newsItemText">
+          <text class="news_text" bindtap="campusNews2">我校接受本科教学工作审核评估整改回访</text>
+        </view>
+
+      </view>
+      <view class="newsItem">
+        <view class="newsAreaCard">
+          <image></image>
+        </view>
+        <view class="newsItemText">
+          <text class="news_text" bindtap="campusNews3">学校与绵阳京东方光电科技有限公司签署校企实习（实践）基地合作协议</text>
+        </view>
+
+      </view>
+      <view class="newsItem">
+        <view class="newsAreaCard">
+          <image></image>
+        </view>
+        <view class="newsItemText">
+          <text class="news_text" bindtap="campusNews4">清华大学副校长、教育部工业工程专业教指委主任郑力一行来我校指导专业建设</text>
+        </view>
+
+      </view>
+      <view class="newsItem">
+        <view class="newsAreaCard">
+          <image></image>
+        </view>
+        <view class="newsItemText">
+          <text class="news_text" bindtap="campusNews5">2021年教育部化学类本科新专业“化学测量学与技术”建设研讨会在我校举行</text>
+        </view>
+      </view>
+    </scroll-view>
+
+  </view>
 </view>

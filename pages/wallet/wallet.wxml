@@ -8,8 +8,6 @@
         </view>
         <view><text style="font-size:10px">订单编号：{{item._id}}</text></view>
         <view><text style="font-size:12px">时间：{{item.orderTime}}</text></view>
-
-
       </view>
 
 

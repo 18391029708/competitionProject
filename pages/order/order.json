@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "taskCard":"../../components/taskCard/taskCard",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "travelOrder" : "../../components/travelOrder/travelOrder"
+  }
+}

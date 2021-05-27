@@ -1,15 +1,19 @@
-/* pages/myConfession/myConfession.wxss */
+page {
+  box-sizing: border-box;
+  padding:0.5em;
+}
 /* 告白说说 */
 .confe_item {
   width: 100%;
   display:flex;
+  box-sizing: border-box;
   flex-direction: column;
   justify-content: space-between;
   min-height: 22vh;
-  margin: 0.5rem 0;
+  margin: 1rem 0;
   background-color: #fff;
   border-radius: 15rpx;
-  box-shadow: 0 8px 12px #ebedf0;
+  box-shadow: 0 0 8px 12px #ebedf0;
 }
 
 .confe_content_main {

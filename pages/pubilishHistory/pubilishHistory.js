@@ -71,9 +71,19 @@ Page({
         console.log("根据openid获取该用户的失物招领失败",err)
       })
     }else if(type === "电车搭乘"){
-      
+      this.setData({
+        lostFlag:false,
+        confessionFlag:false,
+        vehicleFlag:true,
+        expressageFlag:false
+      })
     }else if(type === "快递代取"){
-      
+      this.setData({
+        lostFlag:false,
+        confessionFlag:false,
+        vehicleFlag:false,
+        expressageFlag:true
+      })
     }
   },
 

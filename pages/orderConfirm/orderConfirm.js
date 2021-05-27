@@ -50,6 +50,7 @@ Page({
     wx.cloud.callFunction({
       name:'pay',
       data: {
+        body:"电车搭乘",
         money:that.data.orderMoney,
         outTradeNo:timestamp+timestamp+timestamp+'abc'
       },
@@ -104,25 +105,19 @@ Page({
                 orderType:'电车搭乘',
                 // 判断为支出或者收入，true为支出，false为收入
                 expense:true
-
               }
             }
           })
-
- 
-        
-      
           }
         })
         console.log(that.data.id)    
-
         wx.showToast({
           title: "你最帅",
           icon: 'loading',
           duration: 4000
         });
         setTimeout(function(){
-          wx.switchTab({
+          wx.navigateTo({
             url:'../order/order',
           })  
         },3000)

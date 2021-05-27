@@ -27,7 +27,7 @@
               bindtap="handleDelCom">删除</text>
             <text class="iconfont icon-pinglun" data-index="{{index}}"
               bindtap="showCommentlist">{{item.commentCount>99?"99+":item.commentCount}}</text>
-            <text class="iconfont icon-tubiaozhizuomoban-1">{{item.likerArr.length}}</text>
+            <text class="iconfont {{item.likeClass}}" data-index="{{index}}" bindtap="handleLike">{{item.likerArr.length}}</text>
           </view>
         </view>
       </view>
@@ -57,7 +57,7 @@
         <view class="comment_content">{{curComment.reviewContent}}</view>
         <!-- 删除  评论  点赞 -->
         <view class="comment_tool">
-          <text class="iconfont icon-tubiaozhizuomoban-1">{{curComment.likerArr.length}}</text>
+          <text class="iconfont {{curComment.likeClass}}" bindtap="handleLouzhu">{{curComment.likerArr.length}}</text>
         </view>
       </view>
       <!-- 暂无|全部 评论提示语 -->
@@ -76,7 +76,7 @@
             <van-image width="36px" height="36px" round src="{{item.replierInfo.avatarUrl}}"></van-image>
             <text class="replier_name">{{item.replierInfo.nickName}}</text><van-tag
                 wx:if="{{item.replierInfo.userId===curComment._openid}}" type="primary">楼主</van-tag>
-            <view class="like_reply">赞<van-icon name="good-job-o"></van-icon>
+            <view class="like_reply iconfont {{item.likeClass}}" data-index="{{index}}" bindtap="handleLike">{{item.likerArr.length?item.likerArr.length:"赞"}}
             </view>
           </view>
           <view class="reply_content">

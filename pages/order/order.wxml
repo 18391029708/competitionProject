@@ -1,0 +1,26 @@
+<view class="container">
+  <!-- 普通用户订单记录 -->
+  <view wx:if="{{!orderType}}" class="order-area">
+    <!-- 根据订单类型展示不同布局类型  电车搭乘类型 -->
+    <van-tabs active="{{ active }}">
+      <van-tab title="电车搭乘">
+        <block wx:for="{{takeCarOrder}}" wx:key="index">
+          <travelOrder data-idx="{{index}}" task="{{item}}"></travelOrder>
+        </block>
+      </van-tab>
+      <van-tab title="快递代取">
+        <block wx:for="{{deliveryOrder}}" wx:key="index">
+          <taskCard data-idx="{{index}}" bindtap="toListDetail" task="{{item}}"></taskCard>
+        </block>
+      </van-tab>
+    </van-tabs>
+  </view>
+
+  <view wx:if="{{orderType}}" class="order-area">
+    <!-- 根据订单类型展示不同布局类型  电车搭乘类型 -->
+    <van-tabs active="{{ active }}" bind:change="onChange">
+      <van-tab title="电车接乘">内容 1</van-tab>
+      <van-tab title="快递代取">内容 2</van-tab>
+    </van-tabs>
+  </view>
+</view>

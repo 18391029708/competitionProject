@@ -51,23 +51,29 @@
       {
         "pagePath": "pages/homePage/homePage",
         "text": "首页",
-        "iconPath": "icons/index.png",
-        "selectedIconPath": "icons/_index.png"
+        "iconPath": "icons/home.png",
+        "selectedIconPath": "icons/home-active.png"
       },
       {
         "pagePath": "pages/market/market",
-        "text": "校园商城",
-        "iconPath": "icons/market/market.png",
-        "selectedIconPath": "icons/market/_market.png"
+        "text": "商城",
+        "iconPath": "icons/shop.png",
+        "selectedIconPath": "icons/shop-active.png"
+      },
+      {
+        "pagePath": "pages/confession/confession",
+        "text": "圈子",
+        "iconPath": "icons/circle.png",
+        "selectedIconPath": "icons/circle-active.png"
       },
       {
         "pagePath": "pages/mine/mine",
         "text": "我的",
-        "iconPath": "icons/me.png",
-        "selectedIconPath": "icons/_me.png"
+        "iconPath": "icons/my.png",
+        "selectedIconPath": "icons/my-active.png"
       }
     ],
-    "selectedColor": "#FFC0CB",
+    "selectedColor": "#AED3FC",
     "position": "bottom"
   },
   "plugins": {

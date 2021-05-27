@@ -47,7 +47,7 @@ Page({
   },
   toTakeVehicle(){
     wx.navigateTo({
-      url: '../takeVehicle/takeVehicle?url='+'http://www.swust.edu.cn/89/list.htm',
+      url: '../takeVehicle/takeVehicle',
     })
   },
 
@@ -71,9 +71,9 @@ Page({
     })
   },
 
-  toConfess(){
+  toDetial(){
     wx.navigateTo({
-      url: '../confession/confession',
+      url: '../webview/webview?url='+'http://news.swust.edu.cn',
     })
   },
 

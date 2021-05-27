@@ -16,7 +16,7 @@
 
     <!-- 商品列表不为空时 -->
     <view class="exist" wx:if="{{!emptyFlag}}">
-      <view class="shopName">sunflower花店</view>
+      <view class="shopName">校园商城</view>
       <view class="flowerCart">
         <view class="flowerItem" wx:for="{{cartList}}" wx:key="index">
           <view class="{{cartList[index].checked?'fa fa-check-circle-o flowerLeftChecked':'flowerLeft'}}" catchtap="check" data-item="{{item}}" data-index="{{index}}"></view>

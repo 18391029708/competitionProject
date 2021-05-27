@@ -15,12 +15,17 @@ Page({
     realInfoShow:false,
     vehicleInfoShow:false,
     studentAuthentificationStatus:'',
+    carAuthentificationStatus:'',
+    realNameAuthentificationStatus:'',
     realNameAuthentificationStatus:false,
     id:'',
     school:'',
     number:'',
     name:'',
-    sex:''
+    sex:'',
+    carType:'',
+    color:'',
+    carAge:''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -46,7 +51,9 @@ Page({
     .then(res => {
       console.log("3333000",res)
       this.setData({
-        studentAuthentificationStatus:res.result.data[0].studentAuthentificationStatus
+        studentAuthentificationStatus:res.result.data[0].studentAuthentificationStatus,
+        carAuthentificationStatus:res.result.data[0].carAuthentificationStatus,
+        realNameAuthentificationStatus:res.result.data[0].realNameAuthentificationStatus,
       })
     })
 
@@ -110,6 +117,55 @@ Page({
        console.log("数据库添加数据成功")
     })
   },
+  carformSubmit(e){
+    console.log('form发生了carsubmit事件，携带数据为：', e.detail.value);
+    console.log("openid:" + app.globalData.openid)
+    this.setData({
+      carType:e.detail.value.carType,
+      color:e.detail.value.color,
+      carAge:e.detail.value.carAge,
+    })
+    // 查询userid用户的表是否存在，存在则插入实名认证信息
+    wx.cloud.callFunction({
+      name:"OperateDatabase",
+      data:{
+        opr:'query',
+        tablename:'t_user_info',
+        data:{
+          _openid:app.globalData.openid,
+
+        }
+      }
+    })
+    .then(res => {
+      console.log("0000",res)
+      this.setData({
+        id:res.result.data[0]._id
+      })
+   this.updataCarInfo();
+    })
+    .then(res =>{//返回上一页
+        // 信息认证成功后返回上一个页面，并传参
+        let pages = getCurrentPages(); //获取所有页面
+        let currentPage = null;  //当前页面
+        let prevPage = null;  //上一个页面
+        if(pages.length >= 2){
+          currentPage = pages[pages.length - 1]; //获取当前页面，并将其赋值
+          prevPage = pages[pages.length - 2]; //获取上一个页面，并将其赋值
+        }
+        if(prevPage){
+          console.log("返回页传值")
+          prevPage.setData({
+            authentificationStatus:true
+          })
+        }
+        console.log("执行跳转")
+        wx.navigateBack({
+          delta: 1  //1为返回的页面数
+        })
+       console.log("数据库添加数据成功")
+    })
+  },
   updataStudent(){
     console.log(this.data.id)
     db.collection('t_user_info').doc(this.data.id).update({
@@ -118,17 +174,25 @@ Page({
         'userInfo.No':this.data.number,
        'userInfo.name':this.data.name,
        'userInfo.sex':this.data.sex,
-      //  'userInfo.realName':e.detail.name.text,
-      //  'userInfo.idNum':e.detail.id.text,
        studentAuthentificationStatus:true
       }
-      // success:function(res){
-      //   console.log(res)
-      // }
     })
     .then( res =>{
       console.log(res)
-
+    })
+  },
+  updataCarInfo(){
+    console.log(this.data.id)
+    db.collection('t_user_info').doc(this.data.id).update({
+      data:{
+        'carInfo.carAge':this.data.carAge,
+        'carInfo.carType':this.data.carType,
+       'carInfo.color':this.data.color,
+       carAuthentificationStatus:true
+      }
+    })
+    .then( res =>{
+      console.log(res)
     })
   },
   // 身份证识别
@@ -166,7 +230,7 @@ Page({
           data:{
            'userInfo.realName':e.detail.name.text,
            'userInfo.idNum':e.detail.id.text,
-           realNameAuthentificationStatus:true
+          //  realNameAuthentificationStatus:true
 
           },
           success:res=>{
@@ -178,6 +242,47 @@ Page({
 
     
 // 数据存储数据库
+
+  },
+  // 身份证反面认证
+  reverseSuccess: function (e) {
+    console.log(e)
+    this.setData({
+       valid_date:e.detail.valid_date.text
+    })
+    wx.cloud.callFunction({
+      name:'OperateDatabase',
+      data:{
+        opr:'query',
+        tablename:'t_user_info',
+        data:{
+            userId:app.globalData.openid
+        }
+      },
+      success:res =>{
+        console.log(res)
+      //  this.setData({
+      //    validDate:e.detail.valid_date.text
+       
+      //  })
+        console.log("返回有效日期：" + res.result)
+        console.log(JSON.stringify(res.result.data[0]._id))
+        let id = res.result.data[0]._id;
+        console.log("查询结束")
+        // db.collection('')
+        console.log("数据id：", id)
+        db.collection('t_user_info').doc(id).update({
+          data:{
+            validDate:e.detail.valid_date.text,
+           realNameAuthentificationStatus:true
+
+          },
+          success:res=>{
+            console.log("添加身份证数据成功")
+          }
+        })
+      }
+    })
 
   },
   /**
