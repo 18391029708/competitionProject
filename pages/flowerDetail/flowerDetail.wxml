@@ -1,0 +1,46 @@
+<view class="flowerDetail">
+  <!-- 花图片 -->
+  <image src="{{flower.imgSrc}}"></image>
+
+  <!-- 花描述 -->
+  <view class="flowerParam">
+    <!-- 花名字 -->
+    <view class="title">{{flower.title}}</view>
+    <view class="desc">
+      <!-- 价格，销量 -->
+      <view class="left">
+        <view class="price">￥{{flower.price}}</view>
+        <view class="amount">销量{{flower.salesAmount}}束</view>
+      </view>
+      <!-- 分享 -->
+      <button open-type="share" class="share fa fa-share-alt"></button>
+    </view>
+  </view>
+
+  <!-- 花语 -->
+  <view class="flowerLanguage">花语：{{flower.flowerLanguage}}</view>
+
+  <!-- 商品组成 -->
+  <view class="flowerElement">商品组成：{{flower.flowerElement}}</view>
+
+  <!-- 商家信息 -->
+  <view class="contact">
+    <view>商家名称：{{contact[0]}}</view>
+    <view>商家地址：{{contact[1]}}</view>
+    <view>商家电话：{{contact[2]}}</view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom">
+    <view class="home" bindtap="jumpToHome">
+      <image src="../../icons/market/home.png"></image>
+      <view>首页</view>
+    </view>
+    <view class="collect" catchtap="collect">
+      <view class="{{collectFlag == true?'fa fa-heartbeat' :'fa fa-heart-o'}}"></view>
+      <view class="cTitle">收藏</view>
+    </view>
+    <view class="addToCart" catchtap="addToCart">加入购物车</view>
+    <view class="buy" catchtap="buy">立即购买</view>
+  </view>
+</view>

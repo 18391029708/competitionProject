@@ -1,0 +1,19 @@
+<view class="classificationDetail">
+  <!-- 搜索框 -->
+  <search/>
+  <!-- 花列表 -->
+  <view class="flowerList">
+    <view class="flowerItem" wx:for="{{flowerList}}" wx:key="index" data-item="{{item}}" bindtap="jumpToFlowerDetail">
+      <view class="left">
+        <image src="{{item.imgSrc}}" class="flowerImg"></image>
+      </view>
+      <view class="right">
+        <view class="title">{{item.title}}</view>
+        <view class="price">￥{{item.price}}</view>
+        <view class="sales">
+          <view class="amount">已售{{item.salesAmount}}束</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

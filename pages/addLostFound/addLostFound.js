@@ -74,12 +74,19 @@ Page({
           goodsLocation:getdata.goodsLocation,
           contactWay:getdata.contactWay,
           goodsDescription:getdata.goodsDescription,
+          status:'未完成'
         }
       })
       .then(res => {
         console.log('保存成功',res)
         wx.showToast({
             title: '发布成功',
+            duration:2000,
+            success:()=> {
+              wx.navigateTo({
+                url: '../lostFound/lostFound',
+              })
+            }
         })
       })
       .catch(err => {

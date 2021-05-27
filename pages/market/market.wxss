@@ -1,0 +1,77 @@
+.homeChange{
+  filter: blur(10rpx);
+}
+
+/* 花的分类 */
+.classifyCt{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.classify{
+  flex: 1;
+  text-align: center;
+  height: 180rpx;
+}
+.classify image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.title{
+  color:#333333;
+  font-size: 28rpx;
+}
+
+/* 花列表展示 */
+.flowerList{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+}
+.flowerItem{
+  margin-bottom: 10rpx;
+  width: 48%;
+  height: 560rpx;
+}
+.flowerImg{
+  width: 100%;
+  height: 340rpx;
+  border-top-right-radius: 20rpx;
+  border-top-left-radius: 20rpx;
+}
+.title{
+  color: #333333;
+  font-size: 30rpx;
+  margin-bottom: 5rpx;
+}
+.price{
+  color:#FFCC99;
+  font-size: 30rpx;
+  margin-bottom: 5rpx;
+}
+.sales{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5rpx;
+}
+.amount{
+  color:#BBBBBB;
+  font-size: 26rpx;
+}
+.iconImg{
+  width: 40rpx;
+  height: 40rpx;
+  padding:8rpx 8rpx;
+  border: 1rpx solid #66CC99;
+  border-radius:50%;
+}
+.cartCp{
+  width: 100%;
+  position: fixed;
+  bottom: 0rpx;
+  z-index: 2;
+}

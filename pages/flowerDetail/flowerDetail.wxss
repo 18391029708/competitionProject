@@ -1,0 +1,106 @@
+image{
+  width: 100%;
+  height: 400rpx;
+}
+.flowerParam{
+  width: 98%;
+  margin-left: 20rpx;
+  height: 80rpx;
+}
+.title{
+  color: #333333;
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+.desc{
+  display: flex;
+  justify-content:flex-start;
+}
+.left{
+  flex:6;
+}
+.price{
+  color: #FFCC99;
+  font-size: 36rpx;
+  font-weight: bolder;
+  margin-bottom: 20rpx;
+}
+.amount{
+  color:#bbb;
+  font-size: 26rpx;
+}
+.share{
+  background-color: #fff;
+  color:#FFCC99;
+  font-size: 38rpx;
+}
+
+.flowerLanguage{
+  color: #333333;
+  width: 98%;
+  height: 100rpx;
+  font-size: 30rpx;
+  margin: 140rpx 10rpx 50rpx 10rpx;
+}
+.flowerElement{
+  width: 98%;
+  height: 100rpx;
+  color: #333333;
+  font-size: 30rpx;
+  margin: 0rpx 10rpx;
+}
+.contact{
+  margin-top: 20rpx;
+  color: #bbb;
+  font-size: 28rpx;
+  width: 98%;
+  margin-left: 10rpx;
+}
+
+.bottom{
+  display: flex;
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+}
+.home{
+  flex:1;
+  margin-left: 15rpx;
+  color: #bbb;
+  font-size: 22rpx;
+}
+.home image{
+  width:40rpx;
+  height: 40rpx;
+}
+.collect{
+  flex:1;
+}
+.fa-heart-o{
+  color: #8a8a8a;
+}
+.fa-heartbeat{
+  color: #CC3300;
+}
+.cTitle{
+  color: #bbb;
+  font-size: 24rpx;
+}
+.addToCart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+  color: #fff;
+  font-size: 30rpx;
+  background-color: #ffcc99;
+}
+.buy{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+  color: #fff;
+  font-size: 30rpx;
+  background-color: #FF9966;
+}

@@ -1,0 +1,110 @@
+.cartCt{
+  width: 100%;
+  height: 360rpx;
+  background-color: #fff;
+}
+.level1{
+  margin-left: 20rpx;
+  width: 100%;
+  height: 130rpx;
+  display: flex;
+  border-bottom:1rpx solid #eee;
+}
+.flowerImg{
+  margin-top: -50rpx;
+}
+.flowerImg image{
+  border-top-right-radius: 5rpx;
+  border-top-left-radius: 5rpx;
+  width: 140rpx;
+  height: 140rpx;
+}
+.middle{
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.price{
+  color: #FFCC99;
+  font-size: 32rpx;
+}
+.repertory{
+  color: #bfbfbf;
+  font-size: 28rpx;
+}
+.close{
+  margin-left: 48%;
+}
+.close image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.level2{
+  margin-left: 20rpx;
+  width: 100%;
+  height: 130rpx;
+  display: flex;
+  align-items: center;
+  
+}
+.title{
+  color: #8a8a8a;
+  font-size: 28rpx;
+  
+}
+.operation{
+  display: flex;
+  margin-left: 60%;
+}
+.plus{
+  width: 50rpx;
+  height: 50rpx;
+  background-color: #eee;
+  margin-right: 10rpx;
+}
+.plus image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.number{
+  width: 70rpx;
+  height: 50rpx;
+  background-color: #eee;
+  margin-right: 10rpx;
+  text-align: center;
+  color: #333;
+  font-size: 30rpx;
+}
+.minus{
+  width: 50rpx;
+  height: 50rpx;
+  background-color: #eee;
+}
+.minus image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.level3{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+}
+.addCart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+  color: #fff;
+  font-size: 30rpx;
+  background-color: #ffcc99;
+}
+.buy{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+  color: #fff;
+  font-size: 30rpx;
+  background-color: #FF9966;
+}

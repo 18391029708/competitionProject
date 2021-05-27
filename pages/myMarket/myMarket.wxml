@@ -1,0 +1,46 @@
+<view class="myMarket">
+  <view class="top">
+    <!-- 收藏 -->
+    <view class="item" bindtap="jumpToCollect">
+      <view class="title">我的收藏</view>
+    </view>
+    <!-- 收货地址 -->
+    <view class="item" bindtap="jumpToAddress">
+      <view class="title">收货地址</view>
+    </view>
+    <!-- 我的购物车 -->
+    <view class="item" bindtap="jumpToCart">
+      <view class="title">购物车</view>
+    </view>
+  </view>
+
+  <!-- 我的订单 -->
+  <view class="order">
+    <view class="check">
+      <view class="checkTitle">我的订单</view>
+      <view class="ckeckAll">查看全部</view>
+    </view>
+    <view class="orderList">
+      <view class="orderItem">
+        <image src="../../icons/market/wait-pay.png"></image>
+        <view>待付款</view>
+      </view>
+      <view class="orderItem">
+        <image src="../../icons/market/wait-send.png"></image>
+        <view>待发货</view>
+      </view>
+      <view class="orderItem">
+        <image src="../../icons/market/wait-receive.png"></image>
+        <view>待收获</view>
+      </view>
+      <view class="orderItem">
+        <image src="../../icons/market/finish.png"></image>
+        <view>已完成</view>
+      </view>
+      <view class="orderItem">
+        <image src="../../icons/market/after-sale.png"></image>
+        <view>售后</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -8,8 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    background:['../../icons/1.jpg','../../icons/2.jpg','../../icons/3.jpg'],
-    // backgrounc:['../../icons/3.jpg'],
+    background:['../../icons/campus1.png','../../icons/campus2.png','../../icons/campus3.png'],
     homePageVehicleArea:''
   },
 
@@ -47,7 +46,7 @@ Page({
   },
   toTakeVehicle(){
     wx.navigateTo({
-      url: '../takeVehicle/takeVehicle?url='+'http://www.swust.edu.cn/89/list.htm',
+      url: '../takeVehicle/takeVehicle',
     })
   },
 
@@ -71,9 +70,36 @@ Page({
     })
   },
 
-  toConfess(){
+  toDetial(){
     wx.navigateTo({
-      url: '../confession/confession',
+      url: '../webview/webview?url='+'http://news.swust.edu.cn',
+    })
+  },
+
+  // 校园热点
+  campusNews(){
+    wx.navigateTo({
+      url: '../webview/webview?url='+'http://news.swust.edu.cn/2021/0525/c294a134366/page.htm',
+    })
+  },
+  campusNews2(){
+    wx.navigateTo({
+      url: '../webview/webview?url='+'http://news.swust.edu.cn/2021/0521/c294a134270/page.htm',
+    })
+  },
+  campusNews3(){
+    wx.navigateTo({
+      url: '../webview/webview?url='+'http://news.swust.edu.cn/2021/0520/c295a134232/page.htm',
+    })
+  },
+  campusNews4(){
+    wx.navigateTo({
+      url: '../webview/webview?url='+'http://news.swust.edu.cn/2021/0524/c295a134336/page.htm',
+    })
+  },
+  campusNews5(){
+    wx.navigateTo({
+      url: '../webview/webview?url='+'http://news.swust.edu.cn/2021/0525/c295a134380/page.htm',
     })
   },
   /**

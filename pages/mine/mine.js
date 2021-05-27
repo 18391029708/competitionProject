@@ -16,6 +16,11 @@ Page({
         imageSrc:"../../icons/history-push.png"
       },
       {
+        name:"购物信息",
+        path:"../myMarket/myMarket",
+        imageSrc:"../../icons/order.png"
+      },
+      {
         name:"关于顺哒",
         path:"../order/order",
         imageSrc:"../../icons/about.png"
@@ -24,21 +29,6 @@ Page({
         name:"客服",
         path:"../order/order",
         imageSrc:"../../icons/service.png"
-      },
-      {
-        name:"发布历史",
-        path:"../pubilishHistory/pubilishHistory",
-        imageSrc:"../../icons/history-push.png"
-      },
-      {
-        name:"发布历史",
-        path:"../pubilishHistory/pubilishHistory",
-        imageSrc:"../../icons/history-push.png"
-      },
-      {
-        name:"发布历史",
-        path:"../pubilishHistory/pubilishHistory",
-        imageSrc:"../../icons/history-push.png"
       },
     ],
     userInfo: Object,
@@ -74,9 +64,9 @@ Page({
 
   // 跳转我的订单页面
   toBill(){
-    // wx.navigateTo({
-    //   url: '../wallet/wallet',
-    // })
+    wx.navigateTo({
+      url: '../wallet/wallet',
+    })
   },
 
   // 跳转学生认证
@@ -101,7 +91,7 @@ Page({
   toNextPage(e){
     const that = this;
     
-    console.log(e);
+    // console.log(e);
     wx.navigateTo({
       url: that.data.listRouter[e.currentTarget.id].path,
     })

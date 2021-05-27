@@ -7,8 +7,8 @@ Page({
    */
   data: {
     markers:[],
-    EndPosition: '999',
-    position:'o',
+    EndPosition: '',
+    position:'',
   },
 
   /**

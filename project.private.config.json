@@ -37,6 +37,43 @@
           "scene": null
         },
         {
+          "name": "pages/mine/mine",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/manageAddress/manageAddress",
+          "pathName": "pages/manageAddress/manageAddress",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/market/market",
+          "pathName": "pages/market/market",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/account/account",
+          "pathName": "pages/account/account",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/myMarket/myMarket",
+          "pathName": "pages/myMarket/myMarket",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/cart/cart",
+          "pathName": "pages/cart/cart",
+          "query": "",
+          "scene": null
+        },
+        {
+         
           "name": "pages/circle/circle",
           "pathName": "pages/circle/circle",
           "query": "",
