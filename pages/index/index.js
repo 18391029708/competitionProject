@@ -109,8 +109,6 @@ Page({
           // app.hideLoading()
           // this.triggerEvent('applyTap')
         })
-
-  
   },
   onLoad() {
   

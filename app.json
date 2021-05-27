@@ -16,7 +16,6 @@
     "pages/takeVehicle/takeVehicle",
     "pages/takeDelivery/takeDelivery",
     "pages/listDetail/listDetail",
-    "pages/confession/confession",
     "pages/commentDetail/commentDetail",
     "pages/writeComfession/writeComfession",
     "pages/addTask/addTask",
@@ -32,7 +31,8 @@
     "pages/address/address",
     "pages/myMarket/myMarket",
     "pages/collect/collect",
-    "pages/cart/cart"
+    "pages/cart/cart",
+    "pages/circle/circle"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -61,7 +61,7 @@
         "selectedIconPath": "icons/shop-active.png"
       },
       {
-        "pagePath": "pages/confession/confession",
+        "pagePath": "pages/circle/circle",
         "text": "圈子",
         "iconPath": "icons/circle.png",
         "selectedIconPath": "icons/circle-active.png"

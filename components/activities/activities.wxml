@@ -1,0 +1,24 @@
+<van-notice-bar
+color="#1989fa"
+  background="#ecf9ff"
+  left-icon="volume-o"
+  scrollable="true"
+  text="技术是开发它的人的共同灵魂。"
+></van-notice-bar>
+<scroll-view class="scroll-view-class">
+  <view class="activ-item">
+  <view class="article-title">
+    计科学院的运动会正在进行中
+  </view>
+  <image  src="../../icons/1.jpg"></image>
+  <view class="desc">
+    缩放模式，保持纵横比缩放图片，只保证图片的短边能完全显示出来。也就是说，图片通常只在水平或垂直方向是完整的，另一个方向将会发生截取。缩放模式，保持纵横比缩放图片，使图片的长边能完全显示出来。也就是说，可以完整地将图片显示出来。
+  </view>
+  <van-cell
+  is-link
+  title="查看全文"
+  link-type="navigateTo"
+  url="/pages/dashboard/index"
+/>
+</view>
+</scroll-view>

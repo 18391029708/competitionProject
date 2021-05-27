@@ -1,0 +1,18 @@
+<!--pages/confession.wxml-->
+<view class="title">
+  圈子
+</view>
+<van-tabs active="{{ active }}" bind:change="onChange" sticky swipeable animated nav-class="tab-nav" tab-class="bgc-trans">
+  <van-tab title="告白墙">
+  <confession></confession>
+  </van-tab>
+  <van-tab title="话题">
+    <topic></topic>
+  </van-tab>
+  <van-tab title="活动"><activities></activities></van-tab>
+  <van-tab title="文章"><article></article></van-tab>
+</van-tabs>
+<!-- 返回顶部按钮 -->
+<view wx:if="{{showBackTop}}" class="backTop side-tool" bindtap="handleBackTop">
+  <van-icon name="back-top" size="3em"></van-icon>
+</view>

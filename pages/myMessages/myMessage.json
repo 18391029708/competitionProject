@@ -3,7 +3,8 @@
     "van-tabs":"../../miniprogram_npm/@vant/weapp/tabs",
     "van-tab":"../../miniprogram_npm/@vant/weapp/tab",
     "van-empty":"../../miniprogram_npm/@vant/weapp/empty",
-    "userHeader":"../../components/userHeader/userHeader"
+    "userHeader":"../../components/userHeader/userHeader",
+    "likerlist":"../../components/likerlist/likerlist"
   },
   "navigationBarTitleText": "我的消息"
 }
