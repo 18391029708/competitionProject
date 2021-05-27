@@ -1,0 +1,18 @@
+/* pages/circle/circle.wxss */
+.title {
+  height: 10vh;
+  color: #fff;
+  line-height: 14vh;
+  font-size: 1.1em;
+  text-align: center;
+  font-weight: 700;
+  background: linear-gradient(to right,#ffe7ba,#ffc069);
+}
+.tab-nav {
+  background: linear-gradient(to right,#ffe7ba,#ffc069);
+}
+.bgc-trans {
+  /* background-image: linear-gradient(to bottom,#b5f5ec,#b5f5ec); */
+  /* background-color: var(--theme-color); */
+  background: transparent !important;
+}

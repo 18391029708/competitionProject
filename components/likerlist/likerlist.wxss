@@ -1,0 +1,16 @@
+.liker-wrapper {
+  height: 2em;
+  width: 65%;
+}
+.liker-list {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 1em;
+}
+.liker-font-style {
+  font-size: 0.8em;
+  margin: 0 1em;
+  color: #9f9f9f;
+}
+

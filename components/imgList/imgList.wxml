@@ -1,0 +1,13 @@
+<view class="img_container">
+  <van-image width="100%" use-loading-slot wx:for="{{pictures}}" wx:for-item="imgItem" wx:for-index="imgIndex"
+    catchtap="previewImg" data-preIndex="{{index}}" data-index="{{imgIndex}}" radius="20" wx:key="imgIndex"
+    src="{{imgItem}}" wx:if="{{imgIndex<8}}">
+    <van-loading slot="loading" type="spinner" size="20" vertical />
+  </van-image>
+  <!-- 大于九张显示数字 -->
+  <view class="more_image" wx:if="{{pictures.length>=9}}">
+    <image style="position:relative;top:0" mode="aspectFill" src="{{pictures[8]}}">
+    </image>
+    <view wx:if="{{pictures.length>9}}" class="more_image_number">+{{pictures.length-9}}</view>
+  </view>
+</view>

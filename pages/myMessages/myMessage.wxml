@@ -18,6 +18,7 @@
         </view>
       </view>
     </view>
+    <likerlist></likerlist>
   </van-tab>
   <van-tab title="点赞">
     <van-empty wx:if="{{!likeList.length}}" description="暂无消息"></van-empty>

@@ -31,21 +31,15 @@
           "scene": null
         },
         {
-          "name": "pages/commentDetail/commentDetail",
-          "pathName": "pages/commentDetail/commentDetail",
-          "query": "confessionId=b00064a7607ea04b0fcb16d460b49922",
-          "scene": null
-        },
-        {
-          "name": "pages/myMessages/myMessage",
-          "pathName": "pages/myMessages/myMessage",
+          "name": "pages/homePage/homePage",
+          "pathName": "pages/homePage/homePage",
           "query": "",
           "scene": null
         },
         {
-          "name": "pages/myConfession/myConfession",
-          "pathName": "pages/myConfession/myConfession",
-          "query": "authorid=o75dQ5d3jyoXi0vGdlfpIntIu1CY",
+          "name": "pages/circle/circle",
+          "pathName": "pages/circle/circle",
+          "query": "",
           "scene": null
         }
       ]

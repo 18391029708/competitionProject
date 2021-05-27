@@ -1,0 +1,22 @@
+{
+  "component": true,
+  "usingComponents": {
+    "userHeader":"../../components/userHeader/userHeader",
+    "van-popup":"../../miniprogram_npm/@vant/weapp/popup",
+    "van-empty":"../../miniprogram_npm/@vant/weapp/empty",
+    "loading":"../../components/loading/loading",
+    "van-loading":"../../miniprogram_npm/@vant/weapp/loading",
+    "van-image":"../../miniprogram_npm/@vant/weapp/image",
+    "van-icon":"../../miniprogram_npm/@vant/weapp/icon",
+    "van-grid":"../../miniprogram_npm/@vant/weapp/grid",
+    "van-frid-item":"../../miniprogram_npm/@vant/weapp/grid-item",
+    "van-tabs":"../../miniprogram_npm/@vant/weapp/tabs",
+    "van-tab":"../../miniprogram_npm/@vant/weapp/tab",
+    "imgList":"../../components/imgList/imgList",
+    "likerlist":"../../components/likerlist/likerlist",
+    "van-nav-bar": "../../miniprogram_npm/@vant/weapp/nav-bar",
+    "activities":"../../components/activities/activities",
+    "topic":"../../components/topic/topic",
+    "article":"../../components/article/article"
+  }
+}
