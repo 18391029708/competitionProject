@@ -1,9 +1,9 @@
 <!--pages/homePage/homePage.wxml-->
 <view class="container">
   <view class="turnImageArea">
-    <swiper indicator-dots="true" autoplay="true" duration="500" interval="2000">
-      <swiper-item class="ImageItem" wx:for="{{background}}">
-        <image style="height:100%" src="{{item}}"></image>
+    <swiper class="ImageItem" indicator-dots="true" autoplay="{{false}}" duration="500" interval="2000">
+      <swiper-item wx:for="{{background}}">
+        <image style="width:100%; height:100%; border-radius: 30rpx;" src="{{item}}"></image>
       </swiper-item>
     </swiper>
   </view>

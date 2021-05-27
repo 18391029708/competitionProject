@@ -6,18 +6,15 @@
 
 }
 .turnImageArea{
-  margin-top: 10rpx;
-  width: 95%;
+  margin: 10rpx;
+  width: 90%;
+  height: 240rpx;
+}
 
-  /* height: 25%; */
-  /* background-color: aqua; */
-}
 .ImageItem{
-  border-radius: 30rpx;
-  /* border-bottom-left-radius: 5rpx; */
-  /* border-start-end-radius: 5rpx; */
-  /* height: 100%; */
+  height: 100%;
 }
+
 .cardArea{
   width: 100%;
   padding: 10px;
