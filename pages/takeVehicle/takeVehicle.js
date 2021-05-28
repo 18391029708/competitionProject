@@ -18,8 +18,6 @@ Page({
     // 获取车手经纬度
     db.collection('t_user_info').where({'carAuthentificationStatus':true}).get({
       success: function(res) {
-        // res.data 包含该记录的数据
-        // console.log(res.data)
      function   setdata( ary,ard){
           let arr=[]
           for (const iterator of ary) {
@@ -52,7 +50,6 @@ Page({
         wx.request({          
           url: getAddressUrl,
           success: function (result) {  
-            // app.globalData.userInfo=result,
             console.log(result)
             console.log( result.data.result.address)     
             that.locations = result.data.result.address   
@@ -82,7 +79,6 @@ Page({
       }    
     })    
   
-    // this.setData({ tabs })
   },
   // 选择起点
   chooseStartLocation:function(){

@@ -165,21 +165,5 @@ Page({
         duration: 2000
       })
     }
-
-    //更新t_lost_record状态
-    // wx.cloud.callFunction({
-    //   name:'updateLostFound',
-    //   data:{
-    //     openid:this.data.openid,
-    //     lostList:this.data.lostList
-    //   }
-    // })
-    // .then(res => {
-    //   console.log("更改状态成功",res)
-    // })
-    // .catch(err => {
-    //   console.log("更改状态失败",err)
-    // })
-
   }
 })

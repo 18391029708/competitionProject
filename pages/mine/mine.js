@@ -22,7 +22,7 @@ Page({
       },
       {
         name:"关于顺哒",
-        path:"../order/order",
+        path:"../about/about",
         imageSrc:"../../icons/about.png"
       }
     ],
@@ -54,6 +54,13 @@ Page({
   toBalance(){
     wx.navigateTo({
       url: '../balance/balance',
+    })
+  },
+
+  // 跳转信息详情页面
+  toBaseInfo(){
+    wx.navigateTo({
+      url: '../baseInfo/baseInfo',
     })
   },
 
@@ -104,10 +111,6 @@ Page({
     var that=this;
     // 从全局数据获取用户基本信息
     this.setData({userInfo:app.globalData.userInfo}) ;
-
-    // console.log("我的页面用户信息"+ this.userInfo)
-    // console.log(this.data.chooseBtn)
-
     // 获取用户车辆认证信息为真则显示按钮
     db.collection('common_userInfo_list').where({_openid:app.globalData.openid,'vehicleInformation.have' :'true'}).get({
       success: function(res) {
@@ -119,12 +122,9 @@ Page({
             })
           }
         }
-        // console.log(that.data.chooseBtn)
       }
     })
 
-    // app.globalData.hidden2=this.data.switch1Checked;
-    // console.log(app.globalData.hidden2,this.data.switch1Checked);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

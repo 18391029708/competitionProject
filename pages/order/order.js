@@ -112,16 +112,43 @@ Page({
     // 电车订单查询
     db.collection('t_order').where({
       _openid: app.globalData.openid
-    }).get().then(res => {
+    }).orderBy('create_time','desc').get().then(res => {
       console.log(res.data);
       that.setData({
-        takeCarOrder:res.data
+        carOrder:res.data
       })
       wx.hideLoading();
     }).catch(err => {
       console.log(err);
     })
+        // 司机接单订单查询
+        db.collection('t_order').where({
+          takeOrderUserId: app.globalData.openid,
+          // orderStatus:'正在进行',
+        }).orderBy('create_time','desc').get().then(res => {
+          console.log(res.data);
+          that.setData({
+            takeCarOrder:res.data
+          })
+          wx.hideLoading();
+        }).catch(err => {
+          console.log(err);
+        })
+  
   },
+  // 结束订单
+  overOrder(e){
+    console.log(e)
+    let idx = e.currentTarget.dataset.idx;
+    this.data.takeCarOrder[idx]['overOrder']=true
+    let str = JSON.stringify(this.data.takeCarOrder[idx])
+    console.log(str)
+    wx.navigateTo({
+      url: "../takeOrderDetail/takeOrderDetail?orderInfo="+ str,
+    })
+
+  },
+  
 
   /**
    * 生命周期函数--监听页面隐藏

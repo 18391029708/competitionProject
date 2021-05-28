@@ -1,39 +1,17 @@
-// pages/wallet/wallet.js
-const app = getApp();
+// pages/about/about.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    listItemContent:'',
-    payList:''
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    wx.cloud.callFunction({
-      name:"OperateDatabase",
-      data:{
-        opr:'query',
-        tablename:'t_pay_record',
-        data:{
-          userId:app.globalData.openid
-        }
-      }
-
-    })
-    .then(res =>{
-      console.log(res)
-      that.setData({
-        payList:res.result.data
-      })
-      console.log(that.data.payList)
-    })
-  
 
   },
 

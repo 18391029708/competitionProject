@@ -21,16 +21,6 @@ Page({
    */
   onLoad: function (options) {
     console.log("登录页用户信息openid：" + app.globalData.openid)
-    // db.collection('t_user_info').doc('cbddf0af6075a896014caa445d944008').update({
-    //   data:{
-    //     aaa:"woshi"
-    //   }
-    // }).then(res=> {
-    //   console.log("我是首页数据：" ,res)
-      
-    
-    // })
-
   },
   web1(){
     wx.navigateTo({

@@ -33,7 +33,8 @@
     "pages/collect/collect",
     "pages/cart/cart",
     "pages/circle/circle",
-    "pages/balance/balance"
+    "pages/balance/balance",
+    "pages/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",

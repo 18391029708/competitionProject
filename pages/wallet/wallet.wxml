@@ -3,7 +3,7 @@
     <!-- <view > -->
       <view class="itemList" >
         <view class="typeMonye">
-          <text>电车搭乘</text>   
+          <text>{{item.orderType}}</text>   
           <text>{{item.expense ? "- ": "+"}}{{item.orderMoney/100}}元</text>
         </view>
         <view><text style="font-size:10px">订单编号：{{item._id}}</text></view>

@@ -81,33 +81,26 @@ Page({
       })
       return
     }
-        //loading
-        // app.showLoading()
-        //获取手机号
+     
         wx.cloud.callFunction({
           name: 'getPhone',
           data: {
             cloudID:cloudID
           }
-          // data: {
-          //   weRunData: wx.cloud.CloudID(event.detail.cloudID),
-          // }
+        
         }).then(res => {
           console.log("获取成功：" + res)
           // app.hideLoading()
           let phone = res.result.list[0].data.phoneNumber
-          // if (phone) {
-          //   wx.setStorageSync('phone', phone)
-            //更新UI
+    
             this.setData({
               phone: phone
             })
-          // }
-          // this.triggerEvent('applyTap')
+   
         }).catch(error => {
           console.log('获取失败',error)
-          // app.hideLoading()
-          // this.triggerEvent('applyTap')
+  
+          
         })
   },
   onLoad() {

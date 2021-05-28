@@ -126,8 +126,6 @@ Page({
     if(this.data.defaultFlags[index])
       return
 
-    //若该地址不是设置为默认，则点击后将该条地址设为默认，其他地址取消默认
-    //将除了index位的其他位改为false  forEach函数会改变原来的数组
     this.data.addressList.forEach((item,i)  => {
       item.default = i === index ? true : false
     })
@@ -149,18 +147,6 @@ Page({
           ['defaultFlags[' + i+ ']']: i === index? true: false
         })
       })
-
-      // this.data.defaultFlags.forEach((item,i) => {
-      //   if(i === index){
-      //     this.setData({
-      //       ['defaultFlags[' + i+ ']']:true
-      //     })
-      //   }else{
-      //    this.setData({
-      //     ['defaultFlags[' + i+ ']']:false
-      //    })
-      //   }
-      // })
     })
     .catch(err => {
       console.log("更改默认值失败",err)
