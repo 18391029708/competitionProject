@@ -90,16 +90,17 @@ Page({
     this.setData({
       orderType:app.globalData.selectStatus
     })
+
     // 向云服务器请求数据
     wx.showLoading({
       title: '加载中',
     })
     const that = this;
 
-    db.collection('t_delivery_order').where({
-      _openid: app.globalData.openid
+    db.collection('t_take_delivery').where({
+      takeOpenId: app.globalData.openid
     }).get().then(res => {
-      console.log(res.data);
+      console.log("我是快递代取数据：" + res.data);
       that.setData({
         deliveryOrder:res.data
       })

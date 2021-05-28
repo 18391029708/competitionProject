@@ -8,7 +8,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    background:['../../icons/campus1.png','../../icons/campus2.png','../../icons/campus3.png'],
+    background:[
+      'cloud://data-base-1g3n115z3df553d0.6461-data-base-1g3n115z3df553d0-1304215882/homepage/campus1.png',
+      'cloud://data-base-1g3n115z3df553d0.6461-data-base-1g3n115z3df553d0-1304215882/homepage/campus2.png',
+      'cloud://data-base-1g3n115z3df553d0.6461-data-base-1g3n115z3df553d0-1304215882/homepage/campus3.png'
+    ],
     homePageVehicleArea:''
   },
 

@@ -140,3 +140,9 @@
   height: 40rpx;
   width: 40rpx;
 }
+
+.kefu{
+  width: 100%;
+  line-height: 80rpx;
+  background-color: #ffffff;
+}

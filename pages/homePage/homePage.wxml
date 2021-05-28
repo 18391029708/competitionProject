@@ -69,27 +69,27 @@
     <text>校园热点</text>
     <scroll-view class="news-content" scroll-y="true">
       <view class="news-item">
-        <image class="news-img" src="../../icons/news.png"></image>
+        <image class="news-img" src="cloud://data-base-1g3n115z3df553d0.6461-data-base-1g3n115z3df553d0-1304215882/homepage/news.png"></image>
         <text class="news-text" bindtap="campusNews">我校在第十六届“挑战杯”四川省大学生课外学术科技作品竞赛中获佳绩</text>
       </view>
 
       <view class="news-item">
-        <image class="news-img" src="../../icons/news.png"></image>
+        <image class="news-img" src="cloud://data-base-1g3n115z3df553d0.6461-data-base-1g3n115z3df553d0-1304215882/homepage/news.png"></image>
         <text class="news-text" bindtap="campusNews2">我校接受本科教学工作审核评估整改回访</text>
       </view>
 
       <view class="news-item">
-        <image mode="scaleToFill" class="news-img" src="../../icons/news.png"></image>
+        <image mode="scaleToFill" class="news-img" src="cloud://data-base-1g3n115z3df553d0.6461-data-base-1g3n115z3df553d0-1304215882/homepage/news.png"></image>
         <text class="news-text" bindtap="campusNews3">学校与绵阳京东方光电科技有限公司签署校企实习（实践）基地合作协议</text>
       </view>
 
       <view class="news-item">
-        <image class="news-img" src="../../icons/news.png"></image>
+        <image class="news-img" src="cloud://data-base-1g3n115z3df553d0.6461-data-base-1g3n115z3df553d0-1304215882/homepage/news.png"></image>
         <text class="news-text" bindtap="campusNews4">清华大学副校长、教育部工业工程专业教指委主任郑力一行来我校指导专业建设</text>
       </view>
 
       <view class="news-item">
-        <image class="news-img" src="../../icons/news.png"></image>
+        <image class="news-img" src="cloud://data-base-1g3n115z3df553d0.6461-data-base-1g3n115z3df553d0-1304215882/homepage/news.png"></image>
         <text class="news-text" bindtap="campusNews5">2021年教育部化学类本科新专业“化学测量学与技术”建设研讨会在我校举行</text>
       </view>
     </scroll-view>

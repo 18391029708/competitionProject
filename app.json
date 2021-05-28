@@ -32,7 +32,8 @@
     "pages/myMarket/myMarket",
     "pages/collect/collect",
     "pages/cart/cart",
-    "pages/circle/circle"
+    "pages/circle/circle",
+    "pages/balance/balance"
   ],
   "window": {
     "backgroundTextStyle": "light",

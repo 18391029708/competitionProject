@@ -1,6 +1,8 @@
 <view class="list">
   <view class="top">
-    <view class="task-status">{{task.taskStatusTake}}</view>
+    <slot></slot>
+    <view></view>
+    <view class="task-status {{task.taskStatus==='新任务'?'new-bcg':task.taskStatus==='已接单'?'alread-bcg':'finish-bcg'}}">{{task.taskStatus}}</view>
   </view>
   <view class="task-content">
     <view class="task-top-code">{{task.task.taskCode}}</view>

@@ -1,0 +1,4 @@
+<view class="box">
+  <canvas type="2d" class="waves" id="myCanvas"></canvas>
+  <button bindtap="withdrawal" class="drawalBtn">提现</button>
+</view>
