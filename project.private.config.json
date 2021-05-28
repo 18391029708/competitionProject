@@ -73,7 +73,12 @@
           "scene": null
         },
         {
-         
+          "name": "pages/circle/circle",
+          "pathName": "pages/circle/circle",
+          "query": "",
+          "scene": null
+        },
+        {
           "name": "pages/circle/circle",
           "pathName": "pages/circle/circle",
           "query": "",

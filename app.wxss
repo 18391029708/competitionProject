@@ -15,8 +15,5 @@
   height: 100%; 
 }  
 page { 
-  --theme-color:#bae7ff; 
-} 
-.scroll-view-class { 
-  height: 85vh; 
+  --theme-color:#bae7ff;
 }

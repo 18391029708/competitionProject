@@ -4,13 +4,13 @@
 </view>
 <van-tabs active="{{ active }}" bind:change="onChange" sticky swipeable animated nav-class="tab-nav" tab-class="bgc-trans">
   <van-tab title="告白墙">
-  <confession></confession>
+  <confession  height="{{height}}"></confession>
   </van-tab>
   <van-tab title="话题">
-    <topic></topic>
+    <topic height="{{height}}"></topic>
   </van-tab>
-  <van-tab title="活动"><activities></activities></van-tab>
-  <van-tab title="文章"><article></article></van-tab>
+  <van-tab title="活动"><activities  height="{{height}}"></activities></van-tab>
+  <van-tab title="文章"><article  height="{{height}}"></article></van-tab>
 </van-tabs>
 <!-- 返回顶部按钮 -->
 <view wx:if="{{showBackTop}}" class="backTop side-tool" bindtap="handleBackTop">
