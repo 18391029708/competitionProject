@@ -1,4 +1,4 @@
-<scroll-view class="scroll-view-class">
+<scroll-view style="height:{{height+'px'}}" scroll-y>
   <view class="article-labels">
     <view class="tag-banner-title">文章标签</view>
     <van-tag custom-class="tag-custom-class" size="medium" type="warning">技术分享</van-tag>

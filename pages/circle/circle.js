@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    height:0
   },
 
   /**
@@ -19,7 +19,17 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    wx.getSystemInfo({
+      success: (result) => {
+        let h = result.windowHeight-80-result.statusBarHeight;
+        console.log(h);
+        console.log(result.screenHeight-result.windowHeight);
+        // console.log(result.screenHeight,result.windowHeight,result.statusBarHeight);
+        this.setData({
+          height:h
+        })
+      },
+    })
   },
 
   /**

@@ -1,6 +1,6 @@
 <!--pages/confession.wxml-->
 <loading wx:if="{{loading}}"></loading>
-<scroll-view scroll-y="true" wx:else class="scroll-view-class" bindscrolltolower="scrollReachBottom" bindscroll="scrolltoupper"
+<scroll-view scroll-y="true" wx:else style="height:{{height+'px'}}" bindscrolltolower="scrollReachBottom" bindscroll="scrolltoupper"
   scroll-top="{{topNum}}" scroll-with-animation="true">
   <view class="banner">
     <!-- <image mode="scaleToFill" src="{{userInfo.avatarUrl}}" class="background_img"></image> -->
