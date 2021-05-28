@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-
+    openid:'',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -81,33 +81,26 @@ Page({
       })
       return
     }
-        //loading
-        // app.showLoading()
-        //获取手机号
+     
         wx.cloud.callFunction({
           name: 'getPhone',
           data: {
             cloudID:cloudID
           }
-          // data: {
-          //   weRunData: wx.cloud.CloudID(event.detail.cloudID),
-          // }
+        
         }).then(res => {
           console.log("获取成功：" + res)
           // app.hideLoading()
           let phone = res.result.list[0].data.phoneNumber
-          // if (phone) {
-          //   wx.setStorageSync('phone', phone)
-            //更新UI
+    
             this.setData({
               phone: phone
             })
-          // }
-          // this.triggerEvent('applyTap')
+   
         }).catch(error => {
           console.log('获取失败',error)
-          // app.hideLoading()
-          // this.triggerEvent('applyTap')
+  
+          
         })
   },
   onLoad() {
@@ -143,10 +136,58 @@ Page({
           hasUserInfo: true
         })
         this.intent();
-     
+        this.saveMarketUserInfo();
       }
     })
   },
+
+  //将该用户openid，nickName,avatarUrl保存到user表中
+  saveMarketUserInfo(){
+    //调用云函数，拿到openid
+    wx.cloud.callFunction({
+      name:'getOpenid'
+    })
+    .then(res => {
+      console.log("获取openid成功",res)
+      this.setData({
+        openid:res.result.openid
+      })
+
+      //获取商城用户，判断该用户是否已经存储在user表中
+      wx.cloud.callFunction({
+        name:"getMarketUserInfo"
+      })
+      .then(res => {
+        console.log("获取商城用户信息成功",res)
+        let MarketUser = res.result.data
+        let isExist = MarketUser.findIndex(item => item.openid !== this.data.openid)
+        if(isExist === -1){
+          //将该用户的信息存储到user表中
+          wx.cloud.callFunction({
+            name:'saveMarketUserInfo',
+            data:{
+              openid:this.data.openid,
+              nickName:this.data.userInfo.nickName,
+              avatarUrl:this.data.userInfo.avatarUrl
+            }
+          })
+          .then(res => {
+            console.log("保存商城用户信息成功",res)
+          })
+          .then(err => {
+            console.log("保存商城用户信息失败",err)
+          })
+        }
+      })
+      .catch(err => {
+        console.log("获取商城用户信息失败",err)
+      })
+    })
+    .catch(err => {
+      console.log("获取openid成功",err)
+    })
+  },
+
   getUserInfo(e) {
     // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息
     console.log(e)

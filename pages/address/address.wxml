@@ -1,0 +1,27 @@
+<view class="address">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="item">
+      <text>收货人</text>
+      <input type="text" name="name" value="{{address.name}}"/>
+    </view>
+    <view class="item">
+      <text>联系电话</text>
+      <input type="tel" name="phone" value="{{address.phone}}"/>
+    </view>
+    <view class="other">
+      <view class="area">所在地区 {{address.area}}</view>
+      <view class="choose">
+        <!-- 使用地区选择组件 -->
+        <area bindpassArea="getArea">
+        请选择<image src="../../icons/market/gt.png"></image>
+        </area>
+      </view>
+    </view>
+    <view class="item">
+      <text>详细地址</text>
+      <input type="text" name="detail" value="{{address.detail}}"/>
+    </view>
+    <!-- 操作按钮 -->
+    <button id="commit" formType="submit" type="primary">保存地址</button>
+  </form>
+</view>

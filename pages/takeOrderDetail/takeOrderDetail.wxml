@@ -4,7 +4,7 @@
   <view class="address">
     <view class="orderTitle">
       <text style="font-size:20px;font-weight:800">订单奖励</text>
-      <text>2元</text>
+      <text>{{orderMoney}}元</text>
     </view>
     <view class="orderssAdderss">
 
@@ -43,9 +43,12 @@
       </view>
     </view>
     <!-- 接单 -->
-    <view style="margin-top:10px">
+    <view  wx:if="{{!orderInfo.overOrder}}" style="margin-top:10px">
       <button style=" background-color: #00BFFF;" bindtap="takeOrder">接单</button>
     </view>
-
+    <!-- 结束订单 -->
+    <view wx:if="{{orderInfo.overOrder}}" style="margin-top:10px">
+      <button style=" background-color: #00BFFF;" bindtap="overOrder">结束订单</button>
+    </view>
   </view>
 </view>

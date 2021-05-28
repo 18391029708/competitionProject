@@ -8,7 +8,7 @@ Page({
 
   },
 
-  onReady(options) {
+  onReady() {
     this.getGoodsByType(this.data.lostType)
   },
 

@@ -1,0 +1,25 @@
+<view class="cartCt">
+  <!-- 花图片等信息 -->
+  <view class="level1">
+    <view class="flowerImg"><image src="{{flower.imgSrc}}" ></image></view>
+    <view class="middle">
+      <view class="price">￥{{flower.price}}</view>
+      <view class="repertory">库存：{{flower.inventory}}</view>
+    </view>
+    <view class="close" catchtap="closeCart"><image src="../../icons/market/close.png"></image></view>
+  </view>
+  <!-- 数量操作 -->
+  <view class="level2">
+    <view class="title">数量</view>
+    <view class="operation">
+      <view class="plus" catchtap="minus"><image src="../../icons/market/minus.png"></image></view>
+      <view class="number">{{num}}</view>
+      <view class="minus" catchtap="plus"><image src="../../icons/market/plus.png"></image></view>
+    </view>
+  </view>
+  <!-- 加购物车、购买 -->
+  <view class="level3">
+    <view class="addCart" catchtap="addCart">加入购物车</view>
+    <view class="buy" catchtap="buy">立即购买</view>
+  </view>
+</view>

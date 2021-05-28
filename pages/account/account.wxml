@@ -1,0 +1,55 @@
+<view class="account">
+  <!-- 选择收货地址 -->
+  <view class="contact" bindtap="jumpToAddress">
+    <view class="addressLogo">
+      <image src="../../icons/market/address.png"></image>
+    </view>
+    <view class="middle">
+     <view class="message">
+       <text>{{userAddress.name}}</text><text class="phone">{{userAddress.phone}}</text>
+     </view>
+     <view class="address">{{userAddress.area}}{{userAddress.detail}}</view>
+    </view>
+    <view class="right">
+      <image src="../../icons/market/gt.png"></image>
+    </view>
+  </view>
+
+  <!-- 配送方式 -->
+  <view class="transport">
+    <view class="title">
+      <image src="../../icons/market/transport.png"></image><text>配送方式</text>
+    </view>
+    <view class="choose">
+      <view class="{{(selfFlag == true && expressFlag == false)?'choosenItem':'chooseItem'}}" catchtap="getByself">上门自提</view>
+      <view class="{{(selfFlag == false && expressFlag == true)?'choosenItem':'chooseItem'}}" catchtap="expressDistribution">快递配送</view>
+    </view>
+  </view>
+
+  <!-- 花的基本信息 -->
+  <view class="flowerItem">
+    <view class="flowerItemRows">
+      <view wx:for="{{goods}}" wx:key="index" class="flowerItemRow">
+        <view class="left">
+          <image src="{{item.flower.imgSrc}}" class="flowerImg"></image>
+        </view>
+        <view class="right">
+          <view class="title">{{item.flower.title}}</view>
+          <view class="price">￥{{item.flower.price}} x {{item.num}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 运费 -->
+    <view class="fee">
+      <view class="feeTitle">运费</view>
+      <view class="feePrice">￥0.00</view>
+    </view>
+  </view>
+
+  <!-- 底部计算总价格 -->
+  <view class="bottom">
+    <view class="total">￥{{totalPrice}}</view>
+    <view class="uploadBtn" bindtap="submit">提交</view>
+  </view>
+</view>

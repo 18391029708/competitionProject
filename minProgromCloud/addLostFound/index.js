@@ -22,6 +22,7 @@ exports.main = async (event, context) => {
       goodsLocation:event.goodsLocation,
       contactWay:event.contactWay,
       goodsDescription:event.goodsDescription,
+      status:event.status
     }
   })
 

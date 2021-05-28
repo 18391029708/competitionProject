@@ -74,19 +74,11 @@ Page({
             },
           }).then(res => {
             console.log(res);
-            // 提示用户接单成功
-            // Notify({ type: 'primary', message: '接单成功' });
-            
-            // 返回至主界面
             wx.navigateBack({
               delta: 1
             });
           }).catch(err => {
             console.log(err);
-            // 提示用户接单失败
-            // Notify({ type: 'primary', message: '接单失败' });
-            
-            // 返回至主界面
             wx.navigateBack({
               delta: 1
             });
@@ -94,10 +86,6 @@ Page({
         }).catch(err => {
           console.log(err);
 
-          // 提示用户接单失败
-          // Notify({ type: 'primary', message: '接单失败' });
-            
-          // 返回至主界面
           wx.navigateBack({
             delta: 1
           });

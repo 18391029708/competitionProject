@@ -1,0 +1,79 @@
+.item{
+  margin: 10rpx auto;
+  width: 95%;
+  height: 250rpx;
+  border: 1rpx solid #eee;
+  border-radius: 10rpx;
+}
+.level1{
+  height: 60rpx;
+  color: #333;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+  display: flex;
+}
+.level2{
+  height: 110rpx;
+  color: #333;
+  font-size: 30rpx;
+  margin-left: 10rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.level3{
+  display: flex;
+  height: 40rpx;
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+  color: #bfbfbf;
+  font-size: 28rpx;
+}
+.set{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 1rpx solid #bfbfbf;
+  margin-right: 5rpx;
+}
+.fa-check-circle-o{
+  font-size: 50rpx;
+  color: #66cc99;
+  margin-right: 5rpx;
+}
+.setting{
+  color: #bfbfbf;
+}
+.seted{
+  color: #66cc99;
+}
+.edit{
+  margin-left: 280rpx;
+  margin-right: 30rpx;
+}
+.edit image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.delete image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 60rpx;
+  position: fixed;
+  right: 5%;
+  bottom: 30rpx;
+  background-color: #66cc99;
+  border-radius: 50rpx;
+  font-size: 30rpx;
+  color: #e6e6e6;
+}
+.btn image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}

@@ -1,0 +1,55 @@
+<view class="cart">
+  <!-- 顶部提示信息 -->
+  <view class="top">
+    <view class="tip">{{tip}}</view>
+  </view>
+
+  <!-- 购物车中的商品展示 -->
+  <view class="center">
+    <!-- 商品列表为空时 -->
+    <view class="empty" wx:if="{{emptyFlag}}">
+      <view class="img">
+         <image src="cloud://sunflower-6gmfgx6k7bff4a27.7375-sunflower-6gmfgx6k7bff4a27-1304264841/cart.png"></image>
+      </view>
+      <view>购物车还是空的哟</view>
+    </view>
+
+    <!-- 商品列表不为空时 -->
+    <view class="exist" wx:if="{{!emptyFlag}}">
+      <view class="shopName">校园商城</view>
+      <view class="flowerCart">
+        <view class="flowerItem" wx:for="{{cartList}}" wx:key="index">
+          <view class="{{cartList[index].checked?'fa fa-check-circle-o flowerLeftChecked':'flowerLeft'}}" catchtap="check" data-item="{{item}}" data-index="{{index}}"></view>
+          <view class="flowerRight">
+            <view class="left">
+              <image src="{{item.flower.imgSrc}}" class="flowerImg"></image>
+            </view>
+            <view class="right">
+              <view class="rightLevel1">
+                <view class="title">{{item.flower.title}}</view>
+                <view class="deleteIcon" catchtap="deleteCart" data-item="{{item.flower}}">
+                  <image src="../../icons/market/delete.png"></image>
+                </view>
+              </view>
+              <view class="rightLevel2">
+                <view class="price">￥{{item.flower.price}}</view>
+                <view class="operation">
+                  <view class="minus" catchtap="numModifyBtnClicked" data-ope="-" data-item="{{item}}">-</view>
+                  <view class="num">{{item.num}}</view>
+                  <view class="plus" catchtap="numModifyBtnClicked" data-ope="+" data-item="{{item}}">+</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部结算 -->
+  <view class="bottom">
+    <view class="{{allCircleFlag?'fa fa-check-circle-o flowerLeftChecked':'flowerLeft'}}" catchtap="checkAll"></view><text class="allCheck">全选</text>
+    <view class="totalMoney">总计：￥{{totalMoney}}</view>
+    <view class="{{totalMoney>0?'payed':'pay'}}" catchtap="pay">去结算</view>
+  </view>
+</view>

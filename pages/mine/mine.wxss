@@ -1,3 +1,7 @@
+.container{
+  background-color: #f5f5f5;
+}
+
 .head {
   width: 90%;
   padding: 30rpx;

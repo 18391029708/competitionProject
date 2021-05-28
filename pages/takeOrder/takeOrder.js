@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    takeOrderLists:[{"_id":"28ee4e3e606db8cf0e77ab51549b3b5b","create_time":"2021/04/07 21:51:13","end_position":"西南科技大学国家大学科技园(涪城区)","scheduling":"等待接单","specifyGender":"","start_position":"四川省绵阳市涪城区二环路北段","update_time":"2021/04/07 21:51:13","userId":"o75dQ5ZDFiQUvvDZQid66XskWpWU","way_status":"正在进行"}]
+    takeOrderLists:[]
 
   },
 

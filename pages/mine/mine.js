@@ -16,29 +16,19 @@ Page({
         imageSrc:"../../icons/history-push.png"
       },
       {
+        name:"购物信息",
+        path:"../myMarket/myMarket",
+        imageSrc:"../../icons/order.png"
+      },
+      {
         name:"关于顺哒",
-        path:"../order/order",
+        path:"../about/about",
         imageSrc:"../../icons/about.png"
       },
       {
         name:"客服",
         path:"../order/order",
         imageSrc:"../../icons/service.png"
-      },
-      {
-        name:"发布历史",
-        path:"../pubilishHistory/pubilishHistory",
-        imageSrc:"../../icons/history-push.png"
-      },
-      {
-        name:"发布历史",
-        path:"../pubilishHistory/pubilishHistory",
-        imageSrc:"../../icons/history-push.png"
-      },
-      {
-        name:"发布历史",
-        path:"../pubilishHistory/pubilishHistory",
-        imageSrc:"../../icons/history-push.png"
       },
     ],
     userInfo: Object,
@@ -74,9 +64,9 @@ Page({
 
   // 跳转我的订单页面
   toBill(){
-    // wx.navigateTo({
-    //   url: '../wallet/wallet',
-    // })
+    wx.navigateTo({
+      url: '../wallet/wallet',
+    })
   },
 
   // 跳转学生认证
@@ -101,7 +91,7 @@ Page({
   toNextPage(e){
     const that = this;
     
-    console.log(e);
+    // console.log(e);
     wx.navigateTo({
       url: that.data.listRouter[e.currentTarget.id].path,
     })
@@ -119,10 +109,6 @@ Page({
     var that=this;
     // 从全局数据获取用户基本信息
     this.setData({userInfo:app.globalData.userInfo}) ;
-
-    // console.log("我的页面用户信息"+ this.userInfo)
-    // console.log(this.data.chooseBtn)
-
     // 获取用户车辆认证信息为真则显示按钮
     db.collection('common_userInfo_list').where({_openid:app.globalData.openid,'vehicleInformation.have' :'true'}).get({
       success: function(res) {
@@ -134,12 +120,9 @@ Page({
             })
           }
         }
-        // console.log(that.data.chooseBtn)
       }
     })
 
-    // app.globalData.hidden2=this.data.switch1Checked;
-    // console.log(app.globalData.hidden2,this.data.switch1Checked);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -24,13 +24,6 @@ Page({
           userId:app.globalData.openid
         }
       }
-      // success:(res =>{
-      //   this.setData({
-      //     payList:res.result.data
-      //   })
-      //   console.log(that.data.payList)
-      // })
-      // console.log(this.data.payList)
 
     })
     .then(res =>{

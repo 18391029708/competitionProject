@@ -38,25 +38,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log("加载信息认证页")
-    // wx.cloud.callFunction({
-    //   name:'OperateDatabase',
-    //   data:{
-    //     opr:'query',
-    //     tablename:'t_user_info',
-    //     data:{
-    //       userId:app.globalData.openid,
-    //       studentAuthentificationStatus:true
-    //     }
-    //   }
-    // }).then(res =>{
-    //   console.log("信息认证状态；" + res)
-    //   const key = 0;
-    //   const state = "cardType[" + key +"].tip"
-    //   this.setData({
-    //     [state]:"已实名"
-    //   })
-    // })
+
     wx.cloud.callFunction({
       name:'OperateDatabase',
       data:{

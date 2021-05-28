@@ -6,6 +6,9 @@
     </view>
     <!-- 根据订单类型展示不同布局类型  电车搭乘类型 -->
     <!-- <view class="orderCss"> -->
+      <view class="textCss" >
+        <text class=" {{task.orderStatus == '正在进行'?'progressColor': task.orderStatus == '等待接单'?'awaitColor':'finishColor'}}">{{task.orderStatus}}</text>
+      </view>
       <view class="orderCss">  
           <image class="image" src="../../icons/start.png"></image>
         <view class="iconfont icon-qidian">{{task.start_position}}</view>

@@ -22,17 +22,18 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": true,
+    "useMultiFrameRuntime": false,
     "useApiHook": true,
-    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
     "enableEngineNative": false,
+    "bundle": false,
     "useIsolateContext": true,
-    "userConfirmedBundleSwitch": false,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": true,
     "packNpmRelationList": [
       {
@@ -45,7 +46,6 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.16.0",
-  "appid": "wxf96c2f63ce4f0497",
   "projectname": "%E6%AF%94%E8%B5%9B%E5%B0%8F%E7%A8%8B%E5%BA%8F",
   "debugOptions": {
     "hidedInDevtools": []
@@ -55,6 +55,7 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "appid": "wxf96c2f63ce4f0497",
   "condition": {
     "plugin": {
       "list": []
@@ -82,6 +83,48 @@
         {
           "name": "pages/addLostFound/addLostFound",
           "pathName": "pages/addLostFound/addLostFound",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/market/market",
+          "pathName": "pages/market/market",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/flowerDetail/flowerDetail",
+          "pathName": "pages/flowerDetail/flowerDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/account/account",
+          "pathName": "pages/account/account",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mine/mine",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/baseInfo/baseInfo",
+          "pathName": "pages/baseInfo/baseInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/myMarket/myMarket",
+          "pathName": "pages/myMarket/myMarket",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/pubilishHistory/pubilishHistory",
+          "pathName": "pages/pubilishHistory/pubilishHistory",
           "scene": null
         }
       ]

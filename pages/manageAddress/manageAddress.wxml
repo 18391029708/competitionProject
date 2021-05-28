@@ -1,0 +1,29 @@
+<view class="manageAddress">
+  <!-- 收货地址列表展示 -->
+  <view class="list" wx:if="{{showFlag}}">
+    <view class="item" wx:for="{{addressList}}" wx:key="index"> 
+      <view class="level1" catchtap="chooseAddress" data-index="{{index}}">
+        <view class="name">收货人：{{item.name}}</view>
+        <view class="phone">{{item.phone}}</view>
+      </view>
+      <view class="level2" catchtap="chooseAddress" data-index="{{index}}">
+        收货地址：{{item.area + item.detail}}
+      </view>
+      <view class="level3">
+        <view class="{{defaultFlags[index]?'fa fa-check-circle-o':'set'}}" catchtap="changeSet" data-item="{{item}}" data-index="{{index}}"></view>
+        <view class="{{defaultFlags[index]?'seted':'setting'}}">{{defaultFlags[index]? posTitle:navTitle}}</view>
+        <view class="edit" bindtap="editAddress" data-item="{{item}}">
+          <image src="../../icons/market/edit.png"></image><text>编辑</text>
+        </view>
+        <view class="delete" bindtap="deleteAddress" data-item="{{item}}">
+          <image src="../../icons/market/delete.png"></image><text>删除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 添加地址按钮 -->
+  <view class="btn" bindtap="jumpToAddress">
+    <image src="../../icons/market/add.png"></image><text>添加地址</text>
+  </view>
+</view>

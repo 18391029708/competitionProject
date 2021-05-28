@@ -1,12 +1,14 @@
 // pages/takeOrderDetail/takeOrderDetail.js
 const db = wx.cloud.database()
 const app = getApp();
+const timeutil = require('../../utils/util.js');
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    orderInfo:''
+    orderInfo:'',
+    orderMoney:2
 
   },
 
@@ -16,10 +18,7 @@ Page({
   onLoad: function (options) {
     console.log(options)
     let orderInfo = JSON.parse(options.orderInfo);
-    // let myDate = new Date();
-    // console.log(myDate.getDate())
-    // orderInfo.creat_time = orderInfo.creat_time.substring(0,5)
-    // console.log('0001:'+orderInfo)
+
 
 this.setData({
   orderInfo:JSON.parse(options.orderInfo)
@@ -28,9 +27,9 @@ this.setData({
 
   },
   takeOrder(){
+    let that = this;
     // 更新数据库状态为已接单
     console.log(this.data.orderInfo._id)
-    // db.collection('t_order').doc(this.data.orderInfo._id).get()
     db.collection('t_order').doc(this.data.orderInfo._id).update({
       data:{
         orderStatus:"正在进行",
@@ -38,12 +37,42 @@ this.setData({
       }
     })
     .then( res =>{
-      wx.switchTab({
+      wx.cloud.callFunction({
+        name:"OperateDatabase",
+        data:{
+          opr:'add',
+          tablename:'t_pay_record',
+          data:{
+            _openid:app.globalData.openid,
+            userId:app.globalData.openid,
+            orderNo:that.data.orderInfo._id,
+            orderMoney:that.data.orderMoney,
+            orderTime:timeutil.formatTime(new Date()),
+            orderType:'电车接乘-接单奖励',
+            // 判断为支出或者收入，true为支出，false为收入
+            expense:false
+          }
+        }
+      })
+      console.log(that.data.id)  
+      wx.navigateTo({
         url: '../order/order',
       })
       console.log(res)
     })
+  },
 
+  overOrder(){
+       // 更新数据库状态为已完成
+       console.log(this.data.orderInfo._id)
+       db.collection('t_order').doc(this.data.orderInfo._id).update({
+         data:{
+           orderStatus:"已完成",
+         }
+       })
+wx.navigateTo({
+  url: '../order/order',
+})
   },
 
   /**

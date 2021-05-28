@@ -1,0 +1,16 @@
+/* pages/about/about.wxss */
+.about{
+  /* background-image: url("../../icons/campus2.png"); */
+  background-color: skyblue;
+  height: 100vh;
+}
+.iconApp{
+  display: flex;
+  align-items: center;
+  
+  justify-content: center;
+  width: 100%;
+  height: 300rpx;
+  /* background-color: springgreen; */
+  flex-direction: column;
+}

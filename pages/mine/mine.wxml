@@ -4,7 +4,7 @@
     <view class="user-info">
       <image class="user-profile" src="{{userInfo.avatarUrl}}"></image>
       <view class="text-info">
-        <text class="user-name">我是大魔王</text>
+        <text class="user-name">{{userInfo.nickName}}</text>
         <text class="user-level">等级：1</text>
       </view>
     </view>

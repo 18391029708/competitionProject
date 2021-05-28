@@ -31,7 +31,6 @@
             <view class="select">
               <input id="3" name="name" placeholder="name" />
             </view>
-
           </view>
           <view class="student">
             <text class="textType">性别: </text>
@@ -136,11 +135,31 @@
   <view class="vehicleInfo" wx:if="{{vehicleInfoShow}}">
     <view wx:if="{{!carAuthentificationStatus}}">
       <form catchsubmit="carformSubmit">
+
         <view class="vehicle">
           <text style="text-align:center">车辆信息</text>
         </view>
+       
         <view class="carInfo">
-          <view class="carInfoInput">
+          <view class="student">
+          <text class="textType">型号: </text>
+          <view class="select">
+            <input id="1" name="carType" style="margin-left:10px" placeholder="xinghao" />
+          </view>
+        </view>
+        <view class="student">
+          <text class="textType">颜色: </text>
+          <view class="select">
+            <input id="2" name="color" style="margin-left:10px" placeholder="yanse" />
+          </view>
+        </view>
+        <view class="student">
+          <text class="textType">车龄: </text>
+          <view class="select">
+            <input id="4" name="carAge" style="margin-left:10px" placeholder="nianling" />
+          </view>
+        </view>
+          <!-- <view class="carInfoInput">
             <text>型号</text>
             <input id="1" name="carType" style="margin-left:10px" placeholder="xinghao" />
           </view>
@@ -151,8 +170,8 @@
           <view class="carInfoInput">
             <text>车龄</text>
             <input id="4" name="carAge" style="margin-left:10px" placeholder="nianling" />
-          </view>
-          <button style="background-color:#00bfff;width:100%" form-type="submit">提交</button>
+          </view> -->
+          <button style="background-color:#00bfff;width:100%;margin-top:20rpx" form-type="submit">提交</button>
         </view>
       </form>
     </view>
