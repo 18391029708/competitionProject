@@ -5,6 +5,12 @@
   background-color: #ffffff;
 }
 
+.top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .task-status {
   font-size: 30rpx;
   font-style: oblique;

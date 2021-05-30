@@ -1,7 +1,7 @@
 <!--pages/mine/mine.wxml-->
 <view class="container">
   <view class="[head, {{isDriver ? 'driver-user-head':'average-user-head'}}]">
-    <view class="user-info">
+    <view class="user-info" bindtap="toBaseInfo">
       <image class="user-profile" src="{{userInfo.avatarUrl}}"></image>
       <view class="text-info">
         <text class="user-name">{{userInfo.nickName}}</text>
@@ -10,8 +10,8 @@
     </view>
 
     <view class="money-info">
-      <view class="user-balance" bindtap="toWallet">
-        <text class="balance">11.00</text>
+      <view class="user-balance" bindtap="toBalance">
+        <text class="balance">11.32</text>
         <text>余额</text>
       </view>
       <view class="user-bill" bindtap="toBill">
@@ -50,4 +50,6 @@
       <view class="item-title">{{item.name}}</view>
       <image class="item-jiantou" src="../../icons/right.png"></image>
   </view>
+
+  <button class="kefu" open-type="contact" bindcontact="handleContact">联系客服</button>
 </view>

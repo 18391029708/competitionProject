@@ -55,37 +55,25 @@ Page({
       let userData = res.data[res.data.length - 1];
       if ( userData && "realNameAuthentificationStatus" in userData ) {
         // 用户已经实名认证，增加用户接单信息,
-        db.collection('t_delivery_order').add({
+        // 更改该订单状态，根据是否成功完成以上操作提示用户
+        db.collection('t_take_delivery').doc(that.data.task._id).update({
           data: {
-            task: that.data.task.task,
-            taskStatusTake: "正在进行",
             taskStatus: "已接单",
-            avatarUrl: that.data.task.avatarUrl,
-            isNick: that.data.task.isNick,
-            addTime: that.data.task.addTime
-          }
+            takeOpenId: app.globalData.openid
+          },
         }).then(res => {
-          // console.log(res)
+          // 提示用户接单成功
+          // Notify({ type: 'primary', message: '接单成功' });
           
-          // 更改该订单状态，根据是否成功完成以上操作提示用户
-          db.collection('t_take_delivery').doc(that.data.task._id).update({
-            data: {
-              taskStatus: "已接单"
-            },
-          }).then(res => {
-            console.log(res);
-            wx.navigateBack({
-              delta: 1
-            });
-          }).catch(err => {
-            console.log(err);
-            wx.navigateBack({
-              delta: 1
-            });
-          })
+          // 返回至主界面
+          wx.navigateBack({
+            delta: 1
+          });
         }).catch(err => {
-          console.log(err);
-
+          // 提示用户接单失败
+          // Notify({ type: 'primary', message: '接单失败' });
+          
+          // 返回至主界面
           wx.navigateBack({
             delta: 1
           });

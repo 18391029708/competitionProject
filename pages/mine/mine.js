@@ -24,12 +24,7 @@ Page({
         name:"关于顺哒",
         path:"../about/about",
         imageSrc:"../../icons/about.png"
-      },
-      {
-        name:"客服",
-        path:"../order/order",
-        imageSrc:"../../icons/service.png"
-      },
+      }
     ],
     userInfo: Object,
     isDriver: false,
@@ -56,10 +51,17 @@ Page({
   },
 
   // 跳转钱包提现页面
-  toWallet(){
-    // wx.navigateTo({
-    //   url: '../wallet/wallet',
-    // })
+  toBalance(){
+    wx.navigateTo({
+      url: '../balance/balance',
+    })
+  },
+
+  // 跳转信息详情页面
+  toBaseInfo(){
+    wx.navigateTo({
+      url: '../baseInfo/baseInfo',
+    })
   },
 
   // 跳转我的订单页面
