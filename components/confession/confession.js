@@ -8,6 +8,10 @@ Component({
     height:{
       type:Number,
       value:0
+    },
+     curActiveTab:{
+      type:Number,
+      value:0
     }
   },
   options: {
@@ -35,9 +39,10 @@ Component({
   methods: {
     // tab切换
     onChange(e) {
-      this.setData({
-        active: e.detail.index
-      })
+      console.log(e);
+      // this.setData({
+      //   active: e.detail.index
+      // })
     },
     // 发送评论或者点赞信息
     // 修改点赞列表

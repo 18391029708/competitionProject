@@ -1,0 +1,25 @@
+<view class="topic-image-banner container">
+<image mode="widthFix" src="cloud://data-base-1g3n115z3df553d0.6461-data-base-1g3n115z3df553d0-1304215882/homepage/campus3.png"></image>
+</view>
+<view class="topic-container">
+  <view class="description">
+    <view class="topic-name">校园趣事
+      <view class="like"><van-icon name="like-o"></van-icon> 赞</view>
+    </view>
+    <view class="topic-desc">
+      每天发生的趣事像五彩斑斓的梦,想玲珑剔透的珍珠,使人留恋,使人向往,在那似懂非懂的年纪里,往往会发生很多趣事,令我印象最深刻的是一件发生在校园里的事。
+    </view>
+  
+  </view>
+  <view class="discuss-list" bindtap="handleShowdetail">
+    <view class="discuss-content">
+      分享自己的每日趣事吧啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+    </view>
+    <view class="user-avatar-wrapper">
+      <userHeader></userHeader>
+    </view>
+  </view>
+  <view class="discuss-list">
+    
+  </view>
+</view>

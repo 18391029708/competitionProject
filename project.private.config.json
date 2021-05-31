@@ -79,8 +79,14 @@
           "scene": null
         },
         {
-          "name": "pages/circle/circle",
-          "pathName": "pages/circle/circle",
+          "name": "pages/topicDetail/topicDetail",
+          "pathName": "pages/topicDetail/topicDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/topicDetail/topicDetail",
+          "pathName": "pages/topicDetail/topicDetail",
           "query": "",
           "scene": null
         }

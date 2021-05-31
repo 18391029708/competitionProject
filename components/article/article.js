@@ -7,7 +7,11 @@ Component({
     height:{
       type:Number,
       value:0
-    }
+    },
+    curActiveTab:{
+     type:Number,
+     value:0
+   }
   },
 
   /**
@@ -23,6 +27,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    trigEvent:function(e){
+      console.log(e);
+      this.triggerEvent('logMyProp',"detail可以让父组件看见");
+    }
   }
 })

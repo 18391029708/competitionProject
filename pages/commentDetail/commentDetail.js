@@ -291,9 +291,15 @@ Page({
   },
   // 输入框失去焦点
   handleBlur(e) {
-    this.setData({
-      curPlaceHolder: "发表评论"
-    })
+    if (this.data.showComment) {
+      this.setData({
+        curPlaceHolder: "回复:" + current.replierInfo.nickName
+      })
+    } else {
+      this.setData({
+        curPlaceHolder: "发表评论"
+      })
+    }
   },
   // 点赞处理
   handleLike(e) {

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "userHeader":"../../components/userHeader/userHeader",
+    "van-tag":"../../miniprogram_npm/@vant/weapp/tag"
+  }
+}

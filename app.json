@@ -34,7 +34,9 @@
     "pages/cart/cart",
     "pages/circle/circle",
     "pages/balance/balance",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/topicDetail/topicDetail",
+    "pages/articleDetail/articleDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

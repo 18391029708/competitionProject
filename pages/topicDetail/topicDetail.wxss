@@ -1,0 +1,63 @@
+@keyframes scaleToScreen{
+  0%{
+    top: 0;
+  }
+  50%{
+    top: -100px;
+    transform: scale(1.05);
+  }
+  100%{
+    top: -200px;
+    transform: scale(1.1);
+  }
+}
+
+.topic-image-banner {
+  height: 30vh;
+  background-color: pink;
+}
+.topic-image-banner image {
+  width: 100%;
+}
+.topic-container {
+  height: 100vh;
+  padding: 0 1em;
+}
+.topic-name {
+  padding: 0.5em 0.5em 0.2em 0.5em;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
+.like {
+  width: 2.5em;
+  height: 1.5em;
+  font-size: 0.8em;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 0 32px 3px #D9D8EE;
+}
+.topic-desc {
+  color: #bfbfbf;
+  padding: 0.5em;
+}
+.discuss-list {
+  height: 200px;
+  margin: 2em 0;
+  color: #343434;
+  padding: 0.5em;
+  border-radius:10px;
+  box-shadow: 0 0 11px 1px rgba(106,115,133,0.15);
+  position: relative;
+  /* animation: scaleToScreen 1s linear 0s forwards; */
+}
+.user-avatar-wrapper {
+  width: 100%;
+  position: absolute;
+  bottom: 0.5em;
+}

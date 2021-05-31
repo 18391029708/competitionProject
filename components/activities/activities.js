@@ -7,6 +7,10 @@ Component({
     height:{
       type:Number,
       value:0
+    },
+    curActiveTab:{
+      type:Number,
+      value:0
     }
   },
   options:{
@@ -26,7 +30,17 @@ Component({
   data: {
 
   },
-
+  pageLifetimes:{
+    show:(params)=>{
+     console.log("组件页面生命周期-show"); 
+    }
+  },
+  lifetimes:{
+    ready:function (params) {
+      console.log("组件生命周期-ready");
+      
+    }
+  },
   /**
    * 组件的方法列表
    */

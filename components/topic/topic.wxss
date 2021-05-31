@@ -5,7 +5,7 @@
   background-color: #fff;
 }
 .section {
-  height: 30vh;
+  height: 40vh;
   width: 100vw;
 }
 .banner {
@@ -14,10 +14,13 @@
 }
 .section-item {
   display: inline-block;
-  width: 30vw;
-  height: 90%;
+  width: 34vw;
+  height: 95%;
   margin-left: 0.5em;
+}
+.section-item image {
+  height: 90%;
+  width: 100%;
   border-radius: 0.5em;
-  background-color: pink;
 }
 

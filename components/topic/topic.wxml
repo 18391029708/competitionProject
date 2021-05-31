@@ -1,41 +1,41 @@
 <scroll-view scroll-y="true" class="main-wrapper" style="height:{{height+'px'}}">
-  <van-cell center title="今日热门" value="查看更多"/>
+  <van-cell center title="今日热门" value="查看更多" />
   <scroll-view scroll-x="true" class="section">
     <view class="banner">
-      <view class="section-item">
-    </view>
-    <view class="section-item">
-    </view>
-    <view class="section-item">
-    </view>
-    <view class="section-item">
-    </view>
+      <view class="section-item" bindtap="handNavigateTo" data-url="../../pages/topicDetail/topicDetail">
+        <image mode="top" src="cloud://data-base-1g3n115z3df553d0.6461-data-base-1g3n115z3df553d0-1304215882/homepage/news.png"></image>
+        <view>科技之光</view>
+      </view>
+      <view class="section-item" bindtap="handNavigateTo" data-url="../../pages/topicDetail/topicDetail">
+        <image mode="top" src="cloud://data-base-1g3n115z3df553d0.6461-data-base-1g3n115z3df553d0-1304215882/homepage/news.png"></image>
+        <view>科技之光</view>
+      </view>
     </view>
   </scroll-view>
-  <van-cell center title="校园趣事" value="查看更多"/>
+  <van-cell center title="校园趣事" value="查看更多" />
   <scroll-view scroll-x="true" class="section">
     <view class="banner">
       <view class="section-item">
-    </view>
-    <view class="section-item">
-    </view>
-    <view class="section-item">
-    </view>
-    <view class="section-item">
-    </view>
+      </view>
+      <view class="section-item">
+      </view>
+      <view class="section-item">
+      </view>
+      <view class="section-item">
+      </view>
     </view>
   </scroll-view>
-  <van-cell center title="娱乐趣闻" value="查看更多"/>
+  <van-cell center title="娱乐趣闻" value="查看更多" />
   <scroll-view scroll-x="true" class="section">
     <view class="banner">
       <view class="section-item">
-    </view>
-    <view class="section-item">
-    </view>
-    <view class="section-item">
-    </view>
-    <view class="section-item">
-    </view>
+      </view>
+      <view class="section-item">
+      </view>
+      <view class="section-item">
+      </view>
+      <view class="section-item">
+      </view>
     </view>
   </scroll-view>
 </scroll-view>

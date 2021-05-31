@@ -1,0 +1,8 @@
+
+.article-title {
+  font-size: 1.5em;
+}
+.article-container {
+  padding: 0.7em;
+  box-sizing: content-box;
+}

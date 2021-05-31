@@ -58,7 +58,7 @@
       </view>
       <!-- 热评 -->
       <view class="hot-comment">
-        莫装逼：退钱啊
+        <!-- 莫装逼：退钱啊 -->
       </view>
     </view>
   </view>
@@ -67,7 +67,7 @@
     <!-- <van-loading wx:if="{{curConfessCount!==totalConfess}}" type="spinner" size="18px">加载中...</van-loading> -->
     <text>已加载全部信息</text>
   </view>
-  <view wx:if="{{active===0}}" class="write-conf side-tool icon-image-fit" data-url="../writeComfession/writeComfession"
+  <view wx:if="{{curActiveTab===0}}" class="write-conf side-tool icon-image-fit" data-url="../writeComfession/writeComfession"
     bindtap="handleNavigate">
     <image src="../../icons/xihuan.png"></image>
   </view>

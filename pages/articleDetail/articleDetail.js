@@ -1,20 +1,13 @@
-// pages/circle/circle.js
+// pages/articleDetail/articleDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    height:0,
-    curActiveTab:0
+
   },
-  tabbarChange(e){
-    console.log(e);
-    const {index} = e.detail;
-    this.setData({
-      curActiveTab:index
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -26,19 +19,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.getSystemInfo({
-      success: (result) => {
-        let h = result.windowHeight-80-result.statusBarHeight;
-        // console.log(result.screenHeight,result.windowHeight,result.statusBarHeight);
-        this.setData({
-          height:h
-        })
-      },
-    })
+
   },
-  logThis:function(e){
-    console.log("父组件：",e);
-  },
+
   /**
    * 生命周期函数--监听页面显示
    */
